@@ -18,4 +18,10 @@ public class ScriptSQL {
 			"matricula VARCHAR(10),"+	
 			"primary key(id));";
 	
+	public final static String requisitos = "CREATE TABLE IF NOT EXISTS requisitos("+
+			"id INT AUTO_INCREMENT,"+
+			"disciplina VARCHAR(50),"+	
+			"requisito VARCHAR(30)"+ 
+			");";
+	
 }
