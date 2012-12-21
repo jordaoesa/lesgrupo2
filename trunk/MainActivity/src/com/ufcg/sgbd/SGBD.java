@@ -14,7 +14,7 @@ import com.ufcg.exception.DataBaseException;
 public class SGBD extends SQLiteOpenHelper{
 
 	private static String NAME_DATA_BASE = "PROJETO_PILOTO";
-	private static int VERSION = 8;
+	private static int VERSION = 11;
 
 
 	public SGBD(Context context) {
