@@ -51,7 +51,7 @@
         android:layout_centerHorizontal="true"
         android:background="#FFFFFF"
         android:columnWidth="200dp"
-        android:numColumns="1"
+        android:numColumns="2"
         android:stretchMode="columnWidth" >
     </GridView>
 
