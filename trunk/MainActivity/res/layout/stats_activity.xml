@@ -24,14 +24,20 @@
                 android:id="@+id/textViewStats2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="	Modificar status de disciplina"
+                android:text="	Estatísticas referentes à quantidade de créditos e disciplinas cursados(as)."
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/textViewStats2"
+                android:id="@+id/textViewStats3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="		Modificar status de disciplina" />
+                android:text="" />
+            
+            <TextView
+                android:id="@+id/textViewStats4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
