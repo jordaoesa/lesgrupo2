@@ -9,6 +9,7 @@ public class ScriptSQL {
 			"semestre INTEGER,"+
 			"cursando BOOLEAN,"+
 			"cursada BOOLEAN" +
+			"creditos INTEGER" +
 			");";
 	
 	public final static String usuariosKEYS [] = {"KEY_matricula","matricula"};
