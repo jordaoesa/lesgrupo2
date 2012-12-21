@@ -21,9 +21,6 @@ public class PlanoCurso {
 	public List<Disciplina> getObrigatorias(){
 		return this.disciplinasObrigatorias;
 	}
-//	public void addObrigatorias(String nomeDisciplina){
-//		this.disciplinasObrigatorias.add(new Disciplina(nomeDisciplina));
-//	}
 	public void addObrigatorias(Disciplina disciplina){
 		this.disciplinasObrigatorias.add(disciplina);
 	}

@@ -1,5 +1,7 @@
 package com.ufcg;
 
+import java.text.DecimalFormat;
+import java.text.Format;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,7 +114,27 @@ public class MainActivity extends Activity {
 	}
 	private void mostraEstatisticas() {
 		setContentView(R.layout.stats_activity);
-		//TODO
+		TextView tv = (TextView) findViewById(R.id.textViewStats3);
+		TextView tv2 = (TextView) findViewById(R.id.textViewStats4);
+		int creditos = 0;
+		int cursadas = 0;
+		
+		for(Disciplina d : PlanoCurso.getInstance().getObrigatorias()){
+			if(d.isCursada()){
+				creditos += d.getCreditos();
+				cursadas++;
+			}
+		}
+		
+		DecimalFormat df = new DecimalFormat("#,###.00");  
+
+		String cred = "		Você possui " + creditos + " crédito(s) cursado(s) de um mínimo de 208. "
+					+ "Isso representa " + df.format((creditos/208.0)*100) + "% do curso.";
+		String disc = "		Você possui " + cursadas + " disciplina(s) cursada(s) de um mínimo de 55.";
+		
+		tv.setText(cred);
+		tv2.setText(disc);
+		
 		ImageButton voltar = (ImageButton) findViewById(R.id.voltarEstatisticas);
 		voltar.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
