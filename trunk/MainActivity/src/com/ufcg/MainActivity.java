@@ -310,35 +310,35 @@ public class MainActivity extends Activity {
 	private void planoDeCursoDefault(){
 		PlanoCurso plano = PlanoCurso.getInstance();
 
-		plano.addObrigatorias("Programação I",1);
-		plano.addObrigatorias("Laboratório de Programação I",1);
-		plano.addObrigatorias("Cálculo Diferencial e Integral I",1);
-		plano.addObrigatorias("Algebra Vetorial e Geometria Analítica",1);
-		plano.addObrigatorias("Introdução à Computação",1);
-		plano.addObrigatorias("Leitura e Produção de Texto",1);
+		plano.addObrigatorias("Programação I",1,4);
+		plano.addObrigatorias("Laboratório de Programação I",1,4);
+		plano.addObrigatorias("Cálculo Diferencial e Integral I",1,4);
+		plano.addObrigatorias("Algebra Vetorial e Geometria Analítica",1,4);
+		plano.addObrigatorias("Introdução à Computação",1,4);
+		plano.addObrigatorias("Leitura e Produção de Texto",1,4);
 
-		plano.addObrigatorias("Cálculo Diferencial e Integral II",2);
-		plano.addObrigatorias("Matemática Discreta",2);
-		plano.addObrigatorias("Metodologia Científica",2);
-		plano.addObrigatorias("Programação II",2);
-		plano.addObrigatorias("Teoria dos Grafos",2);
-		plano.addObrigatorias("Fundamentos de Física Clássica",2);
-		plano.addObrigatorias("Laboratório de Programação II",2);
+		plano.addObrigatorias("Cálculo Diferencial e Integral II",2,4);
+		plano.addObrigatorias("Matemática Discreta",2,4);
+		plano.addObrigatorias("Metodologia Científica",2,4);
+		plano.addObrigatorias("Programação II",2,4);
+		plano.addObrigatorias("Teoria dos Grafos",2,2);
+		plano.addObrigatorias("Fundamentos de Física Clássica",2,4);
+		plano.addObrigatorias("Laboratório de Programação II",2,4);
 
-		plano.addObrigatorias("Álgebra Linear",3);
-		plano.addObrigatorias("Probabilidade e Estatística",3);
-		plano.addObrigatorias("Teoria da Computação",3);
-		plano.addObrigatorias("Estruturas de Dados e Algoritmos",3);
-		plano.addObrigatorias("Fundamentos de Física Moderna",3);
-		plano.addObrigatorias("Gerência da Informação",3);
-		plano.addObrigatorias("Laboratório de Estruturas de Dados e Algoritmos",3);
+		plano.addObrigatorias("Álgebra Linear",3,4);
+		plano.addObrigatorias("Probabilidade e Estatística",3,4);
+		plano.addObrigatorias("Teoria da Computação",3,4);
+		plano.addObrigatorias("Estruturas de Dados e Algoritmos",3,4);
+		plano.addObrigatorias("Fundamentos de Física Moderna",3,4);
+		plano.addObrigatorias("Gerência da Informação",3,4);
+		plano.addObrigatorias("Laboratório de Estruturas de Dados e Algoritmos",3,4);
 
-		plano.getObrigatorias("Teoria da Computação").addPreRequisito("Teoria dos Grafos");
+		plano.getObrigatorias("Teoria da Computação").addPreRequisito("Teoria dos Grafos",2);
 
-		plano.getObrigatorias("Programação II").addPreRequisito("Programação I");
-		plano.getObrigatorias("Laboratório de Programação II").addPreRequisito("Laboratório de Programação I");
-		plano.addObrigatorias("Sistemas de Informação I");
-		plano.getObrigatorias("Sistemas de Informação I").addPreRequisito("Gerência da Informação");
+		plano.getObrigatorias("Programação II").addPreRequisito("Programação I",4);
+		plano.getObrigatorias("Laboratório de Programação II").addPreRequisito("Laboratório de Programação I",4);
+		plano.addObrigatorias("Sistemas de Informação I",4,4);
+		plano.getObrigatorias("Sistemas de Informação I").addPreRequisito("Gerência da Informação",4);
 
 	}
 }

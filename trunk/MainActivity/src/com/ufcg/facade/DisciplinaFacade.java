@@ -33,6 +33,7 @@ public class DisciplinaFacade {
 		valores.put("semestre", obrigatorias.getSemestre());
 		valores.put("cursando", obrigatorias.isCursando());
 		valores.put("cursada",obrigatorias.isCursada());
+		valores.put("creditos",obrigatorias.getCreditos());
 
 		this.sgbd.insertValues("disciplinas", valores);
 
@@ -40,7 +41,7 @@ public class DisciplinaFacade {
 
 	public void getDisciplinaSalvas(){
 		try {
-			List<String> planoCursoSalvo = sgbd.queryREFATORED(new String[] { "nome", "semestre", "cursando", "cursada","KEY_disciplina" }, "disciplinas");
+			List<String> planoCursoSalvo = sgbd.queryREFATORED(new String[] { "nome", "semestre", "cursando", "cursada","KEY_disciplina", "creditos" }, "disciplinas");
 			if(!planoCursoSalvo.isEmpty()){
 				PlanoCurso.getInstance().getObrigatorias().clear();
 				Disciplina disciplina;
@@ -48,7 +49,7 @@ public class DisciplinaFacade {
 				for (String disciplinas : planoCursoSalvo) {
 					System.out.println(">>FULL DISCIPLINA BD: " + disciplinas);
 					infoDisciplina = disciplinas.split("#");
-					disciplina = new Disciplina(infoDisciplina[0]);
+					disciplina = new Disciplina(infoDisciplina[0], Integer.parseInt(infoDisciplina[5]));
 					disciplina.setSemestre(Integer.parseInt(infoDisciplina[1]));
 					if(infoDisciplina[2].equals("0")){
 						System.out.println(disciplina.getNome() +"<cursando false>" );

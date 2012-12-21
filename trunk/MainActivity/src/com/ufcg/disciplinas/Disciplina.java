@@ -9,17 +9,19 @@ public class Disciplina {
 	private int semestre;
 	private boolean cursada;
 	private boolean cursando;
+	private int creditos;
 	private List<Disciplina> preRequisitos;
 	
-	public Disciplina(String nome){
+	public Disciplina(String nome, int creditos){
 		this.nome = nome;
+		this.creditos = creditos;
 		this.cursada = false;
 		this.cursando = false;
 		preRequisitos = new LinkedList<Disciplina>();
 	}
 	
-	public void addPreRequisito(String requisito){
-		preRequisitos.add(new Disciplina(requisito));
+	public void addPreRequisito(String requisito, int creditos){
+		preRequisitos.add(new Disciplina(requisito, creditos));
 	}
 	public String getNome(){
 		return this.nome;
@@ -67,6 +69,14 @@ public class Disciplina {
 
 	public void setCursando(boolean cursando) {
 		this.cursando = cursando;
+	}
+
+	public int getCreditos() {
+		return creditos;
+	}
+
+	public void setCreditos(int creditos) {
+		this.creditos = creditos;
 	}
 
 }
