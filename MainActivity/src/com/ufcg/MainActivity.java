@@ -40,6 +40,7 @@ import com.ufcg.util.Utils;
 
 
 public class MainActivity extends Activity {
+	
 	private GridLayout grid;
 	private ImageView image;
 	private SGBD sgbd;
@@ -157,14 +158,13 @@ public class MainActivity extends Activity {
 		final TextView disciplinaTextView = new TextView(this);
 		disciplinaTextView.setText(disciplina.getNome());
 		disciplinaTextView.setGravity(Gravity.CENTER);
-		if(disciplina.isCursada()){
+		if(disciplina.isCursada() && !disciplina.isCursando()){
 			disciplinaTextView.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape_disciplina_2));
-		}else{
-			disciplinaTextView.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape_disciplina_3));
-		}
-		if(disciplina.isCursando()){
+		}else if(disciplina.isCursando() && !disciplina.isCursada()){
 			disciplinaTextView.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape_disciplina_4));
-		}else{
+		}else if(!disciplina.isCursada()){
+			disciplinaTextView.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape_disciplina_3));
+		}else if(!disciplina.isCursada() && !disciplina.isCursando()){
 			disciplinaTextView.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape_disciplina));
 		}
 		disciplinaTextView.setOnClickListener(new OnClickListener() {
@@ -175,6 +175,7 @@ public class MainActivity extends Activity {
 				caixa.setSingleChoiceItems(opcoes, 0, new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int item) {
 						Toast.makeText(getBaseContext(), opcoes[item], Toast.LENGTH_LONG).show();
+						System.out.println("opcoes selecionada: " + opcoes[item]);
 						if(opcoes[item].equals("Cursada")){
 							PlanoCurso.getInstance().getObrigatorias(disciplina.getNome()).setCursada(true);
 							disciplinaTextView.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape_disciplina_2));

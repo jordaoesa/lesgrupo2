@@ -51,14 +51,16 @@ public class DisciplinaFacade {
 					disciplina = new Disciplina(infoDisciplina[0]);
 					disciplina.setSemestre(Integer.parseInt(infoDisciplina[1]));
 					if(infoDisciplina[2].equals("0")){
+						System.out.println(disciplina.getNome() +"<cursando false>" );
 						disciplina.setCursando(false);
-					}else{
+					} if(infoDisciplina[2].equals("1")){
+						System.out.println(disciplina.getNome() +"<cursando true>" );
 						disciplina.setCursando(true);
-					}
-
-					if(infoDisciplina[3].equals("0")){
+					} if(infoDisciplina[3].equals("0")){
+						System.out.println(disciplina.getNome() +"<cursada false>" );
 						disciplina.setCursada(false);
-					}else{
+					} if(infoDisciplina[3].equals("1")){
+						System.out.println(disciplina.getNome() +"<cursada true>" );
 						disciplina.setCursada(true);
 					}
 					PlanoCurso.getInstance().addObrigatorias(disciplina);
