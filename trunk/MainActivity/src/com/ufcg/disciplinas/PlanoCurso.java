@@ -24,6 +24,15 @@ public class PlanoCurso {
 	public void addObrigatorias(String nomeDisciplina){
 		this.disciplinasObrigatorias.add(new Disciplina(nomeDisciplina));
 	}
+	public void addObrigatorias(Disciplina disciplina){
+		this.disciplinasObrigatorias.add(disciplina);
+	}
+	public void addObrigatorias(String nomeDisciplina, int semestre){
+		Disciplina disciplina = new Disciplina(nomeDisciplina);
+		disciplina.setSemestre(semestre);
+		this.disciplinasObrigatorias.add(disciplina);
+	}
+
 	public Disciplina getObrigatorias(String nomeDisciplina){
 		for (Disciplina disciplina : disciplinasObrigatorias) {
 			if(nomeDisciplina.equals(disciplina.getNome())){
@@ -31,6 +40,13 @@ public class PlanoCurso {
 			}
 		}
 		return null;
+	}
+	
+	public void setDisciplinaCursada(String nomeDisciplina, boolean cursada){
+		getObrigatorias(nomeDisciplina).setCursada(cursada);
+	}
+	public void setSemestreDisciplina(String nomeDisciplina, String novoSemestre){
+		getObrigatorias(nomeDisciplina).setSemestre(Integer.parseInt(novoSemestre));
 	}
 	
 	

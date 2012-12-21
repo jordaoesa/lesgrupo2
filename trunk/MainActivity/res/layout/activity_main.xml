@@ -1,130 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="horizontal"
-    android:id="@+id/linearLayout">
-    
-    <HorizontalScrollView
-        android:id="@+id/HorizontalScrollView"
+    android:layout_gravity="center_vertical"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-        
-        <GridLayout 
-		    android:id="@+id/gridlayout"
-		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
-		    android:columnCount="8"
-		    android:columnWidth="300dp"
-		    android:configChanges="orientation"
-		    android:orientation="horizontal"
-		    android:rowCount="6"
-		    android:screenOrientation="landscape"
-		    android:stretchMode="columnWidth" >
-		
-            <LinearLayout
-		        android:id="@+id/semestre1"
-		        android:layout_width="160dp"
-		        android:layout_height="fill_parent"
-		        android:layout_column="0"
-		        android:tag="semestre1"
-		        android:layout_row="0"
-		        android:orientation="vertical" 
-		        android:background="@drawable/shape">
-		        
-		    </LinearLayout>
-           
-            
-		    <LinearLayout
-		        android:id="@+id/semestre2"
-		        android:layout_width="160dp"
-		        android:layout_height="fill_parent"
-		        android:layout_column="1"
-		        android:layout_row="0"
-		        android:orientation="vertical" 
-		        android:background="@drawable/shape">
-		    </LinearLayout>
-	
-		    
-		    <LinearLayout
-		        android:id="@+id/semestre3"
-		        android:layout_width="160dp"
-		        android:layout_height="fill_parent"
-		        android:layout_column="2"
-		        android:layout_row="0"
-		        android:orientation="vertical" 
-		        android:background="@drawable/shape">
-		
-		    </LinearLayout>
-			    
-			    
-		    <LinearLayout
-		        android:id="@+id/semestre4"
-		        android:layout_width="160dp"
-		        android:layout_height="fill_parent"
-		        android:layout_column="3"
-		        android:layout_row="0"
-		        android:orientation="vertical" 
-		        android:background="@drawable/shape">
-		
-		    </LinearLayout>
-		    
-		    <LinearLayout
-		        android:id="@+id/semestre5"
-		        android:layout_width="160dp"
-		        android:layout_height="fill_parent"
-		        android:layout_column="4"
-		        android:tag="semestre5"
-		        android:layout_row="0"
-		        android:orientation="vertical" 
-		        android:background="@drawable/shape">
-			
-		        
-		    </LinearLayout>
-		    
-		    <LinearLayout
-		        android:id="@+id/semestre6"
-		        android:layout_width="160dp"
-		        android:layout_height="fill_parent"
-		        android:layout_column="5"
-		        android:tag="semestre6"
-		        android:layout_row="0"
-		        android:orientation="vertical" 
-		        android:background="@drawable/shape">
-			
-		        
-		    </LinearLayout>
-		    
-		    <LinearLayout
-		        android:id="@+id/semestre7"
-		        android:layout_width="160dp"
-		        android:layout_height="fill_parent"
-		        android:layout_column="6"
-		        android:tag="semestre7"
-		        android:layout_row="0"
-		        android:orientation="vertical" 
-		        android:background="@drawable/shape">
-			
-		        
-		    </LinearLayout>
-		    
-		    <LinearLayout
-		        android:id="@+id/semestre8"
-		        android:layout_width="160dp"
-		        android:layout_height="fill_parent"
-		        android:layout_column="7"
-		        android:tag="semestre8"
-		        android:layout_row="0"
-		        android:orientation="vertical" 
-		        android:background="@drawable/shape">
-			
-		        
-		    </LinearLayout>
-		
-		</GridLayout>
-        
-    </HorizontalScrollView>
-    
-    
-    
-</LinearLayout>
+        android:layout_height="fill_parent"
+        android:layout_margin="5dp"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:id="@+id/ScrollView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="10" >
+
+            <HorizontalScrollView
+                android:id="@+id/HorizontalScrollView2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <LinearLayout
+                    android:layout_width="500dp"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="10"
+                    android:orientation="horizontal" >
+
+                    <GridLayout
+                        android:id="@+id/gridlayout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:columnCount="4"
+                        android:columnWidth="300dp"
+                        android:orientation="horizontal"
+                        android:rowCount="2"
+                        android:screenOrientation="landscape"
+                        android:stretchMode="columnWidth" >
+
+                        <LinearLayout
+                            android:id="@+id/semestre1"
+                            android:layout_width="160dp"
+                            android:layout_height="fill_parent"
+                            android:layout_column="0"
+                            android:layout_row="0"
+                            android:background="@drawable/shape"
+                            android:orientation="vertical"
+                            android:tag="1" >
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/semestre2"
+                            android:layout_width="160dp"
+                            android:layout_height="fill_parent"
+                            android:layout_column="1"
+                            android:layout_row="0"
+                            android:background="@drawable/shape"
+                            android:orientation="vertical"
+                            android:tag="2" >
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/semestre3"
+                            android:layout_width="160dp"
+                            android:layout_height="fill_parent"
+                            android:layout_column="2"
+                            android:layout_row="0"
+                            android:background="@drawable/shape"
+                            android:orientation="vertical"
+                            android:tag="3" >
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/semestre4"
+                            android:layout_width="160dp"
+                            android:layout_height="fill_parent"
+                            android:layout_column="3"
+                            android:layout_row="0"
+                            android:background="@drawable/shape"
+                            android:orientation="vertical" >
+                        </LinearLayout>
+                    </GridLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/painelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/buttonVoltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/voltar" />
+
+            <ImageButton
+                android:id="@+id/buttonSalvar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/salvar" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
