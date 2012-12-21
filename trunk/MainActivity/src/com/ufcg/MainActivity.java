@@ -245,6 +245,7 @@ public class MainActivity extends Activity {
 							disciplinaTextView.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape_disciplina_2));
 						}else if(opcoes[item].equals("Não cursada")){
 							PlanoCurso.getInstance().getObrigatorias(disciplina.getNome()).setCursada(false);
+							PlanoCurso.getInstance().getObrigatorias(disciplina.getNome()).setCursando(false);
 							disciplinaTextView.setBackgroundDrawable(getResources().getDrawable(R.drawable.shape_disciplina_3));
 						}else{
 							PlanoCurso.getInstance().getObrigatorias(disciplina.getNome()).setCursando(true);
