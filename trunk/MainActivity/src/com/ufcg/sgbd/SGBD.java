@@ -14,7 +14,7 @@ import com.ufcg.exception.DataBaseException;
 public class SGBD extends SQLiteOpenHelper{
 
 	private static String NAME_DATA_BASE = "PROJETO_PILOTO";
-	private static int VERSION = 11;
+	private static int VERSION = 16;
 
 
 	public SGBD(Context context) {
@@ -24,48 +24,36 @@ public class SGBD extends SQLiteOpenHelper{
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		createTable_DISCIPLINAS(db);
-		createTable_USUARIOS(db);
+		createTable_REQUISITOS(db);
 	}	
+
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
 		dropTable_DISCIPLINAS(db);
-		dropTable_USUARIOS(db);
+		dropTable_REQUISITOS(db);
 		onCreate(db);
 
 	}
-
-
 	private void createTable_DISCIPLINAS(SQLiteDatabase db){
 		db.execSQL(com.ufcg.sgbd.ScriptSQL.disciplinas);
 	}
-
-	private void dropTable_DISCIPLINAS(SQLiteDatabase db){
-		SQLiteDatabase banco = db;
-
-		banco.execSQL("DROP TABLE IF EXISTS disciplinas");
+	private void createTable_REQUISITOS(SQLiteDatabase db) {
+		db.execSQL(com.ufcg.sgbd.ScriptSQL.requisitos);
 	}
-	
-
-	private void createTable_USUARIOS(SQLiteDatabase db){
-		db.execSQL(com.ufcg.sgbd.ScriptSQL.usuarios);
+	private void dropTable_REQUISITOS(SQLiteDatabase db) {
+		db.execSQL("DROP TABLE IF EXISTS requisitos");
 	}
-
-	private void dropTable_USUARIOS(SQLiteDatabase db){
-		db.execSQL("DROP TABLE IF EXISTS usuarios");
+	public void dropTable_DISCIPLINAS(SQLiteDatabase db){
+		db.execSQL("DROP TABLE IF EXISTS disciplinas");
 	}
-	
-
 	private void dropTableSystem(SQLiteDatabase db){
-		db.execSQL("DROP TABLE IF EXISTS usuarios;");
 		db.execSQL("DROP TABLE IF EXISTS disciplinas;");
 	}
-
 	public long insertValues(String tabela, ContentValues values) throws DataBaseException{
 		long resultado = -1;
 		try{
-			SQLiteDatabase banco = this.getWritableDatabase();	
+			SQLiteDatabase banco = this.getWritableDatabase();
 			resultado = banco.insert(tabela,null, values);		
 			banco.close();			
 
@@ -79,17 +67,15 @@ public class SGBD extends SQLiteOpenHelper{
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		// updating row
-		return db.update(tabela, values, idTabela + " = ?",
-				new String[] { String.valueOf(registro) });
+		return db.update(tabela, values, idTabela + " = ?",null);
 	}
 
 
-	public boolean delete(String tabela, String idTabela, int registro) {
+	public boolean delete(String tabela) {
 
 		try{
 			SQLiteDatabase db = this.getWritableDatabase();
-			db.delete(tabela, idTabela + " = ?",
-					new String[] { String.valueOf(registro) });
+			db.delete(tabela,null,null);
 			db.close();
 		}catch(Exception error){
 			return false;

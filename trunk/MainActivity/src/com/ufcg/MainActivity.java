@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.ufcg.disciplinas.Disciplina;
 import com.ufcg.disciplinas.PlanoCurso;
+import com.ufcg.disciplinas.PreRequisito;
 import com.ufcg.exception.DataBaseException;
 import com.ufcg.facade.DisciplinaFacade;
 import com.ufcg.facade.UsuarioFacade;
@@ -40,7 +41,7 @@ import com.ufcg.util.Utils;
 
 
 public class MainActivity extends Activity {
-	
+
 	private GridLayout grid;
 	private ImageView image;
 	private SGBD sgbd;
@@ -49,7 +50,7 @@ public class MainActivity extends Activity {
 	private GridView gridMenuInicial;
 
 	public static final String[] itensMenuInicial = {"Novo","Visualizar","Ajuda","Sair"};
-	
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -57,9 +58,11 @@ public class MainActivity extends Activity {
 
 		sgbd = new SGBD(this);
 		usuarioFacade = new UsuarioFacade(sgbd);
-		disciplinasFacade = new DisciplinaFacade(sgbd);
-
-
+		try {
+			disciplinasFacade = new DisciplinaFacade(sgbd);
+		} catch (DataBaseException e) {
+			e.printStackTrace();
+		}
 		//mostraPlanoCurso();
 		menuInicial();
 
@@ -67,10 +70,10 @@ public class MainActivity extends Activity {
 	private void menuInicial(){
 		setContentView(R.layout.menu_inicial_2);
 		setTitle("Plano de curso");
-		
+
 		gridMenuInicial = (GridView) findViewById(R.id.gridViewMenuIniciar);
 		gridMenuInicial.setAdapter(new ImageAdapter(this, itensMenuInicial));
-		
+
 		gridMenuInicial.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
@@ -87,24 +90,24 @@ public class MainActivity extends Activity {
 				}else if(itensMenuInicial[position].equals("Sair")){
 					finish();
 				}
-				
-				
+
+
 			}
 		});
 
-//		ImageButton buttonEntrar = (ImageButton) findViewById(R.id.buttonMenuLoginEntrar);
-//		buttonEntrar.setOnClickListener(new View.OnClickListener() {
-//			public void onClick(View v) {
-//				//mostraPlanoCurso();
-//				for(String semestre: disciplinasFacade.getAllDisciplinas()){
-//					System.out.println(">>>semestre: " + semestre);
-//				}
-//				//				EditText matricula = (EditText) findViewById(R.id.editTextMatricula);
-//				//				System.out.println("#### matricula:" + matricula.getText().toString());
-//				//				//usuarioFacade.cadastrarUsuario(matricula.getText().toString());
-//				//				System.out.println("usuario : " + usuarioFacade.getAllMatriculas().get(0) );
-//			}
-//		});
+		//		ImageButton buttonEntrar = (ImageButton) findViewById(R.id.buttonMenuLoginEntrar);
+		//		buttonEntrar.setOnClickListener(new View.OnClickListener() {
+		//			public void onClick(View v) {
+		//				//mostraPlanoCurso();
+		//				for(String semestre: disciplinasFacade.getAllDisciplinas()){
+		//					System.out.println(">>>semestre: " + semestre);
+		//				}
+		//				//				EditText matricula = (EditText) findViewById(R.id.editTextMatricula);
+		//				//				System.out.println("#### matricula:" + matricula.getText().toString());
+		//				//				//usuarioFacade.cadastrarUsuario(matricula.getText().toString());
+		//				//				System.out.println("usuario : " + usuarioFacade.getAllMatriculas().get(0) );
+		//			}
+		//		});
 	}
 	private void mostrarAjuda() {
 		setContentView(R.layout.help_activity);
@@ -137,6 +140,7 @@ public class MainActivity extends Activity {
 		ImageButton botaoSalvar = (ImageButton) findViewById(R.id.buttonSalvar);
 		botaoSalvar.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				sgbd.delete("disciplinas");
 				salvarPlanoCurso();
 			}
 		});
@@ -161,6 +165,21 @@ public class MainActivity extends Activity {
 			}
 			else if(disciplina.getSemestre() == 3){
 				addDisciplinaLayout(disciplina,(LinearLayout) findViewById(R.id.semestre3),true);
+			}
+			else if(disciplina.getSemestre() == 4){
+				addDisciplinaLayout(disciplina,(LinearLayout) findViewById(R.id.semestre4),true);
+			}
+			else if(disciplina.getSemestre() == 5){
+				addDisciplinaLayout(disciplina,(LinearLayout) findViewById(R.id.semestre5),true);
+			}
+			else if(disciplina.getSemestre() == 6){
+				addDisciplinaLayout(disciplina,(LinearLayout) findViewById(R.id.semestre6),true);
+			}
+			else if(disciplina.getSemestre() == 7){
+				addDisciplinaLayout(disciplina,(LinearLayout) findViewById(R.id.semestre7),true);
+			}
+			else if(disciplina.getSemestre() == 8){
+				addDisciplinaLayout(disciplina,(LinearLayout) findViewById(R.id.semestre8),true);
 			}
 		}
 
@@ -293,9 +312,18 @@ public class MainActivity extends Activity {
 			for (int i = 0; i < container.getChildCount(); i++) {
 				Disciplina disciplina = plano.getObrigatorias(((TextView)container.getChildAt(i)).getText().toString());
 				if(disciplina != null && disciplinaTrocar != null){
-					if(disciplinaTrocar.getPreRequisitos().contains(disciplina) || disciplina.getPreRequisitos().contains(disciplinaTrocar)){
+					System.out.println("$$$ " + PreRequisito.getInstance().getMap().get(disciplinaTrocar.getNome()));
+					System.out.println("2 $$$ " +PreRequisito.getInstance().getMap().get(disciplina.getNome()));
+					if(PreRequisito.getInstance().getMap().get(disciplinaTrocar.getNome()) != null 
+							&& PreRequisito.getInstance().getMap().get(disciplinaTrocar.getNome()).contains(disciplina.getNome())){
+						return true;
+					}else if ( PreRequisito.getInstance().getMap().get(disciplina.getNome()) != null && 
+							PreRequisito.getInstance().getMap().get(disciplina.getNome()).contains(disciplinaTrocar.getNome())) {
 						return true;
 					}
+					//					if(disciplinaTrocar.getPreRequisitos().contains(disciplina) || disciplina.getPreRequisitos().contains(disciplinaTrocar)){
+					//						return true;
+					//					}
 					//return disciplina.getPreRequisitos() != null ? disciplina.getPreRequisitos().contains(disciplinaTrocar) : true;
 				}
 			}
@@ -333,12 +361,46 @@ public class MainActivity extends Activity {
 		plano.addObrigatorias("Gerência da Informação",3,4);
 		plano.addObrigatorias("Laboratório de Estruturas de Dados e Algoritmos",3,4);
 
-		plano.getObrigatorias("Teoria da Computação").addPreRequisito("Teoria dos Grafos",2);
+		plano.addObrigatorias("Métodos Estatísticos",4,4);
+		plano.addObrigatorias("Paradigmas de Linguagens de Programação", 4,2);
+		plano.addObrigatorias("Lógica Matemática", 4,4);
+		plano.addObrigatorias("Organização e Arquitetura de Computadores I", 4,4);
+		plano.addObrigatorias("Engenharia de Software I", 4,4);
+		plano.addObrigatorias("Sistemas de Informação I", 4,4);
+		plano.addObrigatorias("Laboratório de Organização e Arquitetura de Computadores", 4,4);
 
-		plano.getObrigatorias("Programação II").addPreRequisito("Programação I",4);
-		plano.getObrigatorias("Laboratório de Programação II").addPreRequisito("Laboratório de Programação I",4);
-		plano.addObrigatorias("Sistemas de Informação I",4,4);
-		plano.getObrigatorias("Sistemas de Informação I").addPreRequisito("Gerência da Informação",4);
+		plano.addObrigatorias("Informática e Sociedade", 5,2);
+		plano.addObrigatorias("Análise e Técnicas de Algoritmos",5, 4);
+		plano.addObrigatorias("Compiladores",5, 4);
+		plano.addObrigatorias("Redes de Computadores",5, 4);
+		plano.addObrigatorias("Bancos de Dados I",5,4);
+		plano.addObrigatorias("Sistemas de Informação II",5, 4);
+		plano.addObrigatorias("Laboratório de Engenharia de Software", 5, 2);
 
+		plano.addObrigatorias("Direito e Cidadania",6,4);
+		plano.addObrigatorias("Sistemas Operacionais",6, 4);
+		plano.addObrigatorias("Interconexão de Redes de Computadores", 6, 2);
+		plano.addObrigatorias("Banco de Dados II",6, 4);
+		plano.addObrigatorias("Inteligência Artificial I",6, 4);
+		plano.addObrigatorias("Laboratório de Interconexão de Redes de Computadores", 6,2);
+		plano.addObrigatorias("Optativa 1",6,4);
+		plano.addObrigatorias("Optativa 2",6,4);
+
+		plano.addObrigatorias("Métodos e Software Numéricos",7,4);
+		plano.addObrigatorias("Avaliação de Desempenho de Sistemas Discretos",7,4);
+		plano.addObrigatorias("Projeto em Computação I",7,4);
+		plano.addObrigatorias("Optativa 3",7,4);
+		plano.addObrigatorias("Optativa 4",7,4);
+		plano.addObrigatorias("Optativa 5",7,4);
+		plano.addObrigatorias("Optativa 6",7,4);
+
+		plano.addObrigatorias("Projeto em Computação II", 8,6);
+		plano.addObrigatorias("Optativa 7",8,4);
+		plano.addObrigatorias("Optativa 8",8,4);
+		plano.addObrigatorias("Optativa 9",8,4);
+		plano.addObrigatorias("Optativa 10",8,4);
+		plano.addObrigatorias("Optativa 11", 8,2);
 	}
+
+
 }
