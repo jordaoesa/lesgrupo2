@@ -41,7 +41,7 @@ import com.ufcg.util.Utils;
 
 
 public class MainActivity extends Activity {
-
+	
 	private GridLayout grid;
 	private ImageView image;
 	private SGBD sgbd;
@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
 	private DisciplinaFacade disciplinasFacade;
 	private GridView gridMenuInicial;
 
-	public static final String[] itensMenuInicial = {"Novo","Visualizar","Ajuda","Sair"};
+	public static final String[] itensMenuInicial = {"Novo","Visualizar","Estatísticas","Ajuda","Sair"};
 
 	/** Called when the activity is first created. */
 	@Override
@@ -85,10 +85,11 @@ public class MainActivity extends Activity {
 					disciplinasFacade.getDisciplinaSalvas();
 					mostraPlanoCurso();
 				}else if(itensMenuInicial[position].equals("Ajuda")){
-					//System.out.println("ajuda");
 					mostrarAjuda();
 				}else if(itensMenuInicial[position].equals("Sair")){
 					finish();
+				}else if(itensMenuInicial[position].equals("Estatísticas")){
+					mostraEstatisticas();
 				}
 
 
@@ -108,6 +109,16 @@ public class MainActivity extends Activity {
 		//				//				System.out.println("usuario : " + usuarioFacade.getAllMatriculas().get(0) );
 		//			}
 		//		});
+	}
+	private void mostraEstatisticas() {
+		setContentView(R.layout.stats_activity);
+		//TODO
+		ImageButton voltar = (ImageButton) findViewById(R.id.voltarEstatisticas);
+		voltar.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				menuInicial();
+			}
+		});
 	}
 	private void mostrarAjuda() {
 		setContentView(R.layout.help_activity);

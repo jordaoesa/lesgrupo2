@@ -51,6 +51,8 @@ public class ImageAdapter extends BaseAdapter {
 				imageView.setImageResource(R.drawable.help_icon);
 			}else if(itens.equals("Sair")){
 				imageView.setImageResource(R.drawable.logout);
+			}else if(itens.equals("Estatísticas")){
+				imageView.setImageResource(R.drawable.statistic_icon);
 			}
 			
 
