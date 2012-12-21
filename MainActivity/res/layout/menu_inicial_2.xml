@@ -46,7 +46,7 @@
     <GridView
         android:id="@+id/gridViewMenuIniciar"
         android:layout_width="344dp"
-        android:layout_height="200dp"
+        android:layout_height="260dp"
         android:layout_below="@+id/linearLayoutlogoDSC"
         android:layout_centerHorizontal="true"
         android:background="#FFFFFF"
