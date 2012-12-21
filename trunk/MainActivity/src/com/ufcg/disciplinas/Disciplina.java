@@ -53,6 +53,9 @@ public class Disciplina {
 
 	public void setSemestre(int semestre) {
 		this.semestre = semestre;
+		if(this.semestre == 1){
+			setCursando(true);
+		}
 	}
 
 	public boolean isCursada() {
