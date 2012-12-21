@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
 	private DisciplinaFacade disciplinasFacade;
 	private GridView gridMenuInicial;
 
-	public static final String[] itensMenuInicial = {"Novo","Visualizar","Sair"};
+	public static final String[] itensMenuInicial = {"Novo","Visualizar","Ajuda","Sair"};
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -81,6 +81,9 @@ public class MainActivity extends Activity {
 				}else if(itensMenuInicial[position].equals("Visualizar")){
 					disciplinasFacade.getDisciplinaSalvas();
 					mostraPlanoCurso();
+				}else if(itensMenuInicial[position].equals("Ajuda")){
+					//System.out.println("ajuda");
+					mostrarAjuda();
 				}else if(itensMenuInicial[position].equals("Sair")){
 					finish();
 				}
@@ -102,6 +105,15 @@ public class MainActivity extends Activity {
 //				//				System.out.println("usuario : " + usuarioFacade.getAllMatriculas().get(0) );
 //			}
 //		});
+	}
+	private void mostrarAjuda() {
+		setContentView(R.layout.help_activity);
+		ImageButton voltar = (ImageButton) findViewById(R.id.voltarHelp);
+		voltar.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				menuInicial();
+			}
+		});
 	}
 	private void salvarPlanoCurso(){
 		try {
