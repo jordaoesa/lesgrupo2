@@ -14,47 +14,47 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/textViewHelp6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ajuda"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textViewHelp5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="	Modificar status de disciplina"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textViewHelp4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="		* Clique levemente sobre a disciplina desejada e selecione a opção que deseja (cursada, cursando, não cursada)." />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textViewHelp0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="	Reorganizar grade"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textViewHelp1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="		* Clique e segure na disciplina que deseja mover de período. Quando a disciplina se sobresair às outras pode arrastá-la e soltar no período desejado." />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textViewHelp2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="	Salvar planejamento"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textViewHElp3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="		* Ao realizar suas modificações você verá um botão com o nome &apos;salvar&apos; logo abaixo da região dos períodos. Clique nele para aplicar a persistência nos seus dados." />
