@@ -20,10 +20,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-import bf.edu.ufcg.grafico.GraficoDeLinha;
 import br.edu.ufcg.Aluno.Aluno;
 import br.edu.ufcg.Aluno.Dados;
 import br.edu.ufcg.Aluno.Sexo;
+import br.edu.ufcg.grafico.GraficoDeLinha;
 import br.edu.ufcg.sgbd.SGBD;
 
 public class MainActivity extends Activity {

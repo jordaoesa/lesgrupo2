@@ -1,4 +1,4 @@
-package bf.edu.ufcg.grafico;
+package br.edu.ufcg.grafico;
 
 import java.util.Date;
 import java.util.List;
