@@ -10,11 +10,12 @@ public class Ficha {
 	private ArrayList<Atividade> atividades = new ArrayList<Atividade>();
 	private String id;
 	
-	public Ficha(){
-		System.out.println();
+	public Ficha(String nomeFicha){
+		this.nomeFicha = nomeFicha;
 	}
-	public Ficha(ArrayList<Atividade> atividades){
+	public Ficha(String nomeFicha,ArrayList<Atividade> atividades){
 		this.atividades = atividades;
+		this.nomeFicha = nomeFicha;
 	}
 	public void adicionarAtividade(Atividade atividade){
 		if(atividade!= null){
