@@ -151,17 +151,16 @@ public class MainActivity extends Activity {
 		final Spinner spinnerNumRepeticoes = (Spinner)findViewById(R.id.spinnerNumeroRepeticoes);
 		final EditText caixaObservacao = (EditText)findViewById(R.id.caixaObservacaoExercicio);
 		final EditText caixaCadExerPeso = (EditText) findViewById(R.id.caixaCadastroExercicioPeso);
-		final Exercicio exerc;
 		
 		botaoCadastrarExercicio.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				exerc = new Exercicio(spinnerNomeExerc.getSelectedItem().getClass().getName(), 
-//						spinnerNomeMaquina.getSelectedItem().getClass().getName(), 
-//						GrupoExercicio.BRACO, 
-//						Integer.parseInt(spinnerNumSerie.getSelectedItem().getClass().getName()), 
-//						Integer.parseInt(spinnerNumRepeticoes.getSelectedItem().getClass().getName()), 
-//						Integer.parseInt(caixaCadExerPeso.getText()));
+				Exercicio exerc = new Exercicio(spinnerNomeExerc.getSelectedItem().getClass().getName(), 
+						spinnerNomeMaquina.getSelectedItem().getClass().getName(), 
+						GrupoExercicio.BRACO, 
+						Integer.parseInt(spinnerNumSerie.getSelectedItem().getClass().getName()), 
+						Integer.parseInt(spinnerNumRepeticoes.getSelectedItem().getClass().getName()), 
+						Integer.parseInt(caixaCadExerPeso.getText().toString()));
 				
 				
 				
