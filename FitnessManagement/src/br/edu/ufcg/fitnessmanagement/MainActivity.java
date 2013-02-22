@@ -100,6 +100,9 @@ public class MainActivity extends Activity {
 		Button bCadastrar = (Button) findViewById(R.id.buttonCadastrarAlunos);
 		Button bDados = (Button) findViewById(R.id.buttonCadastrarDados);
 		Button bVisualizar = (Button) findViewById(R.id.buttonVisualizarEstatisticas);
+		Button bCadastrarExercicio = (Button)findViewById(R.id.botaoCadastramentoExercicio);
+		Button bCadastrarAtividade = (Button)findViewById(R.id.botaoCadastramentoAtividade);
+		Button bCadastrarFicha = (Button)findViewById(R.id.botaoCadastramentoFicha);
 		
 		bCadastrar.setOnClickListener(new OnClickListener() {
 			@Override
@@ -119,6 +122,24 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				menuVisualizarAlunos(R.layout.estatisticas);
+			}
+		});
+		bCadastrarExercicio.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				menuCadastrarExercicio();
+			}
+		});
+		bCadastrarAtividade.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				menuCadastrarAtividade();
+			}
+		});
+		bCadastrarFicha.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				menuCadastrarFicha();
 			}
 		});
 	}
@@ -197,6 +218,14 @@ public class MainActivity extends Activity {
 			}
 		});
 		
+	}
+	private void menuCadastrarAtividade() {
+			
+			setContentView(R.layout.cadastro_atividade);
+	}
+	private void menuCadastrarFicha() {
+		
+		setContentView(R.layout.ficha_aluno);
 	}
 	
 	private void menuVisualizarAlunos(final int layout) {
