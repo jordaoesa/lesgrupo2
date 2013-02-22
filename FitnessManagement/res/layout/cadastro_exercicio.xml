@@ -53,12 +53,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.05"
             android:ems="10"
-            android:text="Grupo Muscular" />
+            android:text="Grupo" />
 
         <Spinner
             android:id="@+id/spinnerGrupoMuscular"
             android:layout_width="184dp"
-            android:layout_height="46dp"
+            android:layout_height="match_parent"
             android:layout_weight="0.01" />
 
     </LinearLayout>
@@ -154,18 +154,26 @@
         android:layout_height="wrap_content" >
 
         <Button
+            android:id="@+id/botaoCadastrarExercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.47"
+            android:text="Cadastrar" />
+
+        <Button
+            android:id="@+id/botaoCancelarCadastroExercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.47"
+            android:text="Cancelar" />
+
+        <Button
             android:id="@+id/botaoLimparExercicios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.48"
             android:text="Limpar" />
 
-        <Button
-            android:id="@+id/botaoCadastrarExercicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.47"
-            android:text="Cadastrar" />
     </LinearLayout>
 
 </LinearLayout>

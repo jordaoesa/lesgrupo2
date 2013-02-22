@@ -39,9 +39,8 @@
 
             <Spinner
                 android:id="@+id/spinnerDeAtividades"
-                android:layout_width="129dp"
-                android:layout_height="65dp"
-                android:layout_weight="1" />
+                android:layout_width="149dp"
+                android:layout_height="65dp" />
 
             <Button
                 android:id="@+id/botaoAdicionarAtividade"
@@ -80,6 +79,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.22"
                 android:text="Cadastrar Ficha" />
+
+            <Button
+                android:id="@+id/buttonCancelarCadastroFicha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancelar" />
+
         </LinearLayout>
     </LinearLayout>
 
