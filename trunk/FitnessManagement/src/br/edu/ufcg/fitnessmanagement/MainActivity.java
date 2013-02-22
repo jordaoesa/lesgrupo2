@@ -20,11 +20,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-import br.edu.ufcg.Aluno.Aluno;
-import br.edu.ufcg.Aluno.Dados;
-import br.edu.ufcg.Aluno.Sexo;
+import br.edu.ufcg.aluno.Aluno;
+import br.edu.ufcg.aluno.Dados;
 import br.edu.ufcg.grafico.GraficoDeLinha;
-import br.edu.ufcg.sgbd.SGBD;
+import br.edu.ufcg.sgbd.SGDB;
 
 public class MainActivity extends Activity {
 
@@ -37,7 +36,7 @@ public class MainActivity extends Activity {
 	}
 	
 	private void inserirUsuariosNoBanco() {
-		Aluno jordao = new Aluno("jordao", "Campina", Sexo.M);
+		Aluno jordao = new Aluno("jordao", "Campina", "M");
 		
 		Dados dados1Jordao = new Dados(75.0, 100.0, 31.0, 55.0, 20.0, new Date("01/01/2013"));
 		Dados dados2Jordao = new Dados(76.0, 200.0, 32.0, 57.0, 21.0, new Date("02/01/2013"));
@@ -51,17 +50,17 @@ public class MainActivity extends Activity {
 		Dados dados8Jordao = new Dados(89.0, 200.0, 38.0, 55.0, 21.0, new Date("08/01/2013"));
 		Dados dados9Jordao = new Dados(97.0, 50.0, 39.0, 66.0, 21.0, new Date("09/01/2013"));
 		
-		SGBD.addAluno(jordao);
+		SGDB.addAluno(jordao);
 		
-		SGBD.addDados(jordao.getId(), dados1Jordao);
-		SGBD.addDados(jordao.getId(), dados2Jordao);
-		SGBD.addDados(jordao.getId(), dados3Jordao);
-		SGBD.addDados(jordao.getId(), dados4Jordao);
-		SGBD.addDados(jordao.getId(), dados5Jordao);
-		SGBD.addDados(jordao.getId(), dados6Jordao);
-		SGBD.addDados(jordao.getId(), dados7Jordao);
-		SGBD.addDados(jordao.getId(), dados8Jordao);
-		SGBD.addDados(jordao.getId(), dados9Jordao);
+		SGDB.addDados(jordao.getId(), dados1Jordao);
+		SGDB.addDados(jordao.getId(), dados2Jordao);
+		SGDB.addDados(jordao.getId(), dados3Jordao);
+		SGDB.addDados(jordao.getId(), dados4Jordao);
+		SGDB.addDados(jordao.getId(), dados5Jordao);
+		SGDB.addDados(jordao.getId(), dados6Jordao);
+		SGDB.addDados(jordao.getId(), dados7Jordao);
+		SGDB.addDados(jordao.getId(), dados8Jordao);
+		SGDB.addDados(jordao.getId(), dados9Jordao);
 		
 	}
 
@@ -115,12 +114,12 @@ public class MainActivity extends Activity {
 				Aluno aluno = null;
 				int sexo = radioGroup.getCheckedRadioButtonId();
 				if(sexo == R.id.radioButtonSexoMasc){
-					aluno = new Aluno(nome, endereco, Sexo.M);
+					aluno = new Aluno(nome, endereco, "M");
 				}else if(sexo == R.id.radioButtonSexoFemi){
-					aluno = new Aluno(nome, endereco, Sexo.F);
+					aluno = new Aluno(nome, endereco, "F");
 				}
 				
-				SGBD.addAluno(aluno);
+				SGDB.addAluno(aluno);
 				Toast.makeText(getApplicationContext(), "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
 				menuInicial();
 			}
@@ -139,8 +138,8 @@ public class MainActivity extends Activity {
 	private void menuVisualizarAlunos(final int layout) {
 		setContentView(R.layout.visualizar_alunos);
 		ListView listView = (ListView) findViewById(R.id.listViewVisualizarAlunos);
-		final String alunos[] = SGBD.getOnlyNamesOfAlunos();
-		final Integer ids[] = SGBD.getOnlyIdsOfAlunos();
+		final String alunos[] = SGDB.getOnlyNamesOfAlunos();
+		final Integer ids[] = SGDB.getOnlyIdsOfAlunos();
 		final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_list, R.id.textViewItem, alunos);
 		listView.setAdapter(adapter);
 		
@@ -159,7 +158,7 @@ public class MainActivity extends Activity {
 			private void mostrarEstatisticas(final int layout, final int id) {
 				setContentView(layout);
 				
-				final List<Dados> dados = SGBD.getDadosFromUser(id);
+				final List<Dados> dados = SGDB.getDadosFromUser(id);
 				final Button buttonPeso = (Button) findViewById(R.id.buttonEstatisticasPeso);
 				final Button buttonCalorias = (Button) findViewById(R.id.buttonEstatisticasCalorias);
 				final Button buttonBraco = (Button) findViewById(R.id.buttonEstatisticasBraco);
@@ -261,7 +260,7 @@ public class MainActivity extends Activity {
 						System.out.println(date.toString());
 						
 						Dados dados = new Dados(peso, calorias, braco, perna, imc, date);
-						SGBD.addDados(id, dados);
+						SGDB.addDados(id, dados);
 						Toast.makeText(getApplicationContext(), "Sucess", Toast.LENGTH_SHORT).show();
 						menuVisualizarAlunos(layout);
 					}
