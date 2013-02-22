@@ -19,9 +19,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.aluno.Dados;
+import br.edu.ufcg.exercicio.Exercicio;
+import br.edu.ufcg.exercicio.GrupoExercicio;
 import br.edu.ufcg.grafico.GraficoDeLinha;
 import br.edu.ufcg.sgbd.SGDB;
 
@@ -122,6 +125,46 @@ public class MainActivity extends Activity {
 				SGDB.addAluno(aluno);
 				Toast.makeText(getApplicationContext(), "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
 				menuInicial();
+			}
+		});
+		
+		Button voltar = (Button) findViewById(R.id.buttonCadastrarVoltar);
+		voltar.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				menuInicial();
+			}
+		});
+		
+	}
+	
+	private void menuCadastrarExercicio() {
+		
+		setContentView(R.layout.cadastro_exercicio);
+		
+		Button botaoCadastrarExercicio = (Button) findViewById(R.id.botaoCadastrarExercicio);
+		
+		final Spinner spinnerNomeExerc = (Spinner)findViewById(R.id.spinnerExercicio);
+		final Spinner spinnerNomeMaquina = (Spinner)findViewById(R.id.spinnerMaquina);
+		final Spinner spinnerGrupoMuscular = (Spinner)findViewById(R.id.spinnerGrupoMuscular);
+		final Spinner spinnerNumSerie = (Spinner)findViewById(R.id.spinnerNumeroSerie);
+		final Spinner spinnerNumRepeticoes = (Spinner)findViewById(R.id.spinnerNumeroRepeticoes);
+		final EditText caixaObservacao = (EditText)findViewById(R.id.caixaObservacaoExercicio);
+		final EditText caixaCadExerPeso = (EditText) findViewById(R.id.caixaCadastroExercicioPeso);
+		final Exercicio exerc;
+		
+		botaoCadastrarExercicio.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+//				exerc = new Exercicio(spinnerNomeExerc.getSelectedItem().getClass().getName(), 
+//						spinnerNomeMaquina.getSelectedItem().getClass().getName(), 
+//						GrupoExercicio.BRACO, 
+//						Integer.parseInt(spinnerNumSerie.getSelectedItem().getClass().getName()), 
+//						Integer.parseInt(spinnerNumRepeticoes.getSelectedItem().getClass().getName()), 
+//						Integer.parseInt(caixaCadExerPeso.getText()));
+				
+				
+				
 			}
 		});
 		

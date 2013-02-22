@@ -118,7 +118,7 @@
         </EditText>
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/caixaCadastroExercicioPeso"
             android:layout_width="196dp"
             android:layout_height="wrap_content"
             android:ems="10" />

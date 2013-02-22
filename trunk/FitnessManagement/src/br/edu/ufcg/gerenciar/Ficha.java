@@ -2,8 +2,6 @@ package br.edu.ufcg.gerenciar;
 
 import java.util.ArrayList;
 
-import br.edu.ufcg.exercicio.Exercicio;
-
 public class Ficha {
 	
 	private String nomeFicha;
