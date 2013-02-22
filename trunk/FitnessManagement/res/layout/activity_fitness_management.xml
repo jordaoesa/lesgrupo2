@@ -18,32 +18,63 @@
         android:id="@+id/buttonCadastrarAlunos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/textViewLogotipo"
-        android:layout_centerHorizontal="true"
         android:text="Cadastrar Alunos" />
 
     <Button
         android:id="@+id/buttonCadastrarDados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/buttonCadastrarAlunos"
-        android:layout_centerHorizontal="true"
         android:text="Cadastrar Dados" />
 
     <Button
         android:id="@+id/buttonVisualizarEstatisticas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/buttonCadastrarDados"
-        android:layout_centerHorizontal="true"
         android:text="Visualizar Estatísticas" />
 
     <Button
         android:id="@+id/buttonAgendamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/buttonVisualizarEstatisticas"
-        android:layout_centerHorizontal="true"
         android:text="Agendamento" />
+
+    <Button
+        android:id="@+id/botaoCadastramentoExercicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/buttonAgendamento"
+        android:text="Cadastrar Exercicio" />
+
+    <Button
+        android:id="@+id/botaoCadastramentoAtividade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/botaoCadastramentoExercicio"
+        android:text="Cadastrar Atividade" />
+
+    <Button
+        android:id="@+id/botaoCadastramentoFicha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/botaoCadastramentoAtividade"
+        android:text="Cadastrar Ficha" />
 
 </RelativeLayout>
