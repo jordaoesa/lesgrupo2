@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import br.edu.ufcg.Aluno.Aluno;
-import br.edu.ufcg.Aluno.Dados;
+import br.edu.ufcg.aluno.Aluno;
+import br.edu.ufcg.aluno.Dados;
 
-public class SGBD {
+public class SGDB {
 	
 	private static Integer id = 0;
 	private static List<Aluno> alunos = new ArrayList<Aluno>();

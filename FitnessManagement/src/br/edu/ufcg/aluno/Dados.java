@@ -1,4 +1,4 @@
-package br.edu.ufcg.Aluno;
+package br.edu.ufcg.aluno;
 
 import java.util.Date;
 
