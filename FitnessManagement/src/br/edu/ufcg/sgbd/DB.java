@@ -1,29 +1,25 @@
 package br.edu.ufcg.sgbd;
 
-import java.util.List;
 
-import br.edu.ufcg.aluno.Aluno;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DB extends SQLiteOpenHelper {
 	
 	private final String TABLE_ALUNO = "CREATE TABLE ALUNO(" +
-										"id INTEGER AUTOINCREMENT," +
+										"id INTEGER PRIMARY KEY AUTOINCREMENT," +
 										"nome VARCHAR(255)," +
 										"sexo VARCHAR(1)," +
 										"rua VARCHAR(255)," +
 										"numero INTEGER," +
-										"cidade VARCHAR(255)," +
-										"PRIMARY KEY (id)" +
+										"cidade VARCHAR(255)" +
 										")";
 	
 	private final String TABLE_DADOS = "CREATE TABLE DADOS(" +
 										"id_aluno INTEGER," +
-										"data DATE," +
+										"data VARCHAR(11)," +
 										"peso REAL," +
 										"calorias_gastas REAL," +
 										"tamanho_braco REAL," +
@@ -50,6 +46,8 @@ public class DB extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
+		dropTable(db, "ALUNO");
+		dropTable(db, "DADOS");
 		db.execSQL(TABLE_ALUNO);
 		db.execSQL(TABLE_DADOS);
 	}
@@ -66,9 +64,13 @@ public class DB extends SQLiteOpenHelper {
 	}
 	
 	public void insertValues(String tableName, ContentValues values) {
-		SQLiteDatabase db = this.getWritableDatabase();
-		db.insert(tableName, null, values);
-		db.close();
+		try{
+			SQLiteDatabase db = this.getWritableDatabase();
+			db.insert(tableName, null, values);
+			db.close();
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
 	}
-	//TODO QUERY
+	
 }

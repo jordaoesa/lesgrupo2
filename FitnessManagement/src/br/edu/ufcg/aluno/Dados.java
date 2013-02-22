@@ -62,6 +62,6 @@ public class Dados {
 	
 	@Override
 	public String toString() {
-		return "Peso: " + peso + "\nCalorias: + " + calorias + "\nBraço: " + tamanhoBraco + "\nPerna: " + tamanhoPerna + "\nIMC:" + imc;
+		return "Peso: " + peso + " Calorias: + " + calorias + " Braço: " + tamanhoBraco + " Perna: " + tamanhoPerna + " IMC:" + imc;
 	}
 }

@@ -1,13 +1,16 @@
 package br.edu.ufcg.fachada;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.sgbd.DB;
 
 public class AlunoFachada {
 	
+	private final String TABLE_NAME = "ALUNO"; 
 	private DB db;
 	
 	public AlunoFachada(DB db) {
@@ -17,24 +20,53 @@ public class AlunoFachada {
 	public void adicionarAluno(Aluno aluno) {
 		ContentValues values = new ContentValues();
 		values.put("nome", aluno.getNome());
-		values.put("endereco", aluno.getEndereco());
 		values.put("sexo", aluno.getSexo());
-		db.insertValues("aluno", values);
+		
+		db.insertValues(TABLE_NAME, values);
+		db.close();
 	}
 	
 	public List<Aluno> getAlunos() {
-		//TODO
-		return null;
+		List<Aluno> alunos = new ArrayList<Aluno>();
+		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, null, null, null, null, null);
+		try{
+			if(cursor != null){
+				while(cursor.moveToNext()){
+					Aluno aluno = new Aluno(cursor.getInt(0), cursor.getString(1), null, cursor.getString(2));
+					alunos.add(aluno);
+				}
+			}
+		}catch(Exception e){
+			e.getStackTrace();
+		}finally{
+			cursor.close();
+		}
+		return alunos;
 	}
 	
 	public String[] getOnlyNamesOfAlunos(){
-		//TODO
-		return null;
+		List<Aluno> alunos = getAlunos();
+		String nomes[] = new String[alunos.size()];
+		for(int i=0; i<alunos.size(); i++){
+			nomes[i] = alunos.get(i).getNome();
+		}
+		return nomes;
 	}
 	
 	public Integer[] getOnlyIdsOfAlunos(){
-		//TODO
-		return null;
+		List<Aluno> alunos = getAlunos();
+//		System.out.println("ALUNOS>>>: " + alunos);//TODO
+		Integer ids[] = new Integer[alunos.size()];
+		for(int i=0; i<alunos.size(); i++){
+			ids[i] = alunos.get(i).getId();
+		}
+		return ids;
+	}
+	
+	public Integer getIdUltimoAlunoAdicionado(){
+		List<Aluno> list = getAlunos();
+		Integer id = list.get(list.size()-1).getId();
+		return id;
 	}
 	
 }
