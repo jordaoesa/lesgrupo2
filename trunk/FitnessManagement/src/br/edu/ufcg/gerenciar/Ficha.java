@@ -11,7 +11,7 @@ public class Ficha {
 	private String id;
 	
 	public Ficha(){
-		
+		System.out.println();
 	}
 	public Ficha(ArrayList<Atividade> atividades){
 		this.atividades = atividades;
