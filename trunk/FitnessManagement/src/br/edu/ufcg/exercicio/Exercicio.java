@@ -9,6 +9,7 @@ public class Exercicio {
 	public int repeticoes;
 	public int peso;
 	public String observacao;
+	public String id = nomeExercicio+nomeMaquina+observacao;
 	
 	public Exercicio(String nomeExercicio, String nomeMaquina, GrupoExercicio grupoExercicio, int series, int repeticoes, int peso) {
 
@@ -47,6 +48,10 @@ public class Exercicio {
 	public String getObservacao() {
 		return observacao;
 	}
+	
+	public String getID(){
+		return id;
+	}
 
 	public void setNomeExercicio(String nomeExercicio) {
 		this.nomeExercicio = nomeExercicio;
@@ -78,14 +83,14 @@ public class Exercicio {
 
 	@Override
 	public String toString() {
-		return "Exercicio " +
-				"Nome do Exercício: " + nomeExercicio + 
-				"Nome da Máquina: " + nomeMaquina + 
-				"Grupo Muscular: " + grupoExercicio+ 
-				"Quantidade de Séries: " + series +
-				"Repetições por Série: " + repeticoes +
-				"Peso na Máquina: " + peso + 
-				"Observação: " + observacao;
+		return "Exercicio \n" +
+				"Nome do Exercício: " + nomeExercicio + "\n"+
+				"Nome da Máquina: " + nomeMaquina + "\n"+
+				"Grupo Muscular: " + grupoExercicio+ "\n"+
+				"Quantidade de Séries: " + series +"\n"+
+				"Repetições por Série: " + repeticoes +"\n"+ 
+				"Peso na Máquina: " + peso +"\n"+ 
+				"Observação: " + observacao+"\n";
 	}
 	
 	
