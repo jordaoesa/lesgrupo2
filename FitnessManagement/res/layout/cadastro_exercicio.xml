@@ -16,12 +16,11 @@
             android:ems="10"
             android:text="Exercício" />
 
-        <EditText
-            android:id="@+id/caixaNomeExercicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10" />
+        <Spinner
+            android:id="@+id/spinnerExercicio"
+            android:layout_width="190dp"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -36,12 +35,12 @@
             android:ems="10"
             android:text="Máquina" />
 
-        <EditText
-            android:id="@+id/caixaNomeMaquina"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10" />
+        <Spinner
+            android:id="@+id/spinnerMaquina"
+            android:layout_width="186dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.21" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -52,13 +51,15 @@
             android:id="@+id/EditText06"
             android:layout_width="108dp"
             android:layout_height="wrap_content"
+            android:layout_weight="0.05"
             android:ems="10"
             android:text="Grupo Muscular" />
 
         <Spinner
-            android:id="@+id/caixaGrupoMuscular"
-            android:layout_width="wrap_content"
-            android:layout_height="53dp" />
+            android:id="@+id/spinnerGrupoMuscular"
+            android:layout_width="184dp"
+            android:layout_height="46dp"
+            android:layout_weight="0.01" />
 
     </LinearLayout>
 
@@ -70,16 +71,16 @@
             android:id="@+id/EditText04"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.17"
             android:ems="10"
             android:text="Séries" />
 
-        <EditText
-            android:id="@+id/caixaNumeroSeries"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10" />
+        <Spinner
+            android:id="@+id/spinnerNumeroSerie"
+            android:layout_width="186dp"
+            android:layout_height="45dp"
+            android:layout_weight="0.34" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -90,15 +91,15 @@
             android:id="@+id/EditText02"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.09"
             android:ems="10"
             android:text="Repetições" />
 
-        <EditText
-            android:id="@+id/caixaNumeroRepeticoes"
-            android:layout_width="195dp"
-            android:layout_height="wrap_content"
-            android:ems="10" />
+        <Spinner
+            android:id="@+id/spinnerNumeroRepeticoes"
+            android:layout_width="192dp"
+            android:layout_height="44dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -109,6 +110,7 @@
             android:id="@+id/editText1"
             android:layout_width="112dp"
             android:layout_height="wrap_content"
+            android:layout_weight="2.12"
             android:ems="10"
             android:text="Peso" >
 
@@ -116,15 +118,16 @@
         </EditText>
 
         <EditText
-            android:id="@+id/caixaPesoMaquina"
-            android:layout_width="192dp"
+            android:id="@+id/editText2"
+            android:layout_width="196dp"
             android:layout_height="wrap_content"
             android:ems="10" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_weight="1.17" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -141,16 +144,14 @@
             <EditText
                 android:id="@+id/caixaObservacaoExercicio"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="85dp"
                 android:ems="10" />
-
         </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content" >
 
         <Button
             android:id="@+id/botaoLimparExercicios"
@@ -165,7 +166,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.47"
             android:text="Cadastrar" />
-
     </LinearLayout>
 
 </LinearLayout>
