@@ -16,6 +16,13 @@ public class Aluno {
 		this.sexo = sexo;
 	}
 	
+	public Aluno(Integer id, String nome, String endereco, String sexo){
+		this.id = id;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.sexo = sexo;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -43,7 +50,7 @@ public class Aluno {
 	
 	@Override
 	public String toString() {
-		return "Nome: " + getNome() + "\nEndereço: " + getEndereco() + "\nSexo: " + getSexo();
+		return "Id: " + getId() + " Nome: " + getNome() + " Sexo: " + getSexo();
 	}
 
 }
