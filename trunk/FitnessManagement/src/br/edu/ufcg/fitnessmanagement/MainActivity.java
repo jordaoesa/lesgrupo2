@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
 	private DB db;
 	private AlunoFachada alunoFachada;
 	private DadosFachada dadosFachada;
+//	Intent in = new Intent(this, VisualizarAlunosActivity.class);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class MainActivity extends Activity {
 	
 	private void inserirUsuariosNoBanco() {
 		Aluno jordao = new Aluno("aluno", "Campina", "M");
+//		Intent in = new Intent(this, VisualizarAlunosActivity.class);
 		
 		Dados dados1Jordao = new Dados(75.0, 100.0, 31.0, 55.0, 20.0, new Date("01/01/2013"));
 		Dados dados2Jordao = new Dados(76.0, 200.0, 32.0, 57.0, 21.0, new Date("02/01/2013"));
@@ -104,6 +106,8 @@ public class MainActivity extends Activity {
 		Button bCadastrarAtividade = (Button)findViewById(R.id.botaoCadastramentoAtividade);
 		Button bCadastrarFicha = (Button)findViewById(R.id.botaoCadastramentoFicha);
 		
+		final Intent in = new Intent(this, VisualizarAlunosActivity.class);
+		
 		bCadastrar.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -121,7 +125,9 @@ public class MainActivity extends Activity {
 		bVisualizar.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				menuVisualizarAlunos(R.layout.estatisticas);
+				//menuVisualizarAlunos(R.layout.estatisticas);
+				//TODO
+				startActivity(in);
 			}
 		});
 		bCadastrarExercicio.setOnClickListener(new OnClickListener() {
