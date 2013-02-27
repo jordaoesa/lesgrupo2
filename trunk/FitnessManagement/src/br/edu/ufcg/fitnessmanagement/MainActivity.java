@@ -30,6 +30,7 @@ import br.edu.ufcg.fachada.AlunoFachada;
 import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.grafico.GraficoDeLinha;
 import br.edu.ufcg.sgbd.DB;
+import br.edu.ufcg.util.FitnessManagementSingleton;
 
 public class MainActivity extends Activity {
 	
@@ -41,9 +42,11 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		db = new DB(this);
-		alunoFachada = new AlunoFachada(db);
-		dadosFachada = new DadosFachada(db);
+		
+		FitnessManagementSingleton.setContext(this);
+		db = FitnessManagementSingleton.getDBInstance();
+		alunoFachada = FitnessManagementSingleton.getAlunoFachadaInstance();
+		dadosFachada = FitnessManagementSingleton.getDadosFachadaInstance();
 		
 		menuInicial();
 		inserirUsuariosNoBanco();
