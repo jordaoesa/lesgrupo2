@@ -31,9 +31,9 @@ public class DB extends SQLiteOpenHelper {
 										"FOREIGN KEY (id_aluno) REFERENCES ALUNO(id)" +
 										")";
 	//asdpkfasodk
-	private final String TABLE_EXERCICIOS = "CREATE TABLE EXERCICIOS("+"id_exercicio,"+"nomeExercicio"+")";
-	private final String TABLE_MAQUINAS = "CREATE TABLE MAQUINAS("+"id_maquina,"+"nomeMaquina"+")";
-	private final String TABLE_GRUPO_MUSCULAR = "CREATE TABLE GRUPO_MUSCULAR("+"id_grupoMuscular,"+"nomeGrupoMuscular"+")";
+	private final String TABLE_EXERCICIOS = "CREATE TABLE EXERCICIOS("+"id_exercicio INTEGER,"+"nomeExercicio VARCHAR(255)"+")";
+	private final String TABLE_MAQUINAS = "CREATE TABLE MAQUINAS("+"id_maquina INTEGER,"+"nomeMaquina VARCHAR(255)"+")";
+	private final String TABLE_GRUPO_MUSCULAR = "CREATE TABLE GRUPO_MUSCULAR("+"id_grupoMuscular INTEGER,"+"nomeGrupoMuscular VARCHAR(255)"+")";
 	/**
 	 * O construtor necessita do contexto da aplicacao
 	 * @param context
