@@ -30,7 +30,10 @@ public class DB extends SQLiteOpenHelper {
 										"PRIMARY KEY (id_aluno, data)" +
 										"FOREIGN KEY (id_aluno) REFERENCES ALUNO(id)" +
 										")";
-	
+	//asdpkfasodk
+	private final String TABLE_EXERCICIOS = "CREATE TABLE EXERCICIOS("+"id_exercicio,"+"nomeExercicio"+")";
+	private final String TABLE_MAQUINAS = "CREATE TABLE MAQUINAS("+"id_maquina,"+"nomeMaquina"+")";
+	private final String TABLE_GRUPO_MUSCULAR = "CREATE TABLE GRUPO_MUSCULAR("+"id_grupoMuscular,"+"nomeGrupoMuscular"+")";
 	/**
 	 * O construtor necessita do contexto da aplicacao
 	 * @param context
@@ -48,14 +51,23 @@ public class DB extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		dropTable(db, "ALUNO");
 		dropTable(db, "DADOS");
+		dropTable(db, TABLE_EXERCICIOS);
+		dropTable(db, TABLE_GRUPO_MUSCULAR);
+		dropTable(db, TABLE_MAQUINAS);
 		db.execSQL(TABLE_ALUNO);
 		db.execSQL(TABLE_DADOS);
+		db.execSQL(TABLE_EXERCICIOS);
+		db.execSQL(TABLE_GRUPO_MUSCULAR);
+		db.execSQL(TABLE_MAQUINAS);
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		dropTable(db, "ALUNO");
 		dropTable(db, "DADOS");
+		dropTable(db, TABLE_EXERCICIOS);
+		dropTable(db, TABLE_GRUPO_MUSCULAR);
+		dropTable(db, TABLE_MAQUINAS);
 		onCreate(db);
 	}
 
