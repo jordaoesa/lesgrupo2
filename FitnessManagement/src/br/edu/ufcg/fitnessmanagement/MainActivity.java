@@ -121,7 +121,8 @@ public class MainActivity extends Activity {
 		bDados.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				menuVisualizarAlunos(R.layout.atualizar_dados);
+				//menuVisualizarAlunos(R.layout.atualizar_dados);
+				//TODO
 			}
 		});
 		
@@ -251,164 +252,164 @@ public class MainActivity extends Activity {
 		});
 	}
 	
-	private void menuVisualizarAlunos(final int layout) {
-		setContentView(R.layout.visualizar_alunos);
-		ListView listView = (ListView) findViewById(R.id.listViewVisualizarAlunos);
-		
-		final String alunos[] = alunoFachada.getOnlyNamesOfAlunos();
-		final Integer ids[] = alunoFachada.getOnlyIdsOfAlunos();
-//		final String alunos[] = SGDB.getOnlyNamesOfAlunos();
-//		final Integer ids[] = SGDB.getOnlyIdsOfAlunos();
-		final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_list, R.id.textViewItem, alunos);
-		listView.setAdapter(adapter);
-		
-		listView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Toast.makeText(getApplicationContext(), adapter.getItem(position).toString(), Toast.LENGTH_SHORT).show();
-				if(layout == R.layout.estatisticas){
-					mostrarEstatisticas(layout, ids[position]);
-				}else if(layout == R.layout.atualizar_dados){
-					atualizarDados(layout, ids[position]);
-				}
-				
-			}
-
-			private void mostrarEstatisticas(final int layout, final int id) {
-//				System.out.println("id>>>>>> " + id);
-				setContentView(layout);
-				
-				final List<Dados> dados = dadosFachada.getDadosDoAluno(id);
-//				System.out.println("dados: " + dados);//TODO
-//				final List<Dados> dados = SGDB.getDadosFromUser(id);
-				final Button buttonPeso = (Button) findViewById(R.id.buttonEstatisticasPeso);
-				final Button buttonCalorias = (Button) findViewById(R.id.buttonEstatisticasCalorias);
-				final Button buttonBraco = (Button) findViewById(R.id.buttonEstatisticasBraco);
-				final Button buttonPerna = (Button) findViewById(R.id.buttonEstatisticasPerna);
-				final Button buttonIMC = (Button) findViewById(R.id.buttonEstatisticasIMC);
-				
-				final List<Double> values = new ArrayList<Double>();
-				final List<Date> dates = new ArrayList<Date>();
-				if(dados != null){
-					buttonPeso.setOnClickListener(new OnClickListener() {
-						
-						@Override
-						public void onClick(View arg0) {
-							for(Dados d : dados){
-								values.add(d.getPeso());
-								dates.add(d.getData());
-							}
-							graficoDeLinhaHandler(values, dates, "Peso");
-						}
-					});
-					buttonCalorias.setOnClickListener(new OnClickListener() {
-						
-						@Override
-						public void onClick(View arg0) {
-							for(Dados d : dados){
-								values.add(d.getCalorias());
-								dates.add(d.getData());
-							}
-							graficoDeLinhaHandler(values, dates, "Calorias");
-						}
-					});
-					buttonBraco.setOnClickListener(new OnClickListener() {
-						
-						@Override
-						public void onClick(View arg0) {
-							for(Dados d : dados){
-								values.add(d.getTamanhoBraco());
-								dates.add(d.getData());
-							}
-							graficoDeLinhaHandler(values, dates, "Tamanho Braço");
-						}
-					});
-					buttonPerna.setOnClickListener(new OnClickListener() {
-						
-						@Override
-						public void onClick(View arg0) {
-							for(Dados d : dados){
-								values.add(d.getTamanhoPerna());
-								dates.add(d.getData());
-							}
-							graficoDeLinhaHandler(values, dates, "Tamanho Perna");
-						}
-					});
-					buttonIMC.setOnClickListener(new OnClickListener() {
-						
-						@Override
-						public void onClick(View arg0) {
-							for(Dados d : dados){
-								values.add(d.getImc());
-								dates.add(d.getData());
-							}
-							graficoDeLinhaHandler(values, dates, "IMC");
-						}
-					});
-				}
-				
-				
-				Button voltar = (Button) findViewById(R.id.buttonEstatisticasVoltar);
-				voltar.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View arg0) {
-						menuVisualizarAlunos(layout);
-					}
-				});
-				
-			}
-
-			private void atualizarDados(final int layout, final int id) {
-				setContentView(layout);
-				
-				Button atualizar = (Button) findViewById(R.id.buttonAtualizarDados);
-				atualizar.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View arg0) {
-						Double peso = Double.parseDouble(((EditText)findViewById(R.id.editTextPeso)).getText().toString());
-						Double calorias = Double.parseDouble(((EditText)findViewById(R.id.editTextCalorias)).getText().toString());
-						Double braco = Double.parseDouble(((EditText)findViewById(R.id.editTextBraco)).getText().toString());
-						Double perna = Double.parseDouble(((EditText)findViewById(R.id.editTextPerna)).getText().toString());
-						Double imc = Double.parseDouble(((EditText)findViewById(R.id.editTextIMC)).getText().toString());
-						String data = ((EditText)findViewById(R.id.editTextData)).getText().toString();
-						
-						java.text.DateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
-						Date date = null;
-						try {
-							date = formater.parse(data);
-						} catch (ParseException e) {
-							e.printStackTrace();
-						}
-						System.out.println(date.toString());
-						
-						Dados dados = new Dados(peso, calorias, braco, perna, imc, date);
-						
-						dadosFachada.adicionaDadosDoAluno(id, dados);
-//						SGDB.addDados(id, dados);
-						Toast.makeText(getApplicationContext(), "Sucess", Toast.LENGTH_SHORT).show();
-						menuVisualizarAlunos(layout);
-					}
-				});
-				
-				Button voltar = (Button) findViewById(R.id.buttonAtualizarVoltar);
-				voltar.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View arg0) {
-						menuInicial();
-					}
-				});
-			}
-			
-		});
-		
-		Button voltar = (Button) findViewById(R.id.buttonVoltarVisualizacao);
-		voltar.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				menuInicial();
-			}
-		});
-	}
+//	private void menuVisualizarAlunos(final int layout) {
+//		setContentView(R.layout.visualizar_alunos);
+//		ListView listView = (ListView) findViewById(R.id.listViewVisualizarAlunos);
+//		
+//		final String alunos[] = alunoFachada.getOnlyNamesOfAlunos();
+//		final Integer ids[] = alunoFachada.getOnlyIdsOfAlunos();
+////		final String alunos[] = SGDB.getOnlyNamesOfAlunos();
+////		final Integer ids[] = SGDB.getOnlyIdsOfAlunos();
+//		final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_list, R.id.textViewItem, alunos);
+//		listView.setAdapter(adapter);
+//		
+//		listView.setOnItemClickListener(new OnItemClickListener() {
+//			@Override
+//			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//				Toast.makeText(getApplicationContext(), adapter.getItem(position).toString(), Toast.LENGTH_SHORT).show();
+//				if(layout == R.layout.estatisticas){
+//					mostrarEstatisticas(layout, ids[position]);
+//				}else if(layout == R.layout.atualizar_dados){
+//					atualizarDados(layout, ids[position]);
+//				}
+//				
+//			}
+//
+//			private void mostrarEstatisticas(final int layout, final int id) {
+////				System.out.println("id>>>>>> " + id);
+//				setContentView(layout);
+//				
+//				final List<Dados> dados = dadosFachada.getDadosDoAluno(id);
+////				System.out.println("dados: " + dados);//TODO
+////				final List<Dados> dados = SGDB.getDadosFromUser(id);
+//				final Button buttonPeso = (Button) findViewById(R.id.buttonEstatisticasPeso);
+//				final Button buttonCalorias = (Button) findViewById(R.id.buttonEstatisticasCalorias);
+//				final Button buttonBraco = (Button) findViewById(R.id.buttonEstatisticasBraco);
+//				final Button buttonPerna = (Button) findViewById(R.id.buttonEstatisticasPerna);
+//				final Button buttonIMC = (Button) findViewById(R.id.buttonEstatisticasIMC);
+//				
+//				final List<Double> values = new ArrayList<Double>();
+//				final List<Date> dates = new ArrayList<Date>();
+//				if(dados != null){
+//					buttonPeso.setOnClickListener(new OnClickListener() {
+//						
+//						@Override
+//						public void onClick(View arg0) {
+//							for(Dados d : dados){
+//								values.add(d.getPeso());
+//								dates.add(d.getData());
+//							}
+//							graficoDeLinhaHandler(values, dates, "Peso");
+//						}
+//					});
+//					buttonCalorias.setOnClickListener(new OnClickListener() {
+//						
+//						@Override
+//						public void onClick(View arg0) {
+//							for(Dados d : dados){
+//								values.add(d.getCalorias());
+//								dates.add(d.getData());
+//							}
+//							graficoDeLinhaHandler(values, dates, "Calorias");
+//						}
+//					});
+//					buttonBraco.setOnClickListener(new OnClickListener() {
+//						
+//						@Override
+//						public void onClick(View arg0) {
+//							for(Dados d : dados){
+//								values.add(d.getTamanhoBraco());
+//								dates.add(d.getData());
+//							}
+//							graficoDeLinhaHandler(values, dates, "Tamanho Braço");
+//						}
+//					});
+//					buttonPerna.setOnClickListener(new OnClickListener() {
+//						
+//						@Override
+//						public void onClick(View arg0) {
+//							for(Dados d : dados){
+//								values.add(d.getTamanhoPerna());
+//								dates.add(d.getData());
+//							}
+//							graficoDeLinhaHandler(values, dates, "Tamanho Perna");
+//						}
+//					});
+//					buttonIMC.setOnClickListener(new OnClickListener() {
+//						
+//						@Override
+//						public void onClick(View arg0) {
+//							for(Dados d : dados){
+//								values.add(d.getImc());
+//								dates.add(d.getData());
+//							}
+//							graficoDeLinhaHandler(values, dates, "IMC");
+//						}
+//					});
+//				}
+//				
+//				
+//				Button voltar = (Button) findViewById(R.id.buttonEstatisticasVoltar);
+//				voltar.setOnClickListener(new OnClickListener() {
+//					@Override
+//					public void onClick(View arg0) {
+//						menuVisualizarAlunos(layout);
+//					}
+//				});
+//				
+//			}
+//
+//			private void atualizarDados(final int layout, final int id) {
+//				setContentView(layout);
+//				
+//				Button atualizar = (Button) findViewById(R.id.buttonAtualizarDados);
+//				atualizar.setOnClickListener(new OnClickListener() {
+//					@Override
+//					public void onClick(View arg0) {
+//						Double peso = Double.parseDouble(((EditText)findViewById(R.id.editTextPeso)).getText().toString());
+//						Double calorias = Double.parseDouble(((EditText)findViewById(R.id.editTextCalorias)).getText().toString());
+//						Double braco = Double.parseDouble(((EditText)findViewById(R.id.editTextBraco)).getText().toString());
+//						Double perna = Double.parseDouble(((EditText)findViewById(R.id.editTextPerna)).getText().toString());
+//						Double imc = Double.parseDouble(((EditText)findViewById(R.id.editTextIMC)).getText().toString());
+//						String data = ((EditText)findViewById(R.id.editTextData)).getText().toString();
+//						
+//						java.text.DateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+//						Date date = null;
+//						try {
+//							date = formater.parse(data);
+//						} catch (ParseException e) {
+//							e.printStackTrace();
+//						}
+//						System.out.println(date.toString());
+//						
+//						Dados dados = new Dados(peso, calorias, braco, perna, imc, date);
+//						
+//						dadosFachada.adicionaDadosDoAluno(id, dados);
+////						SGDB.addDados(id, dados);
+//						Toast.makeText(getApplicationContext(), "Sucess", Toast.LENGTH_SHORT).show();
+//						menuVisualizarAlunos(layout);
+//					}
+//				});
+//				
+//				Button voltar = (Button) findViewById(R.id.buttonAtualizarVoltar);
+//				voltar.setOnClickListener(new OnClickListener() {
+//					@Override
+//					public void onClick(View arg0) {
+//						menuInicial();
+//					}
+//				});
+//			}
+//			
+//		});
+//		
+//		Button voltar = (Button) findViewById(R.id.buttonVoltarVisualizacao);
+//		voltar.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View arg0) {
+//				menuInicial();
+//			}
+//		});
+//	}
 	
 	
 
