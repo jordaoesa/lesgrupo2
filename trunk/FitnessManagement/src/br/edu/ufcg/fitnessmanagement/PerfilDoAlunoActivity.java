@@ -53,6 +53,7 @@ public class PerfilDoAlunoActivity extends Activity {
 		Button bCadastrarAtividade = (Button)findViewById(R.id.buttonCadastrarAtividadePerfilAluno);
 		Button bCadastrarFicha = (Button)findViewById(R.id.buttonCriarFichaPerfilAluno);
 		Button bVisualizarEstatisticas = (Button)findViewById(R.id.buttonVisualizarEstatisticasPerfilAluno);
+		Button bGerenciarFinancas = (Button) findViewById(R.id.buttonGerenciarFinancasPerfilAluno);
 		Button bAgendarAcompanhamento = (Button)findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);//TODO
 		
 		bCadastrarDados.setOnClickListener(new OnClickListener() {
@@ -90,6 +91,14 @@ public class PerfilDoAlunoActivity extends Activity {
 				Intent intentEstatisticas = new Intent(getApplicationContext(), VisualizarEstatisticasActivity.class);
 				intentEstatisticas.putExtra("id_aluno", aluno.getId());
 				startActivity(intentEstatisticas);
+			}
+		});
+		bGerenciarFinancas.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent intentFinancas = new Intent(getApplicationContext(), GerenciarFinancasActivity.class);
+				intentFinancas.putExtra("id_aluno", aluno.getId());
+				startActivity(intentFinancas);
 			}
 		});
 		
