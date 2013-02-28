@@ -15,19 +15,19 @@ public class ExercicioFachada {
 		this.db = db;
 	}
 
-	public void adicionaExercicio(Integer id, String nomeExercicio){
+	public void adicionaExercicio( String nomeExercicio){
 		ContentValues values = new ContentValues();
-		values.put("id_exercicio", id);
 		values.put("nomeExercicio", nomeExercicio);
 		db.insertValues(TABLE_NAME, values);
+		db.close();
 	}
 	
-	public String getDadosExercicio(Integer id) {
-		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, "id_exercicio = " + id, null, null, null, null);
-		String s = null;
+	public String getDadosExercicios() {
+		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, null, null, null, null, null);
+		String s = "";
 		try{
 			while(cursor.moveToNext()){
-				 s ="";
+				
 				s = s+ cursor.getInt(0) +  cursor.getString(1);
 				
 			}
