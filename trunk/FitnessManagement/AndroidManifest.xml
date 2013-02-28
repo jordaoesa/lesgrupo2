@@ -64,6 +64,10 @@
             android:name="br.edu.ufcg.fitnessmanagement.AgendarAcompanhamentoActivity"
             android:label="@string/title_activity_agendar_acompanhamento" >
         </activity>
+        <activity
+            android:name="br.edu.ufcg.fitnessmanagement.CriarExercicioMaquinaGMuscularActivity"
+            android:label="@string/title_activity_criar_exercicio_maquina_gmuscular_bd" >
+        </activity>
     </application>
 
 </manifest>

@@ -23,12 +23,12 @@ public class CriarExercicioMaquinaGMuscularActivity extends Activity {
 		setContentView(R.layout.activity_criar_exercicio_maquina_gmuscular_bd);
 		
 		
-		exercicioFachada = new FitnessManagementSingleton().getExercicioFachadaInstance();
+		exercicioFachada = FitnessManagementSingleton.getExercicioFachadaInstance();
 //		maquinaFachada = new FitnessManagementSingleton().getMaquinaFachadaInstance();
 //		grupoMuscularFachada = new FitnessManagementSingleton().getGrupoMuscularFachadaInstance();
 //		
 		
-		menuCriarExercicioMaquinaGMuscular();
+		//menuCriarExercicioMaquinaGMuscular();
 	}
 	
 	

@@ -16,8 +16,6 @@ public class FitnessManagementSingleton {
 	private static AlunoFachada alunoFachada;
 	private static DadosFachada dadosFachada;
 	private static FinancasFachada financasFachada;
-	
-	//alspkdkasd
 	private static ExercicioFachada exercicioFachada;
 	private static MaquinaFachada maquinaFachada;
 	private static GrupoMuscularFachada grupoMuscularFachada;
@@ -47,7 +45,6 @@ public class FitnessManagementSingleton {
 		return dadosFachada;
 	}
 	
-	//apsikaosk
 	public static ExercicioFachada getExercicioFachadaInstance(){
 		if(exercicioFachada == null){
 			exercicioFachada = new ExercicioFachada(db);
