@@ -52,6 +52,10 @@
             android:name="br.edu.ufcg.fitnessmanagement.VisualizarEstatisticasActivity"
             android:label="@string/title_activity_visualizar_estatisticas" >
         </activity>
+        <activity
+            android:name="br.edu.ufcg.fitnessmanagement.CadastrarAlunoActivity"
+            android:label="@string/title_activity_cadastrar_aluno" >
+        </activity>
     </application>
 
 </manifest>
