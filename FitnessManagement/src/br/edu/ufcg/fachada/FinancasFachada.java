@@ -32,9 +32,11 @@ public class FinancasFachada {
 
 	public void quitaDivida(Integer idAluno, Double valor) {
 		Double dividaTotal = getDividaTotal(idAluno);
+		Double novoValor = (dividaTotal-valor);
+		if(novoValor < 0D) novoValor = 0D;
 		
 		ContentValues values = new ContentValues();
-		values.put("valor", (dividaTotal-valor));
+		values.put("valor", novoValor);
 		db.updateTable(TABLE_NAME, values, "id_aluno = " + idAluno);
 		db.close();
 	}

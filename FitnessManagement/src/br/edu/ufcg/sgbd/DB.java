@@ -76,7 +76,13 @@ public class DB extends SQLiteOpenHelper {
 	}
 
 	private void dropTable(SQLiteDatabase db, String tableName) {
-		db.execSQL("DROP TABLE IF EXISTS " + tableName);
+		try{
+			db.execSQL("DROP TABLE IF EXISTS " + tableName);
+		}catch(Exception e){
+			System.out.println(">>> " + e.getMessage());
+		}finally{
+			db.close();
+		}
 	}
 	
 	public void insertValues(String tableName, ContentValues values) {
