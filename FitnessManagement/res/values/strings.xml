@@ -15,5 +15,6 @@
     <string name="title_activity_cadastrar_aluno">CadastrarAlunoActivity</string>
     <string name="title_activity_gerenciar_financas">GerenciarFinancasActivity</string>
     <string name="title_activity_agendar_acompanhamento">AgendarAcompanhamentoActivity</string>
+    <string name="title_activity_criar_exercicio_maquina_gmuscular_bd">CriarExercicioMaquinaGMuscularActivity</string>
 
 </resources>

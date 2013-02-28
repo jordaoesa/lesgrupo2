@@ -45,6 +45,7 @@ public class MainActivity extends Activity {
 		
 		Button bCadastrar = (Button) findViewById(R.id.buttonCadastrarAlunosMain);
 		Button bGerenciar = (Button) findViewById(R.id.buttonGerenciarAlunosMain);
+		Button bGerenciarExercMusMaq = (Button) findViewById(R.id.buttonGerenciarExercMuscMaquiMain);
 		Button bAddAluno = (Button) findViewById(R.id.buttonAddAlunoMain);
 		
 		final Intent intentGerenciar = new Intent(this, VisualizarAlunosActivity.class);
@@ -60,6 +61,13 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				startActivity(intentGerenciar);
+			}
+		});
+		bGerenciarExercMusMaq.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent intentGerenciarExercMusMaq = new Intent(getApplicationContext(), CriarExercicioMaquinaGMuscularActivity.class);
+				startActivity(intentGerenciarExercMusMaq);
 			}
 		});
 		bAddAluno.setOnClickListener(new OnClickListener() {

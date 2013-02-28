@@ -55,7 +55,6 @@
             android:layout_weight="1"
             android:ems="10" >
 
-            <requestFocus />
         </EditText>
 
         <Button
