@@ -1,15 +1,9 @@
 package br.edu.ufcg.fachada;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import br.edu.ufcg.aluno.Dados;
-import br.edu.ufcg.exercicio.Exercicio;
+
 import br.edu.ufcg.sgbd.DB;
 
 public class ExercicioFachada {
