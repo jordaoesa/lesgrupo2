@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgendarAcompanhamentoActivity" >
+
+    <Button
+        android:id="@+id/buttonVoltarAgendarAcompanhamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Voltar" />
+
+    <Button
+        android:id="@+id/buttonAgendarAgendarAcompanhamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonVoltarAgendarAcompanhamento"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Agendar" />
+
+    <TextView
+        android:id="@+id/textViewValorAcompanhamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editTextValorAgendarAcompanhamento"
+        android:layout_alignBottom="@+id/editTextValorAgendarAcompanhamento"
+        android:layout_alignParentLeft="true"
+        android:text="Valor" />
+
+    <EditText
+        android:id="@+id/editTextValorAgendarAcompanhamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonAgendarAgendarAcompanhamento"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="48dp"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+</RelativeLayout>

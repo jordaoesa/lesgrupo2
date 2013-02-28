@@ -60,6 +60,10 @@
             android:name="br.edu.ufcg.fitnessmanagement.GerenciarFinancasActivity"
             android:label="@string/title_activity_gerenciar_financas" >
         </activity>
+        <activity
+            android:name="br.edu.ufcg.fitnessmanagement.AgendarAcompanhamentoActivity"
+            android:label="@string/title_activity_agendar_acompanhamento" >
+        </activity>
     </application>
 
 </manifest>

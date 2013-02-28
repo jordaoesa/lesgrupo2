@@ -50,11 +50,11 @@ public class PerfilDoAlunoActivity extends Activity {
 		
 		Button bCadastrarDados = (Button) findViewById(R.id.buttonCadastrarDadosPerfilAluno);
 		Button bCadastrarExercicio = (Button) findViewById(R.id.buttonCadastrarExercicioPerfilAluno);
-		Button bCadastrarAtividade = (Button)findViewById(R.id.buttonCadastrarAtividadePerfilAluno);
-		Button bCadastrarFicha = (Button)findViewById(R.id.buttonCriarFichaPerfilAluno);
-		Button bVisualizarEstatisticas = (Button)findViewById(R.id.buttonVisualizarEstatisticasPerfilAluno);
+		Button bCadastrarAtividade = (Button) findViewById(R.id.buttonCadastrarAtividadePerfilAluno);
+		Button bCadastrarFicha = (Button) findViewById(R.id.buttonCriarFichaPerfilAluno);
+		Button bVisualizarEstatisticas = (Button) findViewById(R.id.buttonVisualizarEstatisticasPerfilAluno);
 		Button bGerenciarFinancas = (Button) findViewById(R.id.buttonGerenciarFinancasPerfilAluno);
-		Button bAgendarAcompanhamento = (Button)findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);//TODO
+		Button bAgendarAcompanhamento = (Button) findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);//TODO
 		
 		bCadastrarDados.setOnClickListener(new OnClickListener() {
 			@Override
@@ -99,6 +99,14 @@ public class PerfilDoAlunoActivity extends Activity {
 				Intent intentFinancas = new Intent(getApplicationContext(), GerenciarFinancasActivity.class);
 				intentFinancas.putExtra("id_aluno", aluno.getId());
 				startActivity(intentFinancas);
+			}
+		});
+		bAgendarAcompanhamento.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intentAgendar = new Intent(getApplicationContext(), AgendarAcompanhamentoActivity.class);
+				intentAgendar.putExtra("id_aluno", aluno.getId());
+				startActivity(intentAgendar);
 			}
 		});
 		
