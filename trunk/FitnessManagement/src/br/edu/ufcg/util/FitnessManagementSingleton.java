@@ -3,6 +3,7 @@ package br.edu.ufcg.util;
 import android.content.Context;
 import br.edu.ufcg.fachada.AlunoFachada;
 import br.edu.ufcg.fachada.DadosFachada;
+import br.edu.ufcg.fachada.FinancasFachada;
 import br.edu.ufcg.sgbd.DB;
 
 public class FitnessManagementSingleton {
@@ -11,6 +12,7 @@ public class FitnessManagementSingleton {
 	private static DB db;
 	private static AlunoFachada alunoFachada;
 	private static DadosFachada dadosFachada;
+	private static FinancasFachada financasFachada;
 	
 	public static void setContext(Context context){
 		FitnessManagementSingleton.context = context;
@@ -35,6 +37,13 @@ public class FitnessManagementSingleton {
 			dadosFachada = new DadosFachada(db);
 		}
 		return dadosFachada;
+	}
+	
+	public static FinancasFachada getFinancasFachadaInstance(){
+		if(financasFachada == null){
+			financasFachada = new FinancasFachada(db);
+		}
+		return financasFachada;
 	}
 	
 }

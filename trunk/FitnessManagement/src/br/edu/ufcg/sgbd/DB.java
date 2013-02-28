@@ -27,9 +27,16 @@ public class DB extends SQLiteOpenHelper {
 											"tamanho_perna REAL," +
 											"tamanho_panturrilha REAL," +
 											"imc REAL," +
-											"PRIMARY KEY (id_aluno, data)" +
-											"FOREIGN KEY (id_aluno) REFERENCES ALUNO(id)" +
+											"PRIMARY KEY(id_aluno, data)," +
+											"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
 										")";
+	
+	private final String TABLE_FINANCAS = "CREATE TABLE TABLE_FINANCAS(" +
+												"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+												"id_aluno INTEGER," +
+												"valor REAL," +
+												"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
+											")";
 	
 	private final String TABLE_EXERCICIOS = "CREATE TABLE TABLE_EXERCICIOS("+"id_exercicio INTEGER,"+"nomeExercicio VARCHAR(255)"+")";
 	private final String TABLE_MAQUINAS = "CREATE TABLE TABLE_MAQUINAS("+"id_maquina INTEGER,"+"nomeMaquina VARCHAR(255)"+")";
@@ -51,6 +58,7 @@ public class DB extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(TABLE_ALUNO);
 		db.execSQL(TABLE_DADOS);
+		db.execSQL(TABLE_FINANCAS);
 		db.execSQL(TABLE_EXERCICIOS);
 		db.execSQL(TABLE_GRUPO_MUSCULAR);
 		db.execSQL(TABLE_MAQUINAS);
@@ -60,6 +68,7 @@ public class DB extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		dropTable(db, "TABLE_ALUNO");
 		dropTable(db, "TABLE_DADOS");
+		dropTable(db, "TABLE_FINANCAS");
 		dropTable(db, "TABLE_EXERCICIOS");
 		dropTable(db, "TABLE_GRUPO_MUSCULAR");
 		dropTable(db, "TABLE_MAQUINAS");
@@ -71,12 +80,24 @@ public class DB extends SQLiteOpenHelper {
 	}
 	
 	public void insertValues(String tableName, ContentValues values) {
+		SQLiteDatabase db = this.getWritableDatabase();
 		try{
-			SQLiteDatabase db = this.getWritableDatabase();
 			db.insert(tableName, null, values);
-			db.close();
 		}catch(Exception e){
-			System.out.println(e.getMessage());
+			System.out.println(">>> " + e.getMessage());
+		}finally{
+			db.close();
+		}
+	}
+	
+	public void updateTable(String tableName, ContentValues values, String where){
+		SQLiteDatabase db = this.getWritableDatabase();
+		try{
+			db.update(tableName, values, where, null);
+		}catch (Exception e) {
+			System.out.println(">>> " + e.getMessage());
+		}finally{
+			db.close();
 		}
 	}
 	
