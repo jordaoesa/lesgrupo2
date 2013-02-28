@@ -15,21 +15,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/buttonCadastrarExerciciosMain"
+        android:id="@+id/buttonGerenciarAlunosMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:text="Cadastrar Exercicíos" />
-
-    <Button
-        android:id="@+id/buttonGerenciarAlunosMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonCadastrarExerciciosMain"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:text="Gerenciar Alunos" />
 
     <Button

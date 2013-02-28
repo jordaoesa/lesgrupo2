@@ -28,7 +28,7 @@
 
             <TextView
                 android:id="@+id/textViewIdadeFichaAluno"
-                android:layout_width="216dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Idade"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -81,6 +81,12 @@
                 android:layout_height="wrap_content"
                 android:text="Cadastrar Dados" />
 
+            <Button
+                android:id="@+id/buttonCadastrarExercicioFichaAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastrar Exercicio" />
+            
             <Button
                 android:id="@+id/buttonCadastrarAtividadeFichaAluno"
                 android:layout_width="match_parent"

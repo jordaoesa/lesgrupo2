@@ -43,7 +43,6 @@ public class MainActivity extends Activity {
 		
 		Button bCadastrar = (Button) findViewById(R.id.buttonCadastrarAlunosMain);
 		Button bGerenciar = (Button) findViewById(R.id.buttonGerenciarAlunosMain);
-		Button bCadastrarExercicio = (Button)findViewById(R.id.buttonCadastrarExerciciosMain);
 		Button bAddAluno = (Button) findViewById(R.id.buttonAddAlunoMain);
 		
 		final Intent intentGerenciar = new Intent(this, VisualizarAlunosActivity.class);
@@ -58,12 +57,6 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				startActivity(intentGerenciar);
-			}
-		});
-		bCadastrarExercicio.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				menuCadastrarExercicio();
 			}
 		});
 		bAddAluno.setOnClickListener(new OnClickListener() {
@@ -103,45 +96,6 @@ public class MainActivity extends Activity {
 		
 		Button voltar = (Button) findViewById(R.id.buttonCadastrarVoltar);
 		voltar.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				menuInicial();
-			}
-		});
-		
-	}
-	
-	private void menuCadastrarExercicio() {
-		
-		setContentView(R.layout.cadastro_exercicio);
-		
-//		Button botaoCadastrarExercicio = (Button) findViewById(R.id.botaoCadastrarExercicio);
-//		
-//		final Spinner spinnerNomeExerc = (Spinner)findViewById(R.id.spinnerExercicio);
-//		final Spinner spinnerNomeMaquina = (Spinner)findViewById(R.id.spinnerMaquina);
-//		final Spinner spinnerGrupoMuscular = (Spinner)findViewById(R.id.spinnerGrupoMuscular);
-//		final Spinner spinnerNumSerie = (Spinner)findViewById(R.id.spinnerNumeroSerie);
-//		final Spinner spinnerNumRepeticoes = (Spinner)findViewById(R.id.spinnerNumeroRepeticoes);
-//		final EditText caixaObservacao = (EditText)findViewById(R.id.caixaObservacaoExercicio);
-//		final EditText caixaCadExerPeso = (EditText) findViewById(R.id.caixaCadastroExercicioPeso);
-//		
-//		botaoCadastrarExercicio.setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				Exercicio exerc = new Exercicio(spinnerNomeExerc.getSelectedItem().getClass().getName(), 
-//						spinnerNomeMaquina.getSelectedItem().getClass().getName(), 
-//						GrupoExercicio.BRACO, 
-//						Integer.parseInt(spinnerNumSerie.getSelectedItem().getClass().getName()), 
-//						Integer.parseInt(spinnerNumRepeticoes.getSelectedItem().getClass().getName()), 
-//						Integer.parseInt(caixaCadExerPeso.getText().toString()));
-//				
-//				
-//				
-//			}
-//		});
-//		
-		Button botaoCancelarExercicio = (Button) findViewById(R.id.botaoCancelarCadastroExercicio);
-		botaoCancelarExercicio.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				menuInicial();

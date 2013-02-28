@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FichaDoAlunoActivity extends Activity {
@@ -38,11 +39,12 @@ public class FichaDoAlunoActivity extends Activity {
 		menuDeOpcoes();
 		
 	}
+	
+	
 
 	private void getAluno() {
 		Bundle bundle = getIntent().getExtras();
 		int idAluno = bundle.getInt("id_aluno");
-		System.out.println("idAluno>> " + idAluno);
 		aluno = alunoFachada.getAlunoFromId(idAluno);
 	}
 
@@ -50,7 +52,16 @@ public class FichaDoAlunoActivity extends Activity {
 		setContentView(R.layout.activity_ficha_do_aluno);
 		setTitle("Ficha do Aluno");
 		
+		TextView tvNome = (TextView) findViewById(R.id.textViewNomeFichaAluno);
+		TextView tvTelefone = (TextView) findViewById(R.id.textViewTelefoneFichaAluno);
+		TextView tvIdade = (TextView) findViewById(R.id.textViewIdadeFichaAluno);
+		TextView tvSexo = (TextView) findViewById(R.id.textViewSexoFichaAluno);
+		
+		tvNome.setText(aluno.getNome());
+		tvSexo.setText(aluno.getSexo());
+		
 		Button bCadastrarDados = (Button) findViewById(R.id.buttonCadastrarDadosFichaAluno);
+		Button bCadastrarExercicio = (Button) findViewById(R.id.buttonCadastrarExercicioFichaAluno);
 		Button bCadastrarAtividade = (Button)findViewById(R.id.buttonCadastrarAtividadeFichaAluno);
 		Button bCadastrarFicha = (Button)findViewById(R.id.buttonCriarFichaFichaAluno);
 		Button bVisualizarEstatisticas = (Button)findViewById(R.id.buttonVisualizarEstatisticasFichaAluno);//TODO
@@ -63,7 +74,12 @@ public class FichaDoAlunoActivity extends Activity {
 				Toast.makeText(getApplicationContext(), aluno.getId() + "-" + aluno.getNome(), Toast.LENGTH_SHORT).show();
 			}
 		});
-		
+		bCadastrarExercicio.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				menuCadastrarExercicio();
+			}
+		});
 		bCadastrarAtividade.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -93,6 +109,43 @@ public class FichaDoAlunoActivity extends Activity {
 		});
 	}
 	
+	private void menuCadastrarExercicio() {
+		setContentView(R.layout.cadastro_exercicio);
+		
+//		Button botaoCadastrarExercicio = (Button) findViewById(R.id.botaoCadastrarExercicio);
+//		
+//		final Spinner spinnerNomeExerc = (Spinner)findViewById(R.id.spinnerExercicio);
+//		final Spinner spinnerNomeMaquina = (Spinner)findViewById(R.id.spinnerMaquina);
+//		final Spinner spinnerGrupoMuscular = (Spinner)findViewById(R.id.spinnerGrupoMuscular);
+//		final Spinner spinnerNumSerie = (Spinner)findViewById(R.id.spinnerNumeroSerie);
+//		final Spinner spinnerNumRepeticoes = (Spinner)findViewById(R.id.spinnerNumeroRepeticoes);
+//		final EditText caixaObservacao = (EditText)findViewById(R.id.caixaObservacaoExercicio);
+//		final EditText caixaCadExerPeso = (EditText) findViewById(R.id.caixaCadastroExercicioPeso);
+//		
+//		botaoCadastrarExercicio.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				Exercicio exerc = new Exercicio(spinnerNomeExerc.getSelectedItem().getClass().getName(), 
+//						spinnerNomeMaquina.getSelectedItem().getClass().getName(), 
+//						GrupoExercicio.BRACO, 
+//						Integer.parseInt(spinnerNumSerie.getSelectedItem().getClass().getName()), 
+//						Integer.parseInt(spinnerNumRepeticoes.getSelectedItem().getClass().getName()), 
+//						Integer.parseInt(caixaCadExerPeso.getText().toString()));
+//				
+//				
+//				
+//			}
+//		});
+//		
+		Button botaoCancelarExercicio = (Button) findViewById(R.id.botaoCancelarCadastroExercicio);
+		botaoCancelarExercicio.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				menuDeOpcoes();
+			}
+		});
+		
+	}
 	private void menuCadastrarAtividade() {
 		
 		setContentView(R.layout.cadastro_atividade);
