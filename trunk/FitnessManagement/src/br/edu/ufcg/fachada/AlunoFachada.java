@@ -22,7 +22,10 @@ public class AlunoFachada {
 	public void adicionarAluno(Aluno aluno) {
 		ContentValues values = new ContentValues();
 		values.put("nome", aluno.getNome());
+		values.put("endereco", aluno.getEndereco());
 		values.put("sexo", aluno.getSexo());
+		values.put("telefone", aluno.getTelefone());
+		values.put("idade", aluno.getIdade());
 		
 		db.insertValues(TABLE_NAME, values);
 		db.close();
@@ -34,7 +37,7 @@ public class AlunoFachada {
 		try{
 			if(cursor != null){
 				while(cursor.moveToNext()){
-					Aluno aluno = new Aluno(cursor.getInt(0), cursor.getString(1), null, cursor.getString(2));
+					Aluno aluno = new Aluno(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
 					alunos.add(aluno);
 				}
 			}
@@ -75,7 +78,7 @@ public class AlunoFachada {
 		Aluno aluno = null;
 		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, "id = " + idAluno, null, null, null, null);
 		cursor.moveToFirst();
-		aluno = new Aluno(cursor.getInt(0), cursor.getString(1), null, cursor.getString(2));
+		aluno = new Aluno(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
 		return aluno;
 	}
 	

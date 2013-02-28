@@ -1,115 +1,168 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CadastrarActivity"
-    android:orientation="vertical" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textViewNomeMenuCadastrar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="26dp"
+        android:text="Nome" />
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nome" />
+    <Button
+        android:id="@+id/buttonVoltarMenuCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Voltar" />
 
-        <EditText
-            android:id="@+id/editTextNome"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10" >
+    <EditText
+        android:id="@+id/editTextNomeMenuCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewNomeMenuCadastrar"
+        android:layout_alignBottom="@+id/textViewNomeMenuCadastrar"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
-        </EditText>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textViewTelefoneMenuCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editTextTelefoneMenuCadastrar"
+        android:layout_alignBottom="@+id/editTextTelefoneMenuCadastrar"
+        android:layout_alignParentLeft="true"
+        android:text="Telefone" />
+
+    <TextView
+        android:id="@+id/textViewEnderecoMenuCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editTextEnderecoMenuCadastrar"
+        android:layout_alignBottom="@+id/editTextEnderecoMenuCadastrar"
+        android:layout_alignParentLeft="true"
+        android:text="Endereço" />
+
+    <EditText
+        android:id="@+id/editTextTelefoneMenuCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editTextEnderecoMenuCadastrar"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/editTextIdadeMenuCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editTextTelefoneMenuCadastrar"
+        android:ems="10"
+        android:inputType="number" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextEnderecoMenuCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editTextNomeMenuCadastrar"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPostalAddress" />
+
+    <TextView
+        android:id="@+id/textViewIdadeMenuCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editTextIdadeMenuCadastrar"
+        android:layout_alignBottom="@+id/editTextIdadeMenuCadastrar"
+        android:layout_alignRight="@+id/textViewNomeMenuCadastrar"
+        android:text="Idade" />
+
+    <Button
+        android:id="@+id/buttonCadastrarMenuCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonVoltarMenuCadastrar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Cadastrar" />
+
+    <TextView
+        android:id="@+id/textViewSexoMenuCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewIdadeMenuCadastrar"
+        android:layout_below="@+id/editTextIdadeMenuCadastrar"
+        android:layout_marginTop="44dp"
+        android:text="Sexo" />
+
     
-    <LinearLayout
-        android:layout_width="match_parent"
+	<RadioGroup 
+        android:id="@+id/radioGroupSexoMenuCadastrar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Endereco" />
-
-        <EditText
-            android:id="@+id/editTextEndereco"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10" >
-
-        </EditText>
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editTextIdadeMenuCadastrar"
+        android:layout_marginTop="29dp"
+        android:orientation="horizontal">
         
-    </LinearLayout>
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sexo" />
-
-        <RadioGroup 
-            android:id="@+id/radioGroupSexo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            
-            <RadioButton
-	            android:id="@+id/radioButtonSexoMasc"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="Masculino" 
-	            android:checked="true" />
-            
-            <RadioButton
-	            android:id="@+id/radioButtonSexoFemi"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:text="Feminino" />
-        </RadioGroup>
+		<RadioButton
+			android:id="@+id/radioButtonSexoMasMenuCadastrar"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@+id/textViewSexoMenuCadastrar"
+			android:layout_alignBottom="@+id/textViewSexoMenuCadastrar"
+			android:layout_alignParentRight="true"
+			android:checked="true"
+			android:text="Masculino" />
         
-    </LinearLayout>
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        <RadioButton
+			android:id="@+id/radioButtonSexoFemMenuCadastrar"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@+id/radioButtonSexoFemMenuCadastrar"
+            android:layout_alignBottom="@+id/radioButtonSexoFemMenuCadastrar"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/radioButtonSexoFemMenuCadastrar"
+            android:text="Feminino" />
+    </RadioGroup>
+	    
+<!--     <RadioGroup -->
+<!--         android:id="@+id/radioGroupSexoMenuCadastrar" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_alignParentRight="true" -->
+<!--         android:layout_below="@+id/editTextIdadeMenuCadastrar" -->
+<!--         android:layout_marginTop="29dp" -->
+<!--         android:orientation="horizontal" > -->
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+<!--         <RadioButton -->
+<!--             android:id="@+id/radioButtonSexoMasMenuCadastrar" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_alignBaseline="@+id/textViewSexoMenuCadastrar" -->
+<!--             android:layout_alignBottom="@+id/textViewSexoMenuCadastrar" -->
+<!--             android:layout_alignParentRight="true" -->
+<!--             android:checked="true" -->
+<!--             android:text="Masculino" /> -->
 
-            <Button
-                android:id="@+id/buttonCadastrarAluno"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="99dp"
-                android:text="Cadastrar" />
+<!--         <RadioButton -->
+<!--             android:id="@+id/radioButtonSexoFemMenuCadastrar" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_alignBaseline="@+id/radioButtonSexoFemMenuCadastrar" -->
+<!--             android:layout_alignBottom="@+id/radioButtonSexoFemMenuCadastrar" -->
+<!--             android:layout_marginRight="15dp" -->
+<!--             android:layout_toLeftOf="@+id/radioButtonSexoFemMenuCadastrar" -->
+<!--             android:text="Feminino" /> -->
+<!--     </RadioGroup> -->
 
-            <Button
-                android:id="@+id/buttonCadastrarVoltar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="28dp"
-                android:text="Voltar" />
-
-        </RelativeLayout>
-           
-    </LinearLayout>
-    
-</LinearLayout>
+</RelativeLayout>

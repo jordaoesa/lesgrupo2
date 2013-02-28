@@ -58,6 +58,8 @@ public class FichaDoAlunoActivity extends Activity {
 		TextView tvSexo = (TextView) findViewById(R.id.textViewSexoFichaAluno);
 		
 		tvNome.setText(aluno.getNome());
+		tvTelefone.setText(aluno.getTelefone().toString());
+		tvIdade.setText(aluno.getIdade().toString());
 		tvSexo.setText(aluno.getSexo());
 		
 		Button bCadastrarDados = (Button) findViewById(R.id.buttonCadastrarDadosFichaAluno);
