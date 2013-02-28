@@ -58,7 +58,6 @@ public class AlunoFachada {
 	
 	public Integer[] getOnlyIdsOfAlunos(){
 		List<Aluno> alunos = getAlunos();
-//		System.out.println("ALUNOS>>>: " + alunos);//TODO
 		Integer ids[] = new Integer[alunos.size()];
 		for(int i=0; i<alunos.size(); i++){
 			ids[i] = alunos.get(i).getId();
@@ -67,19 +66,7 @@ public class AlunoFachada {
 	}
 	
 	public Integer getIdUltimoAlunoAdicionado(){
-//		for(Aluno a : list) System.out.print("antes>> "+a.getId() + " ");
-//		Comparator<Aluno> c = new Comparator<Aluno>() {
-//			@Override
-//			public int compare(Aluno lhs, Aluno rhs) {
-//				if(lhs.getId() < rhs.getId()) return -1;
-//				else if(lhs.getId() > rhs.getId()) return 1;
-//				return 0;
-//			}
-//		};
-//		for(Aluno a : list) System.out.print("depois>> "+a.getId() + " ");
-		
 		List<Aluno> list = getAlunos();
-		Collections.sort(list);
 		Integer id = list.get(list.size()-1).getId();
 		return id;
 	}

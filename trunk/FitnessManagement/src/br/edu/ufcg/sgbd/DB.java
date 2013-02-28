@@ -11,7 +11,7 @@ public class DB extends SQLiteOpenHelper {
 	private final String TABLE_ALUNO = "CREATE TABLE TABLE_ALUNO(" +
 										"id INTEGER PRIMARY KEY AUTOINCREMENT," +
 										"nome VARCHAR(255)," +
-										"sexo VARCHAR(1)," +
+										"sexo VARCHAR(255)," +
 										"rua VARCHAR(255)," +
 										"numero INTEGER," +
 										"cidade VARCHAR(255)" +

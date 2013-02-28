@@ -62,14 +62,14 @@ public class VisualizarAlunosActivity extends Activity {
 	}
 	
 	private void selecionaUsuario(int position, List<Aluno> alunos) {
-		Toast.makeText(getApplicationContext(), alunos.get(position).getNome(), Toast.LENGTH_SHORT).show();
-		Intent intent = new Intent(this, FichaDoAlunoActivity.class);
+		//Toast.makeText(getApplicationContext(), alunos.get(position).getNome(), Toast.LENGTH_SHORT).show();
+		Intent activityFicha = new Intent(this, FichaDoAlunoActivity.class);
 		
-		Bundle bundle = new Bundle();
-		bundle.putInt("id_aluno", alunos.get(position).getId());
-		intent.putExtras(bundle);
+		Bundle parametros = new Bundle();
+		parametros.putInt("id_aluno", alunos.get(position).getId());
+		activityFicha.putExtras(parametros);
 		
-		startActivity(intent);
+		startActivity(activityFicha);
 	}
 	
 	@Override
