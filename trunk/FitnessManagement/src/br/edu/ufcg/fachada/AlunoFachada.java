@@ -1,6 +1,8 @@
 package br.edu.ufcg.fachada;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import android.content.ContentValues;
@@ -65,6 +67,18 @@ public class AlunoFachada {
 	
 	public Integer getIdUltimoAlunoAdicionado(){
 		List<Aluno> list = getAlunos();
+//		for(Aluno a : list) System.out.print("antes>> "+a.getId() + " ");
+		Comparator<Aluno> c = new Comparator<Aluno>() {
+			@Override
+			public int compare(Aluno lhs, Aluno rhs) {
+				if(lhs.getId() < rhs.getId()) return -1;
+				else if(lhs.getId() > rhs.getId()) return 1;
+				return 0;
+			}
+		};
+		Collections.sort(list, c);
+//		for(Aluno a : list) System.out.print("depois>> "+a.getId() + " ");
+		
 		Integer id = list.get(list.size()-1).getId();
 		return id;
 	}

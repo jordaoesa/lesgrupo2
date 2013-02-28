@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
 		dadosFachada = FitnessManagementSingleton.getDadosFachadaInstance();
 		
 		menuInicial();
-		inserirUsuarioNoBanco();
+		//inserirUsuarioNoBanco();
 	}
 	
 	private void menuInicial() {
@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
 		Button bCadastrar = (Button) findViewById(R.id.buttonCadastrarAlunosMain);
 		Button bGerenciar = (Button) findViewById(R.id.buttonGerenciarAlunosMain);
 		Button bCadastrarExercicio = (Button)findViewById(R.id.buttonCadastrarExerciciosMain);
-//		Button bAddAluno = (Button) findViewById(R.id.buttonAddAlunoMain);
+		Button bAddAluno = (Button) findViewById(R.id.buttonAddAlunoMain);
 		
 		final Intent intentGerenciar = new Intent(this, VisualizarAlunosActivity.class);
 		
@@ -67,12 +67,12 @@ public class MainActivity extends Activity {
 				menuCadastrarExercicio();
 			}
 		});
-//		bAddAluno.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				inserirUsuarioNoBanco();
-//			}
-//		});
+		bAddAluno.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				inserirUsuarioNoBanco();
+			}
+		});
 		
 	}
 	
