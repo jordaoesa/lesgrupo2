@@ -15,66 +15,39 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/buttonCadastrarAlunos"
+        android:id="@+id/buttonCadastrarExerciciosMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textViewLogotipo"
+        android:layout_centerVertical="true"
+        android:text="Cadastrar Exercicíos" />
+
+    <Button
+        android:id="@+id/buttonGerenciarAlunosMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonCadastrarExerciciosMain"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Gerenciar Alunos" />
+
+    <Button
+        android:id="@+id/buttonCadastrarAlunosMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonGerenciarAlunosMain"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:text="Cadastrar Alunos" />
 
     <Button
-        android:id="@+id/buttonCadastrarDados"
+        android:id="@+id/buttonAddAlunoMain"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonCadastrarAlunos"
-        android:text="Cadastrar Dados" />
-
-    <Button
-        android:id="@+id/buttonVisualizarEstatisticas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonCadastrarDados"
-        android:text="Visualizar Estatísticas" />
-
-    <Button
-        android:id="@+id/buttonAgendamento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonVisualizarEstatisticas"
-        android:text="Agendamento" />
-
-    <Button
-        android:id="@+id/botaoCadastramentoExercicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonAgendamento"
-        android:text="Cadastrar Exercicio" />
-
-    <Button
-        android:id="@+id/botaoCadastramentoAtividade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/botaoCadastramentoExercicio"
-        android:text="Cadastrar Atividade" />
-
-    <Button
-        android:id="@+id/botaoCadastramentoFicha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/botaoCadastramentoAtividade"
-        android:text="Cadastrar Ficha" />
+        android:text="add aluno" />
 
 </RelativeLayout>
