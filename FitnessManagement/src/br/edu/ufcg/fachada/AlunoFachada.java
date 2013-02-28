@@ -10,7 +10,7 @@ import br.edu.ufcg.sgbd.DB;
 
 public class AlunoFachada {
 	
-	private final String TABLE_NAME = "ALUNO"; 
+	private final String TABLE_NAME = "TABLE_ALUNO"; 
 	private DB db;
 	
 	public AlunoFachada(DB db) {

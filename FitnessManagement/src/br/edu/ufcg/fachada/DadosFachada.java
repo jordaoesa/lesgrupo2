@@ -13,7 +13,7 @@ import br.edu.ufcg.sgbd.DB;
 
 public class DadosFachada {
 	
-	private static final String TABLE_NAME = "DADOS";
+	private static final String TABLE_NAME = "TABLE_DADOS";
 	private DB db;
 	
 	public DadosFachada(DB db) {

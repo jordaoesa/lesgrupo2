@@ -6,5 +6,6 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_visualizar_alunos">VisualizarAlunosActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_ficha_do_aluno">FichaDoAlunoActivity</string>
 
 </resources>
