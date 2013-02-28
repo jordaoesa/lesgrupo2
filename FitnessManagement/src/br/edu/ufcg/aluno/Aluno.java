@@ -1,6 +1,6 @@
 package br.edu.ufcg.aluno;
 
-public class Aluno {
+public class Aluno implements Comparable<Aluno> {
 	
 	private Integer id;
 	private String nome;
@@ -51,6 +51,13 @@ public class Aluno {
 	@Override
 	public String toString() {
 		return "Id: " + getId() + " Nome: " + getNome() + " Sexo: " + getSexo();
+	}
+
+	@Override
+	public int compareTo(Aluno another) {
+		if(getId() < another.getId()) return -1;
+		else if(getId() > another.getId()) return 1;
+		return 0;
 	}
 
 }

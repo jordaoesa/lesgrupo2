@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.aluno.Dados;
+import br.edu.ufcg.fachada.AlunoFachada;
 import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.grafico.GraficoDeLinha;
 import br.edu.ufcg.util.FitnessManagementSingleton;
@@ -23,14 +25,25 @@ import android.widget.Toast;
 public class FichaDoAlunoActivity extends Activity {
 
 	private DadosFachada dadosFachada;
+	private AlunoFachada alunoFachada;
+	private Aluno aluno;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		dadosFachada = FitnessManagementSingleton.getDadosFachadaInstance();
+		alunoFachada = FitnessManagementSingleton.getAlunoFachadaInstance();
+		getAluno();
 		menuDeOpcoes();
 		
+	}
+
+	private void getAluno() {
+		Bundle bundle = getIntent().getExtras();
+		int idAluno = bundle.getInt("id_aluno");
+		System.out.println("idAluno>> " + idAluno);
+		aluno = alunoFachada.getAlunoFromId(idAluno);
 	}
 
 	private void menuDeOpcoes() {
@@ -47,6 +60,7 @@ public class FichaDoAlunoActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				//atualizarDados(); //TODO
+				Toast.makeText(getApplicationContext(), aluno.getId() + "-" + aluno.getNome(), Toast.LENGTH_SHORT).show();
 			}
 		});
 		
