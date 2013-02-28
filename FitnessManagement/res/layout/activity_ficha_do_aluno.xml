@@ -9,10 +9,10 @@
         android:orientation="horizontal" >
 
         <QuickContactBadge
-            android:id="@+id/quickContactBadge1"
+            android:id="@+id/quickContactBadgeFichaAluno"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@android:drawable/ic_menu_crop" />
+            android:src="@drawable/ic_launcher" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -61,6 +61,59 @@
         android:text="Gerenciar"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonVoltarFichaAluno"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textViewGerenciarFichaAluno" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="269dp"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/buttonCadastrarDadosFichaAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastrar Dados" />
+
+            <Button
+                android:id="@+id/buttonCadastrarAtividadeFichaAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastrar Atividade" />
+
+            <Button
+                android:id="@+id/buttonCriarFichaFichaAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Criar Ficha" />
+
+            <Button
+                android:id="@+id/buttonVisualizarEstatisticasFichaAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Visualizar Estatísticas" />
+
+            <Button
+                android:id="@+id/buttonAgendarAcompanhamentoFichaAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agendar Acompanhamento" />
+
+            <Button
+                android:id="@+id/buttonVisualizarFichaFichaAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Visualizar Ficha" />
+        </LinearLayout>
+
+    </ScrollView>
+
     <Button
         android:id="@+id/buttonVoltarFichaAluno"
         android:layout_width="wrap_content"
@@ -69,50 +122,5 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:text="Voltar" />
-
-    <Button
-        android:id="@+id/buttonCadastrarDadosFichaAluno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textViewGerenciarFichaAluno"
-        android:text="Cadastrar Dados" />
-
-    <Button
-        android:id="@+id/buttonCadastrarAtividadeFichaAluno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonCadastrarDadosFichaAluno"
-        android:text="Cadastrar Atividade" />
-
-    <Button
-        android:id="@+id/buttonCriarFichaFichaAluno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonCadastrarAtividadeFichaAluno"
-        android:text="Criar Ficha" />
-
-    <Button
-        android:id="@+id/buttonVisualizarEstatisticasFichaAluno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonCriarFichaFichaAluno"
-        android:text="Visualizar Estatísticas" />
-
-    <Button
-        android:id="@+id/buttonAgendarAcompanhamentoFichaAluno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonVisualizarEstatisticasFichaAluno"
-        android:text="Agendar Acompanhamento" />
 
 </RelativeLayout>
