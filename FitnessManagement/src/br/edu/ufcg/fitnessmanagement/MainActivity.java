@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.aluno.Dados;
@@ -71,21 +73,24 @@ public class MainActivity extends Activity {
 	private void menuCadastrar() {
 		setContentView(R.layout.cadastrar);
 		
-		Button cadastrar = (Button) findViewById(R.id.buttonCadastrarAluno);
+		Button cadastrar = (Button) findViewById(R.id.buttonCadastrarMenuCadastrar);
 		cadastrar.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				
-				String nome = ((EditText) findViewById(R.id.editTextNome)).getText().toString();
-				String endereco = ((EditText) findViewById(R.id.editTextEndereco)).getText().toString();
-				RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupSexo);
-				
+				String nome = ((EditText) findViewById(R.id.editTextNomeMenuCadastrar)).getText().toString();
+				String endereco = ((EditText) findViewById(R.id.editTextEnderecoMenuCadastrar)).getText().toString();
+				String telefone = ((EditText) findViewById(R.id.editTextTelefoneMenuCadastrar)).getText().toString();
+				Integer idade = Integer.parseInt(((EditText) findViewById(R.id.editTextIdadeMenuCadastrar)).getText().toString());
+				final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupSexoMenuCadastrar);
 				Aluno aluno = null;
+				
+				
 				int sexo = radioGroup.getCheckedRadioButtonId();
-				if(sexo == R.id.radioButtonSexoMasc){
-					aluno = new Aluno(nome, endereco, "M");
-				}else if(sexo == R.id.radioButtonSexoFemi){
-					aluno = new Aluno(nome, endereco, "F");
+				if(sexo == R.id.radioButtonSexoMasMenuCadastrar){
+					aluno = new Aluno(nome, endereco, "Masculino", telefone, idade);
+				}else if(sexo == R.id.radioButtonSexoFemMenuCadastrar){
+					aluno = new Aluno(nome, endereco, "Feminino", telefone, idade);
 				}
 				
 				alunoFachada.adicionarAluno(aluno);
@@ -94,7 +99,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		Button voltar = (Button) findViewById(R.id.buttonCadastrarVoltar);
+		Button voltar = (Button) findViewById(R.id.buttonVoltarMenuCadastrar);
 		voltar.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -105,7 +110,7 @@ public class MainActivity extends Activity {
 	}
 	
 	private void inserirUsuarioNoBanco() {
-		Aluno jordao = new Aluno("aluno", "Campina", "M");
+		Aluno jordao = new Aluno("aluno", "Campina", "Masculino", "99999999", 20);
 		
 		Dados dados1Jordao = new Dados(75.0, 100.0, 31.0, 55.0, 20.0, new Date("01/01/2013"));
 		Dados dados2Jordao = new Dados(76.0, 200.0, 32.0, 57.0, 21.0, new Date("02/01/2013"));

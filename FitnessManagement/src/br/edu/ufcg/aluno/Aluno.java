@@ -3,24 +3,30 @@ package br.edu.ufcg.aluno;
 public class Aluno implements Comparable<Aluno> {
 
 	private Integer id;
+	private Integer idade;
 	private String nome;
 	private String endereco;
+	private String telefone;
 	private String sexo;
 	
 	public Aluno() {
 	}
 	
-	public Aluno(String nome, String endereco, String sexo){
+	public Aluno(String nome, String endereco, String sexo, String telefone, Integer idade){
 		this.nome = nome;
 		this.endereco = endereco;
 		this.sexo = sexo;
+		this.telefone = telefone;
+		this.idade = idade;
 	}
 	
-	public Aluno(Integer id, String nome, String endereco, String sexo){
+	public Aluno(Integer id, String nome, String endereco, String sexo, String telefone, Integer idade){
 		this.id = id;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.sexo = sexo;
+		this.telefone = telefone;
+		this.idade = idade;
 	}
 	
 	public String getNome() {
@@ -47,12 +53,18 @@ public class Aluno implements Comparable<Aluno> {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	@Override
-	public String toString() {
-		return "Id: " + getId() + " Nome: " + getNome() + " Sexo: " + getSexo();
+	public Integer getIdade() {
+		return idade;
 	}
-
+	public void setIdade(Integer idade) {
+		this.idade = idade;
+	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 	@Override
 	public int compareTo(Aluno another) {
 		if(getId() < another.getId()) return -1;
