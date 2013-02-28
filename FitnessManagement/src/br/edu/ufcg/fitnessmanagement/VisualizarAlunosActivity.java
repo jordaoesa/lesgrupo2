@@ -63,7 +63,7 @@ public class VisualizarAlunosActivity extends Activity {
 	
 	private void selecionaUsuario(int position, List<Aluno> alunos) {
 		//Toast.makeText(getApplicationContext(), alunos.get(position).getNome(), Toast.LENGTH_SHORT).show();
-		Intent activityFicha = new Intent(this, FichaDoAlunoActivity.class);
+		Intent activityFicha = new Intent(this, PerfilDoAlunoActivity.class);
 		
 		Bundle parametros = new Bundle();
 		parametros.putInt("id_aluno", alunos.get(position).getId());

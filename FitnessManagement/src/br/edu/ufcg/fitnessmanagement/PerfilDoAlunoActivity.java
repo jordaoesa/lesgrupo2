@@ -23,7 +23,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class FichaDoAlunoActivity extends Activity {
+public class PerfilDoAlunoActivity extends Activity {
 
 	private DadosFachada dadosFachada;
 	private AlunoFachada alunoFachada;
@@ -49,31 +49,30 @@ public class FichaDoAlunoActivity extends Activity {
 	}
 
 	private void menuDeOpcoes() {
-		setContentView(R.layout.activity_ficha_do_aluno);
+		setContentView(R.layout.activity_perfil_do_aluno);
 		setTitle("Ficha do Aluno");
 		
-		TextView tvNome = (TextView) findViewById(R.id.textViewNomeFichaAluno);
-		TextView tvTelefone = (TextView) findViewById(R.id.textViewTelefoneFichaAluno);
-		TextView tvIdade = (TextView) findViewById(R.id.textViewIdadeFichaAluno);
-		TextView tvSexo = (TextView) findViewById(R.id.textViewSexoFichaAluno);
+		TextView tvNome = (TextView) findViewById(R.id.textViewNomePerfilAluno);
+		TextView tvTelefone = (TextView) findViewById(R.id.textViewTelefonePerfilAluno);
+		TextView tvIdade = (TextView) findViewById(R.id.textViewIdadePerfilAluno);
+		TextView tvSexo = (TextView) findViewById(R.id.textViewSexoPerfilAluno);
 		
 		tvNome.setText(aluno.getNome());
 		tvTelefone.setText(aluno.getTelefone().toString());
 		tvIdade.setText(aluno.getIdade().toString());
 		tvSexo.setText(aluno.getSexo());
 		
-		Button bCadastrarDados = (Button) findViewById(R.id.buttonCadastrarDadosFichaAluno);
-		Button bCadastrarExercicio = (Button) findViewById(R.id.buttonCadastrarExercicioFichaAluno);
-		Button bCadastrarAtividade = (Button)findViewById(R.id.buttonCadastrarAtividadeFichaAluno);
-		Button bCadastrarFicha = (Button)findViewById(R.id.buttonCriarFichaFichaAluno);
-		Button bVisualizarEstatisticas = (Button)findViewById(R.id.buttonVisualizarEstatisticasFichaAluno);//TODO
-		Button bAgendarAcompanhamento = (Button)findViewById(R.id.buttonAgendarAcompanhamentoFichaAluno);//TODO
+		Button bCadastrarDados = (Button) findViewById(R.id.buttonCadastrarDadosPerfilAluno);
+		Button bCadastrarExercicio = (Button) findViewById(R.id.buttonCadastrarExercicioPerfilAluno);
+		Button bCadastrarAtividade = (Button)findViewById(R.id.buttonCadastrarAtividadePerfilAluno);
+		Button bCadastrarFicha = (Button)findViewById(R.id.buttonCriarFichaPerfilAluno);
+		Button bVisualizarEstatisticas = (Button)findViewById(R.id.buttonVisualizarEstatisticasPerfilAluno);
+		Button bAgendarAcompanhamento = (Button)findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);//TODO
 		
 		bCadastrarDados.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//atualizarDados(); //TODO
-				Toast.makeText(getApplicationContext(), aluno.getId() + "-" + aluno.getNome(), Toast.LENGTH_SHORT).show();
+				atualizarDados();
 			}
 		});
 		bCadastrarExercicio.setOnClickListener(new OnClickListener() {
@@ -98,11 +97,11 @@ public class FichaDoAlunoActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				//mostrarEstatisticas(); //TODO
+				mostrarEstatisticas();
 			}
 		});
 		
-		Button voltar = (Button) findViewById(R.id.buttonVoltarFichaAluno);
+		Button voltar = (Button) findViewById(R.id.buttonVoltarPerfilAluno);
 		voltar.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -170,11 +169,11 @@ public class FichaDoAlunoActivity extends Activity {
 			}
 		});
 	}
-	private void mostrarEstatisticas(final int id) {
+	private void mostrarEstatisticas() {
 		setContentView(R.layout.estatisticas);
 		setTitle("Estatísticas");
 		
-		final List<Dados> dados = dadosFachada.getDadosDoAluno(id);
+		final List<Dados> dados = dadosFachada.getDadosDoAluno(aluno.getId());
 		final Button buttonPeso = (Button) findViewById(R.id.buttonEstatisticasPeso);
 		final Button buttonCalorias = (Button) findViewById(R.id.buttonEstatisticasCalorias);
 		final Button buttonBraco = (Button) findViewById(R.id.buttonEstatisticasBraco);
@@ -251,7 +250,7 @@ public class FichaDoAlunoActivity extends Activity {
 		});
 		
 	}
-	private void atualizarDados(final int id) {
+	private void atualizarDados() {
 		setContentView(R.layout.atualizar_dados);
 		setTitle("Atualizar Dados");
 		
@@ -277,7 +276,7 @@ public class FichaDoAlunoActivity extends Activity {
 				
 				Dados dados = new Dados(peso, calorias, braco, perna, imc, date);
 				
-				dadosFachada.adicionaDadosDoAluno(id, dados);
+				dadosFachada.adicionaDadosDoAluno(aluno.getId(), dados);
 				Toast.makeText(getApplicationContext(), "Sucess", Toast.LENGTH_SHORT).show();
 				menuDeOpcoes();
 			}

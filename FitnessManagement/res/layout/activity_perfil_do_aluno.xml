@@ -9,7 +9,7 @@
         android:orientation="horizontal" >
 
         <QuickContactBadge
-            android:id="@+id/quickContactBadgeFichaAluno"
+            android:id="@+id/quickContactBadgePerfilAluno"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/ic_launcher" />
@@ -20,28 +20,28 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textViewNomeFichaAluno"
+                android:id="@+id/textViewNomePerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nome"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
-                android:id="@+id/textViewIdadeFichaAluno"
+                android:id="@+id/textViewIdadePerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Idade"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
             
             <TextView
-                android:id="@+id/textViewTelefoneFichaAluno"
+                android:id="@+id/textViewTelefonePerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Telefone"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/textViewSexoFichaAluno"
+                android:id="@+id/textViewSexoPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sexo"
@@ -52,7 +52,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textViewGerenciarFichaAluno"
+        android:id="@+id/textViewGerenciarPerfilAluno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout1"
@@ -65,10 +65,10 @@
         android:id="@+id/scrollView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonVoltarFichaAluno"
+        android:layout_above="@+id/buttonVoltarPerfilAluno"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textViewGerenciarFichaAluno" >
+        android:layout_below="@+id/textViewGerenciarPerfilAluno" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,52 +76,52 @@
             android:orientation="vertical" >
 
             <Button
-                android:id="@+id/buttonCadastrarDadosFichaAluno"
+                android:id="@+id/buttonCadastrarDadosPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cadastrar Dados" />
 
             <Button
-                android:id="@+id/buttonCadastrarExercicioFichaAluno"
+                android:id="@+id/buttonCadastrarExercicioPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cadastrar Exercicio" />
             
             <Button
-                android:id="@+id/buttonCadastrarAtividadeFichaAluno"
+                android:id="@+id/buttonCadastrarAtividadePerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cadastrar Atividade" />
 
             <Button
-                android:id="@+id/buttonCriarFichaFichaAluno"
+                android:id="@+id/buttonCriarFichaPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Criar Ficha" />
 
             <Button
-                android:id="@+id/buttonVisualizarEstatisticasFichaAluno"
+                android:id="@+id/buttonVisualizarEstatisticasPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Visualizar Estatísticas" />
 
             <Button
-                android:id="@+id/buttonAgendarAcompanhamentoFichaAluno"
+                android:id="@+id/buttonAgendarAcompanhamentoPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Agendar Acompanhamento" />
 
             <Button
-                android:id="@+id/buttonVisualizarFichaFichaAluno"
+                android:id="@+id/buttonVisualizarFichasPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Visualizar Ficha" />
+                android:text="Visualizar Fichas" />
         </LinearLayout>
 
     </ScrollView>
 
     <Button
-        android:id="@+id/buttonVoltarFichaAluno"
+        android:id="@+id/buttonVoltarPerfilAluno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
