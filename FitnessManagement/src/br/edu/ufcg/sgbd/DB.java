@@ -9,31 +9,31 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DB extends SQLiteOpenHelper {
 	
 	private final String TABLE_ALUNO = "CREATE TABLE TABLE_ALUNO(" +
-										"id INTEGER PRIMARY KEY AUTOINCREMENT," +
-										"nome VARCHAR(255)," +
-										"sexo VARCHAR(255)," +
-										"rua VARCHAR(255)," +
-										"numero INTEGER," +
-										"cidade VARCHAR(255)" +
+											"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+											"nome VARCHAR(255)," +
+											"sexo VARCHAR(255)," +
+											"rua VARCHAR(255)," +
+											"numero INTEGER," +
+											"cidade VARCHAR(255)" +
 										")";
 	
 	private final String TABLE_DADOS = "CREATE TABLE TABLE_DADOS(" +
-										"id_aluno INTEGER," +
-										"data VARCHAR(11)," +
-										"peso REAL," +
-										"calorias_gastas REAL," +
-										"tamanho_braco REAL," +
-										"tamanho_antebraco REAL," +
-										"tamanho_perna REAL," +
-										"tamanho_panturrilha REAL," +
-										"imc REAL," +
-										"PRIMARY KEY (id_aluno, data)" +
-										"FOREIGN KEY (id_aluno) REFERENCES ALUNO(id)" +
+											"id_aluno INTEGER," +
+											"data VARCHAR(11)," +
+											"peso REAL," +
+											"calorias_gastas REAL," +
+											"tamanho_braco REAL," +
+											"tamanho_antebraco REAL," +
+											"tamanho_perna REAL," +
+											"tamanho_panturrilha REAL," +
+											"imc REAL," +
+											"PRIMARY KEY (id_aluno, data)" +
+											"FOREIGN KEY (id_aluno) REFERENCES ALUNO(id)" +
 										")";
-	//asdpkfasodk
-	private final String TABLE_EXERCICIOS = "CREATE TABLE EXERCICIOS("+"id_exercicio INTEGER,"+"nomeExercicio VARCHAR(255)"+")";
-	private final String TABLE_MAQUINAS = "CREATE TABLE MAQUINAS("+"id_maquina INTEGER,"+"nomeMaquina VARCHAR(255)"+")";
-	private final String TABLE_GRUPO_MUSCULAR = "CREATE TABLE GRUPO_MUSCULAR("+"id_grupoMuscular INTEGER,"+"nomeGrupoMuscular VARCHAR(255)"+")";
+	
+	private final String TABLE_EXERCICIOS = "CREATE TABLE TABLE_EXERCICIOS("+"id_exercicio INTEGER,"+"nomeExercicio VARCHAR(255)"+")";
+	private final String TABLE_MAQUINAS = "CREATE TABLE TABLE_MAQUINAS("+"id_maquina INTEGER,"+"nomeMaquina VARCHAR(255)"+")";
+	private final String TABLE_GRUPO_MUSCULAR = "CREATE TABLE TABLE_GRUPO_MUSCULAR("+"id_grupoMuscular INTEGER,"+"nomeGrupoMuscular VARCHAR(255)"+")";
 	/**
 	 * O construtor necessita do contexto da aplicacao
 	 * @param context
@@ -44,7 +44,7 @@ public class DB extends SQLiteOpenHelper {
 	     * O terceiro eh um ponteiro para manipulacao de dados, nao precisaremos dele.
 	     * O quarto eh a versao do banco de dados
 	     */
-		super(context, "FitBD", null, 1);
+		super(context, "FitDB", null, 1);
 	}
 
 	@Override
@@ -60,9 +60,9 @@ public class DB extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		dropTable(db, "TABLE_ALUNO");
 		dropTable(db, "TABLE_DADOS");
-		dropTable(db, TABLE_EXERCICIOS);
-		dropTable(db, TABLE_GRUPO_MUSCULAR);
-		dropTable(db, TABLE_MAQUINAS);
+		dropTable(db, "TABLE_EXERCICIOS");
+		dropTable(db, "TABLE_GRUPO_MUSCULAR");
+		dropTable(db, "TABLE_MAQUINAS");
 		onCreate(db);
 	}
 
