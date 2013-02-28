@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DB extends SQLiteOpenHelper {
 	
-	private final String TABLE_ALUNO = "CREATE TABLE ALUNO(" +
+	private final String TABLE_ALUNO = "CREATE TABLE TABLE_ALUNO(" +
 										"id INTEGER PRIMARY KEY AUTOINCREMENT," +
 										"nome VARCHAR(255)," +
 										"sexo VARCHAR(1)," +
@@ -17,7 +17,7 @@ public class DB extends SQLiteOpenHelper {
 										"cidade VARCHAR(255)" +
 										")";
 	
-	private final String TABLE_DADOS = "CREATE TABLE DADOS(" +
+	private final String TABLE_DADOS = "CREATE TABLE TABLE_DADOS(" +
 										"id_aluno INTEGER," +
 										"data VARCHAR(11)," +
 										"peso REAL," +
@@ -49,11 +49,6 @@ public class DB extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		dropTable(db, "ALUNO");
-		dropTable(db, "DADOS");
-		dropTable(db, TABLE_EXERCICIOS);
-		dropTable(db, TABLE_GRUPO_MUSCULAR);
-		dropTable(db, TABLE_MAQUINAS);
 		db.execSQL(TABLE_ALUNO);
 		db.execSQL(TABLE_DADOS);
 		db.execSQL(TABLE_EXERCICIOS);
@@ -63,8 +58,8 @@ public class DB extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		dropTable(db, "ALUNO");
-		dropTable(db, "DADOS");
+		dropTable(db, "TABLE_ALUNO");
+		dropTable(db, "TABLE_DADOS");
 		dropTable(db, TABLE_EXERCICIOS);
 		dropTable(db, TABLE_GRUPO_MUSCULAR);
 		dropTable(db, TABLE_MAQUINAS);
