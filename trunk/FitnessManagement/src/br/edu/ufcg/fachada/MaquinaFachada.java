@@ -13,19 +13,18 @@ public class MaquinaFachada {
 		this.db = db;
 	}
 
-	public void adicionaMaquina(Integer id, String nomeMaquina){
+	public void adicionaMaquina( String nomeMaquina){
 		ContentValues values = new ContentValues();
-		values.put("id_maquina", id);
 		values.put("nomeMaquina", nomeMaquina);
 		db.insertValues(TABLE_NAME, values);
 	}
 	
-	public String getDadosMaquina(Integer id) {
-		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, "id_maquina = " + id, null, null, null, null);
-		String s = null;
+	public String getDadosMaquinas() {
+		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, null, null, null, null, null);
+		String s ="";
 		try{
 			while(cursor.moveToNext()){
-				 s ="";
+				
 				s = s+ cursor.getInt(0) +  cursor.getString(1);
 				
 			}

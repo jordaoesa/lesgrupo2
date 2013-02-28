@@ -13,19 +13,18 @@ public class GrupoMuscularFachada {
 		this.db = db;
 	}
 
-	public void adicionaGrupoMuscular(Integer id, String nomeGrupoMuscular){
+	public void adicionaGrupoMuscular( String nomeGrupoMuscular){
 		ContentValues values = new ContentValues();
-		values.put("id_grupoMuscular", id);
 		values.put("nomeGrupoMuscular", nomeGrupoMuscular);
 		db.insertValues(TABLE_NAME, values);
+		db.close();
 	}
 	
-	public String getDadosGrupoMuscular(Integer id) {
-		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, "id_grupoMuscular = " + id, null, null, null, null);
-		String s = null;
+	public String getDadosGrupoMusculares() {
+		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, null, null, null, null, null);
+		String s ="";
 		try{
 			while(cursor.moveToNext()){
-				 s ="";
 				s = s+ cursor.getInt(0) +  cursor.getString(1);
 				
 			}
