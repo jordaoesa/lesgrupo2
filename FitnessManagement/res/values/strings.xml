@@ -7,5 +7,10 @@
     <string name="title_activity_visualizar_alunos">VisualizarAlunosActivity</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_ficha_do_aluno">FichaDoAlunoActivity</string>
+    <string name="title_activity_cadastrar_dados">CadastrarDadosActivity</string>
+    <string name="title_activity_cadastrar_exercicio">CadastrarExercicioActivity</string>
+    <string name="title_activity_cadastrar_atividade">CadastrarAtividadeActivity</string>
+    <string name="title_activity_criar_ficha">CriarFichaActivity</string>
+    <string name="title_activity_visualizar_estatisticas">VisualizarEstatisticasActivity</string>
 
 </resources>
