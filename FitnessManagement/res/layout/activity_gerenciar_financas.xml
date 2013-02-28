@@ -4,11 +4,92 @@
     android:layout_height="match_parent"
     tools:context=".GerenciarFinancasActivity" >
 
+    <LinearLayout
+        android:id="@+id/linearLayout1GerenciarFinancas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/editTextAdicionarGerenciarFinancas"
+            android:layout_width="107dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.08"
+            android:ems="10"
+            android:inputType="numberDecimal" >
+        </EditText>
+
+        <Button
+            android:id="@+id/buttonAdicionarGerenciarFinancas"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.26"
+            android:text="Adicionar" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonVoltarGerenciarFinancas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Voltar" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout1GerenciarFinancas"
+        android:layout_marginTop="16dp" >
+
+        <EditText
+            android:id="@+id/editTextQuitarGerenciarFinancas"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" >
+        </EditText>
+
+        <Button
+            android:id="@+id/buttonQuitarGerenciarFinancas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.64"
+            android:text="Quitar" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonQuitarTudoGerenciarFinancas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="24dp"
+        android:text="Quitar Tudo" />
+
     <TextView
+        android:id="@+id/textViewDividaTotalGerenciarFinancas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+        android:text="Dívida Total"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textViewDividaGerenciarFinancas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewDividaTotalGerenciarFinancas"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="..."
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

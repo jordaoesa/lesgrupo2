@@ -77,8 +77,10 @@ public class AlunoFachada {
 	public Aluno getAlunoFromId(int idAluno) {
 		Aluno aluno = null;
 		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, "id = " + idAluno, null, null, null, null);
-		cursor.moveToFirst();
-		aluno = new Aluno(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
+		if(cursor != null){
+			cursor.moveToFirst();
+			aluno = new Aluno(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
+		}
 		return aluno;
 	}
 	
