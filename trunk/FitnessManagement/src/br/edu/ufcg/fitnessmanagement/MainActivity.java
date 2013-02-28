@@ -35,7 +35,6 @@ public class MainActivity extends Activity {
 		dadosFachada = FitnessManagementSingleton.getDadosFachadaInstance();
 		
 		menuInicial();
-		//inserirUsuarioNoBanco();
 	}
 	
 	private void menuInicial() {

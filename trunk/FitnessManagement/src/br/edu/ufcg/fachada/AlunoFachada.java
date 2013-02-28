@@ -43,6 +43,7 @@ public class AlunoFachada {
 		}finally{
 			cursor.close();
 		}
+		Collections.sort(alunos);
 		return alunos;
 	}
 	
@@ -66,21 +67,29 @@ public class AlunoFachada {
 	}
 	
 	public Integer getIdUltimoAlunoAdicionado(){
-		List<Aluno> list = getAlunos();
 //		for(Aluno a : list) System.out.print("antes>> "+a.getId() + " ");
-		Comparator<Aluno> c = new Comparator<Aluno>() {
-			@Override
-			public int compare(Aluno lhs, Aluno rhs) {
-				if(lhs.getId() < rhs.getId()) return -1;
-				else if(lhs.getId() > rhs.getId()) return 1;
-				return 0;
-			}
-		};
-		Collections.sort(list, c);
+//		Comparator<Aluno> c = new Comparator<Aluno>() {
+//			@Override
+//			public int compare(Aluno lhs, Aluno rhs) {
+//				if(lhs.getId() < rhs.getId()) return -1;
+//				else if(lhs.getId() > rhs.getId()) return 1;
+//				return 0;
+//			}
+//		};
 //		for(Aluno a : list) System.out.print("depois>> "+a.getId() + " ");
 		
+		List<Aluno> list = getAlunos();
+		Collections.sort(list);
 		Integer id = list.get(list.size()-1).getId();
 		return id;
+	}
+
+	public Aluno getAlunoFromId(int idAluno) {
+		Aluno aluno = null;
+		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, "id = " + idAluno, null, null, null, null);
+		cursor.moveToFirst();
+		aluno = new Aluno(cursor.getInt(0), cursor.getString(1), null, cursor.getString(2));
+		return aluno;
 	}
 	
 }
