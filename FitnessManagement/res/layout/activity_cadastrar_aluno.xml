@@ -135,34 +135,4 @@
             android:text="Feminino" />
     </RadioGroup>
 	    
-<!--     <RadioGroup -->
-<!--         android:id="@+id/radioGroupSexoMenuCadastrar" -->
-<!--         android:layout_width="wrap_content" -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:layout_alignParentRight="true" -->
-<!--         android:layout_below="@+id/editTextIdadeMenuCadastrar" -->
-<!--         android:layout_marginTop="29dp" -->
-<!--         android:orientation="horizontal" > -->
-
-<!--         <RadioButton -->
-<!--             android:id="@+id/radioButtonSexoMasMenuCadastrar" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:layout_alignBaseline="@+id/textViewSexoMenuCadastrar" -->
-<!--             android:layout_alignBottom="@+id/textViewSexoMenuCadastrar" -->
-<!--             android:layout_alignParentRight="true" -->
-<!--             android:checked="true" -->
-<!--             android:text="Masculino" /> -->
-
-<!--         <RadioButton -->
-<!--             android:id="@+id/radioButtonSexoFemMenuCadastrar" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:layout_alignBaseline="@+id/radioButtonSexoFemMenuCadastrar" -->
-<!--             android:layout_alignBottom="@+id/radioButtonSexoFemMenuCadastrar" -->
-<!--             android:layout_marginRight="15dp" -->
-<!--             android:layout_toLeftOf="@+id/radioButtonSexoFemMenuCadastrar" -->
-<!--             android:text="Feminino" /> -->
-<!--     </RadioGroup> -->
-
 </RelativeLayout>
