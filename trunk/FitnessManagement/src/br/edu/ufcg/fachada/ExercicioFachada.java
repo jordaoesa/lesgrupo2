@@ -28,7 +28,7 @@ public class ExercicioFachada {
 		try{
 			while(cursor.moveToNext()){
 				 s ="";
-				s = s+ cursor.getInt(0) +  cursor.getInt(1);
+				s = s+ cursor.getInt(0) +  cursor.getString(1);
 				
 			}
 		}catch(Exception e){
