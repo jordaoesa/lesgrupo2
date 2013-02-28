@@ -29,7 +29,7 @@
             android:label="@string/title_activity_visualizar_alunos" >
         </activity>
         <activity
-            android:name="br.edu.ufcg.fitnessmanagement.FichaDoAlunoActivity"
+            android:name="br.edu.ufcg.fitnessmanagement.PerfilDoAlunoActivity"
             android:label="@string/title_activity_ficha_do_aluno" >
         </activity>
     </application>

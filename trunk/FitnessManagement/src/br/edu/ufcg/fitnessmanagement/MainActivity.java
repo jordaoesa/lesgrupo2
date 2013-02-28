@@ -110,7 +110,7 @@ public class MainActivity extends Activity {
 	}
 	
 	private void inserirUsuarioNoBanco() {
-		Aluno jordao = new Aluno("aluno", "Campina", "Masculino", "99999999", 20);
+		Aluno jordao = new Aluno("aluno", "Campina", "Masculino", "(83) 9999-9999", 20);
 		
 		Dados dados1Jordao = new Dados(75.0, 100.0, 31.0, 55.0, 20.0, new Date("01/01/2013"));
 		Dados dados2Jordao = new Dados(76.0, 200.0, 32.0, 57.0, 21.0, new Date("02/01/2013"));
