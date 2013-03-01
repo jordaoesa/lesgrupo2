@@ -9,12 +9,12 @@
         android:layout_height="wrap_content" >
 
         <EditText
-            android:id="@+id/textoNomeAtividade"
+            android:id="@+id/textoNomeTreinoCadastrarTreino"
             android:layout_width="96dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.40"
             android:ems="10"
-            android:text="Nome da Atividade" >
+            android:text="Nome do Treino" >
 
             <requestFocus />
         </EditText>
@@ -38,15 +38,15 @@
             android:layout_height="62dp" >
 
             <Spinner
-                android:id="@+id/spinnerDeExercicios"
+                android:id="@+id/spinnerDeAtividadesCadastrarTreino"
                 android:layout_width="129dp"
                 android:layout_height="65dp" />
 
             <Button
-                android:id="@+id/botaoAdicionarExercicio"
+                android:id="@+id/botaoAdicionarAtividadeCadastrarTreino"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
-                android:text="Adicionar Exercicio" />
+                android:text="Adicionar Atividade" />
 
         </LinearLayout>
 
@@ -75,7 +75,7 @@
             android:orientation="vertical" >
 
             <Button
-                android:id="@+id/botaoCadastrarAtividade"
+                android:id="@+id/botaoCadastrarTreinoCadastrarTreino"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.22"
@@ -85,7 +85,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/botaoCancelarCadastroAtividade"
+        android:id="@+id/botaoCancelarCadastroTreinoCadastrarTreino"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cancelar" />

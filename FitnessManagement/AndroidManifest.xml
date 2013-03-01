@@ -37,12 +37,12 @@
             android:label="@string/title_activity_cadastrar_dados" >
         </activity>
         <activity
-            android:name="br.edu.ufcg.fitnessmanagement.CadastrarExercicioActivity"
+            android:name="br.edu.ufcg.fitnessmanagement.CadastrarAtividadeActivity"
             android:label="@string/title_activity_cadastrar_exercicio" >
         </activity>
         <activity
-            android:name="br.edu.ufcg.fitnessmanagement.CadastrarAtividadeActivity"
-            android:label="@string/title_activity_cadastrar_atividade" >
+            android:name="br.edu.ufcg.fitnessmanagement.CadastrarTreinoActivity"
+            android:label="@string/title_activity_cadastrar_treino" >
         </activity>
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.CriarFichaActivity"

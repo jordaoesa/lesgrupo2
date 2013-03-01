@@ -49,8 +49,8 @@ public class PerfilDoAlunoActivity extends Activity {
 		tvSexo.setText(aluno.getSexo());
 		
 		Button bCadastrarDados = (Button) findViewById(R.id.buttonCadastrarDadosPerfilAluno);
-		Button bCadastrarExercicio = (Button) findViewById(R.id.buttonCadastrarExercicioPerfilAluno);
 		Button bCadastrarAtividade = (Button) findViewById(R.id.buttonCadastrarAtividadePerfilAluno);
+		Button bCadastrarTreino = (Button) findViewById(R.id.buttonCadastrarTreinoPerfilAluno);
 		Button bCadastrarFicha = (Button) findViewById(R.id.buttonCriarFichaPerfilAluno);
 		Button bVisualizarEstatisticas = (Button) findViewById(R.id.buttonVisualizarEstatisticasPerfilAluno);
 		Button bGerenciarFinancas = (Button) findViewById(R.id.buttonGerenciarFinancasPerfilAluno);
@@ -64,19 +64,19 @@ public class PerfilDoAlunoActivity extends Activity {
 				startActivity(intentDados);
 			}
 		});
-		bCadastrarExercicio.setOnClickListener(new OnClickListener() {
+		bCadastrarAtividade.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Intent intentExercicio = new Intent(getApplicationContext(), CadastrarExercicioActivity.class);
+				Intent intentExercicio = new Intent(getApplicationContext(), CadastrarAtividadeActivity.class);
 				intentExercicio.putExtra("id_aluno", aluno.getId());
 				startActivity(intentExercicio);
 			}
 		});
-		bCadastrarAtividade.setOnClickListener(new OnClickListener() {
+		bCadastrarTreino.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intentAtividade = new Intent(getApplicationContext(), CadastrarAtividadeActivity.class);
-				startActivity(intentAtividade);
+				Intent intentTreino = new Intent(getApplicationContext(), CadastrarTreinoActivity.class);
+				startActivity(intentTreino);
 			}
 		});
 		bCadastrarFicha.setOnClickListener(new OnClickListener() {

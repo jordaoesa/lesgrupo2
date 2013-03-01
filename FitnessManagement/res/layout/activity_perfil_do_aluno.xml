@@ -82,16 +82,16 @@
                 android:text="Cadastrar Dados" />
 
             <Button
-                android:id="@+id/buttonCadastrarExercicioPerfilAluno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cadastrar Exercicio" />
-            
-            <Button
                 android:id="@+id/buttonCadastrarAtividadePerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cadastrar Atividade" />
+            
+            <Button
+                android:id="@+id/buttonCadastrarTreinoPerfilAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cadastrar Treino" />
 
             <Button
                 android:id="@+id/buttonCriarFichaPerfilAluno"
