@@ -60,7 +60,7 @@ public class CadastrarExercicioActivity extends Activity {
 				FitnessManagementSingleton.getAtividadeFachadaInstance().adicionaAtividade(idAluno, atividade);
 				
 				Toast.makeText(getApplicationContext(), "aluno: " + idAluno + " - exercicio: " + atividade.getNomeExercicio(), Toast.LENGTH_SHORT).show();
-				
+				finish();
 			}
 		});
 		
