@@ -4,21 +4,22 @@ public class Atividade {
 
 	public String nomeExercicio;
 	public String nomeMaquina;
-	public String grupoExercicio;
-	public String series;
-	public String repeticoes;
-	public String peso;
+	public String grupoMuscular;
+	public int series;
+	public int repeticoes;
+	public int peso;
 	public String observacao;
 	public String id = nomeExercicio+nomeMaquina+observacao;
 	
-	public Atividade(String nomeExercicio, String nomeMaquina, String grupoExercicio, String series, String repeticoes, String peso) {
+	public Atividade(String nomeExercicio, String nomeMaquina, String grupoMuscular, int series, int repeticoes, int peso, String observacao) {
 
 		this.nomeExercicio = nomeExercicio;
 		this.nomeMaquina = nomeMaquina;
-		this.grupoExercicio = grupoExercicio;
+		this.grupoMuscular = grupoMuscular;
 		this.series = series;
 		this.repeticoes = repeticoes;
 		this.peso = peso;
+		this.observacao = observacao;
 	}
 
 	public String getNomeExercicio() {
@@ -29,19 +30,19 @@ public class Atividade {
 		return nomeMaquina;
 	}
 
-	public String getGrupoExercicio() {
-		return grupoExercicio;
+	public String getGrupoMuscular() {
+		return grupoMuscular;
 	}
 
-	public String getSeries() {
+	public int getSeries() {
 		return series;
 	}
 
-	public String getRepeticoes() {
+	public int getRepeticoes() {
 		return repeticoes;
 	}
 
-	public String getPeso() {
+	public int getPeso() {
 		return peso;
 	}
 
@@ -62,18 +63,18 @@ public class Atividade {
 	}
 
 	public void setGrupoExercicio(String grupoExercicio) {
-		this.grupoExercicio = grupoExercicio;
+		this.grupoMuscular = grupoExercicio;
 	}
 
-	public void setSeries(String series) {
+	public void setSeries(int series) {
 		this.series = series;
 	}
 
-	public void setRepeticoes(String repeticoes) {
+	public void setRepeticoes(int repeticoes) {
 		this.repeticoes = repeticoes;
 	}
 
-	public void setPeso(String peso) {
+	public void setPeso(int peso) {
 		this.peso = peso;
 	}
 
@@ -86,7 +87,7 @@ public class Atividade {
 		return "Exercicio \n" +
 				"Nome do Exercício: " + nomeExercicio + "\n"+
 				"Nome da Máquina: " + nomeMaquina + "\n"+
-				"Grupo Muscular: " + grupoExercicio+ "\n"+
+				"Grupo Muscular: " + grupoMuscular+ "\n"+
 				"Quantidade de Séries: " + series +"\n"+
 				"Repetições por Série: " + repeticoes +"\n"+ 
 				"Peso na Máquina: " + peso +"\n"+ 
