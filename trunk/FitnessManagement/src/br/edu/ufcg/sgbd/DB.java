@@ -47,15 +47,17 @@ public class DB extends SQLiteOpenHelper {
 	
 	
 	private final String TABLE_ATIVIDADE = "CREATE TABLE TABLE_ATIVIDADE(" +
-			"nomeExercicio VARCHAR(255)," +
-			"nomeMaquina VARCHAR(255)," +
-			"nomeGrupoMuscular VARCHAR(255)," +
-			"numeroSeries INTEGER," +
-			"numeroRepeticoes INTEGER," +
-			"peso INTEGER," +
-			"observacao VARCHAR(255)," +
-			
-		")";
+												"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+												"id_aluno INTEGER," +
+												"numeroSeries INTEGER," +
+												"numeroRepeticoes INTEGER," +
+												"peso INTEGER," +
+												"nomeExercicio VARCHAR(255)," +
+												"nomeMaquina VARCHAR(255)," +
+												"nomeGrupoMuscular VARCHAR(255)," +
+												"observacao VARCHAR(255)," +
+												"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
+											")";
 	
 	/**
 	 * O construtor necessita do contexto da aplicacao
@@ -89,7 +91,7 @@ public class DB extends SQLiteOpenHelper {
 		dropTable(db, "TABLE_EXERCICIOS");
 		dropTable(db, "TABLE_GRUPO_MUSCULAR");
 		dropTable(db, "TABLE_MAQUINAS");
-		dropTable(db, TABLE_ATIVIDADE);
+		dropTable(db, "TABLE_ATIVIDADE");
 		onCreate(db);
 	}
 
