@@ -19,43 +19,31 @@ public class AtividadeFachada {
 		this.db = db;
 	}
 
-	public void adicionaAtividade(Atividade atividade){
+	public void adicionaAtividade(Integer idAluno, Atividade atividade){
 		ContentValues values = new ContentValues();
-		String nomeExercicio = atividade.getNomeExercicio();
-		String nomeMaquina = atividade.getNomeMaquina();
-		String nomeGrupoMuscular = atividade.getGrupoMuscular();
-		int numeroSeries = atividade.getSeries();
-		int numeroRepeticoes = atividade.getRepeticoes();
-		String observacao = atividade.getObservacao();
-		int peso = atividade.getPeso();
+		values.put("id_aluno", idAluno);
+		values.put("nomeExercicio", atividade.getNomeExercicio());
+		values.put("nomeMaquina", atividade.getNomeMaquina());
+		values.put("nomeGrupoMuscular", atividade.getGrupoMuscular());
+		values.put("numeroSeries", atividade.getSeries());
+		values.put("numeroRepeticoes", atividade.getRepeticoes());
+		values.put("peso", atividade.getPeso());
+		values.put("observacao", atividade.getObservacao());
 		
-		
-		values.put("nomeExercicio", nomeExercicio);
-		values.put("nomeMaquina", nomeMaquina);
-		values.put("nomeGrupoMuscular", nomeGrupoMuscular);
-		values.put("numeroSeries", numeroSeries);
-		values.put("numeroRepeticoes", numeroRepeticoes);
-		values.put("peso",peso);
-		values.put("observacao",observacao);
-		
-		
-		System.out.println("CHEGUEI ATE AQUI DENTRO");
 		db.insertValues(TABLE_NAME, values);
-		System.out.println("CONSEGUI INSERIR NA TABELA");
 		db.close();
 	}
 	
 
 	
-	public List<Atividade> getAtividades(){
+	public List<Atividade> getAtividades(Integer idAluno){
 		List<Atividade> atividades = new ArrayList<Atividade>();
-		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, null, null, null, null, null);
+		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, "id_aluno = " + idAluno, null, null, null, null);
 		try{
 			if(cursor != null){
 				while(cursor.moveToNext()){
-					Atividade exercicioComposto = new Atividade(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3), cursor.getInt(4), cursor.getInt(5),cursor.getString(6));
-					atividades.add(exercicioComposto);
-					System.out.println(exercicioComposto.toString());
+					Atividade atividade = new Atividade(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4), cursor.getString(5),cursor.getString(6), cursor.getString(7), cursor.getString(8));
+					atividades.add(atividade);
 				}
 			}
 		}catch(Exception e){

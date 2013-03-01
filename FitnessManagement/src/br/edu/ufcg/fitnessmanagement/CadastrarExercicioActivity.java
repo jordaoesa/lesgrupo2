@@ -17,18 +17,19 @@ import android.widget.Toast;
 
 public class CadastrarExercicioActivity extends Activity {
 	
+	private Integer idAluno;
 	private String nomeExercicio;
 	private String nomeMaquina;
 	private String nomeGurpoMuscular;
 	private int series;
 	private int repeticoes;
-	
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_cadastrar_exercicio);
+		
+		idAluno = getIntent().getIntExtra("id_aluno", -1);
 		
 		menuCadastrarExercicio();
 	}
@@ -38,11 +39,6 @@ public class CadastrarExercicioActivity extends Activity {
 		
 		Button botaoCadastrarExercicio = (Button) findViewById(R.id.botaoCadastrarExercicio);
 		
-		
-		final Spinner spinnerNomeMaquina = (Spinner)findViewById(R.id.spinnerMaquina);
-		final Spinner spinnerGrupoMuscular = (Spinner)findViewById(R.id.spinnerGrupoMuscular);
-		final Spinner spinnerNumSerie = (Spinner)findViewById(R.id.spinnerNumeroSerie);
-		final Spinner spinnerNumRepeticoes = (Spinner)findViewById(R.id.spinnerNumeroRepeticoes);
 		final EditText caixaObservacao = (EditText)findViewById(R.id.caixaObservacaoExercicio);
 		final EditText caixaCadExerPeso = (EditText) findViewById(R.id.caixaCadastroExercicioPeso);
 		
@@ -60,18 +56,10 @@ public class CadastrarExercicioActivity extends Activity {
 				int peso = Integer.parseInt(caixaCadExerPeso.getText().toString());
 				String observacao = caixaObservacao.getText().toString();
 
-				Atividade exercicioComposto = new Atividade(nomeExercicio, nomeMaquina, nomeGurpoMuscular, series, repeticoes, peso, observacao);
-				System.out.println("CRIEI O EXERCICIO DE BOUA.. VOU ADD NO BANCO DE DADOS");
+				Atividade atividade = new Atividade(series, repeticoes, peso, nomeExercicio, nomeMaquina, nomeGurpoMuscular,  observacao);
+				FitnessManagementSingleton.getAtividadeFachadaInstance().adicionaAtividade(idAluno, atividade);
 				
-				FitnessManagementSingleton.getAtividadeFachadaInstance().adicionaAtividade(exercicioComposto);
-				
-				System.out.println("ADICIONADO NO BANCO DE DADOS");
-
-				
-			//	Toast.makeText(getApplicationContext(), "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
-				
-			//	System.out.println(FitnessManagementSingleton.getAtividadeFachadaInstance().getAtividades().get(0).toString());
-				
+				Toast.makeText(getApplicationContext(), "aluno: " + idAluno + " - exercicio: " + atividade.getNomeExercicio(), Toast.LENGTH_SHORT).show();
 				
 			}
 		});
@@ -97,7 +85,6 @@ public class CadastrarExercicioActivity extends Activity {
 		
 	}
 
-	
 	private void preencheSpinnerSerie() {
 		Spinner spinnerSerie = (Spinner)findViewById(R.id.spinnerNumeroSerie);
 		Object[] a = {"2","3","4","5","6","7"};
@@ -108,10 +95,6 @@ public class CadastrarExercicioActivity extends Activity {
 		capturarNumeroSeries(spinnerSerie);
 		
 	}
-
-
-
-
 
 	private void preencheSpinnerGrupoMuscular() {
 		Spinner spinnerGrupoMuscular = (Spinner)findViewById(R.id.spinnerGrupoMuscular);
@@ -134,11 +117,6 @@ public class CadastrarExercicioActivity extends Activity {
 		capturarNomeMaquina(spinnerNomeMaquina);
 	}
 
-
-
-
-
-
 	private void preencheSpinnerExercicio() {
 		Spinner spinnerNomeExerc = (Spinner)findViewById(R.id.spinnerExercicio);
 		Object[] a =  FitnessManagementSingleton.getExercicioFachadaInstance().getDadosExercicios().toArray();
@@ -147,9 +125,6 @@ public class CadastrarExercicioActivity extends Activity {
 		spinnerNomeExerc.setAdapter(arrayAdapter);
 		
 		capturarNomeExercicio(spinnerNomeExerc);
-
-		
-		
 	}
 	
 	private void capturarNomeExercicio(Spinner spinner){
