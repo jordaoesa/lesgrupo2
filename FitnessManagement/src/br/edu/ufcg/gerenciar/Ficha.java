@@ -5,17 +5,17 @@ import java.util.ArrayList;
 public class Ficha {
 	
 	private String nomeFicha;
-	private ArrayList<Atividade> atividades = new ArrayList<Atividade>();
+	private ArrayList<Treino> atividades = new ArrayList<Treino>();
 	private String id;
 	
 	public Ficha(String nomeFicha){
 		this.nomeFicha = nomeFicha;
 	}
-	public Ficha(String nomeFicha,ArrayList<Atividade> atividades){
+	public Ficha(String nomeFicha,ArrayList<Treino> atividades){
 		this.atividades = atividades;
 		this.nomeFicha = nomeFicha;
 	}
-	public void adicionarAtividade(Atividade atividade){
+	public void adicionarAtividade(Treino atividade){
 		if(atividade!= null){
 			atividades.add(atividade);
 		}
@@ -23,7 +23,7 @@ public class Ficha {
 	
 	public boolean removerAtividade(String id){
 		boolean removido = false;
-		for(Atividade a:atividades){
+		for(Treino a:atividades){
 			if(a.getID().equals(id)){
 				return atividades.remove(a);
 			}
@@ -31,7 +31,7 @@ public class Ficha {
 		return removido;
 	}
 	
-	public ArrayList<Atividade> getFicha(){
+	public ArrayList<Treino> getFicha(){
 		return this.atividades;
 	}
 	
@@ -41,7 +41,7 @@ public class Ficha {
 	
 	public String toString(){
 		String retorno = "Nome Ficha: "+nomeFicha+"\nLista de Atividades:\n\n";
-		for(Atividade a:atividades){
+		for(Treino a:atividades){
 			retorno = retorno +a.toString()+"\n\n";
 		}
 		return retorno;

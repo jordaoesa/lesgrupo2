@@ -1,17 +1,17 @@
 package br.edu.ufcg.exercicio;
 
-public class Exercicio {
+public class Atividade {
 
 	public String nomeExercicio;
 	public String nomeMaquina;
-	public GrupoExercicio grupoExercicio;
+	public String grupoExercicio;
 	public int series;
 	public int repeticoes;
 	public int peso;
 	public String observacao;
 	public String id = nomeExercicio+nomeMaquina+observacao;
 	
-	public Exercicio(String nomeExercicio, String nomeMaquina, GrupoExercicio grupoExercicio, int series, int repeticoes, int peso) {
+	public Atividade(String nomeExercicio, String nomeMaquina, String grupoExercicio, int series, int repeticoes, int peso) {
 
 		this.nomeExercicio = nomeExercicio;
 		this.nomeMaquina = nomeMaquina;
@@ -29,7 +29,7 @@ public class Exercicio {
 		return nomeMaquina;
 	}
 
-	public GrupoExercicio getGrupoExercicio() {
+	public String getGrupoExercicio() {
 		return grupoExercicio;
 	}
 
@@ -61,7 +61,7 @@ public class Exercicio {
 		this.nomeMaquina = nomeMaquina;
 	}
 
-	public void setGrupoExercicio(GrupoExercicio grupoExercicio) {
+	public void setGrupoExercicio(String grupoExercicio) {
 		this.grupoExercicio = grupoExercicio;
 	}
 

@@ -28,7 +28,7 @@ public class CriarExercicioMaquinaGMuscularActivity extends Activity {
 //		grupoMuscularFachada = new FitnessManagementSingleton().getGrupoMuscularFachadaInstance();
 //		
 		
-		//menuCriarExercicioMaquinaGMuscular();
+		menuCriarExercicioMaquinaGMuscular();
 	}
 	
 	

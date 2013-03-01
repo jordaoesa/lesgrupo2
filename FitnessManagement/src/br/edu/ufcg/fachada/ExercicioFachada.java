@@ -1,6 +1,9 @@
 package br.edu.ufcg.fachada;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 
@@ -22,21 +25,19 @@ public class ExercicioFachada {
 		db.close();
 	}
 	
-	public String getDadosExercicios() {
+	public List<String> getDadosExercicios() {
 		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, null, null, null, null, null);
-		String s = "";
+		List<String> exercicio = new ArrayList<String>();
 		try{
 			while(cursor.moveToNext()){
-				
-				s = s+ cursor.getInt(0) +  cursor.getString(1);
-				
+				exercicio.add(cursor.getString(1));
 			}
 		}catch(Exception e){
 			e.getStackTrace();
 		}finally{
 			cursor.close();
 		}
-		return s;
+		return exercicio;
 	}
 	
 }
