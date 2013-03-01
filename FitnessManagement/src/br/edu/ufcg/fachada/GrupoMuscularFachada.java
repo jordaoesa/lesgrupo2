@@ -1,5 +1,8 @@
 package br.edu.ufcg.fachada;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import br.edu.ufcg.sgbd.DB;
@@ -20,12 +23,12 @@ public class GrupoMuscularFachada {
 		db.close();
 	}
 	
-	public String getDadosGrupoMusculares() {
+	public List<String> getDadosGrupoMusculares() {
 		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, null, null, null, null, null);
-		String s ="";
+		List<String> s =new ArrayList<String>();
 		try{
 			while(cursor.moveToNext()){
-				s = s+ cursor.getInt(0) +  cursor.getString(1);
+				s.add(cursor.getString(1));
 				
 			}
 		}catch(Exception e){
