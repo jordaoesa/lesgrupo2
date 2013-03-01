@@ -2,6 +2,7 @@ package br.edu.ufcg.util;
 
 import android.content.Context;
 import br.edu.ufcg.fachada.AlunoFachada;
+import br.edu.ufcg.fachada.AtividadeFachada;
 import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.fachada.ExercicioFachada;
 import br.edu.ufcg.fachada.GrupoMuscularFachada;
@@ -19,6 +20,7 @@ public class FitnessManagementSingleton {
 	private static ExercicioFachada exercicioFachada;
 	private static MaquinaFachada maquinaFachada;
 	private static GrupoMuscularFachada grupoMuscularFachada;
+	private static AtividadeFachada atividadeFachada;
 	
 	public static void setContext(Context context){
 		FitnessManagementSingleton.context = context;
@@ -69,6 +71,13 @@ public class FitnessManagementSingleton {
 			financasFachada = new FinancasFachada(db);
 		}
 		return financasFachada;
+	}
+	
+	public static AtividadeFachada getAtividadeFachadaInstance(){
+		if(atividadeFachada == null){
+			atividadeFachada = new AtividadeFachada(db);
+		}
+		return atividadeFachada;
 	}
 	
 }
