@@ -2,7 +2,6 @@ package br.edu.ufcg.gerenciar;
 
 import java.util.ArrayList;
 
-import br.edu.ufcg.exercicio.Atividade;
 
 public class Treino {
 
