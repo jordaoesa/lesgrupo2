@@ -5,13 +5,13 @@ public class Atividade {
 	public String nomeExercicio;
 	public String nomeMaquina;
 	public String grupoExercicio;
-	public int series;
-	public int repeticoes;
-	public int peso;
+	public String series;
+	public String repeticoes;
+	public String peso;
 	public String observacao;
 	public String id = nomeExercicio+nomeMaquina+observacao;
 	
-	public Atividade(String nomeExercicio, String nomeMaquina, String grupoExercicio, int series, int repeticoes, int peso) {
+	public Atividade(String nomeExercicio, String nomeMaquina, String grupoExercicio, String series, String repeticoes, String peso) {
 
 		this.nomeExercicio = nomeExercicio;
 		this.nomeMaquina = nomeMaquina;
@@ -33,15 +33,15 @@ public class Atividade {
 		return grupoExercicio;
 	}
 
-	public int getSeries() {
+	public String getSeries() {
 		return series;
 	}
 
-	public int getRepeticoes() {
+	public String getRepeticoes() {
 		return repeticoes;
 	}
 
-	public int getPeso() {
+	public String getPeso() {
 		return peso;
 	}
 
@@ -65,15 +65,15 @@ public class Atividade {
 		this.grupoExercicio = grupoExercicio;
 	}
 
-	public void setSeries(int series) {
+	public void setSeries(String series) {
 		this.series = series;
 	}
 
-	public void setRepeticoes(int repeticoes) {
+	public void setRepeticoes(String repeticoes) {
 		this.repeticoes = repeticoes;
 	}
 
-	public void setPeso(int peso) {
+	public void setPeso(String peso) {
 		this.peso = peso;
 	}
 
