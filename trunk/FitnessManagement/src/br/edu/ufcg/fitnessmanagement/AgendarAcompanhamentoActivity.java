@@ -93,6 +93,7 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 
 	private void menuAgendamento() {
+		setContentView(R.layout.activity_agendar_acompanhamento);
 		Button bVoltar = (Button) findViewById(R.id.buttonVoltarAgendarAcompanhamento);
 		Button bAgendar = (Button) findViewById(R.id.buttonAgendarAgendarAcompanhamento);
 
