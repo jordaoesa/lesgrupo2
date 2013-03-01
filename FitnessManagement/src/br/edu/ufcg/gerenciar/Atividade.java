@@ -1,4 +1,4 @@
-package br.edu.ufcg.exercicio;
+package br.edu.ufcg.gerenciar;
 
 public class Atividade {
 

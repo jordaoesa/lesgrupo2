@@ -1,7 +1,7 @@
 package br.edu.ufcg.fitnessmanagement;
 
-import br.edu.ufcg.exercicio.Atividade;
 import br.edu.ufcg.fachada.GrupoMuscularFachada;
+import br.edu.ufcg.gerenciar.Atividade;
 import br.edu.ufcg.util.FitnessManagementSingleton;
 import android.os.Bundle;
 import android.app.Activity;

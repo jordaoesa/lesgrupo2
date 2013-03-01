@@ -6,7 +6,7 @@ import java.util.List;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import br.edu.ufcg.exercicio.Atividade;
+import br.edu.ufcg.gerenciar.Atividade;
 import br.edu.ufcg.sgbd.DB;
 
 public class AtividadeFachada {
