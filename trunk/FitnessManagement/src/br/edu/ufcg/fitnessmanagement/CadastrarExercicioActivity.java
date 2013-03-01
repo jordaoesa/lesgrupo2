@@ -1,6 +1,5 @@
 package br.edu.ufcg.fitnessmanagement;
 
-import br.edu.ufcg.exercicio.Atividade;
 import br.edu.ufcg.util.FitnessManagementSingleton;
 import android.os.Bundle;
 import android.app.Activity;
@@ -66,16 +65,13 @@ public class CadastrarExercicioActivity extends Activity {
 	private void preencheSpinnerExercicio() {
 		Spinner spinnerNomeExerc = (Spinner)findViewById(R.id.spinnerExercicio);
 		
-		String [] array;
-		array = (String[]) FitnessManagementSingleton.getExercicioFachadaInstance().getDadosExercicios().toArray();
-		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, array );
+		Object[] a =  FitnessManagementSingleton.getExercicioFachadaInstance().getDadosExercicios().toArray();
+		System.out.println(a[0]);
+		
+		ArrayAdapter<Object> arrayAdapter = new ArrayAdapter<Object>(this, android.R.layout.simple_spinner_item, a );
 		
 		arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinnerNomeExerc.setAdapter(arrayAdapter);
-		
-		
-//		
-		
 		
 	}
 
