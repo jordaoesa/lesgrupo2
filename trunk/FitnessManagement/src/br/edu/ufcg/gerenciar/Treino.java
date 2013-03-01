@@ -2,30 +2,30 @@ package br.edu.ufcg.gerenciar;
 
 import java.util.ArrayList;
 
-import br.edu.ufcg.exercicio.Exercicio;
+import br.edu.ufcg.exercicio.Atividade;
 
-public class Atividade {
+public class Treino {
 
 	private String nomeAtividade;
-	private ArrayList<Exercicio> exercicios = new ArrayList<Exercicio>();
+	private ArrayList<Atividade> exercicios = new ArrayList<Atividade>();
 	private String id;
 	
-	public Atividade(String nomeAtividade){
+	public Treino(String nomeAtividade){
 		this.nomeAtividade = nomeAtividade;
-		for(Exercicio e:exercicios){
+		for(Atividade e:exercicios){
 			id+=e.getID();
 		}
 	}
-	public Atividade(String nomeAtividade,ArrayList<Exercicio> exercicios){
+	public Treino(String nomeAtividade,ArrayList<Atividade> exercicios){
 		this.exercicios = exercicios;
 		this.nomeAtividade = nomeAtividade;
-		for(Exercicio e:exercicios){
+		for(Atividade e:exercicios){
 			id+=e.getID();
 		}
 	}
 	
 	
-	public void adicionarExercicio(Exercicio exercicio){
+	public void adicionarExercicio(Atividade exercicio){
 		if(exercicio!= null){
 			exercicios.add(exercicio);
 		}
@@ -33,7 +33,7 @@ public class Atividade {
 	
 	public boolean removerExercicio(String id){
 		boolean removido = false;
-		for(Exercicio exercicio:exercicios){
+		for(Atividade exercicio:exercicios){
 			if(exercicio.getID().equals(id)){
 				return exercicios.remove(exercicio);
 			}
@@ -41,7 +41,7 @@ public class Atividade {
 		return removido;
 	}
 	
-	public ArrayList<Exercicio> getAtividade(){
+	public ArrayList<Atividade> getAtividade(){
 		return this.exercicios;
 	}
 	
@@ -51,7 +51,7 @@ public class Atividade {
 	
 	public String toString(){
 		String retorno = "Nome Atividade: "+nomeAtividade+"\nLista de Exercícios:\n\n";
-		for(Exercicio exer:exercicios){
+		for(Atividade exer:exercicios){
 			retorno = retorno +exer.toString()+"\n\n";
 		}
 		return retorno;
