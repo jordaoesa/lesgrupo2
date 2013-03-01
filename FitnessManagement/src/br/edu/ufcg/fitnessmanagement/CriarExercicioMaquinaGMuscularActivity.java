@@ -24,8 +24,8 @@ public class CriarExercicioMaquinaGMuscularActivity extends Activity {
 		
 		
 		exercicioFachada = FitnessManagementSingleton.getExercicioFachadaInstance();
-//		maquinaFachada = new FitnessManagementSingleton().getMaquinaFachadaInstance();
-//		grupoMuscularFachada = new FitnessManagementSingleton().getGrupoMuscularFachadaInstance();
+		maquinaFachada = new FitnessManagementSingleton().getMaquinaFachadaInstance();
+		grupoMuscularFachada = new FitnessManagementSingleton().getGrupoMuscularFachadaInstance();
 //		
 		
 		menuCriarExercicioMaquinaGMuscular();
@@ -37,12 +37,12 @@ public class CriarExercicioMaquinaGMuscularActivity extends Activity {
 	private void menuCriarExercicioMaquinaGMuscular() {
 		
 		Button botaoCriarExercicio = (Button) findViewById(R.id.botaoCriarExercicio);
-//		Button botaoCriarMaquina = (Button)findViewById(id.botaoCriarMaquina);
-//		Button botaoCriarGMuscular =(Button)findViewById(R.id.botaoCriarGrupoMuscular);
+		Button botaoCriarMaquina = (Button)findViewById(R.id.botaoCriarMaquina);
+		Button botaoCriarGMuscular =(Button)findViewById(R.id.botaoCriarGrupoMuscular);
 //		
 		final TextView textViewExercicio = (TextView) findViewById(R.id.nomeExercicio);
-//		final TextView textViewMaquina = (TextView) findViewById(R.id.nomeMaquina);
-//		final TextView textViewGMuscular = (TextView) findViewById(R.id.nomeGrupoMuscular);
+		final TextView textViewMaquina = (TextView) findViewById(R.id.nomeMaquina);
+		final TextView textViewGMuscular = (TextView) findViewById(R.id.nomeGrupoMuscular);
 //		
 		
 		botaoCriarExercicio.setOnClickListener(new View.OnClickListener() {
@@ -56,25 +56,25 @@ public class CriarExercicioMaquinaGMuscularActivity extends Activity {
 			}
 		});
 		
-//		//adicionar maquina
-//		botaoCriarMaquina.setOnClickListener(new View.OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				String nomeMaquina = textViewMaquina.getText().toString();
-//				maquinaFachada.adicionaMaquina(nomeMaquina);
-//			}
-//		});
-//		
-//		//criar grupo muscular
-//		botaoCriarGMuscular.setOnClickListener(new View.OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				String nomeGrupoMuscular = textViewGMuscular.getText().toString();
-//				grupoMuscularFachada.adicionaGrupoMuscular(nomeGrupoMuscular);
-//			}
-//		});
+		//adicionar maquina
+		botaoCriarMaquina.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				String nomeMaquina = textViewMaquina.getText().toString();
+				maquinaFachada.adicionaMaquina(nomeMaquina);
+			}
+		});
+		
+		//criar grupo muscular
+		botaoCriarGMuscular.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				String nomeGrupoMuscular = textViewGMuscular.getText().toString();
+				grupoMuscularFachada.adicionaGrupoMuscular(nomeGrupoMuscular);
+			}
+		});
 		
 		
 		
