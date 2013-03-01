@@ -41,8 +41,12 @@ public class GerenciarFinancasActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				EditText etAdicionar = (EditText) findViewById(R.id.editTextAdicionarGerenciarFinancas);
-				
-				Double valor = Double.parseDouble(etAdicionar.getText().toString());
+				Double valor = null;
+				try{
+					valor = Double.parseDouble(etAdicionar.getText().toString());
+				}catch(Exception e){
+					valor = 0D;
+				}
 				financas.addDivida(idAluno, valor);
 				etAdicionar.setText("");
 				tvDivida.setText(financas.getDividaTotal(idAluno).toString());
@@ -52,8 +56,12 @@ public class GerenciarFinancasActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				EditText etQuitar = (EditText) findViewById(R.id.editTextQuitarGerenciarFinancas);
-				
-				Double valor = Double.parseDouble(etQuitar.getText().toString());
+				Double valor = null;
+				try{
+					valor = Double.parseDouble(etQuitar.getText().toString());
+				}catch(Exception e){
+					valor = 0D;
+				}
 				financas.quitaDivida(idAluno, valor);
 				etQuitar.setText("");
 				tvDivida.setText(financas.getDividaTotal(idAluno).toString());
