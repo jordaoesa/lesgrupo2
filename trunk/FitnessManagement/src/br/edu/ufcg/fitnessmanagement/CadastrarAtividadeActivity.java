@@ -27,7 +27,7 @@ public class CadastrarAtividadeActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_cadastrar_exercicio);
+		setContentView(R.layout.activity_cadastrar_atividade);
 		
 		idAluno = getIntent().getIntExtra("id_aluno", -1);
 		

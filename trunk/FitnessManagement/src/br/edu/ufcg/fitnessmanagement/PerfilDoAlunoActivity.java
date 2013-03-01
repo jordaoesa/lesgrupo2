@@ -76,6 +76,7 @@ public class PerfilDoAlunoActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intentTreino = new Intent(getApplicationContext(), CadastrarTreinoActivity.class);
+				intentTreino.putExtra("id_aluno", aluno.getId());
 				startActivity(intentTreino);
 			}
 		});

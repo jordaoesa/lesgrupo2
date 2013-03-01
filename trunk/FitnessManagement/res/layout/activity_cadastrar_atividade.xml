@@ -114,7 +114,6 @@
             android:ems="10"
             android:text="Peso" >
 
-            <requestFocus />
         </EditText>
 
         <EditText
