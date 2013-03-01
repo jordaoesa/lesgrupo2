@@ -13,14 +13,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class CadastrarExercicioActivity extends Activity {
 	
 	private String nomeExercicio;
 	private String nomeMaquina;
 	private String nomeGurpoMuscular;
-	private String series;
-	private String repeticoes;
+	private int series;
+	private int repeticoes;
 	
 	
 
@@ -56,9 +57,21 @@ public class CadastrarExercicioActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				String peso = caixaCadExerPeso.getText().toString();
+				int peso = Integer.parseInt(caixaCadExerPeso.getText().toString());
+				String observacao = caixaObservacao.getText().toString();
 
-				Atividade exerc = new Atividade(nomeExercicio, nomeMaquina, nomeGurpoMuscular, series, repeticoes, peso);
+				Atividade exercicioComposto = new Atividade(nomeExercicio, nomeMaquina, nomeGurpoMuscular, series, repeticoes, peso, observacao);
+				System.out.println("CRIEI O EXERCICIO DE BOUA.. VOU ADD NO BANCO DE DADOS");
+				
+				FitnessManagementSingleton.getAtividadeFachadaInstance().adicionaAtividade(exercicioComposto);
+				
+				System.out.println("ADICIONADO NO BANCO DE DADOS");
+
+				
+			//	Toast.makeText(getApplicationContext(), "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
+				
+			//	System.out.println(FitnessManagementSingleton.getAtividadeFachadaInstance().getAtividades().get(0).toString());
+				
 				
 			}
 		});
@@ -180,7 +193,7 @@ public class CadastrarExercicioActivity extends Activity {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 				//pega nome pela posição
-				 series = parent.getItemAtPosition(posicao).toString();
+				 series = Integer.parseInt(parent.getItemAtPosition(posicao).toString());
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
@@ -192,7 +205,7 @@ public class CadastrarExercicioActivity extends Activity {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 				//pega nome pela posição
-				repeticoes  = parent.getItemAtPosition(posicao).toString();
+				repeticoes  = Integer.parseInt(parent.getItemAtPosition(posicao).toString());
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
