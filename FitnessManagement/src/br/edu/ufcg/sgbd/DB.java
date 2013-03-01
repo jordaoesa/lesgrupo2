@@ -41,6 +41,22 @@ public class DB extends SQLiteOpenHelper {
 	private final String TABLE_EXERCICIOS = "CREATE TABLE TABLE_EXERCICIOS("+"id_exercicio INTEGER PRIMARY KEY AUTOINCREMENT,"+"nomeExercicio VARCHAR(255)"+")";
 	private final String TABLE_MAQUINAS = "CREATE TABLE TABLE_MAQUINAS("+"id_maquina INTEGER PRIMARY KEY AUTOINCREMENT,"+"nomeMaquina VARCHAR(255)"+")";
 	private final String TABLE_GRUPO_MUSCULAR = "CREATE TABLE TABLE_GRUPO_MUSCULAR("+"id_grupoMuscular INTEGER PRIMARY KEY AUTOINCREMENT,"+"nomeGrupoMuscular VARCHAR(255)"+")";
+
+
+	
+	
+	
+	private final String TABLE_ATIVIDADE = "CREATE TABLE TABLE_ATIVIDADE(" +
+			"nomeExercicio VARCHAR(255)," +
+			"nomeMaquina VARCHAR(255)," +
+			"nomeGrupoMuscular VARCHAR(255)," +
+			"numeroSeries INTEGER," +
+			"numeroRepeticoes INTEGER," +
+			"peso INTEGER," +
+			"observacao VARCHAR(255)," +
+			
+		")";
+	
 	/**
 	 * O construtor necessita do contexto da aplicacao
 	 * @param context
@@ -62,6 +78,7 @@ public class DB extends SQLiteOpenHelper {
 		db.execSQL(TABLE_EXERCICIOS);
 		db.execSQL(TABLE_GRUPO_MUSCULAR);
 		db.execSQL(TABLE_MAQUINAS);
+		db.execSQL(TABLE_ATIVIDADE);
 	}
 
 	@Override
@@ -72,6 +89,7 @@ public class DB extends SQLiteOpenHelper {
 		dropTable(db, "TABLE_EXERCICIOS");
 		dropTable(db, "TABLE_GRUPO_MUSCULAR");
 		dropTable(db, "TABLE_MAQUINAS");
+		dropTable(db, TABLE_ATIVIDADE);
 		onCreate(db);
 	}
 
