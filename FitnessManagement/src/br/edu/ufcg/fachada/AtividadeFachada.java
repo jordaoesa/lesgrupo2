@@ -34,8 +34,6 @@ public class AtividadeFachada {
 		db.close();
 	}
 	
-
-	
 	public List<Atividade> getAtividades(Integer idAluno){
 		List<Atividade> atividades = new ArrayList<Atividade>();
 		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, "id_aluno = " + idAluno, null, null, null, null);
@@ -53,8 +51,15 @@ public class AtividadeFachada {
 		}
 		//Collections.sort(atividades);
 		return atividades;
-		
-		
+	}
+	
+	public List<String> getNomesDasAtividades(Integer idAluno){
+		List<Atividade> atividades = getAtividades(idAluno);
+		List<String> nomes = new ArrayList<String>();
+		for(Atividade atividade : atividades){
+			nomes.add(atividade.getNomeExercicio());
+		}
+		return nomes;
 	}
 	
 }
