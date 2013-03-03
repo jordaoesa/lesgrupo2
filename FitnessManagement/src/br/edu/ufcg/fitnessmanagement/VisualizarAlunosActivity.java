@@ -10,13 +10,16 @@ import br.edu.ufcg.util.ImageAdapter;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ListAdapter;
 import android.widget.Toast;
 
 public class VisualizarAlunosActivity extends Activity {
@@ -41,8 +44,7 @@ public class VisualizarAlunosActivity extends Activity {
 		
 		final List<Aluno> alunos = alunoFachada.getAlunos();
 		GridView grade = (GridView) findViewById(R.id.gridViewActivityVisualizar);
-		grade.setAdapter(new ImageAdapter(this, alunos));
-		
+		grade.setAdapter(new ImageAdapter(this, alunos, getContentResolver()));
 		grade.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

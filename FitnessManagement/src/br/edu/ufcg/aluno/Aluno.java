@@ -8,11 +8,12 @@ public class Aluno implements Comparable<Aluno> {
 	private String endereco;
 	private String telefone;
 	private String sexo;
+	private String caminhoImagem;
 	
 	public Aluno() {
 	}
 	
-	public Aluno(String nome, String endereco, String sexo, String telefone, Integer idade){
+	public Aluno(String nome, Integer idade, String endereco, String sexo, String telefone){
 		this.nome = nome;
 		this.endereco = endereco;
 		this.sexo = sexo;
@@ -20,13 +21,14 @@ public class Aluno implements Comparable<Aluno> {
 		this.idade = idade;
 	}
 	
-	public Aluno(Integer id, String nome, String endereco, String sexo, String telefone, Integer idade){
+	public Aluno(Integer id, Integer idade, String nome, String endereco, String sexo, String telefone, String caminhoImagem){
 		this.id = id;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.sexo = sexo;
 		this.telefone = telefone;
 		this.idade = idade;
+		this.caminhoImagem = caminhoImagem;
 	}
 	
 	public String getNome() {
@@ -64,6 +66,12 @@ public class Aluno implements Comparable<Aluno> {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	public String getCaminhoImagem() {
+		return caminhoImagem;
+	}
+	public void setCaminhoImagem(String caminhoImagem) {
+		this.caminhoImagem = caminhoImagem;
 	}
 	@Override
 	public int compareTo(Aluno another) {

@@ -26,6 +26,7 @@ public class AlunoFachada {
 		values.put("sexo", aluno.getSexo());
 		values.put("telefone", aluno.getTelefone());
 		values.put("idade", aluno.getIdade());
+		values.put("caminho_imagem", aluno.getCaminhoImagem());
 		
 		db.insertValues(TABLE_NAME, values);
 		db.close();
@@ -37,7 +38,7 @@ public class AlunoFachada {
 		try{
 			if(cursor != null){
 				while(cursor.moveToNext()){
-					Aluno aluno = new Aluno(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
+					Aluno aluno = new Aluno(cursor.getInt(0), cursor.getInt(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
 					alunos.add(aluno);
 				}
 			}
@@ -79,9 +80,16 @@ public class AlunoFachada {
 		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null, "id = " + idAluno, null, null, null, null);
 		if(cursor != null){
 			cursor.moveToFirst();
-			aluno = new Aluno(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5));
+			aluno = new Aluno(cursor.getInt(0), cursor.getInt(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
 		}
 		return aluno;
+	}
+
+	public void updateCaminhoFoto(Integer idAluno, String caminhoImagem) {
+		ContentValues values = new ContentValues();
+		values.put("caminho_imagem", caminhoImagem);
+		db.updateTable(TABLE_NAME, values, "id = " + idAluno);
+		db.close();
 	}
 	
 }
