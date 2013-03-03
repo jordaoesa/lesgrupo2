@@ -1,21 +1,37 @@
 package br.edu.ufcg.fitnessmanagement;
 
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fachada.AlunoFachada;
-import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.util.FitnessManagementSingleton;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.widget.Button;
+import android.widget.QuickContactBadge;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PerfilDoAlunoActivity extends Activity {
 
+	private File file;
+	private Uri uri;
 	private AlunoFachada alunoFachada;
 	private Aluno aluno;
 	
@@ -25,8 +41,51 @@ public class PerfilDoAlunoActivity extends Activity {
 		
 		alunoFachada = FitnessManagementSingleton.getAlunoFachadaInstance();
 		getAluno();
+		file = new File(Environment.getExternalStorageDirectory() + "/.FitnessManagement/Fotos/Perfil");
+		if(!file.exists()){
+			file.mkdirs();
+		}
+		file = new File(file, "br.ufcg.edu.perfil_" + aluno.getId() + ".jpg");
+		System.out.println(file.getAbsolutePath());
+		uri = Uri.fromFile(file);
 		menuDeOpcoes();
 		
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(requestCode == 0 && resultCode == Activity.RESULT_OK){
+			QuickContactBadge qcbFoto = (QuickContactBadge) findViewById(R.id.quickContactBadgePerfilAluno);
+			try {
+				Bitmap bm = comprimeESalvaImagem();
+				qcbFoto.setImageBitmap(bm);			
+				//qcbFoto.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), uri));
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+
+	private Bitmap comprimeESalvaImagem() throws IOException {
+		
+		BitmapFactory.Options bmOpt = new BitmapFactory.Options();
+		bmOpt.inJustDecodeBounds = true;
+		BitmapFactory.decodeFile(file.getAbsolutePath(), bmOpt);
+		int scale = Math.min((bmOpt.outWidth/100), (bmOpt.outHeight/100));
+		
+		bmOpt.inJustDecodeBounds = false;
+		bmOpt.inSampleSize = scale;
+		bmOpt.inPurgeable = true;
+		
+		Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath(), bmOpt);
+		FileOutputStream fos = new FileOutputStream(file);
+		bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+		
+		fos.flush();
+		fos.close();
+		
+		return bitmap;
 	}
 
 	private void getAluno() {
@@ -38,6 +97,7 @@ public class PerfilDoAlunoActivity extends Activity {
 		setContentView(R.layout.activity_perfil_do_aluno);
 		setTitle("Ficha do Aluno");
 		
+		QuickContactBadge qcbFoto = (QuickContactBadge) findViewById(R.id.quickContactBadgePerfilAluno);
 		TextView tvNome = (TextView) findViewById(R.id.textViewNomePerfilAluno);
 		TextView tvTelefone = (TextView) findViewById(R.id.textViewTelefonePerfilAluno);
 		TextView tvIdade = (TextView) findViewById(R.id.textViewIdadePerfilAluno);
@@ -47,6 +107,11 @@ public class PerfilDoAlunoActivity extends Activity {
 		tvTelefone.setText(aluno.getTelefone().toString());
 		tvIdade.setText(aluno.getIdade().toString());
 		tvSexo.setText(aluno.getSexo());
+		try {
+			qcbFoto.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), uri));
+		} catch (Exception e) {
+			System.out.println(">>> " + e.getMessage());
+		}
 		
 		Button bCadastrarDados = (Button) findViewById(R.id.buttonCadastrarDadosPerfilAluno);
 		Button bCadastrarAtividade = (Button) findViewById(R.id.buttonCadastrarAtividadePerfilAluno);
@@ -111,6 +176,14 @@ public class PerfilDoAlunoActivity extends Activity {
 				startActivity(intentAgendar);
 			}
 		});
+		qcbFoto.setOnLongClickListener(new OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View v) {
+				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
+				capturarImagem();
+				return false;
+			}
+		});
 		
 		Button voltar = (Button) findViewById(R.id.buttonVoltarPerfilAluno);
 		voltar.setOnClickListener(new OnClickListener() {
@@ -119,7 +192,21 @@ public class PerfilDoAlunoActivity extends Activity {
 				finish();
 			}
 		});
+		
 	}
+	
+	private void capturarImagem(){
+		try {
+			aluno.setCaminhoImagem(file.getAbsolutePath());
+			alunoFachada.updateCaminhoFoto(aluno.getId(), file.getAbsolutePath());
+		} catch (Exception e) {
+			System.out.println(">>> " + e.getMessage());
+		}
+		Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		in.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+		startActivityForResult(in, 0);
+	}
+	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
