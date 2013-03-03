@@ -2,6 +2,7 @@ package br.edu.ufcg.fitnessmanagement;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import br.edu.ufcg.aluno.Aluno;
@@ -11,14 +12,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.provider.Settings.System;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -27,6 +29,8 @@ public class CadastrarAlunoActivity extends Activity {
 
 	private File file;
 	private Uri uri;
+	private ImageView foto;
+	private ImageButton botao;
 	private AlunoFachada alunoFachada;
 	
 	@Override
@@ -37,8 +41,51 @@ public class CadastrarAlunoActivity extends Activity {
 		
 		alunoFachada = FitnessManagementSingleton.getAlunoFachadaInstance();
 		menuCadastrar();
+		foto();
 	}
 	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(requestCode == 2013 && resultCode == Activity.RESULT_OK){
+			System.out.println(">>> " + data);
+			Toast.makeText(getApplicationContext(), data.toString(), Toast.LENGTH_SHORT).show();
+			Bitmap bm = (Bitmap) data.getExtras().get("data");
+			
+			FileOutputStream fos;
+			try {
+				fos = new FileOutputStream(file);
+				bm.compress(Bitmap.CompressFormat.PNG, 100, fos);
+				fos.flush();
+				fos.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			foto.setImageBitmap(bm);
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
+	
+	private void foto() {
+		foto = (ImageView) findViewById(R.id.imageViewFotoCadastro);
+		botao = (ImageButton) findViewById(R.id.imageButtonCapturarFotoCadastro);
+		file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "foto_perfil.jpg");
+		uri = Uri.fromFile(file);
+		
+		botao.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(getApplicationContext(), "starting camera", Toast.LENGTH_SHORT).show();
+				Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+				startActivityForResult(in, 2013);
+			}
+		});
+		
+		
+	}
+
 //	@Override
 //	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //		if(requestCode == 0 && resultCode == Activity.RESULT_OK){

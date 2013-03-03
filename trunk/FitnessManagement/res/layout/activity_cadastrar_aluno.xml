@@ -134,5 +134,23 @@
             android:layout_toLeftOf="@+id/radioButtonSexoFemMenuCadastrar"
             android:text="Feminino" />
     </RadioGroup>
+
+	<ImageView
+	    android:id="@+id/imageViewFotoCadastro"
+	    android:layout_width="100dp"
+	    android:layout_height="100dp"
+	    android:layout_above="@+id/buttonCadastrarMenuCadastrar"
+	    android:layout_alignLeft="@+id/radioGroupSexoMenuCadastrar"
+	    android:layout_below="@+id/radioGroupSexoMenuCadastrar"
+	    android:src="@android:drawable/ic_menu_gallery" />
+
+	<ImageButton
+	    android:id="@+id/imageButtonCapturarFotoCadastro"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBottom="@+id/imageViewFotoCadastro"
+	    android:layout_alignRight="@+id/textViewEnderecoMenuCadastrar"
+	    android:layout_marginBottom="24dp"
+	    android:src="@android:drawable/ic_menu_camera" />
 	    
 </RelativeLayout>

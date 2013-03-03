@@ -54,39 +54,63 @@ public class PerfilDoAlunoActivity extends Activity {
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(requestCode == 0 && resultCode == Activity.RESULT_OK){
-			QuickContactBadge qcbFoto = (QuickContactBadge) findViewById(R.id.quickContactBadgePerfilAluno);
+		if(requestCode == 2013 && resultCode == Activity.RESULT_OK){
+			//System.out.println(">>> " + data);
+			//Toast.makeText(getApplicationContext(), data.toString(), Toast.LENGTH_SHORT).show();
+			Bitmap bm = (Bitmap) data.getExtras().get("data");
+			
+			FileOutputStream fos;
 			try {
-				Bitmap bm = comprimeESalvaImagem();
-				qcbFoto.setImageBitmap(bm);			
-				//qcbFoto.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), uri));
-			}catch (Exception e) {
+				fos = new FileOutputStream(file);
+				bm.compress(Bitmap.CompressFormat.PNG, 100, fos);
+				fos.flush();
+				fos.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			QuickContactBadge qcbFoto = (QuickContactBadge) findViewById(R.id.quickContactBadgePerfilAluno);
+			qcbFoto.setImageBitmap(bm);
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
-
-	private Bitmap comprimeESalvaImagem() throws IOException {
-		
-		BitmapFactory.Options bmOpt = new BitmapFactory.Options();
-		bmOpt.inJustDecodeBounds = true;
-		BitmapFactory.decodeFile(file.getAbsolutePath(), bmOpt);
-		int scale = Math.min((bmOpt.outWidth/100), (bmOpt.outHeight/100));
-		
-		bmOpt.inJustDecodeBounds = false;
-		bmOpt.inSampleSize = scale;
-		bmOpt.inPurgeable = true;
-		
-		Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath(), bmOpt);
-		FileOutputStream fos = new FileOutputStream(file);
-		bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
-		
-		fos.flush();
-		fos.close();
-		
-		return bitmap;
-	}
+	
+//	@Override
+//	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//		if(requestCode == 0 && resultCode == Activity.RESULT_OK){
+//			QuickContactBadge qcbFoto = (QuickContactBadge) findViewById(R.id.quickContactBadgePerfilAluno);
+//			try {
+//				Bitmap bm = comprimeESalvaImagem();
+//				qcbFoto.setImageBitmap(bm);			
+//				//qcbFoto.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), uri));
+//			}catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		super.onActivityResult(requestCode, resultCode, data);
+//	}
+//
+//	private Bitmap comprimeESalvaImagem() throws IOException {
+//		
+//		BitmapFactory.Options bmOpt = new BitmapFactory.Options();
+//		bmOpt.inJustDecodeBounds = true;
+//		BitmapFactory.decodeFile(file.getAbsolutePath(), bmOpt);
+//		int scale = Math.min((bmOpt.outWidth/100), (bmOpt.outHeight/100));
+//		
+//		bmOpt.inJustDecodeBounds = false;
+//		bmOpt.inSampleSize = scale;
+//		bmOpt.inPurgeable = true;
+//		
+//		Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath(), bmOpt);
+//		FileOutputStream fos = new FileOutputStream(file);
+//		bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+//		
+//		fos.flush();
+//		fos.close();
+//		
+//		return bitmap;
+//	}
 
 	private void getAluno() {
 		int idAluno = getIntent().getIntExtra("id_aluno", -1);
@@ -182,6 +206,14 @@ public class PerfilDoAlunoActivity extends Activity {
 				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
 				capturarImagem();
 				return false;
+			}
+		});
+		qcbFoto.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
+				Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+				startActivityForResult(in, 2013);
 			}
 		});
 		
