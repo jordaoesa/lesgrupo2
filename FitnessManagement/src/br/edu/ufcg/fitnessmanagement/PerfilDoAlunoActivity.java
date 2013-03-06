@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fachada.AlunoFachada;
@@ -41,11 +42,13 @@ public class PerfilDoAlunoActivity extends Activity {
 		
 		alunoFachada = FitnessManagementSingleton.getAlunoFachadaInstance();
 		getAluno();
-		file = new File(Environment.getExternalStorageDirectory() + "/.FitnessManagement/Fotos/Perfil");
+		//file = new File(Environment.getExternalStorageDirectory() + "/.FitnessManagement/Fotos/Perfil");
+		file = new File(FitnessManagementSingleton.getCAMINHO_FOTO_PERFIL());
 		if(!file.exists()){
 			file.mkdirs();
 		}
-		file = new File(file, "br.ufcg.edu.perfil_" + aluno.getId() + ".jpg");
+		file = new File(FitnessManagementSingleton.getFotoPerfil());
+		//file = new File(file, "br.ufcg.edu.perfil_" + (new Date()).getDate() + ".jpg");
 		System.out.println(file.getAbsolutePath());
 		uri = Uri.fromFile(file);
 		menuDeOpcoes();
@@ -143,7 +146,7 @@ public class PerfilDoAlunoActivity extends Activity {
 		Button bCadastrarFicha = (Button) findViewById(R.id.buttonCriarFichaPerfilAluno);
 		Button bVisualizarEstatisticas = (Button) findViewById(R.id.buttonVisualizarEstatisticasPerfilAluno);
 		Button bGerenciarFinancas = (Button) findViewById(R.id.buttonGerenciarFinancasPerfilAluno);
-		Button bAgendarAcompanhamento = (Button) findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);//TODO
+		Button bAgendarAcompanhamento = (Button) findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);
 		
 		bCadastrarDados.setOnClickListener(new OnClickListener() {
 			@Override
@@ -203,19 +206,26 @@ public class PerfilDoAlunoActivity extends Activity {
 		qcbFoto.setOnLongClickListener(new OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View v) {
-				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
-				capturarImagem();
+//				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
+//				capturarImagem();
+				capturar();
 				return false;
 			}
 		});
-		qcbFoto.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
-				Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-				startActivityForResult(in, 2013);
-			}
-		});
+//		qcbFoto.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View arg0) {
+//				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
+//				try {
+//					aluno.setCaminhoImagem(file.getAbsolutePath());
+//					alunoFachada.updateCaminhoFoto(aluno.getId(), file.getAbsolutePath());
+//				} catch (Exception e) {
+//					System.out.println(">>> " + e.getMessage());
+//				}
+//				Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//				startActivityForResult(in, 2013);
+//			}
+//		});
 		
 		Button voltar = (Button) findViewById(R.id.buttonVoltarPerfilAluno);
 		voltar.setOnClickListener(new OnClickListener() {
@@ -227,7 +237,8 @@ public class PerfilDoAlunoActivity extends Activity {
 		
 	}
 	
-	private void capturarImagem(){
+	private void capturar() {
+		Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
 		try {
 			aluno.setCaminhoImagem(file.getAbsolutePath());
 			alunoFachada.updateCaminhoFoto(aluno.getId(), file.getAbsolutePath());
@@ -235,9 +246,20 @@ public class PerfilDoAlunoActivity extends Activity {
 			System.out.println(">>> " + e.getMessage());
 		}
 		Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-		in.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-		startActivityForResult(in, 0);
+		startActivityForResult(in, 2013);
 	}
+	
+//	private void capturarImagem(){
+//		try {
+//			aluno.setCaminhoImagem(file.getAbsolutePath());
+//			alunoFachada.updateCaminhoFoto(aluno.getId(), file.getAbsolutePath());
+//		} catch (Exception e) {
+//			System.out.println(">>> " + e.getMessage());
+//		}
+//		Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//		in.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+//		startActivityForResult(in, 0);
+//	}
 	
 	
 	@Override
