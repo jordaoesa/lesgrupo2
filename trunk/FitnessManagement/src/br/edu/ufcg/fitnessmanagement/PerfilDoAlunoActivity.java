@@ -47,7 +47,8 @@ public class PerfilDoAlunoActivity extends Activity {
 		if(!file.exists()){
 			file.mkdirs();
 		}
-		file = new File(FitnessManagementSingleton.getFotoPerfil());
+		//file = new File(FitnessManagementSingleton.getFotoPerfil());
+		file = new File(file, FitnessManagementSingleton.getNomeFotoPerfil());
 		//file = new File(file, "br.ufcg.edu.perfil_" + (new Date()).getDate() + ".jpg");
 		System.out.println(file.getAbsolutePath());
 		uri = Uri.fromFile(file);
@@ -135,7 +136,7 @@ public class PerfilDoAlunoActivity extends Activity {
 		tvIdade.setText(aluno.getIdade().toString());
 		tvSexo.setText(aluno.getSexo());
 		try {
-			qcbFoto.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), uri));
+			qcbFoto.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(new File(aluno.getCaminhoImagem()))));
 		} catch (Exception e) {
 			System.out.println(">>> " + e.getMessage());
 		}
@@ -240,6 +241,7 @@ public class PerfilDoAlunoActivity extends Activity {
 	private void capturar() {
 		Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
 		try {
+			(new File(aluno.getCaminhoImagem())).delete(); // DELETAR IMAGEM CASO SEJA UMA NOVA FOTO
 			aluno.setCaminhoImagem(file.getAbsolutePath());
 			alunoFachada.updateCaminhoFoto(aluno.getId(), file.getAbsolutePath());
 		} catch (Exception e) {

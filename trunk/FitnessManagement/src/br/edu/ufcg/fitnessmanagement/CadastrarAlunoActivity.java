@@ -76,7 +76,7 @@ public class CadastrarAlunoActivity extends Activity {
 		if(!file.exists()){
 			file.mkdirs();
 		}
-		file = new File(FitnessManagementSingleton.getFotoPerfil());
+		file = new File(file, FitnessManagementSingleton.getNomeFotoPerfil());
 		uri = Uri.fromFile(file);
 		
 		botao.setOnClickListener(new OnClickListener() {
