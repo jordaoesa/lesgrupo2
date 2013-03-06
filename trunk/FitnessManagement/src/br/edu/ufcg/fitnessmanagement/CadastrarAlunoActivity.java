@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fachada.AlunoFachada;
@@ -47,8 +48,8 @@ public class CadastrarAlunoActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if(requestCode == 2013 && resultCode == Activity.RESULT_OK){
-			System.out.println(">>> " + data);
-			Toast.makeText(getApplicationContext(), data.toString(), Toast.LENGTH_SHORT).show();
+			//System.out.println(">>> " + data);
+			//Toast.makeText(getApplicationContext(), data.toString(), Toast.LENGTH_SHORT).show();
 			Bitmap bm = (Bitmap) data.getExtras().get("data");
 			
 			FileOutputStream fos;
@@ -62,22 +63,26 @@ public class CadastrarAlunoActivity extends Activity {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
+			foto = (ImageView) findViewById(R.id.imageViewFotoCadastro);
 			foto.setImageBitmap(bm);
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 	
 	private void foto() {
-		foto = (ImageView) findViewById(R.id.imageViewFotoCadastro);
 		botao = (ImageButton) findViewById(R.id.imageButtonCapturarFotoCadastro);
-		file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "foto_perfil.jpg");
+		//file = new File(Environment.getExternalStorageDirectory() + "/.FitnessManagement/Fotos/Perfil/br.ufcg.edu.perfil_" + (new Date()).getDate() + ".jpg");
+		file = new File(FitnessManagementSingleton.getCAMINHO_FOTO_PERFIL());
+		if(!file.exists()){
+			file.mkdirs();
+		}
+		file = new File(FitnessManagementSingleton.getFotoPerfil());
 		uri = Uri.fromFile(file);
 		
 		botao.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "starting camera", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
 				Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				startActivityForResult(in, 2013);
 			}
@@ -132,6 +137,7 @@ public class CadastrarAlunoActivity extends Activity {
 					aluno = new Aluno(nome, idade, endereco, "Feminino", telefone);
 				}
 				
+				aluno.setCaminhoImagem(file.getAbsolutePath());//TODO MODIFICAR O CONSTRUTOR DE ALUNO PARA RECEBER O CAMINHO
 				alunoFachada.adicionarAluno(aluno);
 				Toast.makeText(getApplicationContext(), "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
 				finish();

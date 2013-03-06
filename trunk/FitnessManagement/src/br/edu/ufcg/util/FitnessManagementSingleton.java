@@ -1,6 +1,9 @@
 package br.edu.ufcg.util;
 
+import java.util.Date;
+
 import android.content.Context;
+import android.os.Environment;
 import br.edu.ufcg.fachada.AlunoFachada;
 import br.edu.ufcg.fachada.AtividadeFachada;
 import br.edu.ufcg.fachada.DadosFachada;
@@ -12,6 +15,8 @@ import br.edu.ufcg.sgbd.DB;
 
 public class FitnessManagementSingleton {
 
+	private static final String CAMINHO = Environment.getExternalStorageDirectory() + "/.FitnessManagement";
+	private static String CAMINHO_FOTO_PERFIL = CAMINHO + "/Fotos/Perfil";
 	private static Context context;
 	private static DB db;
 	private static AlunoFachada alunoFachada;
@@ -79,5 +84,13 @@ public class FitnessManagementSingleton {
 		}
 		return atividadeFachada;
 	}
+
+	public static String getCAMINHO_FOTO_PERFIL() {
+		return CAMINHO_FOTO_PERFIL;
+	}
 	
+	public static String getFotoPerfil(){
+		return CAMINHO_FOTO_PERFIL + "/br.ufcg.edu.perfil_" + (new Date()).getDate() + ".jpg";
+	}
+
 }
