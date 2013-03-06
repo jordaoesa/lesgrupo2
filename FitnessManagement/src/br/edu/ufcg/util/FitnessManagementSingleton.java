@@ -89,8 +89,8 @@ public class FitnessManagementSingleton {
 		return CAMINHO_FOTO_PERFIL;
 	}
 	
-	public static String getFotoPerfil(){
-		return CAMINHO_FOTO_PERFIL + "/br.ufcg.edu.perfil_" + (new Date()).getDate() + ".jpg";
+	public static String getNomeFotoPerfil(){
+		return "/br.ufcg.edu.perfil_" + (new Date()).toString().replace(" ", "-").replace(":", "-") + ".jpg";
 	}
 
 }
