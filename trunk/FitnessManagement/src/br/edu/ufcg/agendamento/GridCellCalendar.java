@@ -44,6 +44,8 @@ public class GridCellCalendar extends BaseAdapter implements OnClickListener {
 			"dd-MMM-yyyy");
 	private Button selectedDayMonthYearButton;
 
+	private String date_month_year;
+
 	public GridCellCalendar(Context context, int textViewResourceId, int month,
 			int year, Button selectedDayMonthYearButton) {
 		super();
@@ -130,11 +132,11 @@ public class GridCellCalendar extends BaseAdapter implements OnClickListener {
 			list.add(String
 					.valueOf((daysInPrevMonth - trailingSpaces + DAY_OFFSET)
 							+ i)
-					+ "-GREY"
-					+ "-"
-					+ getMonthAsString(prevMonth)
-					+ "-"
-					+ prevYear);
+							+ "-GREY"
+							+ "-"
+							+ getMonthAsString(prevMonth)
+							+ "-"
+							+ prevYear);
 		}
 
 		for (int i = 1; i <= daysInMonth; i++) {
@@ -207,7 +209,7 @@ public class GridCellCalendar extends BaseAdapter implements OnClickListener {
 
 	@Override
 	public void onClick(View view) {
-		String date_month_year = (String) view.getTag();
+		date_month_year = (String) view.getTag();
 		selectedDayMonthYearButton.setText("Data: " + date_month_year);
 
 		try {
@@ -218,6 +220,9 @@ public class GridCellCalendar extends BaseAdapter implements OnClickListener {
 		}
 	}
 
+	public String getDateSelected(){
+		return this.date_month_year;
+	}
 	public int getCurrentDayOfMonth() {
 		return currentDayOfMonth;
 	}
