@@ -60,6 +60,20 @@ public class DB extends SQLiteOpenHelper {
 												"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
 											")";
 	
+	private final String TABLE_FICHA = 	"CREATE TABLE TABLE_FICHA(" +
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"id_treino INTEGER," +
+			"FOREIGN KEY(id_treino) REFERENCES TABLE_TREINO(id)" +
+		")";
+	
+	
+	private final String TABLE_TREINO  = 	"CREATE TABLE TABLE_TREINO(" +
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"id_atividade INTEGER," +
+			"FOREIGN KEY(id_atividade) REFERENCES TABLE_ATIVIDADE(id)" +
+		")";
+	
+	
 	/**
 	 * O construtor necessita do contexto da aplicacao
 	 * @param context
@@ -82,6 +96,8 @@ public class DB extends SQLiteOpenHelper {
 		db.execSQL(TABLE_GRUPO_MUSCULAR);
 		db.execSQL(TABLE_MAQUINAS);
 		db.execSQL(TABLE_ATIVIDADE);
+		db.execSQL(TABLE_FICHA);
+		db.execSQL(TABLE_TREINO);
 	}
 
 	@Override
@@ -93,6 +109,8 @@ public class DB extends SQLiteOpenHelper {
 		dropTable(db, "TABLE_GRUPO_MUSCULAR");
 		dropTable(db, "TABLE_MAQUINAS");
 		dropTable(db, "TABLE_ATIVIDADE");
+		dropTable(db, "TABLE_FICHA");
+		dropTable(db, "TABLE_TREINO");
 		onCreate(db);
 	}
 
