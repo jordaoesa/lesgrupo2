@@ -8,16 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/textoNomeTreinoCadastrarTreino"
-            android:layout_width="96dp"
+        <TextView
+            android:id="@+id/textViewNomeAtividade"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1.40"
-            android:ems="10"
-            android:text="Nome do Treino" >
-
-            <requestFocus />
-        </EditText>
+            android:layout_weight="0.80"
+            android:text="Nome da Atividade"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
             android:id="@+id/caixaNomeAtividade"
@@ -43,7 +40,7 @@
                 android:layout_height="65dp" />
 
             <Button
-                android:id="@+id/botaoAdicionarAtividadeCadastrarTreino"
+                android:id="@+id/botaoAdicionarAtividade"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:text="Adicionar Atividade" />
@@ -51,7 +48,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.05"
             android:orientation="vertical" >
@@ -62,8 +59,11 @@
                 android:layout_height="match_parent" >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:id="@+id/linearLayoutDoScroll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
                 </LinearLayout>
             </ScrollView>
 
@@ -75,11 +75,11 @@
             android:orientation="vertical" >
 
             <Button
-                android:id="@+id/botaoCadastrarTreinoCadastrarTreino"
+                android:id="@+id/botaoCadastrarTreino"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.22"
-                android:text="Cadastrar Atividade" />
+                android:text="Cadastrar Treino" />
         </LinearLayout>
 
     </LinearLayout>
