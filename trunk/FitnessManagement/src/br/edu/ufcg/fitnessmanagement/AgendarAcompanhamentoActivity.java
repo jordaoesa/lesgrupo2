@@ -156,7 +156,6 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_agendar_acompanhamento, menu);
 		return true;
 	}
 

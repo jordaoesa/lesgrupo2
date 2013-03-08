@@ -60,7 +60,7 @@ public class CadastrarDadosActivity extends Activity {
 					Dados dados = new Dados(Double.parseDouble(peso.toString()), Double.parseDouble(calorias.toString()), Double.parseDouble(braco.toString()), Double.parseDouble(perna.toString()), Double.parseDouble(imc.toString()), date);
 					
 					dadosFachada.adicionaDadosDoAluno(idAluno, dados);
-					Toast.makeText(getApplicationContext(), "Sucess", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "Sucesso", Toast.LENGTH_SHORT).show();
 					finish();
 				}
 			}
@@ -78,22 +78,22 @@ public class CadastrarDadosActivity extends Activity {
 	
 	private boolean verificaDadosInformados(Editable peso, Editable calorias, Editable braco, Editable perna, Editable imc, Editable data) {
 		if(peso == null || peso.toString().equals("") || !verificaDouble(peso)){
-			Toast.makeText(getApplicationContext(), "Peso Inválido", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Peso InvÃ¡lido", Toast.LENGTH_SHORT).show();
 			return false;
 		}else if(calorias == null || calorias.toString().equals("") || !verificaDouble(calorias)){
-			Toast.makeText(getApplicationContext(), "Calorias Inválido", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Calorias InvÃ¡lido", Toast.LENGTH_SHORT).show();
 			return false;
 		}else if(braco == null || braco.toString().equals("") || !verificaDouble(braco)){
-			Toast.makeText(getApplicationContext(), "Tamanho Braço Inválido", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Tamanho BraÃ§o InvÃ¡lido", Toast.LENGTH_SHORT).show();
 			return false;
 		}else if(perna == null || perna.toString().equals("") || !verificaDouble(perna)){
-			Toast.makeText(getApplicationContext(), "Tamanho Perna Inválido", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Tamanho Perna InvÃ¡lido", Toast.LENGTH_SHORT).show();
 			return false;
 		}else if(imc == null || imc.toString().equals("") || !verificaDouble(imc)){
-			Toast.makeText(getApplicationContext(), "IMC Inválido", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "IMC InvÃ¡lido", Toast.LENGTH_SHORT).show();
 			return false;
 		}else if(data == null || data.toString().equals("") || !data.toString().matches("[0-3]{1}[0-9]{1}\\/[0-1]{1}[0-9]{1}\\/[1-2]{1}[0-9]{3}")){
-			Toast.makeText(getApplicationContext(), "Data Inválida", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Data InvÃ¡lida", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		return true;

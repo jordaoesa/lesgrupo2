@@ -160,21 +160,21 @@ public class CadastrarAlunoActivity extends Activity {
 	
 	private boolean verificaDadosEntrada(Editable nome, Editable endereco, Editable telefone, Editable idade) {
 		if(nome == null || nome.toString().equals("")){
-			Toast.makeText(getApplicationContext(), "Nome Inválido", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Nome InvÃ¡lido", Toast.LENGTH_SHORT).show();
 			return false;
 		}else if(endereco == null || endereco.toString().equals("")){
-			Toast.makeText(getApplicationContext(), "Endereço Inválido", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "EndereÃ§o InvÃ¡lido", Toast.LENGTH_SHORT).show();
 			return false;
 		}else if(telefone == null || telefone.toString().equals("") || !telefone.toString().matches("\\([0-9]{2}\\)\\s[2-9]{1}[0-9]{3}\\-[0-9]{4}")){
-			Toast.makeText(getApplicationContext(), "Telefone Inválido", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Telefone InvÃ¡lido", Toast.LENGTH_SHORT).show();
 			return false;
 		}else if(idade == null || idade.toString().equals("")){
-			Toast.makeText(getApplicationContext(), "Idade Inválida", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Idade InvÃ¡lida", Toast.LENGTH_SHORT).show();
 		}else{
 			try{
 				Integer.parseInt(idade.toString());
 			}catch(NumberFormatException nfe){
-				Toast.makeText(getApplicationContext(), "Idade Inválida", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Idade InvÃ¡lida", Toast.LENGTH_SHORT).show();
 				return false;
 			}
 		}
