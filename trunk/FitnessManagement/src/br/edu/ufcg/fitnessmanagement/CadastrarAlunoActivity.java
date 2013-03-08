@@ -169,6 +169,8 @@ public class CadastrarAlunoActivity extends Activity {
 			Toast.makeText(getApplicationContext(), "Telefone Inválido", Toast.LENGTH_SHORT).show();
 			return false;
 		}else if(idade == null || idade.toString().equals("")){
+			Toast.makeText(getApplicationContext(), "Idade Inválida", Toast.LENGTH_SHORT).show();
+		}else{
 			try{
 				Integer.parseInt(idade.toString());
 			}catch(NumberFormatException nfe){

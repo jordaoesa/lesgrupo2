@@ -11,6 +11,7 @@ import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.util.FitnessManagementSingleton;
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -39,28 +40,31 @@ public class CadastrarDadosActivity extends Activity {
 		atualizar.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Double peso = Double.parseDouble(((EditText)findViewById(R.id.editTextPeso)).getText().toString());
-				Double calorias = Double.parseDouble(((EditText)findViewById(R.id.editTextCalorias)).getText().toString());
-				Double braco = Double.parseDouble(((EditText)findViewById(R.id.editTextBraco)).getText().toString());
-				Double perna = Double.parseDouble(((EditText)findViewById(R.id.editTextPerna)).getText().toString());
-				Double imc = Double.parseDouble(((EditText)findViewById(R.id.editTextIMC)).getText().toString());
-				String data = ((EditText)findViewById(R.id.editTextData)).getText().toString();
+				Editable peso = ((EditText)findViewById(R.id.editTextPeso)).getText();
+				Editable calorias = ((EditText)findViewById(R.id.editTextCalorias)).getText();
+				Editable braco = ((EditText)findViewById(R.id.editTextBraco)).getText();
+				Editable perna = ((EditText)findViewById(R.id.editTextPerna)).getText();
+				Editable imc = ((EditText)findViewById(R.id.editTextIMC)).getText();
+				Editable data = ((EditText)findViewById(R.id.editTextData)).getText();
 				
-				java.text.DateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
-				Date date = null;
-				try {
-					date = formater.parse(data);
-				} catch (ParseException e) {
-					e.printStackTrace();
+				if(verificaDadosInformados(peso, calorias, braco, perna, imc, data)){
+					java.text.DateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+					Date date = null;
+					try {
+						date = formater.parse(data.toString());
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+					System.out.println(date.toString());
+					
+					Dados dados = new Dados(Double.parseDouble(peso.toString()), Double.parseDouble(calorias.toString()), Double.parseDouble(braco.toString()), Double.parseDouble(perna.toString()), Double.parseDouble(imc.toString()), date);
+					
+					dadosFachada.adicionaDadosDoAluno(idAluno, dados);
+					Toast.makeText(getApplicationContext(), "Sucess", Toast.LENGTH_SHORT).show();
+					finish();
 				}
-				System.out.println(date.toString());
-				
-				Dados dados = new Dados(peso, calorias, braco, perna, imc, date);
-				
-				dadosFachada.adicionaDadosDoAluno(idAluno, dados);
-				Toast.makeText(getApplicationContext(), "Sucess", Toast.LENGTH_SHORT).show();
-				finish();
 			}
+
 		});
 		
 		Button voltar = (Button) findViewById(R.id.buttonAtualizarVoltar);
@@ -70,6 +74,38 @@ public class CadastrarDadosActivity extends Activity {
 				finish();
 			}
 		});
+	}
+	
+	private boolean verificaDadosInformados(Editable peso, Editable calorias, Editable braco, Editable perna, Editable imc, Editable data) {
+		if(peso == null || peso.toString().equals("") || !verificaDouble(peso)){
+			Toast.makeText(getApplicationContext(), "Peso Inválido", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(calorias == null || calorias.toString().equals("") || !verificaDouble(calorias)){
+			Toast.makeText(getApplicationContext(), "Calorias Inválido", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(braco == null || braco.toString().equals("") || !verificaDouble(braco)){
+			Toast.makeText(getApplicationContext(), "Tamanho Braço Inválido", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(perna == null || perna.toString().equals("") || !verificaDouble(perna)){
+			Toast.makeText(getApplicationContext(), "Tamanho Perna Inválido", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(imc == null || imc.toString().equals("") || !verificaDouble(imc)){
+			Toast.makeText(getApplicationContext(), "IMC Inválido", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(data == null || data.toString().equals("") || !data.toString().matches("[0-3]{1}[0-9]{1}\\/[0-1]{1}[0-9]{1}\\/[1-2]{1}[0-9]{3}")){
+			Toast.makeText(getApplicationContext(), "Data Inválida", Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		return true;
+	}
+
+	private boolean verificaDouble(Editable editable) {
+		try {
+			Double.parseDouble(editable.toString());
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
