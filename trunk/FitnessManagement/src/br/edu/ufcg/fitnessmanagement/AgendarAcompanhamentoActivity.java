@@ -48,18 +48,18 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_agendar_acompanhamento);
-		setTitle("Agendar Acompanhamento");
 
 		financas = FitnessManagementSingleton.getFinancasFachadaInstance();
 		idAluno = getIntent().getIntExtra("id_aluno", -1);
 
-		menuAgendamento();
+		showCalendario();
 	}
 
 
 	private void showCalendario() {
 		setContentView(R.layout.simple_calendar_view);
+		setTitle("Agendar Acompanhamento");
+		
 		_calendar = Calendar.getInstance(TimeZone.getTimeZone("Brazil/East"));
 		month = _calendar.get(Calendar.MONTH) + 1;
 		year = _calendar.get(Calendar.YEAR);
@@ -88,7 +88,7 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 		bVoltar.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
-				menuAgendamento();
+				finish();
 			}
 		});
 
@@ -114,13 +114,13 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 		bVoltar.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
-				menuAgendamento();
+				showCalendario();
 			}
 		});
 
 		bSalvar.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
-				menuAgendamento();
+				finish();
 			}
 		});
 
@@ -143,41 +143,6 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 		String hour = sdf.format(new Date());
 		System.out.println("HOUR: " + hour);
 		return hour;
-	}
-
-
-	private void menuAgendamento() {
-		setContentView(R.layout.activity_agendar_acompanhamento);
-		Button bVoltar = (Button) findViewById(R.id.buttonVoltarAgendarAcompanhamento);
-		Button bAgendar = (Button) findViewById(R.id.buttonAgendarAgendarAcompanhamento);
-
-
-		bAgendar.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-				showCalendario();
-
-				//TODO FAZ A CHAMADA DO METODO COM A FUNCOES QUE TU QUER AQUI IRVILE E DEIXA MEU EDIT TEXT AQUI EM BAIXO.. kkk =P
-
-
-				//				EditText etValor = (EditText) findViewById(R.id.editTextValorAgendarAcompanhamento);
-				//				Double valor = null;
-				//				try{
-				//					valor = Double.parseDouble(etValor.getText().toString());
-				//				}catch(NumberFormatException ne){
-				//					valor = 0D;
-				//				}
-				//				financas.addDivida(idAluno, valor);
-				//				finish();
-			}
-		});
-		bVoltar.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				finish();
-			}
-		});
 	}
 
 	private void setGridCellAdapterToDate(int month, int year){
