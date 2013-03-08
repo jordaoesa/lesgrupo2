@@ -5,6 +5,7 @@ import br.edu.ufcg.gerenciar.Atividade;
 import br.edu.ufcg.util.FitnessManagementSingleton;
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -52,15 +53,23 @@ public class CadastrarAtividadeActivity extends Activity {
 		botaoCadastrarExercicio.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				
-				int peso = Integer.parseInt(caixaCadExerPeso.getText().toString());
-				String observacao = caixaObservacao.getText().toString();
-
-				Atividade atividade = new Atividade(series, repeticoes, peso, nomeExercicio, nomeMaquina, nomeGurpoMuscular,  observacao);
-				FitnessManagementSingleton.getAtividadeFachadaInstance().adicionaAtividade(idAluno, atividade);
-				
-				Toast.makeText(getApplicationContext(), "aluno: " + idAluno + " - exercicio: " + atividade.getNomeExercicio(), Toast.LENGTH_SHORT).show();
-				finish();
+				Editable etPeso = (Editable) caixaCadExerPeso.getText();
+				if(etPeso == null || etPeso.toString().equals("")){
+					Toast.makeText(getApplicationContext(), "Peso InvÃ¡lido", Toast.LENGTH_SHORT).show();
+				}else{
+					try{
+						int peso = Integer.parseInt(caixaCadExerPeso.getText().toString());
+						String observacao = caixaObservacao.getText().toString();
+						
+						Atividade atividade = new Atividade(series, repeticoes, peso, nomeExercicio, nomeMaquina, nomeGurpoMuscular,  observacao);
+						FitnessManagementSingleton.getAtividadeFachadaInstance().adicionaAtividade(idAluno, atividade);
+						
+						Toast.makeText(getApplicationContext(), "aluno: " + idAluno + " - exercicio: " + atividade.getNomeExercicio(), Toast.LENGTH_SHORT).show();
+						finish();
+					}catch(NumberFormatException nfe){
+						Toast.makeText(getApplicationContext(), "Peso InvÃ¡lido", Toast.LENGTH_SHORT).show();
+					}
+				}
 			}
 		});
 		
@@ -131,7 +140,7 @@ public class CadastrarAtividadeActivity extends Activity {
 		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {	
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-				//pega nome pela posição
+				//pega nome pela posiï¿½ï¿½o
 				 nomeExercicio = parent.getItemAtPosition(posicao).toString();
 			}
 			@Override
@@ -143,7 +152,7 @@ public class CadastrarAtividadeActivity extends Activity {
 		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {	
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-				//pega nome pela posição
+				//pega nome pela posiï¿½ï¿½o
 				 nomeMaquina = parent.getItemAtPosition(posicao).toString();
 			}
 			@Override
@@ -155,7 +164,7 @@ public class CadastrarAtividadeActivity extends Activity {
 		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {	
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-				//pega nome pela posição
+				//pega nome pela posiï¿½ï¿½o
 				 nomeGurpoMuscular = parent.getItemAtPosition(posicao).toString();
 			}
 			@Override
@@ -167,7 +176,7 @@ public class CadastrarAtividadeActivity extends Activity {
 		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {	
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-				//pega nome pela posição
+				//pega nome pela posiï¿½ï¿½o
 				 series = Integer.parseInt(parent.getItemAtPosition(posicao).toString());
 			}
 			@Override
@@ -179,7 +188,7 @@ public class CadastrarAtividadeActivity extends Activity {
 		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {	
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-				//pega nome pela posição
+				//pega nome pela posiï¿½ï¿½o
 				repeticoes  = Integer.parseInt(parent.getItemAtPosition(posicao).toString());
 			}
 			@Override
