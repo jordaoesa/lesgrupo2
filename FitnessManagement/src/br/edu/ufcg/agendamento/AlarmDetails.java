@@ -1,6 +1,5 @@
 package br.edu.ufcg.agendamento;
 
-import br.edu.ufcg.fitnessmanagement.R;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.os.Bundle;

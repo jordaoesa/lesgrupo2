@@ -137,7 +137,7 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 	}
 
 	private void salvarAgendamento() {
-		AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);                 
+		AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
 		//---get current date and time---
 		Calendar calendar = Calendar.getInstance();       
@@ -157,14 +157,15 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 
 		Intent intent = new Intent("br.edu.ufcg.agendamento.DisplayNotification");
+		 //---assign an ID of 1---
+		intent.putExtra("NotifID", 1);   
 		//---PendingIntent to launch activity when the alarm triggers-
-		PendingIntent displayIntent = PendingIntent.getActivity(
-				getBaseContext(), 0, 
-				intent, 0);               
+		 PendingIntent displayIntent = PendingIntent.getActivity(
+                 getBaseContext(), 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);                   
 		//---sets the alarm to trigger---
 		alarmManager.set(AlarmManager.RTC_WAKEUP, 
 				calendar.getTimeInMillis(), displayIntent);
-
+		
 	}
 	
 	private String getDateFullFormatter(){

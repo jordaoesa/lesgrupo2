@@ -64,6 +64,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Intent intentCadastrarAluno = new Intent(getApplicationContext(), CadastrarAlunoActivity.class);
 				startActivity(intentCadastrarAluno);
+				
 			}
 		});
 		bGerenciar.setOnClickListener(new OnClickListener() {
