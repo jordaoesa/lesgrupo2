@@ -74,6 +74,15 @@ public class PerfilDoAlunoActivity extends Activity {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			
+			try {
+				(new File(aluno.getCaminhoImagem())).delete(); // DELETAR IMAGEM CASO SEJA UMA NOVA FOTO
+				aluno.setCaminhoImagem(file.getAbsolutePath());
+				alunoFachada.updateCaminhoFoto(aluno.getId(), file.getAbsolutePath());
+			} catch (Exception e) {
+				System.out.println(">>> " + e.getMessage());
+			}
+			
 			QuickContactBadge qcbFoto = (QuickContactBadge) findViewById(R.id.quickContactBadgePerfilAluno);
 			qcbFoto.setImageBitmap(bm);
 		}
@@ -240,13 +249,6 @@ public class PerfilDoAlunoActivity extends Activity {
 	
 	private void capturar() {
 		Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
-		try {
-			(new File(aluno.getCaminhoImagem())).delete(); // DELETAR IMAGEM CASO SEJA UMA NOVA FOTO
-			aluno.setCaminhoImagem(file.getAbsolutePath());
-			alunoFachada.updateCaminhoFoto(aluno.getId(), file.getAbsolutePath());
-		} catch (Exception e) {
-			System.out.println(">>> " + e.getMessage());
-		}
 		Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		startActivityForResult(in, 2013);
 	}
