@@ -12,10 +12,12 @@ import br.edu.ufcg.util.FitnessManagementSingleton;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.PatternMatcher;
 import android.provider.MediaStore;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,8 +44,8 @@ public class CadastrarAlunoActivity extends Activity {
 		setTitle("Cadastrar Novo Aluno");
 		
 		alunoFachada = FitnessManagementSingleton.getAlunoFachadaInstance();
-		menuCadastrar();
 		foto();
+		menuCadastrar();
 	}
 	
 	@Override
@@ -118,32 +120,32 @@ public class CadastrarAlunoActivity extends Activity {
 					bm.compress(Bitmap.CompressFormat.PNG, 100, fos);
 					fos.flush();
 					fos.close();
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
+				} catch (Exception e) {
+					System.out.println(">>> " + e.getMessage());
 				}
 				
-				String nome = ((EditText) findViewById(R.id.editTextNomeMenuCadastrar)).getText().toString();
-				String endereco = ((EditText) findViewById(R.id.editTextEnderecoMenuCadastrar)).getText().toString();
-				String telefone = ((EditText) findViewById(R.id.editTextTelefoneMenuCadastrar)).getText().toString();
-				Integer idade = Integer.parseInt(((EditText) findViewById(R.id.editTextIdadeMenuCadastrar)).getText().toString());
+				Editable nome = ((EditText) findViewById(R.id.editTextNomeMenuCadastrar)).getText();
+				Editable endereco = ((EditText) findViewById(R.id.editTextEnderecoMenuCadastrar)).getText();
+				Editable telefone = ((EditText) findViewById(R.id.editTextTelefoneMenuCadastrar)).getText();
+				Editable idade = ((EditText) findViewById(R.id.editTextIdadeMenuCadastrar)).getText();
 				final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupSexoMenuCadastrar);
 				Aluno aluno = null;
 				
-				
-				int sexo = radioGroup.getCheckedRadioButtonId();
-				if(sexo == R.id.radioButtonSexoMasMenuCadastrar){
-					aluno = new Aluno(nome, idade, endereco, "Masculino", telefone);
-				}else if(sexo == R.id.radioButtonSexoFemMenuCadastrar){
-					aluno = new Aluno(nome, idade, endereco, "Feminino", telefone);
+				if(verificaDadosEntrada(nome, endereco, telefone, idade)){
+					int sexo = radioGroup.getCheckedRadioButtonId();
+					if(sexo == R.id.radioButtonSexoMasMenuCadastrar){
+						aluno = new Aluno(nome.toString(), Integer.parseInt(idade.toString()), endereco.toString(), "Masculino", telefone.toString());
+					}else if(sexo == R.id.radioButtonSexoFemMenuCadastrar){
+						aluno = new Aluno(nome.toString(), Integer.parseInt(idade.toString()), endereco.toString(), "Feminino", telefone.toString());
+					}
+					
+					aluno.setCaminhoImagem(file.getAbsolutePath());//TODO MODIFICAR O CONSTRUTOR DE ALUNO PARA RECEBER O CAMINHO
+					alunoFachada.adicionarAluno(aluno);
+					Toast.makeText(getApplicationContext(), "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
+					finish();
 				}
-				
-				aluno.setCaminhoImagem(file.getAbsolutePath());//TODO MODIFICAR O CONSTRUTOR DE ALUNO PARA RECEBER O CAMINHO
-				alunoFachada.adicionarAluno(aluno);
-				Toast.makeText(getApplicationContext(), "Cadastrado com Sucesso", Toast.LENGTH_SHORT).show();
-				finish();
 			}
+
 		});
 		
 		Button voltar = (Button) findViewById(R.id.buttonVoltarMenuCadastrar);
@@ -154,6 +156,27 @@ public class CadastrarAlunoActivity extends Activity {
 			}
 		});
 		
+	}
+	
+	private boolean verificaDadosEntrada(Editable nome, Editable endereco, Editable telefone, Editable idade) {
+		if(nome == null || nome.toString().equals("")){
+			Toast.makeText(getApplicationContext(), "Nome Inválido", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(endereco == null || endereco.toString().equals("")){
+			Toast.makeText(getApplicationContext(), "Endereço Inválido", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(telefone == null || telefone.toString().equals("") || !telefone.toString().matches("\\([0-9]{2}\\)\\s[2-9]{1}[0-9]{3}\\-[0-9]{4}")){
+			Toast.makeText(getApplicationContext(), "Telefone Inválido", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(idade == null || idade.toString().equals("")){
+			try{
+				Integer.parseInt(idade.toString());
+			}catch(NumberFormatException nfe){
+				Toast.makeText(getApplicationContext(), "Idade Inválida", Toast.LENGTH_SHORT).show();
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@Override
