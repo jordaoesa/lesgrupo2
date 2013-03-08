@@ -1,15 +1,10 @@
 package br.edu.ufcg.util;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.List;
 
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fitnessmanagement.R;
-import br.edu.ufcg.fitnessmanagement.R.drawable;
-import br.edu.ufcg.fitnessmanagement.R.id;
-import br.edu.ufcg.fitnessmanagement.R.layout;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;

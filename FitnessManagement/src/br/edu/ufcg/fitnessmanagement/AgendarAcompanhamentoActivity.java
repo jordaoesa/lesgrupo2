@@ -7,9 +7,12 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.Menu;
@@ -72,7 +75,7 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 		currentMonth = (Button) this.findViewById(R.id.currentMonth);
 
-		currentMonth.setText(getDateFormatter());
+		currentMonth.setText(getDateMonthYearFormatter());
 
 		nextMonth = (ImageView) this.findViewById(R.id.nextMonth);
 		nextMonth.setOnClickListener(this);
@@ -120,7 +123,7 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 		bSalvar.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
-				finish();
+				salvarAgendamento();
 			}
 		});
 
@@ -133,7 +136,42 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 	}
 
-	private CharSequence getDateFormatter() {
+	private void salvarAgendamento() {
+		AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);                 
+
+		//---get current date and time---
+		Calendar calendar = Calendar.getInstance();       
+
+		//---sets the time for the alarm to trigger---
+		calendar.set(Calendar.YEAR, _calendar.get(Calendar.YEAR));
+		calendar.set(Calendar.MONTH, _calendar.get(Calendar.MONTH));
+		calendar.set(Calendar.DAY_OF_MONTH, _calendar.get(Calendar.DAY_OF_MONTH));                 
+		calendar.set(Calendar.HOUR_OF_DAY, hour);
+		calendar.set(Calendar.MINUTE, minute);
+		calendar.set(Calendar.SECOND, 0);
+
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ",new Locale("pt","br"));
+		System.out.println("dia alarm: " + sdf.format(calendar.getTime()));
+		SimpleDateFormat hourf = new SimpleDateFormat("MM:HH ",new Locale("pt","br"));
+		System.out.println("HORARIO alarm: " + hour + ":" + minute + ">>>>" + calendar.getTime().getHours() + ":" + calendar.getTime().getMinutes());
+
+
+		Intent intent = new Intent("br.edu.ufcg.agendamento.DisplayNotification");
+		//---PendingIntent to launch activity when the alarm triggers-
+		PendingIntent displayIntent = PendingIntent.getActivity(
+				getBaseContext(), 0, 
+				intent, 0);               
+		//---sets the alarm to trigger---
+		alarmManager.set(AlarmManager.RTC_WAKEUP, 
+				calendar.getTimeInMillis(), displayIntent);
+
+	}
+	
+	private String getDateFullFormatter(){
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ",new Locale("pt","br"));
+		return sdf.format(_calendar.getTime());
+	}
+	private CharSequence getDateMonthYearFormatter() {
 		SimpleDateFormat sdf = new SimpleDateFormat("MMMM/yyyy ",new Locale("pt","br"));
 		String data = sdf.format(_calendar.getTime());
 		return data.substring(0,1).toUpperCase() + data.substring(1, data.length());
@@ -141,14 +179,13 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 	private String getHourFormatter(){
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:MM ",new Locale("pt","br"));
 		String hour = sdf.format(new Date());
-		System.out.println("HOUR: " + hour);
 		return hour;
 	}
 
 	private void setGridCellAdapterToDate(int month, int year){
 		gridCallendar = new GridCellCalendar(getApplicationContext(), R.id.calendar_day_gridcell, month, year,selectedDayMonthYearButton);
 		_calendar.set(year, month - 1, _calendar.get(Calendar.DAY_OF_MONTH));
-		currentMonth.setText(getDateFormatter());
+		currentMonth.setText(getDateMonthYearFormatter());
 		gridCallendar.notifyDataSetChanged();
 		calendarView.setAdapter(gridCallendar);
 	}
@@ -206,11 +243,11 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 				int selectedMinute) {
 			hour = selectedHour;
 			minute = selectedMinute;
-			horarioResult.setText(hour + ":" + minute);
+			horarioResult.setText(convertDigit(hour) + ":" + convertDigit(minute));
 		}
 	};
 
-	private static String pad(int c) {
+	private static String convertDigit(int c) {
 		if (c >= 10)
 			return String.valueOf(c);
 		else
