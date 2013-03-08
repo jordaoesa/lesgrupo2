@@ -33,6 +33,7 @@ public class CadastrarAlunoActivity extends Activity {
 	private ImageView foto;
 	private ImageButton botao;
 	private AlunoFachada alunoFachada;
+	private Bitmap bm;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,19 +51,8 @@ public class CadastrarAlunoActivity extends Activity {
 		if(requestCode == 2013 && resultCode == Activity.RESULT_OK){
 			//System.out.println(">>> " + data);
 			//Toast.makeText(getApplicationContext(), data.toString(), Toast.LENGTH_SHORT).show();
-			Bitmap bm = (Bitmap) data.getExtras().get("data");
+			bm = (Bitmap) data.getExtras().get("data");
 			
-			FileOutputStream fos;
-			try {
-				fos = new FileOutputStream(file);
-				bm.compress(Bitmap.CompressFormat.PNG, 100, fos);
-				fos.flush();
-				fos.close();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 			foto = (ImageView) findViewById(R.id.imageViewFotoCadastro);
 			foto.setImageBitmap(bm);
 		}
@@ -121,6 +111,18 @@ public class CadastrarAlunoActivity extends Activity {
 		cadastrar.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				
+				FileOutputStream fos;
+				try {
+					fos = new FileOutputStream(file);
+					bm.compress(Bitmap.CompressFormat.PNG, 100, fos);
+					fos.flush();
+					fos.close();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				
 				String nome = ((EditText) findViewById(R.id.editTextNomeMenuCadastrar)).getText().toString();
 				String endereco = ((EditText) findViewById(R.id.editTextEnderecoMenuCadastrar)).getText().toString();
