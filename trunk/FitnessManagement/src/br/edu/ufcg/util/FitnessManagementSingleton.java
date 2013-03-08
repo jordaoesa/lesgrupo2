@@ -8,9 +8,11 @@ import br.edu.ufcg.fachada.AlunoFachada;
 import br.edu.ufcg.fachada.AtividadeFachada;
 import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.fachada.ExercicioFachada;
+import br.edu.ufcg.fachada.FichaFachada;
 import br.edu.ufcg.fachada.GrupoMuscularFachada;
 import br.edu.ufcg.fachada.MaquinaFachada;
 import br.edu.ufcg.fachada.FinancasFachada;
+import br.edu.ufcg.fachada.TreinoFachada;
 import br.edu.ufcg.sgbd.DB;
 
 public class FitnessManagementSingleton {
@@ -26,6 +28,8 @@ public class FitnessManagementSingleton {
 	private static MaquinaFachada maquinaFachada;
 	private static GrupoMuscularFachada grupoMuscularFachada;
 	private static AtividadeFachada atividadeFachada;
+	private static FichaFachada fichaFachada;
+	private static TreinoFachada treinoFachada;
 	
 	public static void setContext(Context context){
 		FitnessManagementSingleton.context = context;
@@ -83,6 +87,21 @@ public class FitnessManagementSingleton {
 			atividadeFachada = new AtividadeFachada(db);
 		}
 		return atividadeFachada;
+	}
+	
+	
+	public static FichaFachada getFichaFachadaInstance(){
+		if(fichaFachada == null){
+			fichaFachada = new FichaFachada(db);
+		}
+		return fichaFachada;
+	}
+	
+	public static TreinoFachada getTreinoFachadaInstance(){
+		if(treinoFachada == null){
+			treinoFachada = new TreinoFachada(db);
+		}
+		return treinoFachada;
 	}
 
 	public static String getCAMINHO_FOTO_PERFIL() {
