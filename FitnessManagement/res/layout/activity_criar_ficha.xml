@@ -8,16 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <EditText
-            android:id="@+id/textoNomeFicha"
-            android:layout_width="96dp"
+        <TextView
+            android:id="@+id/textViewNomeFicha"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1.40"
-            android:ems="10"
-            android:text="Nome da Ficha" >
-
-            <requestFocus />
-        </EditText>
+            android:layout_weight="0.80"
+            android:text="Nome da Ficha"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
             android:id="@+id/caixaNomeFicha"
@@ -38,7 +35,7 @@
             android:layout_height="62dp" >
 
             <Spinner
-                android:id="@+id/spinnerDeAtividades"
+                android:id="@+id/spinnerDeFichas"
                 android:layout_width="149dp"
                 android:layout_height="65dp" />
 
