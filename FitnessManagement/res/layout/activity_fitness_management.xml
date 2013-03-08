@@ -32,14 +32,14 @@
         android:layout_alignParentRight="true"
         android:text="Cadastrar Alunos" />
 
-    <Button
+<!--     <Button
         android:id="@+id/buttonAddAlunoMain"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="add aluno" />
+        android:text="add aluno" /> -->
 
     <Button
         android:id="@+id/buttonGerenciarExercMuscMaquiMain"
