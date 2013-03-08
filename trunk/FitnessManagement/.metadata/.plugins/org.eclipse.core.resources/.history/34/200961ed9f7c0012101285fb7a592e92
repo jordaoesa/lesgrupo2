@@ -1,0 +1,11 @@
+package br.edu.ufcg.gerenciar;
+
+import java.util.ArrayList;
+
+import br.edu.ufcg.aluno.Aluno;
+
+public class Atividades {
+
+	private static ArrayList<Exercicio> alunos = new ArrayList<Exercicio>(); 
+	
+}

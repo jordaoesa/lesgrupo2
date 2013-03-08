@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/EditText10"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="Exercício" />
+
+        <Spinner
+            android:id="@+id/spinnerExercicio"
+            android:layout_width="190dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/EditText08"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="Máquina" />
+
+        <Spinner
+            android:id="@+id/spinnerMaquina"
+            android:layout_width="186dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.21" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/EditText06"
+            android:layout_width="108dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05"
+            android:ems="10"
+            android:text="Grupo" />
+
+        <Spinner
+            android:id="@+id/spinnerGrupoMuscular"
+            android:layout_width="184dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/EditText04"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.17"
+            android:ems="10"
+            android:text="Séries" />
+
+        <Spinner
+            android:id="@+id/spinnerNumeroSerie"
+            android:layout_width="186dp"
+            android:layout_height="45dp"
+            android:layout_weight="0.34" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/EditText02"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:ems="10"
+            android:text="Repetições" />
+
+        <Spinner
+            android:id="@+id/spinnerNumeroRepeticoes"
+            android:layout_width="192dp"
+            android:layout_height="44dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.12"
+            android:ems="10"
+            android:text="Peso" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="196dp"
+            android:layout_height="wrap_content"
+            android:ems="10" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.17" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="                     Observação" />
+
+            <EditText
+                android:id="@+id/caixaObservacaoExercicio"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:ems="10" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/botaoCadastrarExercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.47"
+            android:text="Cadastrar" />
+
+        <Button
+            android:id="@+id/botaoCancelarCadastroExercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.47"
+            android:text="Cancelar" />
+
+        <Button
+            android:id="@+id/botaoLimparExercicios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.48"
+            android:text="Limpar" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,192 @@
+!SESSION 2013-02-21 23:58:41.787 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_13
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_BR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-02-21 23:59:10.390
+!MESSAGE An Android SDK is already being loaded. Please try again later.
+
+!ENTRY org.tigris.subversion.subclipse.core 4 0 2013-02-22 00:36:08.325
+!MESSAGE Problems reported while synchronizing SVNStatusSubscriber. 0 of 1 resources were synchronized.
+!SUBENTRY 1 org.tigris.subversion.subclipse.core 4 0 2013-02-22 00:36:08.325
+!MESSAGE An error occurred synchronizing /FitnessManagement: Error getting status for resource P/FitnessManagement org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+!STACK 1
+org.eclipse.team.core.TeamException: Error getting status for resource P/FitnessManagement org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+	at org.tigris.subversion.subclipse.core.sync.SVNWorkspaceSubscriber.findChanges(SVNWorkspaceSubscriber.java:301)
+	at org.tigris.subversion.subclipse.core.sync.SVNWorkspaceSubscriber.refresh(SVNWorkspaceSubscriber.java:241)
+	at org.tigris.subversion.subclipse.core.sync.SVNWorkspaceSubscriber.refresh(SVNWorkspaceSubscriber.java:215)
+	at org.eclipse.team.internal.ui.synchronize.RefreshSubscriberParticipantJob.doRefresh(RefreshSubscriberParticipantJob.java:116)
+	at org.eclipse.team.internal.ui.synchronize.RefreshParticipantJob.run(RefreshParticipantJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.tigris.subversion.subclipse.core.SVNException: org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+	at org.tigris.subversion.subclipse.core.SVNException.wrapException(SVNException.java:91)
+	at org.tigris.subversion.subclipse.core.client.StatusAndInfoCommand.run(StatusAndInfoCommand.java:59)
+	at org.tigris.subversion.subclipse.core.sync.SVNWorkspaceSubscriber.findChanges(SVNWorkspaceSubscriber.java:264)
+	... 5 more
+Caused by: org.tigris.subversion.svnclientadapter.SVNClientException: org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:600)
+	at org.tigris.subversion.subclipse.core.client.StatusCommand.execute(StatusCommand.java:74)
+	at org.tigris.subversion.subclipse.core.client.StatusAndInfoCommand.execute(StatusAndInfoCommand.java:45)
+	at org.tigris.subversion.subclipse.core.client.StatusAndInfoCommand.run(StatusAndInfoCommand.java:57)
+	... 6 more
+Caused by: org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+	at org.apache.subversion.javahl.SVNClient.status(Native Method)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:578)
+	... 9 more
+!SUBENTRY 2 org.eclipse.team.core 4 0 2013-02-22 00:36:08.327
+!MESSAGE Error getting status for resource P/FitnessManagement org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+!STACK 1
+org.tigris.subversion.subclipse.core.SVNException: org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+	at org.tigris.subversion.subclipse.core.SVNException.wrapException(SVNException.java:91)
+	at org.tigris.subversion.subclipse.core.client.StatusAndInfoCommand.run(StatusAndInfoCommand.java:59)
+	at org.tigris.subversion.subclipse.core.sync.SVNWorkspaceSubscriber.findChanges(SVNWorkspaceSubscriber.java:264)
+	at org.tigris.subversion.subclipse.core.sync.SVNWorkspaceSubscriber.refresh(SVNWorkspaceSubscriber.java:241)
+	at org.tigris.subversion.subclipse.core.sync.SVNWorkspaceSubscriber.refresh(SVNWorkspaceSubscriber.java:215)
+	at org.eclipse.team.internal.ui.synchronize.RefreshSubscriberParticipantJob.doRefresh(RefreshSubscriberParticipantJob.java:116)
+	at org.eclipse.team.internal.ui.synchronize.RefreshParticipantJob.run(RefreshParticipantJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.tigris.subversion.svnclientadapter.SVNClientException: org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:600)
+	at org.tigris.subversion.subclipse.core.client.StatusCommand.execute(StatusCommand.java:74)
+	at org.tigris.subversion.subclipse.core.client.StatusAndInfoCommand.execute(StatusAndInfoCommand.java:45)
+	at org.tigris.subversion.subclipse.core.client.StatusAndInfoCommand.run(StatusAndInfoCommand.java:57)
+	... 6 more
+Caused by: org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+	at org.apache.subversion.javahl.SVNClient.status(Native Method)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:578)
+	... 9 more
+!SUBENTRY 3 org.tigris.subversion.subclipse.core 4 -6 2013-02-22 00:36:08.328
+!MESSAGE org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+!STACK 0
+org.tigris.subversion.svnclientadapter.SVNClientException: org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:600)
+	at org.tigris.subversion.subclipse.core.client.StatusCommand.execute(StatusCommand.java:74)
+	at org.tigris.subversion.subclipse.core.client.StatusAndInfoCommand.execute(StatusAndInfoCommand.java:45)
+	at org.tigris.subversion.subclipse.core.client.StatusAndInfoCommand.run(StatusAndInfoCommand.java:57)
+	at org.tigris.subversion.subclipse.core.sync.SVNWorkspaceSubscriber.findChanges(SVNWorkspaceSubscriber.java:264)
+	at org.tigris.subversion.subclipse.core.sync.SVNWorkspaceSubscriber.refresh(SVNWorkspaceSubscriber.java:241)
+	at org.tigris.subversion.subclipse.core.sync.SVNWorkspaceSubscriber.refresh(SVNWorkspaceSubscriber.java:215)
+	at org.eclipse.team.internal.ui.synchronize.RefreshSubscriberParticipantJob.doRefresh(RefreshSubscriberParticipantJob.java:116)
+	at org.eclipse.team.internal.ui.synchronize.RefreshParticipantJob.run(RefreshParticipantJob.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.apache.subversion.javahl.ClientException: RA layer request failed
+svn: Unable to connect to a repository at URL 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement'
+svn: OPTIONS of 'https://lesgrupo2.googlecode.com/svn/trunk/FitnessManagement': SSL handshake failed: Secure connection truncated (https://lesgrupo2.googlecode.com)
+
+	at org.apache.subversion.javahl.SVNClient.status(Native Method)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:578)
+	... 9 more
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-22 00:53:26.641
+!MESSAGE New Project Wizard failed
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:642)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:559)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:371)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Caused by: org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:175)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:53)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:287)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:269)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:689)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:626)
+	... 6 more
+Root exception:
+org.eclipse.core.internal.resources.ResourceException: Invalid project description.
+	at org.eclipse.core.internal.resources.Project.checkDescription(Project.java:175)
+	at org.eclipse.core.internal.resources.Project.assertCreateRequirements(Project.java:53)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:287)
+	at org.eclipse.core.internal.resources.Project.create(Project.java:269)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:689)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:626)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:559)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:371)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: OK
+Contains: C:\Users\jesa\workspace\calendar-android-sample overlaps the location of another project: 'calendar-android-sample'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-22 00:54:09.109
+!MESSAGE New Project Wizard failed
+!STACK 0
+java.lang.reflect.InvocationTargetException
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:642)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:559)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:371)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Caused by: Java Model Exception: Java Model Status [Cannot nest 'CalendarSampleActivity/src/main/java' inside 'CalendarSampleActivity/src'. To enable the nesting exclude 'main/' from 'CalendarSampleActivity/src']
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:784)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3095)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3057)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3110)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.setupSourceFolders(NewProjectCreator.java:1353)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:722)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:626)
+	... 6 more
+Root exception:
+Java Model Exception: Java Model Status [Cannot nest 'CalendarSampleActivity/src/main/java' inside 'CalendarSampleActivity/src'. To enable the nesting exclude 'main/' from 'CalendarSampleActivity/src']
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:784)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3095)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3057)
+	at org.eclipse.jdt.internal.core.JavaProject.setRawClasspath(JavaProject.java:3110)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.setupSourceFolders(NewProjectCreator.java:1353)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:722)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createProjectAsync(NewProjectCreator.java:626)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$0(NewProjectCreator.java:559)
+	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$2.execute(NewProjectCreator.java:371)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:106)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:118)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2013-02-22 01:07:32.721
+!MESSAGE No valid Android XML Editor Delegate found for file /CalendarSampleActivity/lint.xml [Res null, type null]
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-02-22 04:05:36.130
+!MESSAGE Error parsing C:\Users\07\.android\devices.xml, backing up to C:\Users\07\.android\devices.xml.old
