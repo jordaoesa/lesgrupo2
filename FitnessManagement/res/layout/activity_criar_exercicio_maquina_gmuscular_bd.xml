@@ -16,7 +16,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nome:"
+        android:text="Exercício"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <LinearLayout
@@ -29,19 +29,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.41"
             android:ems="10" />
-
-        <Button
-            android:id="@+id/botaoCriarExercicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Criar" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Maquina:"
+        android:text="Maquina"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <LinearLayout
@@ -56,19 +50,13 @@
             android:ems="10" >
 
         </EditText>
-
-        <Button
-            android:id="@+id/botaoCriarMaquina"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Criar" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Grupo Muscular:"
+        android:text="Grupo Muscular"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <LinearLayout
@@ -81,31 +69,35 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10" />
-
-        <Button
-            android:id="@+id/botaoCriarGrupoMuscular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Criar" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="127dp"
-        android:layout_weight="0.40"
-        android:orientation="vertical" >
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
         <Button
-            android:id="@+id/buttonVoltar"
+            android:id="@+id/buttonVoltarCriarExercicioMaquinaMusculo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
             android:text="Voltar" />
-    </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonCadastrarExercicioMaquinaMusculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonVoltarCriarExercicioMaquinaMusculo"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:text="Cadastrar" />
+
+    </RelativeLayout>
 
 </LinearLayout>
