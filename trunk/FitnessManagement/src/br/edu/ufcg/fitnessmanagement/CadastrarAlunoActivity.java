@@ -170,6 +170,7 @@ public class CadastrarAlunoActivity extends Activity {
 			return false;
 		}else if(idade == null || idade.toString().equals("")){
 			Toast.makeText(getApplicationContext(), "Idade Inválida", Toast.LENGTH_SHORT).show();
+			return false;
 		}else{
 			try{
 				Integer.parseInt(idade.toString());
