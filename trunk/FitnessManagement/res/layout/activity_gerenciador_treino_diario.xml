@@ -1,0 +1,166 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GerenciadorTreinoDiarioActivity" >
+
+    <TextView
+        android:id="@+id/textViewTreinoDiario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Treino Diário"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textViewNomeDaAtividade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textViewTreinoDiario"
+        android:text="Nome da Atividade" />
+
+    <EditText
+        android:id="@+id/editTextNomeDaAtividade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textViewNomeDaAtividade"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextNumeroSeries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewSeries"
+        android:layout_alignRight="@+id/textViewSeries"
+        android:layout_below="@+id/textViewSeries"
+        android:ems="10"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextNumeroRepeticoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editTextNumeroSeries"
+        android:layout_alignBottom="@+id/editTextNumeroSeries"
+        android:layout_alignLeft="@+id/textViewRepeticoes"
+        android:layout_alignRight="@+id/textViewRepeticoes"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textViewSeries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewRepeticoes"
+        android:layout_alignBottom="@+id/textViewRepeticoes"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="17dp"
+        android:text="Séries" />
+
+    <TextView
+        android:id="@+id/textViewRepeticoes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextNomeDaAtividade"
+        android:layout_marginLeft="26dp"
+        android:layout_toRightOf="@+id/textViewSeries"
+        android:text="Repetições" />
+
+    <TextView
+        android:id="@+id/textViewTempoExecucao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewRepeticoes"
+        android:layout_alignBottom="@+id/textViewRepeticoes"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        android:text="Tempo de Execução" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editTextNumeroSeries"
+        android:text="Observações" />
+
+    <EditText
+        android:id="@+id/editTextObservacaoAtividade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:ems="10" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView1"
+        android:layout_alignLeft="@+id/textViewTempoExecucao" >
+
+        <EditText
+            android:id="@+id/editTextHoraTempoExecucao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editTextMinutoTempoExecucao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editTextSegundoTempoExecucao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/buttonCadastrarAtividadeDiaria"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textViewListaAtividades"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lista de Atividades"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <ListView
+            android:id="@+id/listViewAtividadesDiaria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </ListView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonCadastrarAtividadeDiaria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="Cadastrar Atividade" />
+
+</RelativeLayout>
