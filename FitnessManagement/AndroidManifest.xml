@@ -108,6 +108,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="br.edu.ufcg.fitnessmanagement.GenciarTreinoSemanal"
+            android:screenOrientation="portrait" 
+            android:label="@string/title_activity_genciar_treino_semanal" >
+            
+        </activity>
     </application>
 
 </manifest>
