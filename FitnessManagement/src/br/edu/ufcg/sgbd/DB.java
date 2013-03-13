@@ -8,6 +8,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DB extends SQLiteOpenHelper {
 	
+	private final String TABLE_ATIVIDADE_DIARIA = "CREATE TABLE TABLE_ATIVIDADE_DIARIA(" +
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"nome VARCHAR(255)," +
+			"series VARCHAR(255)," +
+			"repeticoes VARCHAR(255)," +
+			"horas VARCHAR(255)," +
+			"minutos VARCHAR(255)," +
+			"segundos VARCHAR(255)," +
+			"observacoes VARCHAR(255)," +
+			"diaSemana VARCHAR(255)," +
+			"id_aluno INTEGER," +
+			"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
+			
+		")";
+	
+	
 	private final String TABLE_ALUNO = "CREATE TABLE TABLE_ALUNO(" +
 											"id INTEGER PRIMARY KEY AUTOINCREMENT," +
 											"idade INTEGER," +
@@ -98,6 +114,7 @@ public class DB extends SQLiteOpenHelper {
 		db.execSQL(TABLE_ATIVIDADE);
 		db.execSQL(TABLE_FICHA);
 		db.execSQL(TABLE_TREINO);
+		db.execSQL(TABLE_ATIVIDADE_DIARIA);
 	}
 
 	@Override
@@ -111,6 +128,7 @@ public class DB extends SQLiteOpenHelper {
 		dropTable(db, "TABLE_ATIVIDADE");
 		dropTable(db, "TABLE_FICHA");
 		dropTable(db, "TABLE_TREINO");
+		dropTable(db, "TABLE_ATIVIDADE_DIARIA");
 		onCreate(db);
 	}
 

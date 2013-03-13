@@ -122,6 +122,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Gerenciar Financas" />
+
+            <Button
+                android:id="@+id/buttonTreinoDoAluno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Treino do Aluno" />
             
         </LinearLayout>
 

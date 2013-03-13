@@ -11,6 +11,7 @@ import java.util.Date;
 
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fachada.AlunoFachada;
+import br.edu.ufcg.fitnessmanagement.R.id;
 import br.edu.ufcg.util.FitnessManagementSingleton;
 import android.net.Uri;
 import android.os.Bundle;
@@ -157,6 +158,7 @@ public class PerfilDoAlunoActivity extends Activity {
 		Button bVisualizarEstatisticas = (Button) findViewById(R.id.buttonVisualizarEstatisticasPerfilAluno);
 		Button bGerenciarFinancas = (Button) findViewById(R.id.buttonGerenciarFinancasPerfilAluno);
 		Button bAgendarAcompanhamento = (Button) findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);
+		Button bTreinoDoAluno = (Button) findViewById(R.id.buttonTreinoDoAluno);
 		
 		bCadastrarDados.setOnClickListener(new OnClickListener() {
 			@Override
@@ -220,6 +222,16 @@ public class PerfilDoAlunoActivity extends Activity {
 //				capturarImagem();
 				capturar();
 				return false;
+			}
+		});
+		bTreinoDoAluno.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				final Intent intent = new Intent(getApplicationContext(), GenciarTreinoSemanal.class);
+				intent.putExtra("id_aluno", aluno.getId());
+				startActivity(intent);
+				
 			}
 		});
 //		qcbFoto.setOnClickListener(new OnClickListener() {

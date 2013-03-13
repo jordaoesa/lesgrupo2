@@ -17,5 +17,6 @@
     <string name="title_activity_agendar_acompanhamento">AgendarAcompanhamentoActivity</string>
     <string name="title_activity_criar_exercicio_maquina_gmuscular_bd">CriarExercicioMaquinaGMuscularActivity</string>
     <string name="title_activity_genciar_treino_semanal">GenciarTreinoSemanal</string>
+    <string name="title_activity_gerenciador_treino_diario">GerenciadorTreinoDiarioActivity</string>
 
 </resources>

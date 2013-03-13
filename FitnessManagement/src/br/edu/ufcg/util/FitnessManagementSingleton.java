@@ -82,12 +82,12 @@ public class FitnessManagementSingleton {
 		return financasFachada;
 	}
 	
-	public static AtividadeFachada getAtividadeFachadaInstance(){
-		if(atividadeFachada == null){
-			atividadeFachada = new AtividadeFachada(db);
-		}
-		return atividadeFachada;
-	}
+//	public static AtividadeFachada getAtividadeFachadaInstance(){
+//		if(atividadeFachada == null){
+//			atividadeFachada = new AtividadeFachada(db);
+//		}
+//		return atividadeFachada;
+//	}
 	
 	
 	public static FichaFachada getFichaFachadaInstance(){

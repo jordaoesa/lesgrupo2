@@ -1,104 +1,126 @@
 package br.edu.ufcg.gerenciar;
 
+import android.text.Editable;
+import android.widget.Toast;
+
 public class Atividade {
 
-	private Integer id;
-	private Integer idAluno;
-	private Integer series;
-	private Integer repeticoes;
-	private Integer peso;
-	private String nomeExercicio;
-	private String nomeMaquina;
-	private String grupoMuscular;
-	private String observacao;
+	private String nomeAtividade = "";
+	private String numeroSeries = "";
+	private String numeroRepeticoes = "";
+	private String horaDeExecucao = "";
+	private String minDeExecucao = "";
+	private String segDeExecucao = "";
+	private String observacaoAtividade = "";
+	private String diaSemana = "";
+	private int idAluno;
 	
-	public Atividade(int series, int repeticoes, int peso, String nomeExercicio, String nomeMaquina, String grupoMuscular, String observacao) {
-		this.series = series;
-		this.repeticoes = repeticoes;
-		this.peso = peso;
-		this.nomeExercicio = nomeExercicio;
-		this.nomeMaquina = nomeMaquina;
-		this.grupoMuscular = grupoMuscular;
-		this.observacao = observacao;
-	}
-	
-	public Atividade(Integer id, Integer idAluno, int series, int repeticoes, int peso, String nomeExercicio, String nomeMaquina, String grupoMuscular, String observacao) {
-		this.id = id;
-		this.idAluno = idAluno;
-		this.series = series;
-		this.repeticoes = repeticoes;
-		this.peso = peso;
-		this.nomeExercicio = nomeExercicio;
-		this.nomeMaquina = nomeMaquina;
-		this.grupoMuscular = grupoMuscular;
-		this.observacao = observacao;
-	}
 
-	public String getNomeExercicio() {
-		return nomeExercicio;
+	public Atividade(String nomeAtividade, String numeroSeries,String numeroRepeticoes, String horaDeExecucao,
+					 String minDeExecucao, String segDeExecucao,String observacaoAtividade,String diaSemana, int idAluno) throws Exception {
+		verificaDadosEntrada(nomeAtividade, numeroSeries, numeroRepeticoes, horaDeExecucao, minDeExecucao, segDeExecucao, observacaoAtividade);
+		this.nomeAtividade = nomeAtividade;
+		this.numeroSeries = numeroSeries;
+		this.numeroRepeticoes = numeroRepeticoes;
+		this.horaDeExecucao = horaDeExecucao;
+		this.minDeExecucao = minDeExecucao;
+		this.segDeExecucao = segDeExecucao;
+		this.observacaoAtividade = observacaoAtividade;
+		this.diaSemana = diaSemana;
+		this.idAluno = idAluno;
 	}
-	public String getNomeMaquina() {
-		return nomeMaquina;
+	public String getAtividadeResume() {
+		return this.nomeAtividade+"\n"+numeroSeries+"/"+numeroRepeticoes+"/"+horaDeExecucao+":"+minDeExecucao+":"+segDeExecucao;
 	}
-	public String getGrupoMuscular() {
-		return grupoMuscular;
+	public String getAtividadeFull() {
+		return this.nomeAtividade+"\n"+numeroSeries+"/"+numeroRepeticoes+"/"+horaDeExecucao+":"+minDeExecucao+":"+segDeExecucao+
+				"\n"+observacaoAtividade;
 	}
-	public int getSeries() {
-		return series;
+	private void verificaDadosEntrada(String nomeAtividade, String numeroSeries,String numeroRepeticoes, String horaDeExecucao,
+			 String minDeExecucao, String segDeExecucao,String observacaoAtividade) throws Exception {
+		
+		if(nomeAtividade==null || nomeAtividade.trim().equals("")){
+			throw new Exception("Nome da Atividade inválido");
+		}else if(numeroSeries==null || numeroSeries.trim().equals("") || !verificaNumMaiorQueZero(numeroSeries)){
+			throw new Exception("Número de séries inválido");
+		}else if(numeroRepeticoes==null || numeroRepeticoes.trim().equals("") || !verificaNumMaiorQueZero(numeroRepeticoes)){
+			throw new Exception("Número de repetições inválido");
+		}else if(horaDeExecucao==null || horaDeExecucao.trim().equals("") || !verificaNumMaiorQueZero(horaDeExecucao)){
+			throw new Exception("Horas de execução inválida");
+		}else if(minDeExecucao==null || minDeExecucao.trim().equals("") || !verificaNumMaiorQueZero(minDeExecucao)){
+			throw new Exception("Minutos de execução inválido");
+		}else if(segDeExecucao==null || segDeExecucao.trim().equals("") || !verificaNumMaiorQueZero(segDeExecucao)){
+			throw new Exception("Segundos de execução inválido");
+		}else if(observacaoAtividade==null){
+			throw new Exception("Observação inválida");
+		}
 	}
-	public int getRepeticoes() {
-		return repeticoes;
+	
+	private boolean verificaNumMaiorQueZero(String num) {
+		try {
+			int aux = Integer.parseInt(num);
+			if(aux>0)return true;
+		} catch (Exception e) {
+			return false;
+		}
+		return false;
 	}
-	public int getPeso() {
-		return peso;
+	
+	public String getNomeAtividade() {
+		return nomeAtividade;
 	}
-	public String getObservacao() {
-		return observacao;
+	public String getNumeroSeries() {
+		return numeroSeries;
 	}
-	public void setNomeExercicio(String nomeExercicio) {
-		this.nomeExercicio = nomeExercicio;
+	public String getNumeroRepeticoes() {
+		return numeroRepeticoes;
 	}
-	public void setNomeMaquina(String nomeMaquina) {
-		this.nomeMaquina = nomeMaquina;
+	public String getHoraDeExecucao() {
+		return horaDeExecucao;
 	}
-	public void setGrupoExercicio(String grupoExercicio) {
-		this.grupoMuscular = grupoExercicio;
+	public String getMinDeExecucao() {
+		return minDeExecucao;
 	}
-	public void setSeries(int series) {
-		this.series = series;
+	public String getSegDeExecucao() {
+		return segDeExecucao;
 	}
-	public void setRepeticoes(int repeticoes) {
-		this.repeticoes = repeticoes;
+	public String getObservacaoAtividade() {
+		return observacaoAtividade;
 	}
-	public void setPeso(int peso) {
-		this.peso = peso;
+	public String getDiaSemana() {
+		return diaSemana;
 	}
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
-	}
-	public Integer getIdAluno() {
+	public int getIdAluno() {
 		return idAluno;
 	}
-	public void setIdAluno(Integer idAluno) {
+	public void setNomeAtividade(String nomeAtividade) {
+		this.nomeAtividade = nomeAtividade;
+	}
+	public void setNumeroSeries(String numeroSeries) {
+		this.numeroSeries = numeroSeries;
+	}
+	public void setNumeroRepeticoes(String numeroRepeticoes) {
+		this.numeroRepeticoes = numeroRepeticoes;
+	}
+	public void setHoraDeExecucao(String horaDeExecucao) {
+		this.horaDeExecucao = horaDeExecucao;
+	}
+	public void setMinDeExecucao(String minDeExecucao) {
+		this.minDeExecucao = minDeExecucao;
+	}
+	public void setSegDeExecucao(String segDeExecucao) {
+		this.segDeExecucao = segDeExecucao;
+	}
+	public void setObservacaoAtividade(String observacaoAtividade) {
+		this.observacaoAtividade = observacaoAtividade;
+	}
+	public void setDiaSemana(String diaSemana) {
+		this.diaSemana = diaSemana;
+	}
+	public void setIdAluno(int idAluno) {
 		this.idAluno = idAluno;
 	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	@Override
-	public String toString() {
-		return "Exercicio \n" +
-				"Nome do Exerc�cio: " + nomeExercicio + "\n"+
-				"Nome da M�quina: " + nomeMaquina + "\n"+
-				"Grupo Muscular: " + grupoMuscular+ "\n"+
-				"Quantidade de S�ries: " + series +"\n"+
-				"Repeti��es por S�rie: " + repeticoes +"\n"+ 
-				"Peso na M�quina: " + peso +"\n"+ 
-				"Observa��o: " + observacao+"\n";
-	}
+	
+	
 
 }
