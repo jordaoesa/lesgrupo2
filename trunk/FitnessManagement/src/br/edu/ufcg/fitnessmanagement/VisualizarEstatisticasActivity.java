@@ -24,7 +24,7 @@ public class VisualizarEstatisticasActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_visualizar_estatisticas);
-		setTitle("Estatísticas");
+		setTitle("EstatÃ­sticas");
 		
 		dadosFachada = FitnessManagementSingleton.getDadosFachadaInstance();
 		mostrarEstatisticas();
@@ -72,7 +72,7 @@ public class VisualizarEstatisticasActivity extends Activity {
 						values.add(d.getTamanhoBraco());
 						dates.add(d.getData());
 					}
-					graficoDeLinhaHandler(values, dates, "Tamanho Braço");
+					graficoDeLinhaHandler(values, dates, "Tamanho Braï¿½o");
 				}
 			});
 			buttonPerna.setOnClickListener(new OnClickListener() {

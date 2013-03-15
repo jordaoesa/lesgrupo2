@@ -10,6 +10,7 @@ import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.fachada.ExercicioFachada;
 import br.edu.ufcg.fachada.FichaFachada;
 import br.edu.ufcg.fachada.GrupoMuscularFachada;
+import br.edu.ufcg.fachada.ImagemFachada;
 import br.edu.ufcg.fachada.MaquinaFachada;
 import br.edu.ufcg.fachada.FinancasFachada;
 import br.edu.ufcg.fachada.TreinoFachada;
@@ -18,12 +19,15 @@ import br.edu.ufcg.sgbd.DB;
 public class FitnessManagementSingleton {
 
 	private static final String CAMINHO = Environment.getExternalStorageDirectory() + "/.FitnessManagement";
+	private static final String CAMINHO_THUMBNAIL_ACOMPANHAMENTO = CAMINHO + "/Fotos/Thumbnails";
+	private static final String CAMINHO_IMAGEM_ACOMPANHAMENTO = CAMINHO + "/Fotos/Imagens";
 	private static String CAMINHO_FOTO_PERFIL = CAMINHO + "/Fotos/Perfil";
 	private static Context context;
 	private static DB db;
 	private static AlunoFachada alunoFachada;
 	private static DadosFachada dadosFachada;
 	private static FinancasFachada financasFachada;
+	private static ImagemFachada imagemFachada;
 	private static ExercicioFachada exercicioFachada;
 	private static MaquinaFachada maquinaFachada;
 	private static GrupoMuscularFachada grupoMuscularFachada;
@@ -104,12 +108,35 @@ public class FitnessManagementSingleton {
 		return treinoFachada;
 	}
 
-	public static String getCAMINHO_FOTO_PERFIL() {
+	public static ImagemFachada getImagemFachadaInstance() {
+		if(imagemFachada == null){
+			imagemFachada = new ImagemFachada(db);
+		}
+		return imagemFachada;
+	}
+	
+	public static String getCaminhoFotoPerfil() {
 		return CAMINHO_FOTO_PERFIL;
+	}
+	
+	public static String getCaminhoThumbnailAcompanhamento(){
+		return CAMINHO_THUMBNAIL_ACOMPANHAMENTO;
+	}
+	
+	public static String getCaminhoImagemAcompanhamento() {
+		return CAMINHO_IMAGEM_ACOMPANHAMENTO;
 	}
 	
 	public static String getNomeFotoPerfil(){
 		return "/br.ufcg.edu.perfil_" + (new Date()).toString().replace(" ", "-").replace(":", "-") + ".jpg";
+	}
+	
+	public static String getNomeThumbnailAcompanhamento(){
+		return "/br.ufcg.edu.thumbnail_" + (new Date()).toString().replace(" ", "-").replace(":", "-") + ".jpg";
+	}
+
+	public static String getNomeImagemAcompanhamento(){
+		return "/br.ufcg.edu.imagem_" + (new Date()).toString().replace(" ", "-").replace(":", "-") + ".jpg";
 	}
 
 }

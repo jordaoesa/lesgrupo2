@@ -64,7 +64,7 @@ public class CadastrarAlunoActivity extends Activity {
 	private void foto() {
 		botao = (ImageButton) findViewById(R.id.imageButtonCapturarFotoCadastro);
 		//file = new File(Environment.getExternalStorageDirectory() + "/.FitnessManagement/Fotos/Perfil/br.ufcg.edu.perfil_" + (new Date()).getDate() + ".jpg");
-		file = new File(FitnessManagementSingleton.getCAMINHO_FOTO_PERFIL());
+		file = new File(FitnessManagementSingleton.getCaminhoFotoPerfil());
 		if(!file.exists()){
 			file.mkdirs();
 		}

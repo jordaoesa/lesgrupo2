@@ -54,6 +54,23 @@ public class DB extends SQLiteOpenHelper {
 												"valor REAL," +
 												"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
 											")";
+
+	private final String TABLE_THUMBNAIL = "CREATE TABLE TABLE_THUMBNAIL(" +
+												"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+												"id_aluno INTEGER," +
+												"caminho_thumbnail VARCHAR(255)," +
+												"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
+											")";
+	
+	private final String TABLE_IMAGEM = "CREATE TABLE TABLE_IMAGEM(" +
+											"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+											"id_thumbnail INTEGER," +
+											"id_aluno INTEGER," +
+											"caminho_imagem VARCHAR(255)," +
+											"FOREIGN KEY(id_thumbnail) REFERENCES TABLE_THUMBNAIL(id)," +
+											"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
+										")";
+	
 	
 	private final String TABLE_EXERCICIOS = "CREATE TABLE TABLE_EXERCICIOS("+"id_exercicio INTEGER PRIMARY KEY AUTOINCREMENT,"+"nomeExercicio VARCHAR(255)"+")";
 	private final String TABLE_MAQUINAS = "CREATE TABLE TABLE_MAQUINAS("+"id_maquina INTEGER PRIMARY KEY AUTOINCREMENT,"+"nomeMaquina VARCHAR(255)"+")";
@@ -108,6 +125,8 @@ public class DB extends SQLiteOpenHelper {
 		db.execSQL(TABLE_ALUNO);
 		db.execSQL(TABLE_DADOS);
 		db.execSQL(TABLE_FINANCAS);
+		db.execSQL(TABLE_THUMBNAIL);
+		db.execSQL(TABLE_IMAGEM);
 		db.execSQL(TABLE_EXERCICIOS);
 		db.execSQL(TABLE_GRUPO_MUSCULAR);
 		db.execSQL(TABLE_MAQUINAS);
@@ -122,6 +141,8 @@ public class DB extends SQLiteOpenHelper {
 		dropTable(db, "TABLE_ALUNO");
 		dropTable(db, "TABLE_DADOS");
 		dropTable(db, "TABLE_FINANCAS");
+		dropTable(db, "TABLE_THUMBNAIL");
+		dropTable(db, "TABLE_IMAGEM");
 		dropTable(db, "TABLE_EXERCICIOS");
 		dropTable(db, "TABLE_GRUPO_MUSCULAR");
 		dropTable(db, "TABLE_MAQUINAS");
