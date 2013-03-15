@@ -1,26 +1,17 @@
 package br.edu.ufcg.fitnessmanagement;
 
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
 
-import br.edu.ufcg.aluno.Aluno;
-import br.edu.ufcg.fachada.AlunoFachada;
-import br.edu.ufcg.fitnessmanagement.R.id;
-import br.edu.ufcg.util.FitnessManagementSingleton;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,6 +20,9 @@ import android.widget.Button;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import android.widget.Toast;
+import br.edu.ufcg.aluno.Aluno;
+import br.edu.ufcg.fachada.AlunoFachada;
+import br.edu.ufcg.util.FitnessManagementSingleton;
 
 public class PerfilDoAlunoActivity extends Activity {
 

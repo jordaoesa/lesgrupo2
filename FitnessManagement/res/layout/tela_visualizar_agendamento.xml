@@ -8,8 +8,16 @@
     <ListView
         android:id="@+id/listViewAgendamento"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:divider="#ECECEC"
-        android:dividerHeight="1sp" />
+         android:layout_weight="0.1"
+        android:dividerHeight="1dp" />
+
+    <Button
+        android:id="@+id/buttonVoltarItemHistoricoAgendamento"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+        android:text="Voltar" />
 
 </LinearLayout>

@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -66,6 +67,19 @@ public class GridCellCalendar extends BaseAdapter implements OnClickListener {
 
 	private String getMonthAsString(int i) {
 		return months[i];
+	}
+	private String getMonthNumber(String month){
+		int indexMonth = 0;
+		for (int i = 0; i < months.length; i++) {
+			if(months[i].equals(month)){
+				indexMonth = i + 1;
+				break;
+			}
+		}
+		if (indexMonth >= 10)
+			return String.valueOf(indexMonth);
+		else
+			return "0" + String.valueOf(indexMonth);
 	}
 
 	private String getWeekDayAsString(int i) {
@@ -211,13 +225,20 @@ public class GridCellCalendar extends BaseAdapter implements OnClickListener {
 	public void onClick(View view) {
 		date_month_year = (String) view.getTag();
 		selectedDayMonthYearButton.setText("Data: " + date_month_year);
-
-		try {
-			Date parsedDate = dateFormatter.parse(date_month_year);
-
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+	}
+	
+	public String getDateFull(){
+		String[] data = date_month_year.split("-");
+		return data[0] +"/" + getMonthNumber(data[1]) + "/" + data[2];
+	}
+	public int getCalendarYear(){ 
+		return Integer.parseInt(date_month_year.split("-")[2]);
+	}
+	public int geCalendarMonth(){
+		return (Integer.parseInt(getMonthNumber(date_month_year.split("-")[1])) - 1);
+	}
+	public int getCalendarDay(){
+		return Integer.parseInt(date_month_year.split("-")[0]);
 	}
 
 	public String getDateSelected(){

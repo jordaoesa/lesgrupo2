@@ -26,7 +26,6 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
 
-    
     <LinearLayout
         android:id="@+id/painelHorasAgendamento"
         android:layout_width="fill_parent"
@@ -52,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewDataResult"
+            android:textSize="10px"
             android:layout_toRightOf="@id/textViewHorario"
             android:text="" />
 
@@ -64,14 +64,57 @@
             android:background="@null"
             android:contentDescription=""
             android:src="@drawable/clock" />
-
     </LinearLayout>
-    
+
     <LinearLayout
+        android:id="@+id/painelRadioTipoAgendamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/painelHorasAgendamento"
+        android:layout_margin="5dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textViewTipoAgendamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Agendamento:"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical" >
+
+            <RadioGroup
+                android:id="@+id/radioGroupAgendamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/radioNutrida"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Treino"
+                    android:textColor="#000000" />
+
+                <RadioButton
+                    android:id="@+id/radioPagamentoAgendamento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pagamento"
+                    android:textColor="#000000" />
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
+ <LinearLayout
         android:id="@+id/painelObservacaoAgendamento"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/painelHorasAgendamento"
+        android:layout_below="@id/painelRadioTipoAgendamento"
         android:layout_margin="5dip"
         android:orientation="vertical" >
 
@@ -95,7 +138,6 @@
             <requestFocus />
         </EditText>
     </LinearLayout>
-    
     <LinearLayout
         android:id="@+id/painelBotoesAgendamento"
         android:layout_width="fill_parent"
