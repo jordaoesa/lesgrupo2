@@ -1,10 +1,16 @@
 package br.edu.ufcg.agendamento;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import br.edu.ufcg.fitnessmanagement.R;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.net.Uri;
+import android.provider.MediaStore.Images.Media;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +22,11 @@ public class ItemAgendamentoAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater;
     private ArrayList<ItemAgendamento> itens;
+	private ContentResolver contentResolver;
 
-    public ItemAgendamentoAdapter(Context context, ArrayList<ItemAgendamento> itens) {
+    public ItemAgendamentoAdapter(Context context, ArrayList<ItemAgendamento> itens, ContentResolver contentResolver) {
         this.itens = itens;
+        this.contentResolver = contentResolver;
         mInflater = LayoutInflater.from(context);
     }
 
@@ -37,10 +45,19 @@ public class ItemAgendamentoAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         ItemAgendamento item = itens.get(position);
-        view = mInflater.inflate(R.layout.tela_visualizar_agendamento, null);
+        view = mInflater.inflate(R.layout.item_agendamento, null);
 
-        ((TextView) view.findViewById(R.id.textViewItemAgendamento)).setText(item.getTexto());
-        ((ImageView) view.findViewById(R.id.imagemviewItemAgendamento)).setImageResource(item.getIconeId());
+        ((TextView) view.findViewById(R.id.textViewItemAgendamentoName)).setText(item.getName());
+        ((TextView) view.findViewById(R.id.textViewDataHorario)).setText(item.getInfo());
+        Uri uri = Uri.fromFile(new File(item.getImagePath()));
+        
+        try {
+			((ImageView) view.findViewById(R.id.imagemviewItemAgendamento)).setImageBitmap(Media.getBitmap(contentResolver, uri));
+		} catch (FileNotFoundException e) {
+			((ImageView) view.findViewById(R.id.imagemviewItemAgendamento)).setImageResource(R.drawable.ic_launcher);
+		} catch (IOException e) {
+			((ImageView) view.findViewById(R.id.imagemviewItemAgendamento)).setImageResource(R.drawable.ic_launcher);
+		}
 
         return view;
     }

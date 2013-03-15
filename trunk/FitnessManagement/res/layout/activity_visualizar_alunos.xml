@@ -17,6 +17,12 @@
     </GridView>
 
     <Button
+        android:id="@+id/buttonHistoricoAgendamentoAcivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Histórico Agendamentos" />
+    
+    <Button
         android:id="@+id/buttonVoltarAcivityVisualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

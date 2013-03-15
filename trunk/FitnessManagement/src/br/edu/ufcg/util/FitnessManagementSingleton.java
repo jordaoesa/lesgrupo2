@@ -4,6 +4,7 @@ import java.util.Date;
 
 import android.content.Context;
 import android.os.Environment;
+import br.edu.ufcg.fachada.AgendamentoFachada;
 import br.edu.ufcg.fachada.AlunoFachada;
 import br.edu.ufcg.fachada.AtividadeFachada;
 import br.edu.ufcg.fachada.DadosFachada;
@@ -34,6 +35,7 @@ public class FitnessManagementSingleton {
 	private static AtividadeFachada atividadeFachada;
 	private static FichaFachada fichaFachada;
 	private static TreinoFachada treinoFachada;
+	private static AgendamentoFachada agendamentoFachada;
 	
 	public static void setContext(Context context){
 		FitnessManagementSingleton.context = context;
@@ -85,7 +87,12 @@ public class FitnessManagementSingleton {
 		}
 		return financasFachada;
 	}
-	
+	public static AgendamentoFachada getAgendamentoFachadaInstance(){
+		if(agendamentoFachada == null){
+			agendamentoFachada = new AgendamentoFachada(db);
+		}
+		return agendamentoFachada;
+	}
 //	public static AtividadeFachada getAtividadeFachadaInstance(){
 //		if(atividadeFachada == null){
 //			atividadeFachada = new AtividadeFachada(db);

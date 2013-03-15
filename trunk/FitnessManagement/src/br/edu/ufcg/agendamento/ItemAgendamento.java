@@ -1,31 +1,36 @@
 package br.edu.ufcg.agendamento;
 
 public class ItemAgendamento {
-	
+
 	private String texto;
-    private int iconeId;
+	private String iconePath;
+	private String name;
 
-    public ItemAgendamento() {
-    }
+	public ItemAgendamento() {
+	}
 
-    public ItemAgendamento(String texto, int iconeId) {
-        this.texto = texto;
-        this.iconeId = iconeId;
-    }
+	public ItemAgendamento(String name,String texto, String imagePath) {
+		this.name = name;
+		this.texto = texto;
+		this.iconePath = imagePath;
+	}
 
-    public int getIconeId() {
-        return iconeId;
-    }
+	public String getName(){
+		return this.name;
+	}
+	public String getImagePath() {
+		return iconePath;
+	}
 
-    public void setIconeId(int iconeId) {
-        this.iconeId = iconeId;
-    }
+	public void setImagePath(String iconeId) {
+		this.iconePath = iconeId;
+	}
 
-    public String getTexto() {
-        return texto;
-    }
+	public String getInfo() {
+		return texto;
+	}
 
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
+	public void setInfo(String texto) {
+		this.texto = texto;
+	}
 }
