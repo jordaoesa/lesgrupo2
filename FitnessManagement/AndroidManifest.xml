@@ -111,18 +111,18 @@
         </activity>
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.GenciarTreinoSemanal"
-            android:screenOrientation="portrait" 
             android:label="@string/title_activity_genciar_treino_semanal" >
+            android:screenOrientation="portrait" 
         </activity>
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.AcompanhamentoVisualActivity"
-            android:screenOrientation="portrait"
             android:label="@string/title_activity_acompanhamento_visual" >
+            android:screenOrientation="portrait"
         </activity>
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.GerenciadorTreinoDiarioActivity"
-            android:screenOrientation="portrait"
             android:label="@string/title_activity_gerenciador_treino_diario" >
+            android:screenOrientation="portrait"
         </activity>
     </application>
 
