@@ -152,9 +152,6 @@ public class PerfilDoAlunoActivity extends Activity {
 		}
 		
 		Button bCadastrarDados = (Button) findViewById(R.id.buttonCadastrarDadosPerfilAluno);
-		Button bCadastrarAtividade = (Button) findViewById(R.id.buttonCadastrarAtividadePerfilAluno);
-		Button bCadastrarTreino = (Button) findViewById(R.id.buttonCadastrarTreinoPerfilAluno);
-		Button bCadastrarFicha = (Button) findViewById(R.id.buttonCriarFichaPerfilAluno);
 		Button bVisualizarEstatisticas = (Button) findViewById(R.id.buttonVisualizarEstatisticasPerfilAluno);
 		Button bGerenciarFinancas = (Button) findViewById(R.id.buttonGerenciarFinancasPerfilAluno);
 		Button bAgendarAcompanhamento = (Button) findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);
@@ -169,29 +166,7 @@ public class PerfilDoAlunoActivity extends Activity {
 				startActivity(intentDados);
 			}
 		});
-		bCadastrarAtividade.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				Intent intentExercicio = new Intent(getApplicationContext(), CadastrarAtividadeActivity.class);
-				intentExercicio.putExtra("id_aluno", aluno.getId());
-				startActivity(intentExercicio);
-			}
-		});
-		bCadastrarTreino.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intentTreino = new Intent(getApplicationContext(), CadastrarTreinoActivity.class);
-				intentTreino.putExtra("id_aluno", aluno.getId());
-				startActivity(intentTreino);
-			}
-		});
-		bCadastrarFicha.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intentFicha = new Intent(getApplicationContext(), CriarFichaActivity.class);
-				startActivity(intentFicha);
-			}
-		});
+
 		bVisualizarEstatisticas.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

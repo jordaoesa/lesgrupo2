@@ -82,24 +82,6 @@
                 android:text="Cadastrar Dados" />
 
             <Button
-                android:id="@+id/buttonCadastrarAtividadePerfilAluno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cadastrar Atividade" />
-            
-            <Button
-                android:id="@+id/buttonCadastrarTreinoPerfilAluno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cadastrar Treino" />
-
-            <Button
-                android:id="@+id/buttonCriarFichaPerfilAluno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Criar Ficha" />
-
-            <Button
                 android:id="@+id/buttonVisualizarEstatisticasPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,17 +94,11 @@
                 android:text="Agendar Acompanhamento" />
 
             <Button
-                android:id="@+id/buttonVisualizarFichasPerfilAluno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Visualizar Fichas" />
-            
-            <Button
                 android:id="@+id/buttonAcompanhamentoVisualPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Acompanhamento Visual" />
-            
+
             <Button
                 android:id="@+id/buttonGerenciarFinancasPerfilAluno"
                 android:layout_width="match_parent"
@@ -131,10 +107,10 @@
 
             <Button
                 android:id="@+id/buttonTreinoDoAluno"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Treino do Aluno" />
-            
         </LinearLayout>
 
     </ScrollView>
