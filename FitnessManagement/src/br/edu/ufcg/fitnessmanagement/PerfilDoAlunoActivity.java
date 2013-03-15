@@ -44,7 +44,7 @@ public class PerfilDoAlunoActivity extends Activity {
 		alunoFachada = FitnessManagementSingleton.getAlunoFachadaInstance();
 		getAluno();
 		//file = new File(Environment.getExternalStorageDirectory() + "/.FitnessManagement/Fotos/Perfil");
-		file = new File(FitnessManagementSingleton.getCAMINHO_FOTO_PERFIL());
+		file = new File(FitnessManagementSingleton.getCaminhoFotoPerfil());
 		if(!file.exists()){
 			file.mkdirs();
 		}
@@ -158,6 +158,7 @@ public class PerfilDoAlunoActivity extends Activity {
 		Button bVisualizarEstatisticas = (Button) findViewById(R.id.buttonVisualizarEstatisticasPerfilAluno);
 		Button bGerenciarFinancas = (Button) findViewById(R.id.buttonGerenciarFinancasPerfilAluno);
 		Button bAgendarAcompanhamento = (Button) findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);
+		Button bAcompanhamentoVisual = (Button) findViewById(R.id.buttonAcompanhamentoVisualPerfilAluno);
 		Button bTreinoDoAluno = (Button) findViewById(R.id.buttonTreinoDoAluno);
 		
 		bCadastrarDados.setOnClickListener(new OnClickListener() {
@@ -248,6 +249,15 @@ public class PerfilDoAlunoActivity extends Activity {
 //				startActivityForResult(in, 2013);
 //			}
 //		});
+		
+		bAcompanhamentoVisual.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intentAcompanhamento = new Intent(getApplicationContext(), AcompanhamentoVisualActivity.class);
+				intentAcompanhamento.putExtra("id_aluno", aluno.getId());
+				startActivity(intentAcompanhamento);
+			}
+		});
 		
 		Button voltar = (Button) findViewById(R.id.buttonVoltarPerfilAluno);
 		voltar.setOnClickListener(new OnClickListener() {

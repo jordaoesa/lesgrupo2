@@ -118,6 +118,12 @@
                 android:text="Visualizar Fichas" />
             
             <Button
+                android:id="@+id/buttonAcompanhamentoVisualPerfilAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Acompanhamento Visual" />
+            
+            <Button
                 android:id="@+id/buttonGerenciarFinancasPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
