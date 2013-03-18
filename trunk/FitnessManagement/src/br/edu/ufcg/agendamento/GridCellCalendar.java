@@ -76,10 +76,7 @@ public class GridCellCalendar extends BaseAdapter implements OnClickListener {
 				break;
 			}
 		}
-		if (indexMonth >= 10)
-			return String.valueOf(indexMonth);
-		else
-			return "0" + String.valueOf(indexMonth);
+		return convertDigit(indexMonth);
 	}
 
 	private String getWeekDayAsString(int i) {
@@ -227,9 +224,9 @@ public class GridCellCalendar extends BaseAdapter implements OnClickListener {
 		selectedDayMonthYearButton.setText("Data: " + date_month_year);
 	}
 	
-	public String getDateFull(){
+	public String getDateFullFormatter(){
 		String[] data = date_month_year.split("-");
-		return data[0] +"/" + getMonthNumber(data[1]) + "/" + data[2];
+		return convertDigit(Integer.parseInt(data[0])) +"/" + getMonthNumber(data[1]) + "/" + data[2];
 	}
 	public int getCalendarYear(){ 
 		return Integer.parseInt(date_month_year.split("-")[2]);
@@ -258,5 +255,11 @@ public class GridCellCalendar extends BaseAdapter implements OnClickListener {
 
 	public int getCurrentWeekDay() {
 		return currentWeekDay;
+	}
+	public String convertDigit(int c) {
+		if (c >= 10)
+			return String.valueOf(c);
+		else
+			return "0" + String.valueOf(c);
 	}
 }

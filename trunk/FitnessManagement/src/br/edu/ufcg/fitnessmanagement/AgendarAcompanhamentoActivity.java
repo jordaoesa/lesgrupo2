@@ -1,5 +1,6 @@
 package br.edu.ufcg.fitnessmanagement;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -34,6 +35,8 @@ import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fachada.AgendamentoFachada;
 import br.edu.ufcg.fachada.FinancasFachada;
 import br.edu.ufcg.util.FitnessManagementSingleton;
+import br.edu.ufcg.util.Message;
+import br.edu.ufcg.util.Utils;
 
 public class AgendarAcompanhamentoActivity extends Activity implements OnClickListener{
 
@@ -114,7 +117,12 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 		bSalvar.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
-				menuSalvarAgendamento();
+				System.out.println("is date: " + isDateValid());
+				if(isDateValid()){
+					menuSalvarAgendamento();
+				}else{
+					Utils.showMessage(AgendarAcompanhamentoActivity.this,Message.ALERT, "Atenção", "Data inválida.");
+				}
 			}
 		});
 
@@ -144,9 +152,9 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 		bSalvar.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
 				if(radioSexButton.getText().equals(AgendamentoType.PAGAMENTO.value())){
-					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFull(),AgendamentoType.PAGAMENTO));
+					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.PAGAMENTO));
 				}else if(radioSexButton.getText().equals(AgendamentoType.TREINO.value())){
-					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFull(),AgendamentoType.TREINO));
+					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.TREINO));
 				}
 				salvarAgendamento();
 			}
@@ -204,7 +212,7 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 	}
 	private String getHourFormatter(){
 		GregorianCalendar gcalendar = new GregorianCalendar();
-		return convertDigit(gcalendar.get(Calendar.HOUR)) + ":" +convertDigit(gcalendar.get(Calendar.MINUTE));
+		return gridCallendar.convertDigit(gcalendar.get(Calendar.HOUR)) + ":" + gridCallendar.convertDigit(gcalendar.get(Calendar.MINUTE));
 	}
 
 	private void setGridCellAdapterToDate(int month, int year){
@@ -268,15 +276,29 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 				int selectedMinute) {
 			hour = selectedHour;
 			minute = selectedMinute;
-			horarioResult.setText(convertDigit(hour) + ":" + convertDigit(minute));
+			horarioResult.setText(gridCallendar.convertDigit(hour) + ":" + gridCallendar.convertDigit(minute));
 		}
 	};
 
-	private static String convertDigit(int c) {
-		if (c >= 10)
-			return String.valueOf(c);
-		else
-			return "0" + String.valueOf(c);
+	public boolean isDateValid(){
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy",new Locale("pt","br"));
+		formatter.setLenient(false);
+		try {
+			Date hoje = formatter.parse(formatter.format(new Date()));
+			System.out.println("calendar full: " + gridCallendar.getDateFullFormatter());
+			Date dateSelected = formatter.parse(gridCallendar.getDateFullFormatter());
+			if(dateSelected.equals(hoje)){
+				return true;
+			}
+			else if(dateSelected.before(Calendar.getInstance().getTime())){
+				return false;
+			}else if(dateSelected.after(Calendar.getInstance().getTime())){
+				return true;
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }
