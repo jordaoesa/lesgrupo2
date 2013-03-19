@@ -18,14 +18,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
+import android.view.View.OnKeyListener;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
 public class CadastrarAlunoActivity extends Activity {
@@ -110,6 +117,46 @@ public class CadastrarAlunoActivity extends Activity {
 //		});
 		
 		Button cadastrar = (Button) findViewById(R.id.buttonCadastrarMenuCadastrar);
+		final EditText telefone = (EditText) findViewById(R.id.editTextTelefoneMenuCadastrar);
+		telefone.setOnFocusChangeListener(new OnFocusChangeListener() {
+			@Override
+			public void onFocusChange(View view, boolean hasFocus) {
+				if((telefone.getText() == null || telefone.getText().toString().equals("")) && hasFocus){
+					telefone.setText("(");
+				}else if(telefone.getText() != null && telefone.getText().toString().equals("(") && !hasFocus){
+					telefone.setText("");
+				}
+			}
+		});
+		telefone.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				if(before < count){
+					String tel = telefone.getText().toString();
+					if(tel.length() == 1 && !tel.equals("(")){
+						telefone.setText("(" + tel);
+					}else if(tel.length() == 3){
+						telefone.setText(tel + ") ");
+					}else if(tel.length() == 4 && tel.indexOf(")") != 3){
+						telefone.setText(tel.substring(0, 3) + ") " + tel.substring(3));
+					}else if(tel.length() == 5 && tel.indexOf(" ") != 4){
+						telefone.setText(tel.substring(0, 4) + " " + tel.substring(4));
+					}else if(tel.length() == 9){
+						telefone.setText(tel + "-");
+					}else if(tel.length() == 10 && tel.indexOf("-") != 9){
+						telefone.setText(tel.substring(0, 9) + "-" + tel.substring(9));
+					}
+				}
+				telefone.setSelection(telefone.getText().length());
+			}
+			@Override
+			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+			}
+			@Override
+			public void afterTextChanged(Editable arg0) {
+			}
+		});
+		
 		cadastrar.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -126,17 +173,16 @@ public class CadastrarAlunoActivity extends Activity {
 				
 				Editable nome = ((EditText) findViewById(R.id.editTextNomeMenuCadastrar)).getText();
 				Editable endereco = ((EditText) findViewById(R.id.editTextEnderecoMenuCadastrar)).getText();
-				Editable telefone = ((EditText) findViewById(R.id.editTextTelefoneMenuCadastrar)).getText();
 				Editable idade = ((EditText) findViewById(R.id.editTextIdadeMenuCadastrar)).getText();
 				final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupSexoMenuCadastrar);
 				Aluno aluno = null;
 				
-				if(verificaDadosEntrada(nome, endereco, telefone, idade)){
+				if(verificaDadosEntrada(nome, endereco, telefone.getText(), idade)){
 					int sexo = radioGroup.getCheckedRadioButtonId();
 					if(sexo == R.id.radioButtonSexoMasMenuCadastrar){
-						aluno = new Aluno(nome.toString(), Integer.parseInt(idade.toString()), endereco.toString(), "Masculino", telefone.toString());
+						aluno = new Aluno(nome.toString(), Integer.parseInt(idade.toString()), endereco.toString(), "Masculino", telefone.getText().toString());
 					}else if(sexo == R.id.radioButtonSexoFemMenuCadastrar){
-						aluno = new Aluno(nome.toString(), Integer.parseInt(idade.toString()), endereco.toString(), "Feminino", telefone.toString());
+						aluno = new Aluno(nome.toString(), Integer.parseInt(idade.toString()), endereco.toString(), "Feminino", telefone.getText().toString());
 					}
 					
 					aluno.setCaminhoImagem(file.getAbsolutePath());//TODO MODIFICAR O CONSTRUTOR DE ALUNO PARA RECEBER O CAMINHO

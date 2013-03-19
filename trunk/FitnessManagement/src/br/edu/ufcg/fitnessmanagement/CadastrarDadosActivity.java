@@ -12,6 +12,7 @@ import br.edu.ufcg.util.FitnessManagementSingleton;
 import android.os.Bundle;
 import android.app.Activity;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -37,6 +38,32 @@ public class CadastrarDadosActivity extends Activity {
 	
 	private void atualizarDados() {
 		Button atualizar = (Button) findViewById(R.id.buttonAtualizarDados);
+		final EditText data = (EditText)findViewById(R.id.editTextData);
+		data.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				if(before < count){
+					String date = data.getText().toString();
+					if(date.length() == 2){
+						data.setText(date + "/");
+					}else if(date.length() == 3 && date.indexOf("/") != 2){
+						data.setText(date.substring(0, 2) + "/" + date.substring(2));
+					}else if(date.length() == 5){
+						data.setText(date + "/");
+					}else if(date.length() == 6 && date.lastIndexOf("/") != 5){
+						data.setText(date.substring(0, 5) + "/" + date.substring(5));
+					}
+				}
+				data.setSelection(data.length());
+			}
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+			}
+			@Override
+			public void afterTextChanged(Editable s) {
+			}
+		});
+		
 		atualizar.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -45,13 +72,12 @@ public class CadastrarDadosActivity extends Activity {
 				Editable braco = ((EditText)findViewById(R.id.editTextBraco)).getText();
 				Editable perna = ((EditText)findViewById(R.id.editTextPerna)).getText();
 				Editable imc = ((EditText)findViewById(R.id.editTextIMC)).getText();
-				Editable data = ((EditText)findViewById(R.id.editTextData)).getText();
 				
-				if(verificaDadosInformados(peso, calorias, braco, perna, imc, data)){
+				if(verificaDadosInformados(peso, calorias, braco, perna, imc, data.getText())){
 					java.text.DateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
 					Date date = null;
 					try {
-						date = formater.parse(data.toString());
+						date = formater.parse(data.getText().toString());
 					} catch (ParseException e) {
 						e.printStackTrace();
 					}
