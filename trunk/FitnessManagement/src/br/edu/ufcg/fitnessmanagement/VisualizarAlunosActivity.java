@@ -47,7 +47,7 @@ public class VisualizarAlunosActivity extends Activity {
 		
 		showListaAlunosCadastrados();
 	}
-
+	
 	private void showListaAlunosCadastrados() {
 		setTitle("Alunos Cadastrados");
 		setContentView(R.layout.activity_visualizar_alunos);
@@ -126,6 +126,7 @@ public class VisualizarAlunosActivity extends Activity {
 
 	private void selecionaUsuario(int position, List<Aluno> alunos) {
 		//Toast.makeText(getApplicationContext(), alunos.get(position).getNome(), Toast.LENGTH_SHORT).show();
+		finish();
 		Intent activityFicha = new Intent(this, PerfilDoAlunoActivity.class);
 		activityFicha.putExtra("id_aluno", alunos.get(position).getId());
 		startActivity(activityFicha);

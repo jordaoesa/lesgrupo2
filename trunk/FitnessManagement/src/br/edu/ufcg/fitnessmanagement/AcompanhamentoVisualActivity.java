@@ -13,9 +13,12 @@ import br.edu.ufcg.util.FitnessManagementSingleton;
 import br.edu.ufcg.util.ImageAdapterGallery;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio.Media;
 import android.app.Activity;
+import android.app.Notification;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -80,6 +83,13 @@ public class AcompanhamentoVisualActivity extends Activity {
 			}
 		}
 		super.onActivityResult(requestCode, resultCode, data);
+		
+		finish();
+		
+		Intent intentAcompanhamento = new Intent(getApplicationContext(), AcompanhamentoVisualActivity.class);
+		intentAcompanhamento.putExtra("id_aluno", idAluno);
+		startActivity(intentAcompanhamento);
+		
 	}
 	
 	private Bitmap comprimeESalvaImagem(File origem, File destino) throws IOException {
@@ -107,7 +117,7 @@ public class AcompanhamentoVisualActivity extends Activity {
 		//final List<String> caminhosThumbnails = imagemFachada.getCaminhosThumbnails(idAluno);
 		final HashMap<Integer, String> caminhosImagens = imagemFachada.getCaminhosImagens(idAluno);
 		final List<Thumbnail> thumbnails = imagemFachada.getAllThumbnails(idAluno);
-		final List<Imagem> imagens = imagemFachada.getAllImages(idAluno);
+		//final List<Imagem> imagens = imagemFachada.getAllImages(idAluno);
 		System.out.println("--- " + thumbnails);
 		System.out.println("--- " + caminhosImagens);
 		
@@ -117,20 +127,33 @@ public class AcompanhamentoVisualActivity extends Activity {
 		
 		final ImageAdapterGallery imageAdapterGallery = new ImageAdapterGallery(getContentResolver(), getApplicationContext(), thumbnails);
 		galeria.setAdapter(imageAdapterGallery);
+		
+		try {
+			Uri uri = Uri.fromFile(new File(caminhosImagens.get(thumbnails.get(0).getId()))); //imagemFachada.getCaminhoImagem((int) imageAdapterGallery.getItemId(position))
+			imagemEspandida.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), uri));
+		} catch (Exception e) {
+			System.out.println(">>> " + e.getMessage());
+			imagemEspandida.setImageResource(android.R.drawable.ic_menu_gallery);
+		}
+		
 		galeria.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView parent, View v, int position, long id) {
 				
 				
 				Toast.makeText(getApplicationContext(), "imagem " + position, Toast.LENGTH_SHORT).show();
-//				if(position == (thumbnails.size()-1)){
-//					Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
-//					Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//					
-//					imagem = new File(imagem, FitnessManagementSingleton.getNomeImagemAcompanhamento());
-//					
-//					in.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imagem));
-//					startActivityForResult(in, 2013);
-//				}else{
+				if(position == (thumbnails.size()-1)){
+					
+					Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
+					Vibrator vibrador = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+					vibrador.vibrate(500);
+					
+					Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+					
+					imagem = new File(imagem, FitnessManagementSingleton.getNomeImagemAcompanhamento());
+					
+					in.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imagem));
+					startActivityForResult(in, 2013);
+				}else{
 					try {
 						Uri uri = Uri.fromFile(new File(caminhosImagens.get((int)imageAdapterGallery.getItemId(position)))); //imagemFachada.getCaminhoImagem((int) imageAdapterGallery.getItemId(position))
 						imagemEspandida.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), uri));
@@ -138,23 +161,23 @@ public class AcompanhamentoVisualActivity extends Activity {
 						System.out.println(">>> " + e.getMessage());
 						imagemEspandida.setImageResource(R.drawable.ic_launcher);
 					}
-//				}
+				}
 			}
 		});
 		
-		imagemEspandida.setOnLongClickListener(new OnLongClickListener() {
-			@Override
-			public boolean onLongClick(View arg0) {
-				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
-				Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-				
-				imagem = new File(imagem, FitnessManagementSingleton.getNomeImagemAcompanhamento());
-				
-				in.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imagem));
-				startActivityForResult(in, 2013);
-				return false;
-			}
-		});
+//		imagemEspandida.setOnLongClickListener(new OnLongClickListener() {
+//			@Override
+//			public boolean onLongClick(View arg0) {
+//				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
+//				Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//				
+//				imagem = new File(imagem, FitnessManagementSingleton.getNomeImagemAcompanhamento());
+//				
+//				in.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imagem));
+//				startActivityForResult(in, 2013);
+//				return false;
+//			}
+//		});
 		
 		
 		bVoltar.setOnClickListener(new OnClickListener() {
