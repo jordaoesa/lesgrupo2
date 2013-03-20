@@ -16,6 +16,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
@@ -35,6 +36,8 @@ public class ImageAdapterGallery extends BaseAdapter {
 		this.contentResolver = contentResolver;
 		this.context = context;
 		this.thumbnails = thumbnails;
+		thumbnails.add(FitnessManagementSingleton.getImagemFachadaInstance().new Thumbnail(-1, -1, String.valueOf(android.R.drawable.ic_menu_gallery)));
+		
 //		if(thumbnails.size() == 0){
 //		this.thumbnails.add(FitnessManagementSingleton.getImagemFachadaInstance().new Thumbnail(-1, -1, "/mnt/sdcard/.FitnessManagement/Fotos/Thumbnails/br.ufcg.edu.thumbnail_Thu-Mar-14-00-41-25-BRT-2013.jpg"));
 //			imagens = new Integer[10];
@@ -46,25 +49,16 @@ public class ImageAdapterGallery extends BaseAdapter {
 	
 	@Override
 	public int getCount() {
-//		if(thumbnails.size() == 0){
-//			return imagens.length;
-//		}
 		return thumbnails.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-//		if(thumbnails.size() == 0){
-//			return imagens[position];
-//		}
 		return thumbnails.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-//		if(thumbnails.size() == 0){
-//			return position;
-//		}
 		return thumbnails.get(position).getId();
 	}
 
@@ -99,6 +93,7 @@ public class ImageAdapterGallery extends BaseAdapter {
 				Uri uri = Uri.fromFile(new File(thumbnails.get(position).getCaminhoThumbnail()));
 				imageView.setImageBitmap(Media.getBitmap(contentResolver, uri));
 			} catch (Exception e) {
+				imageView.setImageResource(Integer.parseInt(thumbnails.get(position).getCaminhoThumbnail()));
 				System.out.println(">>> " + e.getMessage());
 			}
 //		}

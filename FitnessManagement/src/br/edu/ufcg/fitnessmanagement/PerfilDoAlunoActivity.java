@@ -7,10 +7,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.View;
@@ -82,6 +84,19 @@ public class PerfilDoAlunoActivity extends Activity {
 			qcbFoto.setImageBitmap(bm);
 		}
 		super.onActivityResult(requestCode, resultCode, data);
+		
+		finish();
+		
+		Intent activityFicha = new Intent(this, PerfilDoAlunoActivity.class);
+		activityFicha.putExtra("id_aluno", aluno.getId());
+		startActivity(activityFicha);
+	}
+	
+	@Override
+	public void onBackPressed() {
+		Intent activityVisualizar = new Intent(getApplicationContext(), VisualizarAlunosActivity.class);
+		startActivity(activityVisualizar);
+		super.onBackPressed();
 	}
 	
 //	@Override
@@ -233,6 +248,8 @@ public class PerfilDoAlunoActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				finish();
+				Intent activityVisualizar = new Intent(getApplicationContext(), VisualizarAlunosActivity.class);
+				startActivity(activityVisualizar);
 			}
 		});
 		
@@ -240,6 +257,9 @@ public class PerfilDoAlunoActivity extends Activity {
 	
 	private void capturar() {
 		Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
+		Vibrator vibrador = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		vibrador.vibrate(500);
+		
 		Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		startActivityForResult(in, 2013);
 	}
