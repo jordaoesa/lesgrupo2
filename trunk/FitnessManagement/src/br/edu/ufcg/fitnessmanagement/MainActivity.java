@@ -56,6 +56,21 @@ public class MainActivity extends Activity {
 		Button bGerenciar = (Button) findViewById(R.id.buttonGerenciarAlunosMain);
 		/*Button bAddAluno = (Button) findViewById(R.id.buttonAddAlunoMain);*/
 
+		
+		
+		Button buttonHelp = (Button) findViewById(R.id.buttonHelp);
+		final Intent intent = new Intent(getApplicationContext(),AjudaCadastroAluno.class);
+		buttonHelp.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				startActivity(intent);
+			}
+		});
+		
+		
+		
+		
 		final Intent intentGerenciar = new Intent(this, VisualizarAlunosActivity.class);
 
 		bCadastrar.setOnClickListener(new OnClickListener() {
