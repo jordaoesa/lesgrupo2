@@ -181,19 +181,15 @@ public class AcompanhamentoVisualActivity extends Activity {
 		imagemEspandida.setOnLongClickListener(new OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View arg0) {
-				
 				getInformacoesAluno((imagens.get((int)imageAdapterGallery.getItemId(indiceFoto))).getDataFormatada());
-				
 				try {
-					
 					ImagemFachada.Imagem im = imagens.get((int)imageAdapterGallery.getItemId(indiceFoto));
 					new AlertDialog.Builder(AcompanhamentoVisualActivity.this)
 					.setTitle("Informações Foto " + indiceFoto)
 					.setMessage("Data\t: " + im.getDataFormatada() +
 							"\nPeso\t: " + peso + 
 							"\nBraço\t: " + braco +
-							"\nPerna\t: " + perna +
-							"")
+							"\nPerna\t: " + perna )
 							.setNeutralButton("OK", null)
 							.show();
 				} catch (Exception e) {
