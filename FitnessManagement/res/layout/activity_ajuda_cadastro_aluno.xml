@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AjudaCadastroAluno" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Cadastrar Aluno:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:text="Para cadastrar um aluno será necessário inserir o nome, endereço, telefone, idade e sexo do aluno, também é possível inserir uma foto para o perfil do aluno."
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView2"
+        android:text="Gerenciar Alunos:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/textView4" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="279dp"
+                android:layout_marginTop="27dp"
+android:text="Ao selecionar um aluno é possivel cadastrar dados referentes a: medidas, IMC, peso e com esses dados atualizados mensalmente pode-se visualizar um grafico sobre a evolução do aluno na academia. É possivel também agendar um horario de acompanhamento para o aluno, quitar dividas do aluno, salvar fotos para se ter um acompanhamento visual da evolução do aluno e gerenciar o treino semanal do aluno, cadastrando exercicios.
+ 
+-CADASTRAR DADOS: Aqui inserimos informaçoes sobre o aluno, é com essas informaçoes que teremos a visualização de estatisticas.
+
+-VISUALIZAR ESTATISTICAS: Nesta tela temos varios graficos(peso, calorias, tamanho do braço, tamanho da perna, IMC) que mostram a evolução do aluno
+
+-AGENDAR ACOMPANHAMENTO: Ao clicar em agendar acompanhamento um calendario aparecera em sua tela, assim selecione um dia e clique em salvar, feito isso adicione o horario desejado para o acompanhamento e salve o agendamento. Lembrando que notificações vão aparecer em celular lhe avisando sobre o agendamento.
+
+-ACOMPANHAMENTO VISUAL: no acompanhamento visual temos a possibilidade de tirar fotos dos seus aluno, para tirar uma nova foto, basta precionar a imagem maior e a câmera se abrira, para que voce possa registrar uma nova imagem.
+
+-GERENCIAR FINANÇAS: nesta tela você pode acompanhar o saldo do aluno, quitando ou adicionando suas dividas.
+
+-TREINO DO ALUNO: Na tela treino do aluno voce poderar registrar treinos para cada dia da semana, ao clicar em um dia especifico uma nova tela se abre para que uma atividade seja adicionada ao treino do seu aluno."
+
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
