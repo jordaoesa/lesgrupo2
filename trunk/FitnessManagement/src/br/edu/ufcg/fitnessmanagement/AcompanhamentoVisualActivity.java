@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import br.edu.ufcg.aluno.Dados;
+import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.fachada.ImagemFachada;
 import br.edu.ufcg.fachada.ImagemFachada.Imagem;
 import br.edu.ufcg.fachada.ImagemFachada.Thumbnail;
@@ -38,8 +40,10 @@ import android.widget.Toast;
 
 public class AcompanhamentoVisualActivity extends Activity {
 
+	private DadosFachada dadosFachada;
 	private ImagemFachada imagemFachada;
 	private Integer idAluno;
+	private Integer indiceFoto = 0;
 	private File imagem;
 	private File thumbnail;
 	
@@ -49,6 +53,7 @@ public class AcompanhamentoVisualActivity extends Activity {
 		setContentView(R.layout.activity_acompanhamento_visual);
 		
 		idAluno = getIntent().getIntExtra("id_aluno", -1);
+		dadosFachada = FitnessManagementSingleton.getDadosFachadaInstance();
 		imagemFachada = FitnessManagementSingleton.getImagemFachadaInstance();
 		
 		criaCaminhosImagens();
@@ -118,11 +123,11 @@ public class AcompanhamentoVisualActivity extends Activity {
 
 	private void menuAcompanhamentoVisual() {
 		//final List<String> caminhosThumbnails = imagemFachada.getCaminhosThumbnails(idAluno);
-		final HashMap<Integer, String> caminhosImagens = imagemFachada.getCaminhosImagens(idAluno);
+		final HashMap<Integer, ImagemFachada.Imagem> imagens = imagemFachada.getImagens(idAluno);
 		final List<Thumbnail> thumbnails = imagemFachada.getAllThumbnails(idAluno);
 		//final List<Imagem> imagens = imagemFachada.getAllImages(idAluno);
 		System.out.println("--- " + thumbnails);
-		System.out.println("--- " + caminhosImagens);
+		System.out.println("--- " + imagens);
 		
 		Button bVoltar = (Button) findViewById(R.id.buttonVoltarAcompanhamentoVisual);
 		Gallery galeria = (Gallery) findViewById(R.id.galleryAcompanhamentoVisual);
@@ -132,7 +137,7 @@ public class AcompanhamentoVisualActivity extends Activity {
 		galeria.setAdapter(imageAdapterGallery);
 		
 		try {
-			Uri uri = Uri.fromFile(new File(caminhosImagens.get(thumbnails.get(0).getId()))); //imagemFachada.getCaminhoImagem((int) imageAdapterGallery.getItemId(position))
+			Uri uri = Uri.fromFile(new File((imagens.get(thumbnails.get(0).getId())).getCaminhoImagem())); //imagemFachada.getCaminhoImagem((int) imageAdapterGallery.getItemId(position))
 			imagemEspandida.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), uri));
 		} catch (Exception e) {
 			System.out.println(">>> " + e.getMessage());
@@ -142,7 +147,7 @@ public class AcompanhamentoVisualActivity extends Activity {
 		galeria.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView parent, View v, int position, long id) {
 				
-				
+				indiceFoto = position;
 				Toast.makeText(getApplicationContext(), "imagem " + position, Toast.LENGTH_SHORT).show();
 				if(position == (thumbnails.size()-1)){
 					
@@ -158,7 +163,7 @@ public class AcompanhamentoVisualActivity extends Activity {
 					startActivityForResult(in, 2013);
 				}else{
 					try {
-						Uri uri = Uri.fromFile(new File(caminhosImagens.get((int)imageAdapterGallery.getItemId(position)))); //imagemFachada.getCaminhoImagem((int) imageAdapterGallery.getItemId(position))
+						Uri uri = Uri.fromFile(new File((imagens.get((int)imageAdapterGallery.getItemId(position))).getCaminhoImagem())); //imagemFachada.getCaminhoImagem((int) imageAdapterGallery.getItemId(position))
 						imagemEspandida.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), uri));
 					} catch (Exception e) {
 						System.out.println(">>> " + e.getMessage());
@@ -171,20 +176,32 @@ public class AcompanhamentoVisualActivity extends Activity {
 		imagemEspandida.setOnLongClickListener(new OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View arg0) {
-				new AlertDialog.Builder(AcompanhamentoVisualActivity.this)
-				.setTitle("Informações")
-				.setMessage("Data: xx/xx/xxxx" +
-							"\nPeso\t: x" +
-							"\nBraço\t: x" +
-							"\nPerna\t: x" +
-							"")
-				.setNeutralButton("OK", null)
-				.show();
 				
+				String peso = "Sem Informação";
+				String braco = "Sem Informação";
+				String perna = "Sem Informação";
+				getInformacoesAluno((imagens.get((int)imageAdapterGallery.getItemId(indiceFoto))).getData(), peso, braco, perna);
+				
+				
+				try {
+					
+					ImagemFachada.Imagem im = null;
+					im = imagens.get((int)imageAdapterGallery.getItemId(indiceFoto));
+					new AlertDialog.Builder(AcompanhamentoVisualActivity.this)
+					.setTitle("Informações Foto " + indiceFoto)
+					.setMessage("Data\t: " + (imagens.get((int)imageAdapterGallery.getItemId(indiceFoto))).getDataFormatada() +
+							"\nPeso\t: " + peso + 
+							"\nBraço\t: " + braco +
+							"\nPerna\t: " + perna +
+							"")
+							.setNeutralButton("OK", null)
+							.show();
+				} catch (Exception e) {
+					System.out.println(">>> " + e.getMessage());
+				}
 				return true;
 			}
 		});
-		
 //		imagemEspandida.setOnLongClickListener(new OnLongClickListener() {
 //			@Override
 //			public boolean onLongClick(View arg0) {
@@ -206,6 +223,18 @@ public class AcompanhamentoVisualActivity extends Activity {
 				finish();
 			}
 		});
+	}
+	
+	private void getInformacoesAluno(Date data, String peso, String braco, String perna){
+		List<Dados> dados = dadosFachada.getDadosDoAluno(idAluno);
+		for(Dados dado : dados){
+			if(dado.getData().equals(data)){
+				peso = dado.getPeso().toString();
+				braco = dado.getTamanhoBraco().toString();
+				perna = dado.getTamanhoPerna().toString();
+				break;
+			}
+		}
 	}
 
 	@Override

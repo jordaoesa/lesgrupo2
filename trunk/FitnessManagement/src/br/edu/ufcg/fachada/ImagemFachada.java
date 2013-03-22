@@ -51,13 +51,11 @@ public class ImagemFachada {
 		return caminho;
 	}
 
-	public HashMap<Integer, String> getCaminhosImagens(Integer idAluno) {
-		HashMap<Integer, String> map = new HashMap<Integer, String>();
-		Cursor cursor = db.getReadableDatabase().query(TABLE_IMAGEM, null, "id_aluno = " + idAluno, null, null, null, null);
-		if(cursor != null){
-			while(cursor.moveToNext()){
-				map.put(cursor.getInt(1), cursor.getString(3));
-			}
+	public HashMap<Integer, Imagem> getImagens(Integer idAluno) {
+		HashMap<Integer, Imagem> map = new HashMap<Integer, Imagem>();
+		List<Imagem> imagens = getAllImages(idAluno);
+		for(Imagem im : imagens){
+			map.put(im.getIdThumbnail(), im);
 		}
 		return map;
 	}
@@ -189,7 +187,7 @@ public class ImagemFachada {
 			this.data = data;
 		}
 		public String getDataFormatada(){
-			return data.toString();
+			return (new SimpleDateFormat("dd/MM/yyyy")).format(this.data);
 		}
 	}
 
