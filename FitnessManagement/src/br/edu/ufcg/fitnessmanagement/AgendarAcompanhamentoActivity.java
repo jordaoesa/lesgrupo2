@@ -153,9 +153,9 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 		bSalvar.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
 				if(radioSexButton.getText().equals(AgendamentoType.PAGAMENTO.value())){
-					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.PAGAMENTO));
+					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.PAGAMENTO, Long.toString(getCalendarSelected().getTimeInMillis())));
 				}else if(radioSexButton.getText().equals(AgendamentoType.TREINO.value())){
-					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.TREINO));
+					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.TREINO, Long.toString(getCalendarSelected().getTimeInMillis())));
 				}
 				
 				Builder dialog = Utils.showMessage(AgendarAcompanhamentoActivity.this,Message.CONFIRM, "Informação", "Agendameto salvo com sucesso.");
@@ -179,10 +179,7 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 
 	}
-
-	private void salvarAgendamento() {
-		AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-
+	private Calendar getCalendarSelected(){
 		Calendar calendar = Calendar.getInstance();       
 
 		calendar.set(Calendar.YEAR, gridCallendar.getCalendarYear());
@@ -191,19 +188,17 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 		calendar.set(Calendar.HOUR_OF_DAY, hour);
 		calendar.set(Calendar.MINUTE, minute);
 		calendar.set(Calendar.SECOND, 0);
+		return calendar;
+	}
 
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy ",new Locale("pt","br"));
-		System.out.println("dia alarm: " + sdf.format(calendar.getTime()));
-		SimpleDateFormat hourf = new SimpleDateFormat("MM:HH ",new Locale("pt","br"));
-		System.out.println("HORARIO alarm: " + hour + ":" + minute + ">>>>" + calendar.getTime().getHours() + ":" + calendar.getTime().getMinutes());
-
-
+	private void salvarAgendamento() {
+		AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 		Intent intent = new Intent("br.edu.ufcg.agendamento.DisplayNotification");
 		intent.putExtra("NotifID", aluno.getId());   
 		PendingIntent displayIntent = PendingIntent.getActivity(
 				getBaseContext(), 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);                   
 		alarmManager.set(AlarmManager.RTC_WAKEUP, 
-				calendar.getTimeInMillis(), displayIntent);
+				getCalendarSelected().getTimeInMillis(), displayIntent);
 
 	}
 

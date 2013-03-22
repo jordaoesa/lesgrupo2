@@ -3,11 +3,13 @@ package br.edu.ufcg.sgbd;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import br.edu.ufcg.exception.DataBaseException;
 
 public class DB extends SQLiteOpenHelper {
-	
+
 	private final String TABLE_ATIVIDADE_DIARIA = "CREATE TABLE TABLE_ATIVIDADE_DIARIA(" +
 			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
 			"nome VARCHAR(255)," +
@@ -20,111 +22,114 @@ public class DB extends SQLiteOpenHelper {
 			"diaSemana VARCHAR(255)," +
 			"id_aluno INTEGER," +
 			"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
-			
+
 		")";
-	
-	
+
+
 	private final String TABLE_ALUNO = "CREATE TABLE TABLE_ALUNO(" +
-											"id INTEGER PRIMARY KEY AUTOINCREMENT," +
-											"idade INTEGER," +
-											"nome VARCHAR(255)," +
-											"endereco VARCHAR(255)," +
-											"sexo VARCHAR(255)," +
-											"telefone VARCHAR(255)," +
-											"caminho_imagem VARCHAR(255)" +
-										")";
-	
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"idade INTEGER," +
+			"nome VARCHAR(255)," +
+			"endereco VARCHAR(255)," +
+			"sexo VARCHAR(255)," +
+			"telefone VARCHAR(255)," +
+			"caminho_imagem VARCHAR(255)" +
+			")";
+
 	private final String TABLE_DADOS = "CREATE TABLE TABLE_DADOS(" +
-											"id_aluno INTEGER," +
-											"data VARCHAR(11)," +
-											"peso REAL," +
-											"calorias_gastas REAL," +
-											"tamanho_braco REAL," +
-											"tamanho_antebraco REAL," +
-											"tamanho_perna REAL," +
-											"tamanho_panturrilha REAL," +
-											"imc REAL," +
-											"PRIMARY KEY(id_aluno, data)," +
-											"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
-										")";
-	
+			"id_aluno INTEGER," +
+			"data VARCHAR(11)," +
+			"peso REAL," +
+			"calorias_gastas REAL," +
+			"tamanho_braco REAL," +
+			"tamanho_antebraco REAL," +
+			"tamanho_perna REAL," +
+			"tamanho_panturrilha REAL," +
+			"imc REAL," +
+			"PRIMARY KEY(id_aluno, data)," +
+			"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
+			")";
+
 	private final String TABLE_FINANCAS = "CREATE TABLE TABLE_FINANCAS(" +
-												"id INTEGER PRIMARY KEY AUTOINCREMENT," +
-												"id_aluno INTEGER," +
-												"valor REAL," +
-												"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
-											")";
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"id_aluno INTEGER," +
+			"valor REAL," +
+			"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
+			")";
 
 	private final String TABLE_THUMBNAIL = "CREATE TABLE TABLE_THUMBNAIL(" +
-												"id INTEGER PRIMARY KEY AUTOINCREMENT," +
-												"id_aluno INTEGER," +
-												"caminho_thumbnail VARCHAR(255)," +
-												"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
-											")";
-	
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"id_aluno INTEGER," +
+			"caminho_thumbnail VARCHAR(255)," +
+			"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
+			")";
+
 	private final String TABLE_IMAGEM = "CREATE TABLE TABLE_IMAGEM(" +
-											"id INTEGER PRIMARY KEY AUTOINCREMENT," +
-											"id_thumbnail INTEGER," +
-											"id_aluno INTEGER," +
-											"caminho_imagem VARCHAR(255)," +
-											"data VARCHAR(255)," +
-											"FOREIGN KEY(id_thumbnail) REFERENCES TABLE_THUMBNAIL(id)," +
-											"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
-										")";
-	
-	
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"id_thumbnail INTEGER," +
+			"id_aluno INTEGER," +
+			"caminho_imagem VARCHAR(255)," +
+			"data VARCHAR(255)," +
+			"FOREIGN KEY(id_thumbnail) REFERENCES TABLE_THUMBNAIL(id)," +
+			"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
+			")";
+
+
 	private final String TABLE_EXERCICIOS = "CREATE TABLE TABLE_EXERCICIOS("+"id_exercicio INTEGER PRIMARY KEY AUTOINCREMENT,"+"nomeExercicio VARCHAR(255)"+")";
 	private final String TABLE_MAQUINAS = "CREATE TABLE TABLE_MAQUINAS("+"id_maquina INTEGER PRIMARY KEY AUTOINCREMENT,"+"nomeMaquina VARCHAR(255)"+")";
 	private final String TABLE_GRUPO_MUSCULAR = "CREATE TABLE TABLE_GRUPO_MUSCULAR("+"id_grupoMuscular INTEGER PRIMARY KEY AUTOINCREMENT,"+"nomeGrupoMuscular VARCHAR(255)"+")";
 
 
-	
-	
-	
+
+
+
 	private final String TABLE_ATIVIDADE = "CREATE TABLE TABLE_ATIVIDADE(" +
-												"id INTEGER PRIMARY KEY AUTOINCREMENT," +
-												"id_aluno INTEGER," +
-												"numeroSeries INTEGER," +
-												"numeroRepeticoes INTEGER," +
-												"peso INTEGER," +
-												"nomeExercicio VARCHAR(255)," +
-												"nomeMaquina VARCHAR(255)," +
-												"nomeGrupoMuscular VARCHAR(255)," +
-												"observacao VARCHAR(255)," +
-												"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
-											")";
-	
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"id_aluno INTEGER," +
+			"numeroSeries INTEGER," +
+			"numeroRepeticoes INTEGER," +
+			"peso INTEGER," +
+			"nomeExercicio VARCHAR(255)," +
+			"nomeMaquina VARCHAR(255)," +
+			"nomeGrupoMuscular VARCHAR(255)," +
+			"observacao VARCHAR(255)," +
+			"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
+			")";
+
 	private final String TABLE_FICHA = 	"CREATE TABLE TABLE_FICHA(" +
 			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
 			"id_treino INTEGER," +
 			"FOREIGN KEY(id_treino) REFERENCES TABLE_TREINO(id)" +
-		")";
-	
-	
+			")";
+
+
 	private final String TABLE_TREINO  = 	"CREATE TABLE TABLE_TREINO(" +
 			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
 			"id_atividade INTEGER," +
 			"FOREIGN KEY(id_atividade) REFERENCES TABLE_ATIVIDADE(id)" +
-		")";
-	
-	private final String TABLE_AGENDAMENT0 = "CREATE TABLE TABLE_AGENDAMENTO("+
-			  "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-			  "id_aluno INTEGER,"+
-			  "dia_pagamento VARCHAR(255),"+
-			  "tipo VARCHAR(255),"+
-			  "FOREIGN KEY(id_aluno) REFERENCES ALUNO(id)"+
 			")";
-	
+
+	public final static String TABLE_AGENDAMENT0 = "CREATE TABLE TABLE_AGENDAMENTO("+
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"id_aluno INTEGER,"+
+			"dia_pagamento VARCHAR(255),"+
+			"date_millis VARCHAR(255)," +
+			"tipo VARCHAR(255),"+
+			"FOREIGN KEY(id_aluno) REFERENCES ALUNO(id)"+
+			")";
+
+	public final static String TABLE_AGENDAMENTO_KEYS [] = {"id","id_aluno", "dia_pagamento", "tipo"};
+
 	/**
 	 * O construtor necessita do contexto da aplicacao
 	 * @param context
 	 */
 	public DB(Context context) {
 		/* O primeiro argumento eh o contexto da aplicacao
-	     * O segundo argumento eh o nome do banco de dados
-	     * O terceiro eh um ponteiro para manipulacao de dados, nao precisaremos dele.
-	     * O quarto eh a versao do banco de dados
-	     */
+		 * O segundo argumento eh o nome do banco de dados
+		 * O terceiro eh um ponteiro para manipulacao de dados, nao precisaremos dele.
+		 * O quarto eh a versao do banco de dados
+		 */
 		super(context, "FitDB", null, 1);
 	}
 
@@ -172,7 +177,7 @@ public class DB extends SQLiteOpenHelper {
 			db.close();
 		}
 	}
-	
+
 	public void insertValues(String tableName, ContentValues values) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		try{
@@ -183,7 +188,7 @@ public class DB extends SQLiteOpenHelper {
 			db.close();
 		}
 	}
-	
+
 	public void updateTable(String tableName, ContentValues values, String where){
 		SQLiteDatabase db = this.getWritableDatabase();
 		try{
@@ -194,7 +199,36 @@ public class DB extends SQLiteOpenHelper {
 			db.close();
 		}
 	}
-	
+
+	public boolean deleteByField(String tabela,String select[],String where) {
+
+		try{
+			SQLiteDatabase db = this.getWritableDatabase();
+
+			try{
+				Cursor cursor = db.query(tabela, select,where,null, null, null, null);
+				if (cursor == null) throw new DataBaseException("Banco de dados inexistente");
+				cursor.moveToFirst();
+				for (int j = 0; j < cursor.getCount(); j++) {
+					String lineTable = "";
+					for (int i = 0; i < select.length; i++) {
+						lineTable = lineTable + cursor.getString(i)+"#";
+					}
+					System.out.println("QUERY: " + lineTable);
+					cursor.moveToNext();
+				}
+
+			}catch(Exception error){
+				throw new DataBaseException(error.getMessage()+"Erro no banco de dados ao realizar uma pesquisa ");
+			}
+			db.close();
+		}catch(Exception error){
+			return false;
+		}
+		return true;
+	}
+
+
 	public void delete(String tableName, String where){
 		SQLiteDatabase db = this.getWritableDatabase();
 		try {
@@ -205,5 +239,5 @@ public class DB extends SQLiteOpenHelper {
 			db.close();
 		}
 	}
-	
+
 }

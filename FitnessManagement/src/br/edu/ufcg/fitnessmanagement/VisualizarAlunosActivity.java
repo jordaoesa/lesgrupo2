@@ -1,7 +1,12 @@
 package br.edu.ufcg.fitnessmanagement;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import br.edu.ufcg.agendamento.Agendamento;
 import br.edu.ufcg.agendamento.ItemAgendamento;
@@ -91,8 +96,6 @@ public class VisualizarAlunosActivity extends Activity {
 					int arg2, long arg3) {
 				//Pega o item que foi selecionado.
 				ItemAgendamento item = adapterListView.getItem(arg2);
-				//Demostração
-				System.out.println("VOCE CLICOU EM " + item.getInfo());
 			}
 		});
 		Button buttonVoltar = (Button) findViewById(R.id.buttonVoltarItemHistoricoAgendamento);
@@ -109,7 +112,9 @@ public class VisualizarAlunosActivity extends Activity {
 		itens = new ArrayList<ItemAgendamento>();
 		for (Aluno aluno : alunos) {
 			for (Agendamento agendamento : agendamentoFachada.getAgendamentoPorAluno(aluno.getId())) {
-				itens.add(new ItemAgendamento(aluno.getNome(),agendamento.getDiaPagamento(),aluno.getCaminhoImagem()));
+				if(isDateValid(agendamento.getDateInMillis())){
+					itens.add(new ItemAgendamento(aluno.getNome(),agendamento.getDiaPagamento(),aluno.getCaminhoImagem()));
+				}
 			}
 		}
 		
@@ -125,7 +130,6 @@ public class VisualizarAlunosActivity extends Activity {
 	}
 
 	private void selecionaUsuario(int position, List<Aluno> alunos) {
-		//Toast.makeText(getApplicationContext(), alunos.get(position).getNome(), Toast.LENGTH_SHORT).show();
 		finish();
 		Intent activityFicha = new Intent(this, PerfilDoAlunoActivity.class);
 		activityFicha.putExtra("id_aluno", alunos.get(position).getId());
@@ -134,9 +138,27 @@ public class VisualizarAlunosActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.visualizar_alunos, menu);
 		return true;
 	}
 
+	public boolean isDateValid(String date){
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy",new Locale("pt","br"));
+		formatter.setLenient(false);
+		try {
+			Date hoje = formatter.parse(formatter.format(new Date()));
+			Date dateSelected = new Date(Long.parseLong(date));
+			if(dateSelected.equals(hoje)){
+				return true;
+			}
+			else if(dateSelected.before(Calendar.getInstance().getTime())){
+				return false;
+			}else if(dateSelected.after(Calendar.getInstance().getTime())){
+				return true;
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

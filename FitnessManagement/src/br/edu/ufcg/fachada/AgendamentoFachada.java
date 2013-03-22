@@ -22,6 +22,7 @@ public class AgendamentoFachada {
 		ContentValues values = new ContentValues();
 		values.put("id_aluno", agendamento.getIdAluno());
 		values.put("dia_pagamento", agendamento.getDiaPagamento());
+		values.put("date_millis", agendamento.getDateInMillis());
 		values.put("tipo", agendamento.getType().value());
 		db.insertValues(TABLE_NAME, values);
 		db.close();
@@ -34,10 +35,10 @@ public class AgendamentoFachada {
 			if(cursor != null){
 				while(cursor.moveToNext()){
 					Agendamento atividade;
-					if(cursor.getString(3).equals("Treino")){
-						atividade = new Agendamento(cursor.getInt(1),cursor.getString(2),AgendamentoType.TREINO);
+					if(cursor.getString(4).equals("Treino")){
+						atividade = new Agendamento(cursor.getInt(1),cursor.getString(2),AgendamentoType.TREINO, cursor.getString(3));
 					}else{
-						atividade = new Agendamento(cursor.getInt(1),cursor.getString(2),AgendamentoType.PAGAMENTO);
+						atividade = new Agendamento(cursor.getInt(1),cursor.getString(2),AgendamentoType.PAGAMENTO,cursor.getString(3));
 					}
 					atividades.add(atividade);
 				}
@@ -49,5 +50,11 @@ public class AgendamentoFachada {
 		}
 		System.out.println(atividades);
 		return atividades;
+	}
+	
+	public void removeAgendamento( Agendamento agendamento ){
+		String where = "id_aluno="+agendamento.getIdAluno() + " and dia_pagamento" + agendamento.getDiaPagamento();
+		String select [] = DB.TABLE_AGENDAMENTO_KEYS;
+		db.deleteByField(TABLE_NAME, select, where);
 	}
 }
