@@ -1,12 +1,14 @@
 package br.edu.ufcg.fachada;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import br.edu.ufcg.fachada.ImagemFachada.Imagem;
 import br.edu.ufcg.sgbd.DB;
 
 public class ImagemFachada {
@@ -33,6 +35,7 @@ public class ImagemFachada {
 		values.put("id_aluno", imagem.getIdAluno());
 		values.put("id_thumbnail", imagem.getIdThumbnail());
 		values.put("caminho_imagem", imagem.getCaminhoImagem());
+		values.put("data", (new SimpleDateFormat("dd/MM/yyyy")).format(imagem.getData()));
 		
 		db.insertValues(TABLE_IMAGEM, values);
 		db.close();
@@ -76,7 +79,16 @@ public class ImagemFachada {
 		Cursor cursor = db.getReadableDatabase().query(TABLE_IMAGEM, null, "id_aluno = " + idAluno, null, null, null, "id");
 		if(cursor != null){
 			while(cursor.moveToNext()){
-				Imagem im = new Imagem(cursor.getInt(0), cursor.getInt(2), cursor.getInt(1), cursor.getString(3));
+				
+				SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+				Date date = null;
+				try {
+					date = formater.parse(cursor.getString(4));
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				
+				Imagem im = new Imagem(cursor.getInt(0), cursor.getInt(2), cursor.getInt(1), cursor.getString(3), date);
 				imagens.add(im);
 			}
 		}
@@ -129,18 +141,21 @@ public class ImagemFachada {
 		private Integer idAluno;
 		private Integer idThumbnail;
 		private String caminhoImagem;
+		private Date data;
 		
-		public Imagem(Integer id, Integer idAluno, Integer idThumbnail, String caminhoImagem) {
+		public Imagem(Integer id, Integer idAluno, Integer idThumbnail, String caminhoImagem, Date data) {
 			this.id = id;
 			this.idAluno = idAluno;
 			this.idThumbnail = idThumbnail;
 			this.caminhoImagem = caminhoImagem;
+			this.data = data;
 		}
 		
-		public Imagem(Integer idAluno, Integer idThumbnail, String caminhoImagem) {
+		public Imagem(Integer idAluno, Integer idThumbnail, String caminhoImagem, Date data) {
 			this.idAluno = idAluno;
 			this.idThumbnail = idThumbnail;
 			this.caminhoImagem = caminhoImagem;
+			this.data = data;
 		}
 		
 		public Integer getId() {
@@ -166,6 +181,15 @@ public class ImagemFachada {
 		}
 		public void setCaminhoImagem(String caminhoImagem) {
 			this.caminhoImagem = caminhoImagem;
+		}
+		public Date getData() {
+			return data;
+		}
+		public void setData(Date data) {
+			this.data = data;
+		}
+		public String getDataFormatada(){
+			return data.toString();
 		}
 	}
 

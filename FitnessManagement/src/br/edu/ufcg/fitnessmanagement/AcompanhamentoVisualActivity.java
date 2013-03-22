@@ -3,6 +3,7 @@ package br.edu.ufcg.fitnessmanagement;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,6 +18,8 @@ import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Audio.Media;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
@@ -74,7 +77,7 @@ public class AcompanhamentoVisualActivity extends Activity {
 				Thumbnail tn = imagemFachada.new Thumbnail(idAluno, destino.getAbsolutePath());
 				imagemFachada.adicionarThumbnail(tn);
 				
-				Imagem im = imagemFachada.new Imagem(idAluno, imagemFachada.getUltimoThumbnailAdicionado(idAluno).getId(), imagem.getAbsolutePath());
+				Imagem im = imagemFachada.new Imagem(idAluno, imagemFachada.getUltimoThumbnailAdicionado(idAluno).getId(), imagem.getAbsolutePath(), new Date());
 				System.out.println("--- salvando " + imagem.getAbsolutePath());
 				imagemFachada.adicionarImagem(im);
 				
@@ -162,6 +165,23 @@ public class AcompanhamentoVisualActivity extends Activity {
 						imagemEspandida.setImageResource(R.drawable.ic_launcher);
 					}
 				}
+			}
+		});
+		
+		imagemEspandida.setOnLongClickListener(new OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View arg0) {
+				new AlertDialog.Builder(AcompanhamentoVisualActivity.this)
+				.setTitle("Informações")
+				.setMessage("Data: xx/xx/xxxx" +
+							"\nPeso\t: x" +
+							"\nBraço\t: x" +
+							"\nPerna\t: x" +
+							"")
+				.setNeutralButton("OK", null)
+				.show();
+				
+				return true;
 			}
 		});
 		

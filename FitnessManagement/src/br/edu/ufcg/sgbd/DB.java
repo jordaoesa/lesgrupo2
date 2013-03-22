@@ -67,6 +67,7 @@ public class DB extends SQLiteOpenHelper {
 											"id_thumbnail INTEGER," +
 											"id_aluno INTEGER," +
 											"caminho_imagem VARCHAR(255)," +
+											"data VARCHAR(255)," +
 											"FOREIGN KEY(id_thumbnail) REFERENCES TABLE_THUMBNAIL(id)," +
 											"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
 										")";
@@ -188,6 +189,17 @@ public class DB extends SQLiteOpenHelper {
 		try{
 			db.update(tableName, values, where, null);
 		}catch (Exception e) {
+			System.out.println(">>> " + e.getMessage());
+		}finally{
+			db.close();
+		}
+	}
+	
+	public void delete(String tableName, String where){
+		SQLiteDatabase db = this.getWritableDatabase();
+		try {
+			db.delete(tableName, where, null);
+		} catch (Exception e) {
 			System.out.println(">>> " + e.getMessage());
 		}finally{
 			db.close();
