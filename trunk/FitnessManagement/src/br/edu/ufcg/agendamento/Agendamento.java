@@ -6,19 +6,14 @@ public class Agendamento {
 	private String horarioTreino;
 	private String lembrete;
 	private AgendamentoType type;
+	private String dateInMillis;
 	public Agendamento(){
 	}
-	public Agendamento(Integer idAluno, String diaPagamento, String horario, String lembrete){
-		this.idAluno = idAluno;
-		this.diaPagamento = diaPagamento;
-		this.horarioTreino = horario;
-		this.lembrete = lembrete;
-	}
-	public Agendamento(Integer id, String dateFullFormatter,
-			AgendamentoType pagamento) {
+	public Agendamento(Integer id, String dateFullFormatter,AgendamentoType pagamento,String timeInMillis) {
 		this.idAluno = id;
 		this.diaPagamento = dateFullFormatter;
 		this.setType(pagamento);
+		this.setDateInMillis(timeInMillis);
 	}
 	public Integer getIdAluno() {
 		return idAluno;
@@ -49,5 +44,11 @@ public class Agendamento {
 	}
 	public void setType(AgendamentoType type) {
 		this.type = type;
+	}
+	public String getDateInMillis() {
+		return dateInMillis;
+	}
+	public void setDateInMillis(String dateInMillis) {
+		this.dateInMillis = dateInMillis;
 	}
 }
