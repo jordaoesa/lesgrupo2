@@ -14,6 +14,7 @@ public class Atividade {
 	private String observacaoAtividade = "";
 	private String diaSemana = "";
 	private int idAluno;
+	private int idAtividade;
 	
 
 	public Atividade(String nomeAtividade, String numeroSeries,String numeroRepeticoes, String horaDeExecucao,
@@ -29,12 +30,35 @@ public class Atividade {
 		this.diaSemana = diaSemana;
 		this.idAluno = idAluno;
 	}
+	
+	public Atividade(int idAtividade,String nomeAtividade, String numeroSeries,String numeroRepeticoes, String horaDeExecucao,
+			 String minDeExecucao, String segDeExecucao,String observacaoAtividade,String diaSemana, int idAluno) throws Exception {
+		verificaDadosEntrada(nomeAtividade, numeroSeries, numeroRepeticoes, horaDeExecucao, minDeExecucao, segDeExecucao, observacaoAtividade);
+		this.nomeAtividade = nomeAtividade;
+		this.numeroSeries = numeroSeries;
+		this.numeroRepeticoes = numeroRepeticoes;
+		this.horaDeExecucao = horaDeExecucao;
+		this.minDeExecucao = minDeExecucao;
+		this.segDeExecucao = segDeExecucao;
+		this.observacaoAtividade = observacaoAtividade;
+		this.diaSemana = diaSemana;
+		this.idAluno = idAluno;
+		this.idAtividade= idAtividade;
+	}
+		
 	public String getAtividadeResume() {
 		return this.nomeAtividade+"\n"+numeroSeries+"/"+numeroRepeticoes+"/"+horaDeExecucao+":"+minDeExecucao+":"+segDeExecucao;
 	}
 	public String getAtividadeFull() {
-		return this.nomeAtividade+"\n"+numeroSeries+"/"+numeroRepeticoes+"/"+horaDeExecucao+":"+minDeExecucao+":"+segDeExecucao+
-				"\n"+observacaoAtividade;
+		return "*Nome da Atividade:\n"+
+				this.nomeAtividade+"\n"+
+				"*Numero de Séries: " + this.numeroSeries+"\n"+
+				"*Numero de Repetições: " + this.numeroRepeticoes+"\n"+
+				"*Tempo de Execução do treino:\n"+
+				this.horaDeExecucao+"h "+this.minDeExecucao+"m "+this.segDeExecucao+"s \n\n"+
+				"*Observação:\n"+
+				this.observacaoAtividade;
+				
 	}
 	private void verificaDadosEntrada(String nomeAtividade, String numeroSeries,String numeroRepeticoes, String horaDeExecucao,
 			 String minDeExecucao, String segDeExecucao,String observacaoAtividade) throws Exception {
@@ -93,6 +117,9 @@ public class Atividade {
 	public int getIdAluno() {
 		return idAluno;
 	}
+	public int getIdAtividade() {
+		return this.idAtividade;
+	}
 	public void setNomeAtividade(String nomeAtividade) {
 		this.nomeAtividade = nomeAtividade;
 	}
@@ -120,6 +147,8 @@ public class Atividade {
 	public void setIdAluno(int idAluno) {
 		this.idAluno = idAluno;
 	}
+
+	
 	
 	
 
