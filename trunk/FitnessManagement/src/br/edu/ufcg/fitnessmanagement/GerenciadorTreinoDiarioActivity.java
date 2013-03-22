@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -24,7 +26,7 @@ public class GerenciadorTreinoDiarioActivity extends Activity {
 	private AtividadeDiariaFachada fachadaAtividadeDiaria ;
 	private ArrayList<String>listaAtividades;
 	private ArrayAdapter<String> arrayAdapterAtividades;
-
+	private List<Atividade> treinoDoDiaDoBD;
     private ListView listViewAtividadesDiarias;
 	
 	
@@ -73,21 +75,34 @@ public class GerenciadorTreinoDiarioActivity extends Activity {
 				
 			}
 		});
-		
-		final List<Atividade> auxx = fachadaAtividadeDiaria.getAtividadesDiaria(getIntent().getIntExtra("id_aluno", -1),getIntent().getStringExtra("diaSemana"));
+		//prencherListView();
+		//final List<Atividade> treinoDoDiaDoBD = fachadaAtividadeDiaria.getAtividadesDiaria(getIntent().getIntExtra("id_aluno", -1),getIntent().getStringExtra("diaSemana"));
 		listViewAtividadesDiarias.setOnItemClickListener(new OnItemClickListener() {
 		      public void onItemClick(AdapterView<?> myAdapter, View myView, int myItemInt, long mylng) {
-		        String selectedFromList =(String) (listViewAtividadesDiarias.getItemAtPosition(myItemInt));
-		        System.out.println(auxx.get(myItemInt).getAtividadeFull());
+		    	  AlertDialog.Builder adb=new AlertDialog.Builder(GerenciadorTreinoDiarioActivity.this);
+		          adb.setTitle("Delete?");
+		          adb.setMessage(treinoDoDiaDoBD.get(myItemInt).getAtividadeFull());
+		          final int positionToRemove = myItemInt;
+		          adb.setNegativeButton("Cancelar", null);
+		          adb.setPositiveButton("Deletar", new AlertDialog.OnClickListener() {
+		              public void onClick(DialogInterface dialog, int which) {
+		            	  arrayAdapterAtividades.remove(treinoDoDiaDoBD.get(positionToRemove).getAtividadeResume());
+		            	  fachadaAtividadeDiaria.deleteAtividadeDiaria(treinoDoDiaDoBD.get(positionToRemove));
+		            	  arrayAdapterAtividades.notifyDataSetChanged();
+		            	  treinoDoDiaDoBD = fachadaAtividadeDiaria.getAtividadesDiaria(getIntent().getIntExtra("id_aluno", -1),getIntent().getStringExtra("diaSemana"));
+		              }});
+		          adb.show(); 
+		        System.out.println(treinoDoDiaDoBD.get(myItemInt).getAtividadeFull());
 		      }                 
 		});
+		prencherListView();
 	}
 	
 	private void prencherListView(){
 		listaAtividades = new ArrayList<String>();
 		listViewAtividadesDiarias = (ListView)findViewById(R.id.listViewAtividadesDiaria);
-		List<Atividade> aux = fachadaAtividadeDiaria.getAtividadesDiaria(getIntent().getIntExtra("id_aluno", -1),getIntent().getStringExtra("diaSemana"));
-		for (Atividade a: aux) {
+		treinoDoDiaDoBD = fachadaAtividadeDiaria.getAtividadesDiaria(getIntent().getIntExtra("id_aluno", -1),getIntent().getStringExtra("diaSemana"));
+		for (Atividade a: treinoDoDiaDoBD) {
 			System.out.println(a.getAtividadeResume());
 			listaAtividades.add(a.getAtividadeResume());
 		}
