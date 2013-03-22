@@ -13,13 +13,8 @@ public class DisplayNotification extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
  
-
-        //---get the notification ID for the notification; 
-        // passed in by the MainActivity---
         int notifID = getIntent().getExtras().getInt("NotifID");
  
-        //---PendingIntent to launch activity if the user selects 
-        // the notification---
         Intent i = new Intent("br.edu.ufcg.fitnessmanagement.MAinActivity");
         i.putExtra("NotifID", notifID);  
  
@@ -37,11 +32,8 @@ public class DisplayNotification extends Activity {
         CharSequence message = "";        
         notif.setLatestEventInfo(this, from, message, detailsIntent);
  
-        //---100ms delay, vibrate for 250ms, pause for 100 ms and
-        // then vibrate for 500ms---
         notif.vibrate = new long[] { 100, 250, 100, 500};        
         nm.notify(notifID, notif);
-        //---destroy the activity---
         finish();
     }
 }

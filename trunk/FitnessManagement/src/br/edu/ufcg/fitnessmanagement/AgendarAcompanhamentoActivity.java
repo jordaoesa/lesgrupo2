@@ -10,6 +10,8 @@ import java.util.TimeZone;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
@@ -132,7 +134,7 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 		setContentView(R.layout.tela_salvar_agendamento);
 		TextView dataResult = (TextView) findViewById(R.id.textViewDataResult);
 		horarioResult = (TextView) findViewById(R.id.textViewHorarioResult);
-		horarioResult.setText(getHourFormatter());
+		horarioResult.setText(getCurrentHourFormatter());
 		dataResult.setText(gridCallendar.getDateSelected());
 
 		Button bSalvar = (Button) findViewById(R.id.buttonSalvarMenuSalvarAgendamento);
@@ -141,7 +143,6 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 		int selectedRadioId = ((RadioGroup) findViewById(R.id.radioGroupAgendamento)).getCheckedRadioButtonId();
 
-		// find the radiobutton by returned id
 		final RadioButton radioSexButton = (RadioButton) findViewById(selectedRadioId);
 
 		bVoltar.setOnClickListener(new OnClickListener() {
@@ -156,7 +157,17 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 				}else if(radioSexButton.getText().equals(AgendamentoType.TREINO.value())){
 					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.TREINO));
 				}
-				salvarAgendamento();
+				
+				Builder dialog = Utils.showMessage(AgendarAcompanhamentoActivity.this,Message.CONFIRM, "Informação", "Agendameto salvo com sucesso.");
+				dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			        public void onClick(DialogInterface dialog, int which) {
+			        	salvarAgendamento();
+			        	Intent activityFicha = new Intent(AgendarAcompanhamentoActivity.this, PerfilDoAlunoActivity.class);
+						activityFicha.putExtra("id_aluno", aluno.getId());
+						startActivity(activityFicha);			        	
+		            }
+		        });
+				dialog.show();
 			}
 		});
 
@@ -172,10 +183,8 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 	private void salvarAgendamento() {
 		AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-		//---get current date and time---
 		Calendar calendar = Calendar.getInstance();       
 
-		//---sets the time for the alarm to trigger---
 		calendar.set(Calendar.YEAR, gridCallendar.getCalendarYear());
 		calendar.set(Calendar.MONTH, gridCallendar.geCalendarMonth());
 		calendar.set(Calendar.DAY_OF_MONTH, gridCallendar.getCalendarDay());                 
@@ -190,12 +199,9 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 
 		Intent intent = new Intent("br.edu.ufcg.agendamento.DisplayNotification");
-		//---assign an ID of 1---
-		intent.putExtra("NotifID", 1);   
-		//---PendingIntent to launch activity when the alarm triggers-
+		intent.putExtra("NotifID", aluno.getId());   
 		PendingIntent displayIntent = PendingIntent.getActivity(
 				getBaseContext(), 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);                   
-		//---sets the alarm to trigger---
 		alarmManager.set(AlarmManager.RTC_WAKEUP, 
 				calendar.getTimeInMillis(), displayIntent);
 
@@ -210,9 +216,11 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 		String data = sdf.format(_calendar.getTime());
 		return data.substring(0,1).toUpperCase() + data.substring(1, data.length());
 	}
-	private String getHourFormatter(){
+	private String getCurrentHourFormatter(){
 		GregorianCalendar gcalendar = new GregorianCalendar();
-		return gridCallendar.convertDigit(gcalendar.get(Calendar.HOUR)) + ":" + gridCallendar.convertDigit(gcalendar.get(Calendar.MINUTE));
+		hour = Integer.parseInt(gridCallendar.convertDigit(gcalendar.get(Calendar.HOUR_OF_DAY)));
+		minute = Integer.parseInt(gridCallendar.convertDigit(gcalendar.get(Calendar.MINUTE)));
+		return gridCallendar.convertDigit(hour) + ":" + gridCallendar.convertDigit(minute);
 	}
 
 	private void setGridCellAdapterToDate(int month, int year){
@@ -259,7 +267,7 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 		switch (id) {
 		case TIME_DIALOG_ID:{
 			TimePickerDialog timerPickerDialog = new TimePickerDialog(this, 
-					timePickerListener, Integer.parseInt(getHourFormatter().split(":")[0].trim()), Integer.parseInt(getHourFormatter().split(":")[1].trim()),false);
+					timePickerListener, Integer.parseInt(getCurrentHourFormatter().split(":")[0].trim()), Integer.parseInt(getCurrentHourFormatter().split(":")[1].trim()),false);
 			timerPickerDialog.setTitle("Horário do alarme");
 			timerPickerDialog.setButton(DialogInterface.BUTTON_POSITIVE,"OK", timerPickerDialog);
 			timerPickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"Cancelar", timerPickerDialog);
