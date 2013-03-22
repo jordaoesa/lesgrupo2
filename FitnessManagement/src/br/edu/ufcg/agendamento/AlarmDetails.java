@@ -9,7 +9,6 @@ public class AlarmDetails extends Activity{
     public void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.alarmdetails);
  
         NotificationManager nm = (NotificationManager) 
             getSystemService(NOTIFICATION_SERVICE);
