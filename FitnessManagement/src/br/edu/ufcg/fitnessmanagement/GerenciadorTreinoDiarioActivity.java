@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +22,7 @@ import br.edu.ufcg.util.FitnessManagementSingleton;
 public class GerenciadorTreinoDiarioActivity extends Activity {
 
 	private AtividadeDiariaFachada fachadaAtividadeDiaria ;
-	private ArrayList<String> listaAtividades;
+	private ArrayList<String>listaAtividades;
 	private ArrayAdapter<String> arrayAdapterAtividades;
 
     private ListView listViewAtividadesDiarias;
@@ -43,6 +45,7 @@ public class GerenciadorTreinoDiarioActivity extends Activity {
 	}
 	
 	private void menuCriarAtividadeDia(){
+		prencherListView();
 		final EditText nomeAtividade = (EditText)findViewById(R.id.editTextNomeDaAtividade);
 		final EditText numeroSeries = (EditText)findViewById(R.id.editTextNumeroSeries);
 		final EditText numeroRepeticoes = (EditText)findViewById(R.id.editTextNumeroRepeticoes);
@@ -70,16 +73,25 @@ public class GerenciadorTreinoDiarioActivity extends Activity {
 				
 			}
 		});
+		
+		final List<Atividade> auxx = fachadaAtividadeDiaria.getAtividadesDiaria(getIntent().getIntExtra("id_aluno", -1),getIntent().getStringExtra("diaSemana"));
+		listViewAtividadesDiarias.setOnItemClickListener(new OnItemClickListener() {
+		      public void onItemClick(AdapterView<?> myAdapter, View myView, int myItemInt, long mylng) {
+		        String selectedFromList =(String) (listViewAtividadesDiarias.getItemAtPosition(myItemInt));
+		        System.out.println(auxx.get(myItemInt).getAtividadeFull());
+		      }                 
+		});
 	}
 	
 	private void prencherListView(){
+		listaAtividades = new ArrayList<String>();
 		listViewAtividadesDiarias = (ListView)findViewById(R.id.listViewAtividadesDiaria);
-		List<Atividade> aux = fachadaAtividadeDiaria.getAtividadesDiaria(getIntent().getIntExtra("id_aluno", -1));
+		List<Atividade> aux = fachadaAtividadeDiaria.getAtividadesDiaria(getIntent().getIntExtra("id_aluno", -1),getIntent().getStringExtra("diaSemana"));
 		for (Atividade a: aux) {
-			
+			System.out.println(a.getAtividadeResume());
 			listaAtividades.add(a.getAtividadeResume());
 		}
-		listaAtividades = new ArrayList<String>();
+		
 		arrayAdapterAtividades = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,listaAtividades);
 		listViewAtividadesDiarias.setAdapter(arrayAdapterAtividades);
 		
