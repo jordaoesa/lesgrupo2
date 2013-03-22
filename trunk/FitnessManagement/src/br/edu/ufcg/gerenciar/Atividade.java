@@ -59,7 +59,7 @@ public class Atividade {
 	private boolean verificaNumMaiorQueZero(String num) {
 		try {
 			int aux = Integer.parseInt(num);
-			if(aux>0)return true;
+			if(aux>=0)return true;
 		} catch (Exception e) {
 			return false;
 		}

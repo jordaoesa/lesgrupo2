@@ -34,7 +34,7 @@ public class AtividadeDiariaFachada {
 		db.close();
 	}
 	
-	public List<Atividade> getAtividadesDiaria(int id_aluno) {
+	public List<Atividade> getAtividadesDiaria(int id_aluno, String diaSemana) {
 		List<Atividade> atividades = new ArrayList<Atividade>();
 		Cursor cursor = db.getReadableDatabase().query(TABLE_NAME, null,"id_aluno="+id_aluno, null, null, null, null);
 
@@ -42,8 +42,9 @@ public class AtividadeDiariaFachada {
 			if(cursor != null){
 				while(cursor.moveToNext()){
 					Atividade atividade = new Atividade(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),cursor.getString(7),cursor.getString(8),cursor.getInt(9));
-					
-					atividades.add(atividade);
+					if(cursor.getString(8).equals(diaSemana)){
+						atividades.add(atividade);
+					}
 				}
 			}
 		}catch(Exception e){
@@ -54,6 +55,8 @@ public class AtividadeDiariaFachada {
 		System.out.println(atividades);
 		return atividades;
 	}
+	
+	
 	
 	
 }
