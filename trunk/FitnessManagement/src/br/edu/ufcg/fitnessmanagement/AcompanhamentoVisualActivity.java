@@ -3,6 +3,7 @@ package br.edu.ufcg.fitnessmanagement;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -46,6 +47,9 @@ public class AcompanhamentoVisualActivity extends Activity {
 	private Integer indiceFoto = 0;
 	private File imagem;
 	private File thumbnail;
+	private String peso = "Sem Informação";
+	private String braco = "Sem Informação";
+	private String perna = "Sem Informação";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -173,23 +177,19 @@ public class AcompanhamentoVisualActivity extends Activity {
 			}
 		});
 		
+		
 		imagemEspandida.setOnLongClickListener(new OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View arg0) {
 				
-				String peso = "Sem Informação";
-				String braco = "Sem Informação";
-				String perna = "Sem Informação";
-				getInformacoesAluno((imagens.get((int)imageAdapterGallery.getItemId(indiceFoto))).getData(), peso, braco, perna);
-				
+				getInformacoesAluno((imagens.get((int)imageAdapterGallery.getItemId(indiceFoto))).getDataFormatada());
 				
 				try {
 					
-					ImagemFachada.Imagem im = null;
-					im = imagens.get((int)imageAdapterGallery.getItemId(indiceFoto));
+					ImagemFachada.Imagem im = imagens.get((int)imageAdapterGallery.getItemId(indiceFoto));
 					new AlertDialog.Builder(AcompanhamentoVisualActivity.this)
 					.setTitle("Informações Foto " + indiceFoto)
-					.setMessage("Data\t: " + (imagens.get((int)imageAdapterGallery.getItemId(indiceFoto))).getDataFormatada() +
+					.setMessage("Data\t: " + im.getDataFormatada() +
 							"\nPeso\t: " + peso + 
 							"\nBraço\t: " + braco +
 							"\nPerna\t: " + perna +
@@ -201,7 +201,23 @@ public class AcompanhamentoVisualActivity extends Activity {
 				}
 				return true;
 			}
+
+			private void getInformacoesAluno(String data) {
+				List<Dados> dados = dadosFachada.getDadosDoAluno(idAluno);
+				for(Dados dado : dados){
+					String date = (new SimpleDateFormat("dd/MM/yyyy")).format(dado.getData());
+					if(date.equals(data)){
+						peso = dado.getPeso().toString();
+						braco = dado.getTamanhoBraco().toString();
+						perna = dado.getTamanhoPerna().toString();
+						break;
+					}
+				}
+				
+			}
 		});
+		
+		
 //		imagemEspandida.setOnLongClickListener(new OnLongClickListener() {
 //			@Override
 //			public boolean onLongClick(View arg0) {
@@ -225,18 +241,6 @@ public class AcompanhamentoVisualActivity extends Activity {
 		});
 	}
 	
-	private void getInformacoesAluno(Date data, String peso, String braco, String perna){
-		List<Dados> dados = dadosFachada.getDadosDoAluno(idAluno);
-		for(Dados dado : dados){
-			if(dado.getData().equals(data)){
-				peso = dado.getPeso().toString();
-				braco = dado.getTamanhoBraco().toString();
-				perna = dado.getTamanhoPerna().toString();
-				break;
-			}
-		}
-	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
