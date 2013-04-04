@@ -19,5 +19,6 @@
     <string name="title_activity_genciar_treino_semanal">GenciarTreinoSemanal</string>
     <string name="title_activity_acompanhamento_visual">AcompanhamentoVisualActivity</string>
     <string name="title_activity_gerenciador_treino_diario">GerenciadorTreinoDiarioActivity</string>
+    <string name="title_activity_historico_agendamento">HistoricoAgendamentoActivity</string>
 
 </resources>

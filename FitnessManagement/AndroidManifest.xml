@@ -93,6 +93,12 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="br.edu.ufcg.fitnessmanagement.HistoricoAgendamentoActivity"
+            android:label="@string/title_activity_historico_agendamento"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <activity
             android:name="br.edu.ufcg.agendamento.AlarmDetails"
             android:label="Details of the alarm"
             android:screenOrientation="portrait" >
