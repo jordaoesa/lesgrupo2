@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CadastrarDadosActivity extends Activity {
@@ -65,15 +66,17 @@ public class CadastrarDadosActivity extends Activity {
 		});
 		
 		atualizar.setOnClickListener(new OnClickListener() {
+			
+			EditText peso = ((EditText)findViewById(R.id.editTextPeso));
+			EditText calorias = ((EditText)findViewById(R.id.editTextCalorias));
+			EditText braco = ((EditText)findViewById(R.id.editTextBraco));
+			EditText perna = ((EditText)findViewById(R.id.editTextPerna));
+			EditText imc = ((EditText)findViewById(R.id.editTextIMC));
+			
 			@Override
 			public void onClick(View arg0) {
-				Editable peso = ((EditText)findViewById(R.id.editTextPeso)).getText();
-				Editable calorias = ((EditText)findViewById(R.id.editTextCalorias)).getText();
-				Editable braco = ((EditText)findViewById(R.id.editTextBraco)).getText();
-				Editable perna = ((EditText)findViewById(R.id.editTextPerna)).getText();
-				Editable imc = ((EditText)findViewById(R.id.editTextIMC)).getText();
 				
-				if(verificaDadosInformados(peso, calorias, braco, perna, imc, data.getText())){
+				if(verificaDadosInformados(peso.getText(), calorias.getText(), braco.getText(), perna.getText(), imc.getText(), data.getText())){
 					java.text.DateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
 					Date date = null;
 					try {
@@ -83,23 +86,25 @@ public class CadastrarDadosActivity extends Activity {
 					}
 					System.out.println(date.toString());
 					
-					Dados dados = new Dados(Double.parseDouble(peso.toString()), Double.parseDouble(calorias.toString()), Double.parseDouble(braco.toString()), Double.parseDouble(perna.toString()), Double.parseDouble(imc.toString()), date);
+					Dados dados = new Dados(Double.parseDouble(peso.getText().toString()), Double.parseDouble(calorias.getText().toString()), Double.parseDouble(braco.getText().toString()), Double.parseDouble(perna.getText().toString()), Double.parseDouble(imc.getText().toString()), date);
 					
 					dadosFachada.adicionaDadosDoAluno(idAluno, dados);
 					Toast.makeText(getApplicationContext(), "Sucesso", Toast.LENGTH_SHORT).show();
-					finish();
+					clearEditTexts();
 				}
+			}
+
+			private void clearEditTexts() {
+				peso.setText("");
+				calorias.setText("");
+				braco.setText("");
+				perna.setText("");
+				imc.setText("");
+				data.setText("");
 			}
 
 		});
 		
-		Button voltar = (Button) findViewById(R.id.buttonAtualizarVoltar);
-		voltar.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				finish();
-			}
-		});
 	}
 	
 	private boolean verificaDadosInformados(Editable peso, Editable calorias, Editable braco, Editable perna, Editable imc, Editable data) {

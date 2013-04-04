@@ -190,8 +190,8 @@ public class AcompanhamentoVisualActivity extends Activity {
 							"\nPeso\t: " + peso + 
 							"\nBraço\t: " + braco +
 							"\nPerna\t: " + perna )
-							.setNeutralButton("OK", null)
-							.show();
+					.setNeutralButton("OK", null)
+					.show();
 				} catch (Exception e) {
 					System.out.println(">>> " + e.getMessage());
 				}

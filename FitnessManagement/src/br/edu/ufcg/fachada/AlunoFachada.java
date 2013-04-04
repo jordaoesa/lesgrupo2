@@ -91,5 +91,10 @@ public class AlunoFachada {
 		db.updateTable(TABLE_NAME, values, "id = " + idAluno);
 		db.close();
 	}
+
+	public void removeAluno(Integer idAluno) {
+		db.delete(TABLE_NAME, "id = " + idAluno);
+		db.close();
+	}
 	
 }

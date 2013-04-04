@@ -160,30 +160,24 @@ public class PerfilDoAlunoActivity extends Activity {
 			System.out.println(">>> " + e.getMessage());
 		}
 		
-		Button bCadastrarDados = (Button) findViewById(R.id.buttonCadastrarDadosPerfilAluno);
-		Button bVisualizarEstatisticas = (Button) findViewById(R.id.buttonVisualizarEstatisticasPerfilAluno);
+		Button bAvaliacaoDoAluno = (Button) findViewById(R.id.buttonAvaliacaoDoAlunoPerfilAluno);
 		Button bGerenciarFinancas = (Button) findViewById(R.id.buttonGerenciarFinancasPerfilAluno);
 		Button bAgendarAcompanhamento = (Button) findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);
 		Button bAcompanhamentoVisual = (Button) findViewById(R.id.buttonAcompanhamentoVisualPerfilAluno);
 		Button bTreinoDoAluno = (Button) findViewById(R.id.buttonTreinoDoAluno);
 		
-		bCadastrarDados.setOnClickListener(new OnClickListener() {
+		bAvaliacaoDoAluno.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				Intent intentDados = new Intent(getApplicationContext(), CadastrarDadosActivity.class);
-				intentDados.putExtra("id_aluno", aluno.getId());
-				startActivity(intentDados);
+			public void onClick(View arg0) {
+				//Intent intentAvaliar = new Intent(getApplicationContext(), AvaliacaoDoAlunoActivity.class);
+				//intentAvaliar.putExtra("id_aluno", aluno.getId());
+				//startActivity(intentAvaliar);
+				Intent intentAvaliarTabs = new Intent(getApplicationContext(), AvaliacaoTabsActivity.class);
+				intentAvaliarTabs.putExtra("id_aluno", aluno.getId());
+				startActivity(intentAvaliarTabs);
 			}
 		});
-
-		bVisualizarEstatisticas.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent intentEstatisticas = new Intent(getApplicationContext(), VisualizarEstatisticasActivity.class);
-				intentEstatisticas.putExtra("id_aluno", aluno.getId());
-				startActivity(intentEstatisticas);
-			}
-		});
+		
 		bGerenciarFinancas.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {

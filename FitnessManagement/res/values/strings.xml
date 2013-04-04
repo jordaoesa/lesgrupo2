@@ -20,5 +20,7 @@
     <string name="title_activity_acompanhamento_visual">AcompanhamentoVisualActivity</string>
     <string name="title_activity_gerenciador_treino_diario">GerenciadorTreinoDiarioActivity</string>
     <string name="title_activity_historico_agendamento">HistoricoAgendamentoActivity</string>
+    <string name="title_activity_anamnese">AnamneseActivity</string>
+    <string name="title_activity_avaliacao_tabs">AvaliacaoTabsActivity</string>
 
 </resources>

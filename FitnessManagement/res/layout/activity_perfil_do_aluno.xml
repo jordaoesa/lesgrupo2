@@ -76,16 +76,10 @@
             android:orientation="vertical" >
 
             <Button
-                android:id="@+id/buttonCadastrarDadosPerfilAluno"
+                android:id="@+id/buttonAvaliacaoDoAlunoPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cadastrar Dados" />
-
-            <Button
-                android:id="@+id/buttonVisualizarEstatisticasPerfilAluno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Visualizar Estatísticas" />
+                android:text="Avaliação do Aluno" />
 
             <Button
                 android:id="@+id/buttonAgendarAcompanhamentoPerfilAluno"

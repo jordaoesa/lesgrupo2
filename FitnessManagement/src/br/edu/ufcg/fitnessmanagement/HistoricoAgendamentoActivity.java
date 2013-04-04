@@ -90,7 +90,7 @@ public class HistoricoAgendamentoActivity extends Activity {
 	@Override	
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu_bar_historico_agendamento, menu);
+		//inflater.inflate(R.menu.menu_bar_historico_agendamento, menu);
 		return true;
 	} 
 
