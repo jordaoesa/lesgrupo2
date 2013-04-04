@@ -99,15 +99,6 @@ public class VisualizarEstatisticasActivity extends Activity {
 			});
 		}
 		
-		
-		Button voltar = (Button) findViewById(R.id.buttonEstatisticasVoltar);
-		voltar.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				finish();
-			}
-		});
-		
 	}
 
 	private void graficoDeLinhaHandler(List<Double> values, List<Date> dates, String titulo) {

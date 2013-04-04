@@ -42,6 +42,10 @@ public class ImageAdapter extends BaseAdapter {
 	public long getItemId(int position) {
 		return alunos.get(position).getId();
 	}
+	
+	public void removeItem(int position) {
+		alunos.remove(position);
+	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
