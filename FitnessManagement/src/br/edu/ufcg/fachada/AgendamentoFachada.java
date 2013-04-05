@@ -48,7 +48,6 @@ public class AgendamentoFachada {
 		}finally{
 			cursor.close();
 		}
-		System.out.println(atividades);
 		return atividades;
 	}
 	
