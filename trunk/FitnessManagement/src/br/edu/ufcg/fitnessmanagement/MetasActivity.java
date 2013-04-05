@@ -24,7 +24,8 @@ public class MetasActivity extends Activity {
 	int valorIdadeMetas;
 	int valorAlturaMetas;
 	int valorPesoPerdaMetas;
-	final Spinner spinnerPraticaMetas= (Spinner) findViewById(R.id.spinnerPraticaMeta);
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,6 +54,7 @@ public class MetasActivity extends Activity {
 	    list.add("Profissional");
 	    ArrayAdapter<String> arrayAdapter1=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
 	    arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    final Spinner spinnerPraticaMetas= (Spinner) findViewById(R.id.spinnerPraticaMeta);
 	    spinnerPraticaMetas.setAdapter(arrayAdapter1);
 	    //pega o elemento selecionado do spinner
 	    
