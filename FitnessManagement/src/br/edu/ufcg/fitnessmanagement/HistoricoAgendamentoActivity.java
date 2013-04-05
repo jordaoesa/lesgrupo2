@@ -86,14 +86,6 @@ public class HistoricoAgendamentoActivity extends Activity {
 
 	}
 
-
-	@Override	
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		//inflater.inflate(R.menu.menu_bar_historico_agendamento, menu);
-		return true;
-	} 
-
 	public boolean isDateValid(String date){
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy",new Locale("pt","br"));
 		formatter.setLenient(false);
