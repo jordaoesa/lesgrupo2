@@ -124,7 +124,8 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 				if(isDateValid()){
 					menuSalvarAgendamento();
 				}else{
-					Utils.showMessage(AgendarAcompanhamentoActivity.this,Message.ALERT, "Atenção", "Data inválida.");
+					Builder builder  = Utils.showMessage(AgendarAcompanhamentoActivity.this,Message.ALERT, "Atenção", "Data inválida.");
+					builder.show();
 				}
 			}
 		});
