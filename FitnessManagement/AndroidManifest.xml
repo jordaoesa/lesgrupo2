@@ -42,31 +42,14 @@
             android:label="@string/title_activity_visualizar_alunos"
             android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name="br.edu.ufcg.fitnessmanagement.PerfilDoAlunoActivity"
-            android:label="@string/title_activity_ficha_do_aluno"
-            android:screenOrientation="portrait" >
-        </activity>
+
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.CadastrarDadosActivity"
             android:label="@string/title_activity_cadastrar_dados"
             android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name="br.edu.ufcg.fitnessmanagement.CadastrarAtividadeActivity"
-            android:label="@string/title_activity_cadastrar_exercicio"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="br.edu.ufcg.fitnessmanagement.CadastrarTreinoActivity"
-            android:label="@string/title_activity_cadastrar_treino"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="br.edu.ufcg.fitnessmanagement.CriarFichaActivity"
-            android:label="@string/title_activity_criar_ficha"
-            android:screenOrientation="portrait" >
-        </activity>
+
+
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.VisualizarEstatisticasActivity"
             android:label="@string/title_activity_visualizar_estatisticas"
@@ -85,11 +68,6 @@
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.AgendarAcompanhamentoActivity"
             android:label="@string/title_activity_agendar_acompanhamento"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="br.edu.ufcg.fitnessmanagement.CriarExercicioMaquinaGMuscularActivity"
-            android:label="@string/title_activity_criar_exercicio_maquina_gmuscular_bd"
             android:screenOrientation="portrait" >
         </activity>
         <activity

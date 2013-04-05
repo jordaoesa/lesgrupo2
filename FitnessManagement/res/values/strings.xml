@@ -6,16 +6,11 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_visualizar_alunos">VisualizarAlunosActivity</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_ficha_do_aluno">FichaDoAlunoActivity</string>
     <string name="title_activity_cadastrar_dados">CadastrarDadosActivity</string>
-    <string name="title_activity_cadastrar_exercicio">CadastrarExercicioActivity</string>
-    <string name="title_activity_cadastrar_treino">CadastrarTreinoActivity</string>
-    <string name="title_activity_criar_ficha">CriarFichaActivity</string>
     <string name="title_activity_visualizar_estatisticas">VisualizarEstatisticasActivity</string>
     <string name="title_activity_cadastrar_aluno">CadastrarAlunoActivity</string>
     <string name="title_activity_gerenciar_financas">GerenciarFinancasActivity</string>
     <string name="title_activity_agendar_acompanhamento">AgendarAcompanhamentoActivity</string>
-    <string name="title_activity_criar_exercicio_maquina_gmuscular_bd">CriarExercicioMaquinaGMuscularActivity</string>
     <string name="title_activity_genciar_treino_semanal">GenciarTreinoSemanal</string>
     <string name="title_activity_acompanhamento_visual">AcompanhamentoVisualActivity</string>
     <string name="title_activity_gerenciador_treino_diario">GerenciadorTreinoDiarioActivity</string>
