@@ -3,9 +3,10 @@ package br.edu.ufcg.fitnessmanagement;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ufcg.gerenciar.Atividade;
-
 import android.app.Activity;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -15,15 +16,20 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+import br.edu.ufcg.metas.WeightLoss;
+import br.edu.ufcg.util.Message;
+import br.edu.ufcg.util.Utils;
 
 public class MetasActivity extends Activity {
 
-	int itemSpinnerSelecionado = 0;
-	int valorIdadeMetas;
-	int valorAlturaMetas;
-	int valorPesoPerdaMetas;
+	private int itemSpinnerSelecionado = 0;
+	private int valorIdadeMetas;
+	private int valorAlturaMetas;
+	private double valorPesoPerdaMetas;
 	
 	
 	@Override
@@ -44,15 +50,17 @@ public class MetasActivity extends Activity {
 		final EditText idadeMetas = (EditText)findViewById(R.id.editTextIdadeMeta);
 		final EditText alturaMetas = (EditText)findViewById(R.id.editTextAlturaMeta);
 		final EditText pesoMetas = (EditText)findViewById(R.id.editTextPesoPerderMeta);
+		final EditText pesoAtual = (EditText)findViewById(R.id.editTextPesoAtualMeta);
+		
 		
 		//adiciona os elementos no spinner
-		final List<String> list=new ArrayList<String>();
-	    list.add("Não pratica exercício");
-	    list.add("1-3 exercícios por semana");
-	    list.add("3-5 exercícios por semana");
-	    list.add("Exercita todos os dias");
-	    list.add("Profissional");
-	    ArrayAdapter<String> arrayAdapter1=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
+		final List<String> nivelExercicioFisico = new ArrayList<String>();
+	    nivelExercicioFisico.add("Não pratica exercício");
+	    nivelExercicioFisico.add("1-3 exercícios por semana");
+	    nivelExercicioFisico.add("3-5 exercícios por semana");
+	    nivelExercicioFisico.add("Exercita todos os dias");
+	    nivelExercicioFisico.add("Profissional");
+	    ArrayAdapter<String> arrayAdapter1=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,nivelExercicioFisico);
 	    arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	    final Spinner spinnerPraticaMetas= (Spinner) findViewById(R.id.spinnerPraticaMeta);
 	    spinnerPraticaMetas.setAdapter(arrayAdapter1);
@@ -87,6 +95,17 @@ public class MetasActivity extends Activity {
 					valorIdadeMetas = Integer.parseInt(idadeMetas.getText().toString());
 					valorAlturaMetas = Integer.parseInt(alturaMetas.getText().toString());
 					valorPesoPerdaMetas = Integer.parseInt(pesoMetas.getText().toString());
+					
+					int selectedRadioId = ((RadioGroup) findViewById(R.id.radioGroup1)).getCheckedRadioButtonId();
+					final RadioButton radioButton = (RadioButton) findViewById(selectedRadioId);
+					
+					WeightLoss metaWeightLoss = new WeightLoss(Double.parseDouble(pesoAtual.getText().toString()), valorPesoPerdaMetas, radioButton.getText().toString(), valorAlturaMetas, nivelExercicioFisico.get(itemSpinnerSelecionado), valorIdadeMetas);
+					Builder dialog = Utils.showMessage(MetasActivity.this, Message.CONFIRM, "Meta estimada", metaWeightLoss.toString());
+					dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+				        public void onClick(DialogInterface dialog, int which) {
+			            }
+			        });
+					dialog.show();
 					//cria o objeto aqui passando os parametros
 					//e joga um possível "getMeta()" numa caixinha de dialogo
 				}catch(Exception e){
