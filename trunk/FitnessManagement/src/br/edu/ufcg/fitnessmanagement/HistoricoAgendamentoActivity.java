@@ -37,7 +37,6 @@ public class HistoricoAgendamentoActivity extends Activity {
 		setContentView(R.layout.tela_visualizar_agendamento);
 		setTitle("Histórico Agendamentos");
 		tipoAgendamento = getIntent().getExtras().getString("tipo");
-		System.out.println("TIPOOOOOOOOOOOOOOOOooooooooOOOOOO : " + tipoAgendamento);
 		this.agendamentoFachada = FitnessManagementSingleton.getAgendamentoFachadaInstance();
 		this.alunos = FitnessManagementSingleton.getAlunoFachadaInstance().getAlunos();
 
@@ -59,7 +58,6 @@ public class HistoricoAgendamentoActivity extends Activity {
 		itens = new ArrayList<ItemAgendamento>();
 		for (Aluno aluno : alunos) {
 			for (Agendamento agendamento : agendamentoFachada.getAgendamentoPorAluno(aluno.getId())) {
-				System.out.println("OXE OXE OXE OXE >>" + agendamento.getType().value());
 				if(agendamento.getType().value().equals(tipoAgendamento.trim())){
 					if(isDateValid(agendamento.getDateInMillis())){
 						itens.add(new ItemAgendamento(aluno.getNome(),agendamento.getDiaPagamento(),aluno.getCaminhoImagem()));
@@ -68,7 +66,6 @@ public class HistoricoAgendamentoActivity extends Activity {
 			}
 		}
 
-		System.out.println("itens  " + itens.size());
 		//Cria o adapter
 		adapterListView = new ItemAgendamentoAdapter(this, itens,getContentResolver());
 
