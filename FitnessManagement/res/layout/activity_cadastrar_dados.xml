@@ -4,180 +4,192 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textViewPeso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:text="Peso" />
-
-        <EditText
-            android:id="@+id/editTextPeso"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:ems="10"
-            android:hint="55"
-            android:inputType="numberDecimal">
-            
-            <requestFocus />
-        </EditText>
-        
-    </RelativeLayout>
+        android:layout_height="wrap_content" >
     
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/editTextCalorias"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:ems="10"
-            android:hint="10"
-            android:inputType="numberDecimal" >
-            
-        </EditText>
-
-        <TextView
-            android:id="@+id/textViewCalorias"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/editTextCalorias"
-            android:layout_alignBottom="@+id/editTextCalorias"
-            android:layout_alignParentLeft="true"
-            android:text="Calorias" />
-        
-    </RelativeLayout>
-    
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/editTextBraco"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:ems="10"
-            android:hint="34"
-            android:inputType="numberDecimal" >
-
-        </EditText>
-
-        <TextView
-            android:id="@+id/textViewBraco"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/editTextBraco"
-            android:layout_alignBottom="@+id/editTextBraco"
-            android:layout_alignParentLeft="true"
-            android:text="Tamanho do Braço" />
-        
-    </RelativeLayout>
-    
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <EditText
-            android:id="@+id/editTextPerna"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:ems="10"
-            android:hint="49"
-            android:inputType="numberDecimal" >
-
-        </EditText>
-
-        <TextView
-            android:id="@+id/textViewPerna"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/editTextPerna"
-            android:layout_alignBottom="@+id/editTextPerna"
-            android:layout_alignParentLeft="true"
-            android:text="Tamanho da Perna" />
-        
-    </RelativeLayout>
-    
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <EditText
-            android:id="@+id/editTextIMC"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:ems="10"
-            android:hint="23"
-            android:inputType="numberDecimal" >
-
-        </EditText>
-
-        <TextView
-            android:id="@+id/textViewIMC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/editTextIMC"
-            android:layout_alignBottom="@+id/editTextIMC"
-            android:layout_alignParentLeft="true"
-            android:text="IMC" />
-        
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-        
-        <EditText
-            android:id="@+id/editTextData"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:ems="10"
-            android:hint="01/01/2013"
-            android:inputType="date" />
-
-        <TextView
-            android:id="@+id/textViewData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/editTextData"
-            android:layout_alignBottom="@+id/editTextData"
-            android:layout_alignParentLeft="true"
-            android:text="Data" />
-        
-    </RelativeLayout>
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/buttonAtualizarDados"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Enviar Dados" />
-        
-    </LinearLayout>
+        <LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:orientation="vertical" >
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <TextView
+		            android:id="@+id/textViewPeso"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentLeft="true"
+		            android:layout_centerVertical="true"
+		            android:text="Peso" />
+		
+		        <EditText
+		            android:id="@+id/editTextPeso"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="55"
+		            android:inputType="numberDecimal">
+		            
+		            <requestFocus />
+		        </EditText>
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <EditText
+		            android:id="@+id/editTextCalorias"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="10"
+		            android:inputType="numberDecimal" >
+		            
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewCalorias"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextCalorias"
+		            android:layout_alignBottom="@+id/editTextCalorias"
+		            android:layout_alignParentLeft="true"
+		            android:text="Calorias" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <EditText
+		            android:id="@+id/editTextBraco"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="34"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewBraco"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextBraco"
+		            android:layout_alignBottom="@+id/editTextBraco"
+		            android:layout_alignParentLeft="true"
+		            android:text="Tamanho do Braço" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal" >
+		
+		        <EditText
+		            android:id="@+id/editTextPerna"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="49"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewPerna"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextPerna"
+		            android:layout_alignBottom="@+id/editTextPerna"
+		            android:layout_alignParentLeft="true"
+		            android:text="Tamanho da Perna" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal" >
+		
+		        <EditText
+		            android:id="@+id/editTextIMC"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="23"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewIMC"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextIMC"
+		            android:layout_alignBottom="@+id/editTextIMC"
+		            android:layout_alignParentLeft="true"
+		            android:text="IMC" />
+		        
+		    </RelativeLayout>
+		
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal" >
+		        
+		        <EditText
+		            android:id="@+id/editTextData"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="01/01/2013"
+		            android:inputType="date" />
+		
+		        <TextView
+		            android:id="@+id/textViewData"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextData"
+		            android:layout_alignBottom="@+id/editTextData"
+		            android:layout_alignParentLeft="true"
+		            android:text="Data" />
+		        
+		    </RelativeLayout>
+		    
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal" >
+		
+		        <Button
+		            android:id="@+id/buttonAtualizarDados"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:text="Enviar Dados" />
+		        
+		    </LinearLayout>
+	    
+		</LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
