@@ -12,13 +12,21 @@ public class WeightLoss {
 	private String nivelExercicio;
 	private double pesoAtual;
 	
-	public WeightLoss(double pesoAtual, double pesoVaiPerder, String genero, int altura, String nivelExercicio, int idade){
-		this.pesoAtual = pesoAtual;
-		this.pesoPerder = pesoVaiPerder;
+	public WeightLoss(String pesoAtual, String pesoVaiPerder, String genero, String altura, String nivelExercicio, String idade) throws Exception{
+		verificaDados(pesoAtual,pesoVaiPerder,genero, altura, nivelExercicio, idade);
+		this.pesoAtual = Double.parseDouble(pesoAtual);
+		this.pesoPerder = Double.parseDouble(pesoVaiPerder);
 		this.genero = genero;
-		this.altura = altura;
+		this.altura = Integer.parseInt(altura);
 		this.nivelExercicio = nivelExercicio;
-		this.idade = idade;
+		this.idade = Integer.parseInt(idade);
+	}
+	private void verificaDados(String pesoAtual, String pesoVaiPerder,
+			String genero, String altura, String nivelExercicio,
+			String idade) throws Exception {
+		if(!verificaNumMaiorQueZero(pesoAtual) || !verificaNumMaiorQueZero(pesoVaiPerder) || !verificaNumMaiorQueZero(altura) || !verificaNumMaiorQueZero(idade)){
+			throw new Exception("Dados inválidos.");
+		}
 	}
 	public double getPesoAtual() {
 		return pesoAtual;
@@ -78,4 +86,15 @@ public class WeightLoss {
 		return	"Dias necessários: " + getDiasPerderPeso() + ".\n" +
 				"Calorias/dia: " + getCaloriasPerdePeso() +  ".";
 	}
+	
+	private boolean verificaNumMaiorQueZero(String num) {
+		try {
+			int aux = Integer.parseInt(num);
+			if(aux>0)return true;
+		} catch (Exception e) {
+			return false;
+		}
+		return false;
+	}
+	
 }
