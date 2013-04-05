@@ -21,6 +21,8 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.View;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.GridView;
@@ -224,10 +226,7 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 	}
 
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		return true;
-	}
+
 
 	@Override
 	public void onClick(View v){
@@ -300,4 +299,60 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 		return false;
 	}
 
+
+
+
+		
+		private final int SAIR = 1;
+		private final int AJUDA = 2;
+		
+		private final int agendarAcompanhamento=3;
+		String ajuda = "Ajuda";
+		String sair = "Sair";
+		
+
+		@Override
+		public boolean onCreateOptionsMenu(Menu menu) {
+//			// Inflate the menu; this adds items to the action bar if it is present.
+//			getMenuInflater().inflate(R.menu.activity_main, menu);
+//			return true;
+
+			
+			boolean r = super.onCreateOptionsMenu(menu);
+			super.onCreateOptionsMenu(menu);
+			//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
+			menu.add(0, SAIR, 0, sair).setIcon(R.drawable.alert);
+			
+			
+			SubMenu menuAjuda = menu.addSubMenu(ajuda);
+			menuAjuda.add(0, agendarAcompanhamento, 0, "Agendar Acompanhamento");
+			
+			return r;
+			
+		}
+		
+		@Override
+		public boolean onOptionsItemSelected(MenuItem item){
+			
+			switch(item.getItemId()){
+			
+			
+			case SAIR: mensagemExibir("Sair", "Saindo"); finish();  break;
+			case AJUDA: mensagemExibir("Ajuda", "Agendar Acompanhamento"); break;
+			case agendarAcompanhamento: mensagemExibir("Agendar Acompanhamento", "Selecione uma data valida e clique em salvar, logo apos selecione um horario clicando no icone do relogio e selecione uma opcao, pagamento ou agendamento, escreva alguma observacao e salve.\n" +
+					"Essa atividade agendada aparecera na tela de Historico Agendamento, voce recebera um alerta no celular para lembrar do agendamento."); break;
+			}
+			
+			return super.onOptionsItemSelected(item);
+		}
+		
+		public void mensagemExibir(String titulo, String texto){
+			AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
+			mensagem.setTitle(titulo);
+			mensagem.setMessage(texto);
+			mensagem.setNeutralButton("OK", null);
+			mensagem.show();
+		}
+	
+	
 }

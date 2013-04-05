@@ -8,6 +8,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -38,13 +40,7 @@ public class GerenciadorTreinoDiarioActivity extends Activity {
 		menuCriarAtividadeDia();
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_gerenciador_treino_diario,
-				menu);
-		return true;
-	}
+
 	
 	private void menuCriarAtividadeDia(){
 		prencherListView();
@@ -113,5 +109,60 @@ public class GerenciadorTreinoDiarioActivity extends Activity {
 	}
 	
 	
+	
+
+	
+	private final int SAIR = 1;
+	private final int AJUDA = 2;
+	
+	private final int gerenciarTreinoDiario=3;
+	String ajuda = "Ajuda";
+	String sair = "Sair";
+	
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+//		// Inflate the menu; this adds items to the action bar if it is present.
+//		getMenuInflater().inflate(R.menu.activity_main, menu);
+//		return true;
+
+		
+		boolean r = super.onCreateOptionsMenu(menu);
+		super.onCreateOptionsMenu(menu);
+		//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
+		menu.add(0, SAIR, 0, sair).setIcon(R.drawable.alert);
+		
+		
+		SubMenu menuAjuda = menu.addSubMenu(ajuda);
+		menuAjuda.add(0, gerenciarTreinoDiario, 0, "Gerenciar Treino Diario");
+		
+		return r;
+		
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item){
+		
+		switch(item.getItemId()){
+		
+		
+		case SAIR: mensagemExibir("Sair", "Saindo"); finish();  break;
+		case AJUDA: mensagemExibir("Ajuda", "Gerenciar Treino Diario"); break;
+		case gerenciarTreinoDiario: mensagemExibir("Gerenciar Treino Diario", "Informe um nome para a Atividade, o numero de serie e repeticoes e o tempo de execucao da atividade, caso nao tenha tempo preencha os campos com 0.\n" +
+				"Adicione observacoes sobre a atividade e clique em cadastrar atividade.\n" +
+				"As atividades ja cadastradas sao visualizadas logo abaixo e podem ser deletadas, basta pressionar e escolher a opcao deletar."); break;
+		}
+		
+		return super.onOptionsItemSelected(item);
+	}
+	
+	public void mensagemExibir(String titulo, String texto){
+		AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
+		mensagem.setTitle(titulo);
+		mensagem.setMessage(texto);
+		mensagem.setNeutralButton("OK", null);
+		mensagem.show();
+	}
+
 
 }
