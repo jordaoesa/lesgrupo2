@@ -97,7 +97,6 @@
             android:label="@string/title_activity_historico_agendamento"
             android:screenOrientation="portrait" >
         </activity>
-        
         <activity
             android:name="br.edu.ufcg.agendamento.AlarmDetails"
             android:label="Details of the alarm"
@@ -117,28 +116,32 @@
         </activity>
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.GenciarTreinoSemanal"
-            android:label="@string/title_activity_genciar_treino_semanal" 
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_genciar_treino_semanal"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.AcompanhamentoVisualActivity"
-            android:label="@string/title_activity_acompanhamento_visual" 
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_acompanhamento_visual"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.GerenciadorTreinoDiarioActivity"
-            android:label="@string/title_activity_gerenciador_treino_diario" 
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_gerenciador_treino_diario"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.AnamneseActivity"
-            android:label="@string/title_activity_anamnese" 
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_anamnese"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="br.edu.ufcg.fitnessmanagement.AvaliacaoTabsActivity"
-            android:label="@string/title_activity_avaliacao_tabs" 
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_avaliacao_tabs"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="br.edu.ufcg.fitnessmanagement.MetasActivity"
+            android:label="@string/title_activity_metas" >
         </activity>
     </application>
 
