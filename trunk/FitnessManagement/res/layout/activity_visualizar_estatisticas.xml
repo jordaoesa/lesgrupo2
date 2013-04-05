@@ -3,50 +3,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <Button
-        android:id="@+id/buttonEstatisticasPeso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="105dp"
-        android:text="Peso" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/buttonEstatisticasPerna"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonEstatisticasPeso"
-        android:text="Tamanho Perna" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+    
+		    <Button
+		        android:id="@+id/buttonEstatisticasPeso"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="105dp"
+		        android:text="Peso" />
+		
+		    <Button
+		        android:id="@+id/buttonEstatisticasPerna"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Tamanho Perna" />
+		
+		    <Button
+		        android:id="@+id/buttonEstatisticasBraco"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Tamanho Braço" />
+		
+		    <Button
+		        android:id="@+id/buttonEstatisticasCalorias"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Calorias" />
+		
+		    <Button
+		        android:id="@+id/buttonEstatisticasIMC"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="IMC" />
 
-    <Button
-        android:id="@+id/buttonEstatisticasBraco"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonEstatisticasPerna"
-        android:text="Tamanho Braço" />
-
-    <Button
-        android:id="@+id/buttonEstatisticasCalorias"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonEstatisticasBraco"
-        android:text="Calorias" />
-
-    <Button
-        android:id="@+id/buttonEstatisticasIMC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/buttonEstatisticasCalorias"
-        android:text="IMC" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
