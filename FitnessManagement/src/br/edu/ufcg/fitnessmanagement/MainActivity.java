@@ -61,15 +61,15 @@ public class MainActivity extends Activity {
 
 		
 		
-		Button buttonHelp = (Button) findViewById(R.id.buttonHelp);
-		final Intent intent = new Intent(getApplicationContext(),AjudaCadastroAluno.class);
-		buttonHelp.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-				startActivity(intent);
-			}
-		});
+//		Button buttonHelp = (Button) findViewById(R.id.buttonHelp);
+//		final Intent intent = new Intent(getApplicationContext(),AjudaCadastroAluno.class);
+//		buttonHelp.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//
+//				startActivity(intent);
+//			}
+//		});
 		
 		
 		
