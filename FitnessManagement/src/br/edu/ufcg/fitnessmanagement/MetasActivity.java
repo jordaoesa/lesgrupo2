@@ -21,7 +21,10 @@ import android.widget.Toast;
 public class MetasActivity extends Activity {
 
 	int itemSpinnerSelecionado = 0;
-	
+	int valorIdadeMetas;
+	int valorAlturaMetas;
+	int valorPesoPerdaMetas;
+	final Spinner spinnerPraticaMetas= (Spinner) findViewById(R.id.spinnerPraticaMeta);
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,11 +43,7 @@ public class MetasActivity extends Activity {
 		final EditText idadeMetas = (EditText)findViewById(R.id.editTextIdadeMeta);
 		final EditText alturaMetas = (EditText)findViewById(R.id.editTextAlturaMeta);
 		final EditText pesoMetas = (EditText)findViewById(R.id.editTextPesoPerderMeta);
-		int valorIdadeMetas = Integer.parseInt(idadeMetas.getText().toString());
-		int valorAlturaMetas = Integer.parseInt(alturaMetas.getText().toString());
-		int valorPesoPerdaMetas = Integer.parseInt(pesoMetas.getText().toString());
 		
-		final Spinner spinnerPraticaMetas= (Spinner) findViewById(R.id.spinnerPraticaMeta);
 		//adiciona os elementos no spinner
 		final List<String> list=new ArrayList<String>();
 	    list.add("Não pratica exercício");
@@ -68,8 +67,6 @@ public class MetasActivity extends Activity {
 				// TODO Auto-generated method stub
 				
 			}
-	    
-		
         });
 	    
 	    //Aqui eu so preciso agora criar o Objeto metas não sei como tu fez ai, mas ja tem 
@@ -85,6 +82,9 @@ public class MetasActivity extends Activity {
 	    	@Override
 			public void onClick(View v) {
 				try{
+					valorIdadeMetas = Integer.parseInt(idadeMetas.getText().toString());
+					valorAlturaMetas = Integer.parseInt(alturaMetas.getText().toString());
+					valorPesoPerdaMetas = Integer.parseInt(pesoMetas.getText().toString());
 					//cria o objeto aqui passando os parametros
 					//e joga um possível "getMeta()" numa caixinha de dialogo
 				}catch(Exception e){
