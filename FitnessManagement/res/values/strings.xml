@@ -19,5 +19,6 @@
     <string name="title_activity_avaliacao_tabs">AvaliacaoTabsActivity</string>
 	<string name="title_activity_historico_tabs">HistoricoTabsActivity</string>
 	<string name="title_activity_metas">MetasActivity</string>
+	<string name="title_activity_perfil_do_aluno">PerfilDoAlunoActivity</string>
 
 </resources>
