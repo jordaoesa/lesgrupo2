@@ -165,6 +165,18 @@ public class PerfilDoAlunoActivity extends Activity {
 		Button bAgendarAcompanhamento = (Button) findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);
 		Button bAcompanhamentoVisual = (Button) findViewById(R.id.buttonAcompanhamentoVisualPerfilAluno);
 		Button bTreinoDoAluno = (Button) findViewById(R.id.buttonTreinoDoAluno);
+		Button bMeta = (Button)findViewById(R.id.buttonPerfilMeta);
+		
+		bMeta.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intentAvaliarTabs = new Intent(getApplicationContext(), MetasActivity.class);
+				intentAvaliarTabs.putExtra("id_aluno", aluno.getId());
+				startActivity(intentAvaliarTabs);
+				
+			}
+		});
 		
 		bAvaliacaoDoAluno.setOnClickListener(new OnClickListener() {
 			@Override
