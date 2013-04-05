@@ -143,6 +143,11 @@
             android:name="br.edu.ufcg.fitnessmanagement.MetasActivity"
             android:label="@string/title_activity_metas" >
         </activity>
+        <activity
+            android:name="br.edu.ufcg.fitnessmanagement.HistoricoTabsActivity"
+            android:label="@string/title_activity_historico_tabs" 
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

@@ -80,7 +80,7 @@ public class VisualizarAlunosActivity extends Activity {
 			}
 		});
 		Button buttonHistoricoAgendamento = (Button) findViewById(R.id.buttonHistoricoAgendamentoAcivity);
-		final Intent historicoAgendamentoActivity = new Intent(getApplicationContext(),HistoricoAgendamentoActivity.class);
+		final Intent historicoAgendamentoActivity = new Intent(getApplicationContext(),HistoricoTabsActivity.class);
 		buttonHistoricoAgendamento.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
