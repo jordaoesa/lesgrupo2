@@ -41,14 +41,4 @@
         android:layout_alignParentLeft="true"
         android:text="add aluno" /> -->
 
-    <Button
-        android:id="@+id/buttonHelp"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="65dp"
-        android:text="Ajuda" />
-
 </RelativeLayout>
