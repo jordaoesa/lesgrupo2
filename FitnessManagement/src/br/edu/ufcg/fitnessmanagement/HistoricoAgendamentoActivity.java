@@ -9,16 +9,11 @@ import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ListView;
 import br.edu.ufcg.agendamento.Agendamento;
 import br.edu.ufcg.agendamento.ItemAgendamento;
@@ -34,12 +29,15 @@ public class HistoricoAgendamentoActivity extends Activity {
 	private ArrayList<ItemAgendamento> itens;
 	private ItemAgendamentoAdapter adapterListView;
 	private ListView listView;
+	private String tipoAgendamento;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tela_visualizar_agendamento);
 		setTitle("Histórico Agendamentos");
+		tipoAgendamento = getIntent().getExtras().getString("tipo");
+		System.out.println("TIPOOOOOOOOOOOOOOOOooooooooOOOOOO : " + tipoAgendamento);
 		this.agendamentoFachada = FitnessManagementSingleton.getAgendamentoFachadaInstance();
 		this.alunos = FitnessManagementSingleton.getAlunoFachadaInstance().getAlunos();
 
@@ -54,14 +52,6 @@ public class HistoricoAgendamentoActivity extends Activity {
 				ItemAgendamento item = adapterListView.getItem(arg2);
 			}
 		});
-		Button buttonVoltar = (Button) findViewById(R.id.buttonVoltarItemHistoricoAgendamento);
-		buttonVoltar.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				finish();
-			}
-		});
-
 		createListView();
 	}
 
@@ -69,8 +59,11 @@ public class HistoricoAgendamentoActivity extends Activity {
 		itens = new ArrayList<ItemAgendamento>();
 		for (Aluno aluno : alunos) {
 			for (Agendamento agendamento : agendamentoFachada.getAgendamentoPorAluno(aluno.getId())) {
-				if(isDateValid(agendamento.getDateInMillis())){
-					itens.add(new ItemAgendamento(aluno.getNome(),agendamento.getDiaPagamento(),aluno.getCaminhoImagem()));
+				System.out.println("OXE OXE OXE OXE >>" + agendamento.getType().value());
+				if(agendamento.getType().value().equals(tipoAgendamento.trim())){
+					if(isDateValid(agendamento.getDateInMillis())){
+						itens.add(new ItemAgendamento(aluno.getNome(),agendamento.getDiaPagamento(),aluno.getCaminhoImagem()));
+					}
 				}
 			}
 		}

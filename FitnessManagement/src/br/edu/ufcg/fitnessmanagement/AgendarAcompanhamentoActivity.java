@@ -141,10 +141,6 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 		Button bVoltar = (Button) findViewById(R.id.buttonVoltarMenuSalvarAgendamento);
 		ImageButton bRelogio = (ImageButton) findViewById(R.id.buttonClockAgendamento);
 
-		int selectedRadioId = ((RadioGroup) findViewById(R.id.radioGroupAgendamento)).getCheckedRadioButtonId();
-
-		final RadioButton radioSexButton = (RadioButton) findViewById(selectedRadioId);
-
 		bVoltar.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
 				showCalendario();
@@ -152,9 +148,14 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 		});
 		bSalvar.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
+				int selectedRadioId = ((RadioGroup) findViewById(R.id.radioGroupAgendamento)).getCheckedRadioButtonId();
+				final RadioButton radioSexButton = (RadioButton) findViewById(selectedRadioId);
+				System.out.println("RADIO BUTTON: " + radioSexButton.getText());
 				if(radioSexButton.getText().equals(AgendamentoType.PAGAMENTO.value())){
+					System.out.println("pagamento salvando.");
 					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.PAGAMENTO, Long.toString(getCalendarSelected().getTimeInMillis())));
 				}else if(radioSexButton.getText().equals(AgendamentoType.TREINO.value())){
+					System.out.println("treino salvando..");
 					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.TREINO, Long.toString(getCalendarSelected().getTimeInMillis())));
 				}
 				
