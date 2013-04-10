@@ -6,7 +6,7 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_visualizar_alunos">VisualizarAlunosActivity</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_cadastrar_dados">CadastrarDadosActivity</string>
+    <string name="title_activity_avaliacao_fisica">AvaliacaoFisicaActivity</string>
     <string name="title_activity_visualizar_estatisticas">VisualizarEstatisticasActivity</string>
     <string name="title_activity_cadastrar_aluno">CadastrarAlunoActivity</string>
     <string name="title_activity_gerenciar_financas">GerenciarFinancasActivity</string>
