@@ -44,10 +44,10 @@ public class AvaliacaoTabsActivity extends TabActivity {
 		intentAnamnese.putExtra("id_aluno", idAluno);
 		TabSpec tabSpecAnamnese = tabHost
 				.newTabSpec("Anamnese")
-				.setIndicator("Anamese", getResources().getDrawable(R.drawable.ic_launcher))
+				.setIndicator("Anamnese", getResources().getDrawable(R.drawable.ic_launcher))
 				.setContent(intentAnamnese);
 		
-		Intent intentAvaliacaoFisica = new Intent(getApplicationContext(), CadastrarDadosActivity.class);
+		Intent intentAvaliacaoFisica = new Intent(getApplicationContext(), AvaliacaoFisicaActivity.class);
 		intentAvaliacaoFisica.putExtra("id_aluno", idAluno);
 		TabSpec tabSpecAvaliacaoFisica = tabHost
 				.newTabSpec("Avaliação Física")
