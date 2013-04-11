@@ -5,14 +5,16 @@ public class ItemAgendamento {
 	private String texto;
 	private String iconePath;
 	private String name;
+	private int colorTexto;
 
 	public ItemAgendamento() {
 	}
 
-	public ItemAgendamento(String name,String texto, String imagePath) {
+	public ItemAgendamento(String name,String texto, String imagePath, int colorTexto) {
 		this.name = name;
 		this.texto = texto;
 		this.iconePath = imagePath;
+		this.colorTexto = colorTexto;
 	}
 
 	public String getName(){
@@ -32,5 +34,8 @@ public class ItemAgendamento {
 
 	public void setInfo(String texto) {
 		this.texto = texto;
+	}
+	public int getColor(){
+		return this.colorTexto;
 	}
 }

@@ -161,10 +161,11 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 				Builder dialog = Utils.showMessage(AgendarAcompanhamentoActivity.this,Message.CONFIRM, "Informação", "Agendameto salvo com sucesso.");
 				dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			        public void onClick(DialogInterface dialog, int which) {
+			        	finish();
 			        	salvarAgendamento();
-			        	Intent activityFicha = new Intent(AgendarAcompanhamentoActivity.this, PerfilDoAlunoActivity.class);
-						activityFicha.putExtra("id_aluno", aluno.getId());
-						startActivity(activityFicha);			        	
+//			        	Intent activityFicha = new Intent(AgendarAcompanhamentoActivity.this, PerfilDoAlunoActivity.class);
+//						activityFicha.putExtra("id_aluno", aluno.getId());
+//						startActivity(activityFicha);			        	
 		            }
 		        });
 				dialog.show();
