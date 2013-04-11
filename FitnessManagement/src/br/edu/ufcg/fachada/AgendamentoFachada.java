@@ -18,12 +18,12 @@ public class AgendamentoFachada {
 	public AgendamentoFachada(DB db){
 		this.db = db;
 	}
-	public void adicionaAgendamento( Agendamento agendamento){
+	public void adicionaAgendamento(int idAluno, String dia, String tipo,String dateInMIllis){
 		ContentValues values = new ContentValues();
-		values.put("id_aluno", agendamento.getIdAluno());
-		values.put("dia_pagamento", agendamento.getDiaPagamento());
-		values.put("date_millis", agendamento.getDateInMillis());
-		values.put("tipo", agendamento.getType().value());
+		values.put("id_aluno", idAluno);
+		values.put("dia_pagamento", dia);
+		values.put("date_millis", dateInMIllis);
+		values.put("tipo", tipo);
 		db.insertValues(TABLE_NAME, values);
 		db.close();
 	}
@@ -36,9 +36,9 @@ public class AgendamentoFachada {
 				while(cursor.moveToNext()){
 					Agendamento atividade;
 					if(cursor.getString(4).equals("Treino")){
-						atividade = new Agendamento(cursor.getInt(1),cursor.getString(2),AgendamentoType.TREINO, cursor.getString(3));
+						atividade = new Agendamento(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),AgendamentoType.TREINO, cursor.getString(3));
 					}else{
-						atividade = new Agendamento(cursor.getInt(1),cursor.getString(2),AgendamentoType.PAGAMENTO,cursor.getString(3));
+						atividade = new Agendamento(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),AgendamentoType.PAGAMENTO,cursor.getString(3));
 					}
 					atividades.add(atividade);
 				}
@@ -48,12 +48,12 @@ public class AgendamentoFachada {
 		}finally{
 			cursor.close();
 		}
+		System.out.println("size agendamentos: " + atividades.size());
 		return atividades;
 	}
 	
-	public void removeAgendamento( Agendamento agendamento ){
-		String where = "id_aluno="+agendamento.getIdAluno() + " and dia_pagamento" + agendamento.getDiaPagamento();
-		String select [] = DB.TABLE_AGENDAMENTO_KEYS;
-		db.deleteByField(TABLE_NAME, select, where);
+	public void removeAgendamento( int id ){
+		db.delete(TABLE_NAME, "id = " + id);
+		db.close();
 	}
 }

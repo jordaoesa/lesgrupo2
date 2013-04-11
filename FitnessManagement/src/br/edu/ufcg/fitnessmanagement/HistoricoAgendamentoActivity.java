@@ -11,6 +11,8 @@ import java.util.Locale;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +29,8 @@ import br.edu.ufcg.agendamento.ItemAgendamentoAdapter;
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fachada.AgendamentoFachada;
 import br.edu.ufcg.util.FitnessManagementSingleton;
+import br.edu.ufcg.util.Message;
+import br.edu.ufcg.util.Utils;
 
 public class HistoricoAgendamentoActivity extends Activity {
 
@@ -53,8 +57,25 @@ public class HistoricoAgendamentoActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-				//Pega o item que foi selecionado.
-				ItemAgendamento item = adapterListView.getItem(arg2);
+				final ItemAgendamento item = adapterListView.getItem(arg2);
+				Builder dialog; 
+				if(tipoAgendamento.equals("Treino")){
+					 dialog = Utils.showMessage(HistoricoAgendamentoActivity.this,Message.CONFIRM, "Opção", "Deseja cancelar o treino?");
+	        	}else{
+	        		 dialog = Utils.showMessage(HistoricoAgendamentoActivity.this,Message.CONFIRM, "Opção", "Pagamento confirmado?");
+	        	}
+				dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+			        public void onClick(DialogInterface dialog, int which) {
+			        	agendamentoFachada.removeAgendamento(item.getId());
+			        	createListView();
+		            }
+		        });
+				dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+			        public void onClick(DialogInterface dialog, int which) {
+			        	dialog.cancel();
+		            }
+		        });
+				dialog.show();
 			}
 		});
 		createListView();
@@ -67,13 +88,15 @@ public class HistoricoAgendamentoActivity extends Activity {
 				if(agendamento.getType().value().equals(tipoAgendamento.trim())){
 					if(agendamento.getType().value().equals(AgendamentoType.PAGAMENTO.value())){
 						if(agendamento.getDiasAtrasados() > 0){
-							itens.add(new ItemAgendamento(aluno.getNome(),"Vencimento:" + agendamento.getDiaPagamento(),aluno.getCaminhoImagem(), Color.RED));
+							itens.add(new ItemAgendamento(agendamento.getId(),aluno.getNome(),"Vencimento:" + agendamento.getDiaPagamento(),aluno.getCaminhoImagem(), Color.RED));
 						}else{
-							itens.add(new ItemAgendamento(aluno.getNome(),"Vencimento:" + agendamento.getDiaPagamento(),aluno.getCaminhoImagem(), Color.BLACK));
+							itens.add(new ItemAgendamento(agendamento.getId(),aluno.getNome(),"Vencimento:" + agendamento.getDiaPagamento(),aluno.getCaminhoImagem(), Color.BLACK));
 						}
 					}else{
 						if(isDateValid(agendamento.getDateInMillis())){
-							itens.add(new ItemAgendamento(aluno.getNome(),agendamento.getDiaPagamento(),aluno.getCaminhoImagem(), Color.BLACK));
+							itens.add(new ItemAgendamento(agendamento.getId(),aluno.getNome(),agendamento.getDiaPagamento(),aluno.getCaminhoImagem(), Color.BLACK));
+						}else{
+							agendamentoFachada.removeAgendamento(agendamento.getId());
 						}
 					}
 				}

@@ -153,9 +153,9 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 				int selectedRadioId = ((RadioGroup) findViewById(R.id.radioGroupAgendamento)).getCheckedRadioButtonId();
 				final RadioButton radioSexButton = (RadioButton) findViewById(selectedRadioId);
 				if(radioSexButton.getText().equals(AgendamentoType.PAGAMENTO.value())){
-					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.PAGAMENTO, Long.toString(getCalendarSelected().getTimeInMillis())));
+					agendamentoFachada.adicionaAgendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.PAGAMENTO.value(), Long.toString(getCalendarSelected().getTimeInMillis()));
 				}else if(radioSexButton.getText().equals(AgendamentoType.TREINO.value())){
-					agendamentoFachada.adicionaAgendamento(new Agendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.TREINO, Long.toString(getCalendarSelected().getTimeInMillis())));
+					agendamentoFachada.adicionaAgendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.TREINO.value(), Long.toString(getCalendarSelected().getTimeInMillis()));
 				}
 				
 				Builder dialog = Utils.showMessage(AgendarAcompanhamentoActivity.this,Message.CONFIRM, "Informação", "Agendameto salvo com sucesso.");
@@ -163,9 +163,6 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 			        public void onClick(DialogInterface dialog, int which) {
 			        	finish();
 			        	salvarAgendamento();
-//			        	Intent activityFicha = new Intent(AgendarAcompanhamentoActivity.this, PerfilDoAlunoActivity.class);
-//						activityFicha.putExtra("id_aluno", aluno.getId());
-//						startActivity(activityFicha);			        	
 		            }
 		        });
 				dialog.show();
