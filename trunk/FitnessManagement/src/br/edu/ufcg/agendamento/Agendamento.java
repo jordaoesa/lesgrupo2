@@ -6,7 +6,8 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Agendamento {
-	private Integer idAluno;
+	private int idAluno;
+	private int id;
 	private String diaPagamento;
 	private String horarioTreino;
 	private String lembrete;
@@ -15,16 +16,20 @@ public class Agendamento {
 	private int diasAtrasados;
 	public Agendamento(){
 	}
-	public Agendamento(Integer id, String dateFullFormatter,AgendamentoType pagamento,String timeInMillis) {
-		this.idAluno = id;
+	public Agendamento(int id,int idAluno, String dateFullFormatter,AgendamentoType pagamento,String timeInMillis) {
+		this.id = id;
+		this.idAluno = idAluno;
 		this.diaPagamento = dateFullFormatter;
 		this.setType(pagamento);
 		this.setDateInMillis(timeInMillis);
 	}
-	public Integer getIdAluno() {
+	public int getId(){
+		return this.id;
+	}
+	public int getIdAluno() {
 		return idAluno;
 	}
-	public void setIdAluno(Integer idAluno) {
+	public void setIdAluno(int idAluno) {
 		this.idAluno = idAluno;
 	}
 	public String getDiaPagamento() {

@@ -18,7 +18,7 @@ public class DisplayNotification extends Activity {
         super.onCreate(savedInstanceState);
  
         int notifID = getIntent().getExtras().getInt("NotifID");
-        Intent i = new Intent("br.edu.ufcg.fitnessmanagement.MAinActivity");
+        Intent i = new Intent("br.edu.ufcg.fitnessmanagement.MainActivity");
         i.putExtra("NotifID", notifID);  
  
         Aluno aluno = FitnessManagementSingleton.getAlunoFachadaInstance().getAlunoFromId(notifID);
