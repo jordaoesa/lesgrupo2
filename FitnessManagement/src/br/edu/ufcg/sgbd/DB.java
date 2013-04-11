@@ -38,14 +38,19 @@ public class DB extends SQLiteOpenHelper {
 
 	private final String TABLE_DADOS = "CREATE TABLE TABLE_DADOS(" +
 			"id_aluno INTEGER," +
-			"data VARCHAR(11)," +
 			"peso REAL," +
-			"calorias_gastas REAL," +
-			"tamanho_braco REAL," +
-			"tamanho_antebraco REAL," +
-			"tamanho_perna REAL," +
-			"tamanho_panturrilha REAL," +
-			"imc REAL," +
+			"altura REAL," +
+			"braco_e_r REAL," +
+			"braco_e_c REAL," +
+			"antebraco_e REAL," +
+			"coxa_e REAL," +
+			"panturrilha_e REAL," +
+			"braco_d_r REAL," +
+			"braco_d_c REAL," +
+			"antebraco_d REAL," +
+			"coxa_d REAL," +
+			"panturrilha_d REAL," +
+			"data VARCHAR(50)," +
 			"PRIMARY KEY(id_aluno, data)," +
 			"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
 			")";

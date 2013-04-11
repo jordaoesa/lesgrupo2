@@ -58,7 +58,7 @@ public class VisualizarEstatisticasActivity extends Activity {
 				@Override
 				public void onClick(View arg0) {
 					for(Dados d : dados){
-						values.add(d.getCalorias());
+						//values.add(d.getCalorias());
 						dates.add(d.getData());
 					}
 					graficoDeLinhaHandler(values, dates, "Calorias");
@@ -69,7 +69,7 @@ public class VisualizarEstatisticasActivity extends Activity {
 				@Override
 				public void onClick(View arg0) {
 					for(Dados d : dados){
-						values.add(d.getTamanhoBraco());
+						//values.add(d.getTamanhoBraco());
 						dates.add(d.getData());
 					}
 					graficoDeLinhaHandler(values, dates, "Tamanho Bra�o");
@@ -80,7 +80,7 @@ public class VisualizarEstatisticasActivity extends Activity {
 				@Override
 				public void onClick(View arg0) {
 					for(Dados d : dados){
-						values.add(d.getTamanhoPerna());
+						//values.add(d.getTamanhoPerna());
 						dates.add(d.getData());
 					}
 					graficoDeLinhaHandler(values, dates, "Tamanho Perna");
@@ -91,7 +91,7 @@ public class VisualizarEstatisticasActivity extends Activity {
 				@Override
 				public void onClick(View arg0) {
 					for(Dados d : dados){
-						values.add(d.getImc());
+						//values.add(d.getImc());
 						dates.add(d.getData());
 					}
 					graficoDeLinhaHandler(values, dates, "IMC");

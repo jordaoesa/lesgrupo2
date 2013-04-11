@@ -206,8 +206,8 @@ public class AcompanhamentoVisualActivity extends Activity {
 					String date = (new SimpleDateFormat("dd/MM/yyyy")).format(dado.getData());
 					if(date.equals(data)){
 						peso = dado.getPeso().toString();
-						braco = dado.getTamanhoBraco().toString();
-						perna = dado.getTamanhoPerna().toString();
+						//braco = dado.getTamanhoBraco().toString();
+						//perna = dado.getTamanhoPerna().toString();
 						break;
 					}
 				}
