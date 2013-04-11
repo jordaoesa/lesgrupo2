@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import br.edu.ufcg.agendamento.Agendamento;
+import br.edu.ufcg.agendamento.AgendamentoType;
 import br.edu.ufcg.agendamento.ItemAgendamento;
 import br.edu.ufcg.agendamento.ItemAgendamentoAdapter;
 import br.edu.ufcg.aluno.Aluno;
@@ -64,8 +65,16 @@ public class HistoricoAgendamentoActivity extends Activity {
 		for (Aluno aluno : alunos) {
 			for (Agendamento agendamento : agendamentoFachada.getAgendamentoPorAluno(aluno.getId())) {
 				if(agendamento.getType().value().equals(tipoAgendamento.trim())){
-					if(isDateValid(agendamento.getDateInMillis())){
-						itens.add(new ItemAgendamento(aluno.getNome(),agendamento.getDiaPagamento(),aluno.getCaminhoImagem()));
+					if(agendamento.getType().value().equals(AgendamentoType.PAGAMENTO.value())){
+						if(agendamento.getDiasAtrasados() > 0){
+							itens.add(new ItemAgendamento(aluno.getNome(),"Vencimento:" + agendamento.getDiaPagamento(),aluno.getCaminhoImagem(), Color.RED));
+						}else{
+							itens.add(new ItemAgendamento(aluno.getNome(),"Vencimento:" + agendamento.getDiaPagamento(),aluno.getCaminhoImagem(), Color.BLACK));
+						}
+					}else{
+						if(isDateValid(agendamento.getDateInMillis())){
+							itens.add(new ItemAgendamento(aluno.getNome(),agendamento.getDiaPagamento(),aluno.getCaminhoImagem(), Color.BLACK));
+						}
 					}
 				}
 			}
@@ -116,10 +125,6 @@ public class HistoricoAgendamentoActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.activity_main, menu);
-//		return true;
-
 		
 		boolean r = super.onCreateOptionsMenu(menu);
 		super.onCreateOptionsMenu(menu);

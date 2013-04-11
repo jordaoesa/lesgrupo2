@@ -1,5 +1,10 @@
 package br.edu.ufcg.agendamento;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class Agendamento {
 	private Integer idAluno;
 	private String diaPagamento;
@@ -7,6 +12,7 @@ public class Agendamento {
 	private String lembrete;
 	private AgendamentoType type;
 	private String dateInMillis;
+	private int diasAtrasados;
 	public Agendamento(){
 	}
 	public Agendamento(Integer id, String dateFullFormatter,AgendamentoType pagamento,String timeInMillis) {
@@ -50,5 +56,21 @@ public class Agendamento {
 	}
 	public void setDateInMillis(String dateInMillis) {
 		this.dateInMillis = dateInMillis;
+	}
+	public int getDiasAtrasados(){
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy",new Locale("pt","br"));
+		
+		formatter.setLenient(false);
+		Date hoje;
+		try {
+			hoje = formatter.parse("20/04/2013");
+			Date diaPagamento = new Date(Long.parseLong(getDateInMillis()));
+			System.out.println("ANO PAGAMENTo: " + diaPagamento.toString() + "<>" + hoje.toString());
+			long diferencaDias = (hoje.getTime() - diaPagamento.getTime());
+			diasAtrasados = (int) ((diferencaDias + 60L * 60 * 1000) / (24L * 60 * 60 * 1000)) + 1;  
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return diasAtrasados;
 	}
 }

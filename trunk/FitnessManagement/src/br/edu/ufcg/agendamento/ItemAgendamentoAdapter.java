@@ -9,6 +9,7 @@ import br.edu.ufcg.fitnessmanagement.R;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.provider.MediaStore.Images.Media;
 import android.view.LayoutInflater;
@@ -47,8 +48,12 @@ public class ItemAgendamentoAdapter extends BaseAdapter {
         ItemAgendamento item = itens.get(position);
         view = mInflater.inflate(R.layout.item_agendamento, null);
 
-        ((TextView) view.findViewById(R.id.textViewItemAgendamentoName)).setText(item.getName());
-        ((TextView) view.findViewById(R.id.textViewDataHorario)).setText(item.getInfo());
+        TextView nameItem = ((TextView) view.findViewById(R.id.textViewItemAgendamentoName));
+        nameItem.setText(item.getName());
+        TextView infoItem = ((TextView) view.findViewById(R.id.textViewDataHorario));
+        infoItem.setText(item.getInfo());
+        nameItem.setTextColor(item.getColor());
+        infoItem.setTextColor(item.getColor());
         Uri uri = Uri.fromFile(new File(item.getImagePath()));
         
         try {
