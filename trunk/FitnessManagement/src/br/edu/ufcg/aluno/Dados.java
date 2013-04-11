@@ -2,56 +2,119 @@ package br.edu.ufcg.aluno;
 
 import java.util.Date;
 
+/**
+ * @author jesa
+ *
+ */
 public class Dados {
 	
 	private Double peso;
-	private Double calorias;
-	private Double tamanhoBraco;
-	private Double tamanhoPerna;
-	private Double imc;
+	private Double altura;
+	private Double bracoER;
+	private Double bracoEC;
+	private Double antebracoE;
+	private Double coxaE;
+	private Double panturrilhaE;
+	private Double bracoDR;
+	private Double bracoDC;
+	private Double antebracoD;
+	private Double coxaD;
+	private Double panturrilhaD;
 	private Date data;
 	
 	public Dados() {
 	}
 	
-	public Dados(Double peso, Double calorias, Double tamanhoBraco, Double tamanhoPerna, Double imc, Date data) {
+	public Dados(Double peso, Double altura, Double bracoER, Double bracoEC,
+			Double antebracoE, Double coxaE, Double panturrilhaE,
+			Double bracoDR, Double bracoDC, Double antebracoD, Double coxaD,
+			Double panturrilhaD, Date data) {
 		this.peso = peso;
-		this.calorias = calorias;
-		this.tamanhoBraco = tamanhoBraco;
-		this.tamanhoPerna = tamanhoPerna;
-		this.imc = imc;
+		this.altura = altura;
+		this.bracoER = bracoER;
+		this.bracoEC = bracoEC;
+		this.antebracoE = antebracoE;
+		this.coxaE = coxaE;
+		this.panturrilhaE = panturrilhaE;
+		this.bracoDR = bracoDR;
+		this.bracoDC = bracoDC;
+		this.antebracoD = antebracoD;
+		this.coxaD = coxaD;
+		this.panturrilhaD = panturrilhaD;
 		this.data = data;
 	}
-	
+
 	public Double getPeso() {
 		return peso;
 	}
 	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
-	public Double getCalorias() {
-		return calorias;
+	public Double getAltura() {
+		return altura;
 	}
-	public void setCalorias(Double calorias) {
-		this.calorias = calorias;
+	public void setAltura(Double altura) {
+		this.altura = altura;
 	}
-	public Double getTamanhoBraco() {
-		return tamanhoBraco;
+	public Double getBracoER() {
+		return bracoER;
 	}
-	public void setTamanhoBraco(Double tamanhoBraco) {
-		this.tamanhoBraco = tamanhoBraco;
+	public void setBracoER(Double bracoER) {
+		this.bracoER = bracoER;
 	}
-	public Double getTamanhoPerna() {
-		return tamanhoPerna;
+	public Double getBracoEC() {
+		return bracoEC;
 	}
-	public void setTamanhoPerna(Double tamanhoPerna) {
-		this.tamanhoPerna = tamanhoPerna;
+	public void setBracoEC(Double bracoEC) {
+		this.bracoEC = bracoEC;
 	}
-	public Double getImc() {
-		return imc;
+	public Double getAntebracoE() {
+		return antebracoE;
 	}
-	public void setImc(Double imc) {
-		this.imc = imc;
+	public void setAntebracoE(Double antebracoE) {
+		this.antebracoE = antebracoE;
+	}
+	public Double getCoxaE() {
+		return coxaE;
+	}
+	public void setCoxaE(Double coxaE) {
+		this.coxaE = coxaE;
+	}
+	public Double getPanturrilhaE() {
+		return panturrilhaE;
+	}
+	public void setPanturrilhaE(Double panturrilhaE) {
+		this.panturrilhaE = panturrilhaE;
+	}
+	public Double getBracoDR() {
+		return bracoDR;
+	}
+	public void setBracoDR(Double bracoDR) {
+		this.bracoDR = bracoDR;
+	}
+	public Double getBracoDC() {
+		return bracoDC;
+	}
+	public void setBracoDC(Double bracoDC) {
+		this.bracoDC = bracoDC;
+	}
+	public Double getAntebracoD() {
+		return antebracoD;
+	}
+	public void setAntebracoD(Double antebracoD) {
+		this.antebracoD = antebracoD;
+	}
+	public Double getCoxaD() {
+		return coxaD;
+	}
+	public void setCoxaD(Double coxaD) {
+		this.coxaD = coxaD;
+	}
+	public Double getPanturrilhaD() {
+		return panturrilhaD;
+	}
+	public void setPanturrilhaD(Double panturrilhaD) {
+		this.panturrilhaD = panturrilhaD;
 	}
 	public Date getData() {
 		return data;
@@ -60,8 +123,4 @@ public class Dados {
 		this.data = data;
 	}
 	
-	@Override
-	public String toString() {
-		return "Peso: " + peso + " Calorias: + " + calorias + " Braço: " + tamanhoBraco + " Perna: " + tamanhoPerna + " IMC:" + imc;
-	}
 }

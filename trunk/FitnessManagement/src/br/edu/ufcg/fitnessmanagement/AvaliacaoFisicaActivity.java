@@ -38,8 +38,8 @@ public class AvaliacaoFisicaActivity extends Activity {
 	}
 	
 	private void atualizarDados() {
-		Button atualizar = (Button) findViewById(R.id.buttonAtualizarDados);
-		final EditText data = (EditText)findViewById(R.id.editTextData);
+		Button inserirDados = (Button) findViewById(R.id.buttonAtualizarDados);
+		/*final EditText data = (EditText)findViewById(R.id.editTextData);
 		data.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -63,30 +63,50 @@ public class AvaliacaoFisicaActivity extends Activity {
 			@Override
 			public void afterTextChanged(Editable s) {
 			}
-		});
+		});*/
 		
-		atualizar.setOnClickListener(new OnClickListener() {
+		inserirDados.setOnClickListener(new OnClickListener() {
 			
 			EditText peso = ((EditText)findViewById(R.id.editTextPeso));
-			EditText calorias = ((EditText)findViewById(R.id.editTextCalorias));
-			EditText braco = ((EditText)findViewById(R.id.editTextBraco));
-			EditText perna = ((EditText)findViewById(R.id.editTextPerna));
-			EditText imc = ((EditText)findViewById(R.id.editTextIMC));
+			EditText altura = ((EditText)findViewById(R.id.editTextAltura));
+			EditText bracoER = ((EditText)findViewById(R.id.editTextBracoEsquerdoRelaxado));
+			EditText bracoEC = ((EditText)findViewById(R.id.editTextBracoEsquerdoContraido));
+			EditText antebracoE = ((EditText)findViewById(R.id.editTextAntebracoEsquerdo));
+			EditText coxaE = ((EditText)findViewById(R.id.editTextCoxaEsquerda));
+			EditText panturrilhaE = ((EditText)findViewById(R.id.editTextPanturrilhaEsquerda));
+			EditText bracoDR = ((EditText)findViewById(R.id.editTextBracoDireitoRelaxado));
+			EditText bracoDC = ((EditText)findViewById(R.id.editTextBracoDireitoContraido));
+			EditText antebracoD = ((EditText)findViewById(R.id.editTextAntebracoDireito));
+			EditText coxaD = ((EditText)findViewById(R.id.editTextCoxaDireita));
+			EditText panturrilhaD = ((EditText)findViewById(R.id.editTextPanturrilhaDireita));
 			
 			@Override
 			public void onClick(View arg0) {
 				
-				if(verificaDadosInformados(peso.getText(), calorias.getText(), braco.getText(), perna.getText(), imc.getText(), data.getText())){
-					java.text.DateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+				if(verificaDadosInformados(peso.getText(), altura.getText(), bracoER.getText(), bracoEC.getText(), antebracoE.getText(), coxaE.getText(), panturrilhaE.getText(), bracoDR.getText(), bracoDC.getText(), antebracoD.getText(), coxaD.getText(), panturrilhaD.getText())){
+					/*java.text.DateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
 					Date date = null;
 					try {
 						date = formater.parse(data.getText().toString());
 					} catch (ParseException e) {
 						e.printStackTrace();
 					}
-					System.out.println(date.toString());
+					System.out.println(date.toString());*/
 					
-					Dados dados = new Dados(Double.parseDouble(peso.getText().toString()), Double.parseDouble(calorias.getText().toString()), Double.parseDouble(braco.getText().toString()), Double.parseDouble(perna.getText().toString()), Double.parseDouble(imc.getText().toString()), date);
+					Dados dados = new Dados(
+							Double.parseDouble(peso.getText().toString()),
+							Double.parseDouble(altura.getText().toString()),
+							Double.parseDouble(bracoER.getText().toString()),
+							Double.parseDouble(bracoEC.getText().toString()),
+							Double.parseDouble(antebracoE.getText().toString()),
+							Double.parseDouble(coxaE.getText().toString()),
+							Double.parseDouble(panturrilhaE.getText().toString()),
+							Double.parseDouble(bracoDR.getText().toString()),
+							Double.parseDouble(bracoDC.getText().toString()),
+							Double.parseDouble(antebracoD.getText().toString()),
+							Double.parseDouble(coxaD.getText().toString()),
+							Double.parseDouble(panturrilhaD.getText().toString()),
+							new Date());
 					
 					dadosFachada.adicionaDadosDoAluno(idAluno, dados);
 					Toast.makeText(getApplicationContext(), "Sucesso", Toast.LENGTH_SHORT).show();
@@ -96,37 +116,66 @@ public class AvaliacaoFisicaActivity extends Activity {
 
 			private void clearEditTexts() {
 				peso.setText("");
-				calorias.setText("");
-				braco.setText("");
-				perna.setText("");
-				imc.setText("");
-				data.setText("");
+				altura.setText("");
+				bracoER.setText("");
+				bracoEC.setText("");
+				antebracoE.setText("");
+				coxaE.setText("");
+				panturrilhaE.setText("");
+				bracoDR.setText("");
+				bracoDC.setText("");
+				antebracoD.setText("");
+				coxaD.setText("");
+				panturrilhaD.setText("");
 			}
 
 		});
 		
 	}
 	
-	private boolean verificaDadosInformados(Editable peso, Editable calorias, Editable braco, Editable perna, Editable imc, Editable data) {
+	private boolean verificaDadosInformados(Editable peso, Editable altura, Editable bracoER, Editable bracoEC, Editable antebracoE, Editable coxaE, Editable panturrilhaE, Editable bracoDR, Editable bracoDC, Editable antebracoD, Editable coxaD, Editable panturrilhaD) {
 		if(peso == null || peso.toString().equals("") || !verificaDouble(peso)){
 			Toast.makeText(getApplicationContext(), "Peso Inválido", Toast.LENGTH_SHORT).show();
 			return false;
-		}else if(calorias == null || calorias.toString().equals("") || !verificaDouble(calorias)){
-			Toast.makeText(getApplicationContext(), "Calorias Inválido", Toast.LENGTH_SHORT).show();
+		}else if(altura == null || altura.toString().equals("") || !verificaDouble(altura)){
+			Toast.makeText(getApplicationContext(), "Altura Inválida", Toast.LENGTH_SHORT).show();
 			return false;
-		}else if(braco == null || braco.toString().equals("") || !verificaDouble(braco)){
-			Toast.makeText(getApplicationContext(), "Tamanho Braço Inválido", Toast.LENGTH_SHORT).show();
+		}else if(bracoER == null || bracoER.toString().equals("") || !verificaDouble(bracoER)){
+			Toast.makeText(getApplicationContext(), "Tamanho Braço Esquerdo Inválido", Toast.LENGTH_SHORT).show();
 			return false;
-		}else if(perna == null || perna.toString().equals("") || !verificaDouble(perna)){
-			Toast.makeText(getApplicationContext(), "Tamanho Perna Inválido", Toast.LENGTH_SHORT).show();
+		}else if(bracoEC == null || bracoEC.toString().equals("") || !verificaDouble(bracoEC)){
+			Toast.makeText(getApplicationContext(), "Tamanho Braço Esquerdo Inválido", Toast.LENGTH_SHORT).show();
 			return false;
-		}else if(imc == null || imc.toString().equals("") || !verificaDouble(imc)){
-			Toast.makeText(getApplicationContext(), "IMC Inválido", Toast.LENGTH_SHORT).show();
+		}else if(antebracoE == null || antebracoE.toString().equals("") || !verificaDouble(antebracoE)){
+			Toast.makeText(getApplicationContext(), "Tamanho Antebraço Esquerdo Inválido", Toast.LENGTH_SHORT).show();
 			return false;
-		}else if(data == null || data.toString().equals("") || !data.toString().matches("[0-3]{1}[0-9]{1}\\/[0-1]{1}[0-9]{1}\\/[1-2]{1}[0-9]{3}")){
-			Toast.makeText(getApplicationContext(), "Data Inválida", Toast.LENGTH_SHORT).show();
+		}else if(coxaE == null || coxaE.toString().equals("") || !verificaDouble(coxaE)){
+			Toast.makeText(getApplicationContext(), "Tamanho Coxa Esquerda Inválida", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(panturrilhaE == null || panturrilhaE.toString().equals("") || !verificaDouble(panturrilhaE)){
+			Toast.makeText(getApplicationContext(), "Tamanho Panturrilha Esquerda Inválida", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(bracoDR == null || bracoDR.toString().equals("") || !verificaDouble(bracoDR)){
+			Toast.makeText(getApplicationContext(), "Tamanho Braço Direito Inválido", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(bracoDC == null || bracoDC.toString().equals("") || !verificaDouble(bracoDC)){
+			Toast.makeText(getApplicationContext(), "Tamanho Braço Direito Inválido", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(antebracoD == null || antebracoD.toString().equals("") || !verificaDouble(antebracoD)){
+			Toast.makeText(getApplicationContext(), "Tamanho Antebraço Direito Inválido", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(coxaD == null || coxaD.toString().equals("") || !verificaDouble(coxaD)){
+			Toast.makeText(getApplicationContext(), "Tamanho Coxa Direita Inválida", Toast.LENGTH_SHORT).show();
+			return false;
+		}else if(panturrilhaD == null || panturrilhaD.toString().equals("") || !verificaDouble(panturrilhaD)){
+			Toast.makeText(getApplicationContext(), "Tamanho Panturrilha Direita Inválida", Toast.LENGTH_SHORT).show();
 			return false;
 		}
+		
+		/*else if(data == null || data.toString().equals("") || !data.toString().matches("[0-3]{1}[0-9]{1}\\/[0-1]{1}[0-9]{1}\\/[1-2]{1}[0-9]{3}")){
+			Toast.makeText(getApplicationContext(), "Data Inválida", Toast.LENGTH_SHORT).show();
+			return false;
+		}*/
 		return true;
 	}
 

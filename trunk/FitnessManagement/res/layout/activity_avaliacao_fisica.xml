@@ -32,7 +32,7 @@
 		            android:layout_alignParentRight="true"
 		            android:layout_alignParentTop="true"
 		            android:ems="10"
-		            android:hint="55"
+		            android:hint="55 kg"
 		            android:inputType="numberDecimal">
 		            
 		            <requestFocus />
@@ -45,25 +45,25 @@
 		        android:layout_height="wrap_content">
 		
 		        <EditText
-		            android:id="@+id/editTextCalorias"
+		            android:id="@+id/editTextAltura"
 		            android:layout_width="120dp"
 		            android:layout_height="wrap_content"
 		            android:layout_alignParentRight="true"
 		            android:layout_alignParentTop="true"
 		            android:ems="10"
-		            android:hint="10"
+		            android:hint="180 cm"
 		            android:inputType="numberDecimal" >
 		            
 		        </EditText>
 		
 		        <TextView
-		            android:id="@+id/textViewCalorias"
+		            android:id="@+id/textViewAltura"
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
-		            android:layout_alignBaseline="@+id/editTextCalorias"
-		            android:layout_alignBottom="@+id/editTextCalorias"
+		            android:layout_alignBaseline="@+id/editTextAltura"
+		            android:layout_alignBottom="@+id/editTextAltura"
 		            android:layout_alignParentLeft="true"
-		            android:text="Calorias" />
+		            android:text="Altura" />
 		        
 		    </RelativeLayout>
 		    
@@ -72,25 +72,268 @@
 		        android:layout_height="wrap_content">
 		
 		        <EditText
-		            android:id="@+id/editTextBraco"
+		            android:id="@+id/editTextBracoEsquerdoRelaxado"
 		            android:layout_width="120dp"
 		            android:layout_height="wrap_content"
 		            android:layout_alignParentRight="true"
 		            android:layout_alignParentTop="true"
 		            android:ems="10"
-		            android:hint="34"
+		            android:hint="30 cm"
 		            android:inputType="numberDecimal" >
 		
 		        </EditText>
 		
 		        <TextView
-		            android:id="@+id/textViewBraco"
+		            android:id="@+id/textViewBracoEsquerdoRelaxado"
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
-		            android:layout_alignBaseline="@+id/editTextBraco"
-		            android:layout_alignBottom="@+id/editTextBraco"
+		            android:layout_alignBaseline="@+id/editTextBracoEsquerdoRelaxado"
+		            android:layout_alignBottom="@+id/editTextBracoEsquerdoRelaxado"
 		            android:layout_alignParentLeft="true"
-		            android:text="Tamanho do Braço" />
+		            android:text="Braço Esquerdo Relaxado" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <EditText
+		            android:id="@+id/editTextBracoEsquerdoContraido"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="34 cm"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewBracoEsquerdoContraido"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextBracoEsquerdoContraido"
+		            android:layout_alignBottom="@+id/editTextBracoEsquerdoContraido"
+		            android:layout_alignParentLeft="true"
+		            android:text="Braço Esquerdo Contraído" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <EditText
+		            android:id="@+id/editTextAntebracoEsquerdo"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="25 cm"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewAntebracoEsquerdo"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextAntebracoEsquerdo"
+		            android:layout_alignBottom="@+id/editTextAntebracoEsquerdo"
+		            android:layout_alignParentLeft="true"
+		            android:text="Antebraço Esquerdo" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <EditText
+		            android:id="@+id/editTextCoxaEsquerda"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="50 cm"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewCoxaEsquerda"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextCoxaEsquerda"
+		            android:layout_alignBottom="@+id/editTextCoxaEsquerda"
+		            android:layout_alignParentLeft="true"
+		            android:text="Coxa Esquerda" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <EditText
+		            android:id="@+id/editTextPanturrilhaEsquerda"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="35 cm"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewPanturrilhaEsquerda"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextPanturrilhaEsquerda"
+		            android:layout_alignBottom="@+id/editTextPanturrilhaEsquerda"
+		            android:layout_alignParentLeft="true"
+		            android:text="Panturrilha Esquerda" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <EditText
+		            android:id="@+id/editTextBracoDireitoRelaxado"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="30 cm"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewBracoDireitoRelaxado"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextBracoDireitoRelaxado"
+		            android:layout_alignBottom="@+id/editTextBracoDireitoRelaxado"
+		            android:layout_alignParentLeft="true"
+		            android:text="Braço Direito Relaxado" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <EditText
+		            android:id="@+id/editTextBracoDireitoContraido"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="34 cm"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewBracoDireitoContraido"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextBracoDireitoContraido"
+		            android:layout_alignBottom="@+id/editTextBracoDireitoContraido"
+		            android:layout_alignParentLeft="true"
+		            android:text="Braço Direito Contraído" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <EditText
+		            android:id="@+id/editTextAntebracoDireito"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="25 cm"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewAntebracoDireito"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextAntebracoDireito"
+		            android:layout_alignBottom="@+id/editTextAntebracoDireito"
+		            android:layout_alignParentLeft="true"
+		            android:text="Antebraço Direito" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <EditText
+		            android:id="@+id/editTextCoxaDireita"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="50 cm"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewCoxaDireita"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextCoxaDireita"
+		            android:layout_alignBottom="@+id/editTextCoxaDireita"
+		            android:layout_alignParentLeft="true"
+		            android:text="Coxa Direita" />
+		        
+		    </RelativeLayout>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content">
+		
+		        <EditText
+		            android:id="@+id/editTextPanturrilhaDireita"
+		            android:layout_width="120dp"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:ems="10"
+		            android:hint="35 cm"
+		            android:inputType="numberDecimal" >
+		
+		        </EditText>
+		
+		        <TextView
+		            android:id="@+id/textViewPanturrilhaDireita"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@+id/editTextPanturrilhaDireita"
+		            android:layout_alignBottom="@+id/editTextPanturrilhaDireita"
+		            android:layout_alignParentLeft="true"
+		            android:text="Panturrilha Direita" />
 		        
 		    </RelativeLayout>
 		    
@@ -98,96 +341,16 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:orientation="horizontal" >
-		
-		        <EditText
-		            android:id="@+id/editTextPerna"
-		            android:layout_width="120dp"
-		            android:layout_height="wrap_content"
-		            android:layout_alignParentRight="true"
-		            android:layout_alignParentTop="true"
-		            android:ems="10"
-		            android:hint="49"
-		            android:inputType="numberDecimal" >
-		
-		        </EditText>
-		
-		        <TextView
-		            android:id="@+id/textViewPerna"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_alignBaseline="@+id/editTextPerna"
-		            android:layout_alignBottom="@+id/editTextPerna"
-		            android:layout_alignParentLeft="true"
-		            android:text="Tamanho da Perna" />
-		        
-		    </RelativeLayout>
-		    
-		    <RelativeLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:orientation="horizontal" >
-		
-		        <EditText
-		            android:id="@+id/editTextIMC"
-		            android:layout_width="120dp"
-		            android:layout_height="wrap_content"
-		            android:layout_alignParentRight="true"
-		            android:layout_alignParentTop="true"
-		            android:ems="10"
-		            android:hint="23"
-		            android:inputType="numberDecimal" >
-		
-		        </EditText>
-		
-		        <TextView
-		            android:id="@+id/textViewIMC"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_alignBaseline="@+id/editTextIMC"
-		            android:layout_alignBottom="@+id/editTextIMC"
-		            android:layout_alignParentLeft="true"
-		            android:text="IMC" />
-		        
-		    </RelativeLayout>
-		
-		    <RelativeLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:orientation="horizontal" >
-		        
-		        <EditText
-		            android:id="@+id/editTextData"
-		            android:layout_width="120dp"
-		            android:layout_height="wrap_content"
-		            android:layout_alignParentRight="true"
-		            android:layout_alignParentTop="true"
-		            android:ems="10"
-		            android:hint="01/01/2013"
-		            android:inputType="date" />
-		
-		        <TextView
-		            android:id="@+id/textViewData"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_alignBaseline="@+id/editTextData"
-		            android:layout_alignBottom="@+id/editTextData"
-		            android:layout_alignParentLeft="true"
-		            android:text="Data" />
-		        
-		    </RelativeLayout>
-		    
-		    <LinearLayout
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:orientation="horizontal" >
-		
+
 		        <Button
 		            android:id="@+id/buttonAtualizarDados"
 		            android:layout_width="match_parent"
 		            android:layout_height="wrap_content"
+		            android:layout_alignParentLeft="true"
+		            android:layout_alignParentTop="true"
 		            android:text="Enviar Dados" />
 		        
-		    </LinearLayout>
+		    </RelativeLayout>
 	    
 		</LinearLayout>
     </ScrollView>
