@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -54,13 +55,13 @@ public class MainActivity extends Activity {
 					getSystemService(NOTIFICATION_SERVICE);
 	        nm.cancel(getIntent().getExtras().getInt("NotifID")); 
 		}
-		  
+		//ImageButton bCadastrar = (ImageButton) findViewById(R.id.buttonCadastrarAlunosMain) ;
+		
 		Button bCadastrar = (Button) findViewById(R.id.buttonCadastrarAlunosMain);
+		
 		Button bGerenciar = (Button) findViewById(R.id.buttonGerenciarAlunosMain);
 		/*Button bAddAluno = (Button) findViewById(R.id.buttonAddAlunoMain);*/
 
-		
-		
 //		Button buttonHelp = (Button) findViewById(R.id.buttonHelp);
 //		final Intent intent = new Intent(getApplicationContext(),AjudaCadastroAluno.class);
 //		buttonHelp.setOnClickListener(new OnClickListener() {
@@ -70,6 +71,7 @@ public class MainActivity extends Activity {
 //				startActivity(intent);
 //			}
 //		});
+		
 		
 		
 		
