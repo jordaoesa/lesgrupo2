@@ -145,7 +145,7 @@ public class PerfilDoAlunoActivity extends Activity {
 
 	private void menuDeOpcoes() {
 		setContentView(R.layout.activity_perfil_do_aluno);
-		setTitle("Ficha do Aluno");
+		setTitle("Perfil do Aluno");
 		
 		QuickContactBadge qcbFoto = (QuickContactBadge) findViewById(R.id.quickContactBadgePerfilAluno);
 		TextView tvNome = (TextView) findViewById(R.id.textViewNomePerfilAluno);
