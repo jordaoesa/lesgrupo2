@@ -17,8 +17,12 @@
     <string name="title_activity_historico_agendamento">HistoricoAgendamentoActivity</string>
     <string name="title_activity_anamnese">AnamneseActivity</string>
     <string name="title_activity_avaliacao_tabs">AvaliacaoTabsActivity</string>
-	<string name="title_activity_historico_tabs">HistoricoTabsActivity</string>
-	<string name="title_activity_metas">MetasActivity</string>
-	<string name="title_activity_perfil_do_aluno">PerfilDoAlunoActivity</string>
+    <string name="title_activity_historico_tabs">HistoricoTabsActivity</string>
+    <string name="title_activity_metas">MetasActivity</string>
+    <string name="title_activity_perfil_do_aluno">PerfilDoAlunoActivity</string>
+    <string name="title_activity_acompanhamento_meta_tabs">AcompanhamentoMetaTabsActivity</string>
+    <string name="title_activity_acompanhamento_meta_visualizar">AcompanhamentoMetaVisualizarActivity</string>
+    <string name="title_activity_acompanhamento_meta">AcompanhamentoMetaActivity</string>
+    
 
 </resources>

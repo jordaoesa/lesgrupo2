@@ -132,6 +132,21 @@
             android:label="@string/title_activity_historico_tabs" 
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name="br.edu.ufcg.fitnessmanagement.AcompanhamentoMetasActivity"
+            android:label="@string/title_activity_acompanhamento_meta" 
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="br.edu.ufcg.fitnessmanagement.AcompanhamentoMetasTabsActivity"
+            android:label="@string/title_activity_acompanhamento_meta_tabs" 
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="br.edu.ufcg.fitnessmanagement.VisualizaGraficoMetasActivity"
+            android:label="@string/title_activity_acompanhamento_meta_visualizar" 
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

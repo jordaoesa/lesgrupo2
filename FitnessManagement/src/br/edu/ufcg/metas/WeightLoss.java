@@ -27,6 +27,8 @@ public class WeightLoss {
 	private void verificaDados(String pesoAtual, String pesoVaiPerder,
 			String genero, String altura, String nivelExercicio,
 			String idade) throws Exception {
+		System.out.println("peso atual: " + pesoAtual +"<> pesoavaiperder :" + pesoVaiPerder + "<> genero " + genero + "<> altura " + altura + "<> nivel "+ nivelExercicio
+				+ "<> IDADE " + idade);
 		if(!verificaNumMaiorQueZero(pesoAtual) || !verificaNumMaiorQueZero(pesoVaiPerder) || !verificaNumMaiorQueZero(altura) || !verificaNumMaiorQueZero(idade)){
 			throw new Exception("Dados inválidos.");
 		}
@@ -92,9 +94,10 @@ public class WeightLoss {
 	
 	private boolean verificaNumMaiorQueZero(String num) {
 		try {
-			int aux = Integer.parseInt(num);
-			if(aux>0)return true;
+			double aux1 = Double.parseDouble(num);
+			if( aux1 > 0)return true;
 		} catch (Exception e) {
+			System.out.println(" execeeeeeeeeeeeetption  " + e.getMessage());
 			return false;
 		}
 		return false;
@@ -104,6 +107,9 @@ public class WeightLoss {
 	}
 	public void setIdALuno(int idALuno) {
 		this.idAluno = idALuno;
+	}
+	public double getCaloriasIdeaisPorSemana(){
+		return Double.parseDouble(getCaloriasPerdePeso()) * 7;
 	}
 	
 }

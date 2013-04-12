@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <Button
+        android:id="@+id/buttonNovaMeta"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Nova Meta" />
+
+    <Button
+        android:id="@+id/buttonAcompanhamentoMeta"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonNovaMeta"
+        android:text="Acompanhamento Meta" />
+
+    <Button
+        android:id="@+id/buttonVoltarMenuMetas"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/buttonAcompanhamentoMeta"
+        android:text="Voltar" />
+
+</RelativeLayout>
