@@ -147,17 +147,17 @@
 
         <Button
             android:id="@+id/buttonSalvarMenuSalvarAgendamento"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_below="@+id/editTextObservacaoAgendamento"
-            android:text="Salvar" />
+            android:background="@drawable/salvar" />
 
         <Button
             android:id="@+id/buttonVoltarMenuSalvarAgendamento"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/buttonSalvarMenuSalvarAgendamento"
-            android:text="Voltar" />
+            android:background="@drawable/voltar" />
+
     </LinearLayout>
 
 </RelativeLayout>

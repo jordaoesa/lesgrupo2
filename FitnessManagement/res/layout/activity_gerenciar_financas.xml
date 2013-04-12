@@ -24,19 +24,11 @@
         <Button
             android:id="@+id/buttonAdicionarGerenciarFinancas"
             android:layout_width="56dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="0.26"
-            android:text="Adicionar" />
-    </LinearLayout>
+            android:background="@drawable/adicionar" />
 
-    <Button
-        android:id="@+id/buttonVoltarGerenciarFinancas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="Voltar" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -57,21 +49,22 @@
 
         <Button
             android:id="@+id/buttonQuitarGerenciarFinancas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="56dp"
+            android:layout_height="50dp"
             android:layout_weight="0.64"
-            android:text="Quitar" />
+            android:background="@drawable/quitar" />
+
     </LinearLayout>
 
     <Button
         android:id="@+id/buttonQuitarTudoGerenciarFinancas"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/linearLayout1"
         android:layout_marginTop="24dp"
-        android:text="Quitar Tudo" />
+        android:background="@drawable/quitartudo" />
 
     <TextView
         android:id="@+id/textViewDividaTotalGerenciarFinancas"
@@ -91,5 +84,13 @@
         android:layout_marginTop="17dp"
         android:text="..."
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/buttonVoltarGerenciarFinancas"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/voltar" />
 
 </RelativeLayout>
