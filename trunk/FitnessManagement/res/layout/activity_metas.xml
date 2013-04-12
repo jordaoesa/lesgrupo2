@@ -40,7 +40,7 @@
         android:layout_toRightOf="@+id/textView6"
         android:ems="10"
         android:inputType="number" />
-    
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
@@ -61,62 +61,11 @@
         android:ems="10"
         android:inputType="number" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editTextIdadeMeta"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/editTextIdadeMeta" >
-
-        <RadioGroup
-            android:id="@+id/radioGroup1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="4.90" 
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioMasculinoMeta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Masculino" />
-
-            <RadioButton
-                android:id="@+id/radioFemininoMeta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2.39"
-                android:text="Feminino" />
-
-        </RadioGroup>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editTextIdadeMeta"
-        android:layout_alignBottom="@+id/editTextIdadeMeta"
-        android:layout_alignParentLeft="true"
-        android:text="Idade"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/editTextIdadeMeta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/textView3"
-        android:ems="10"
-        android:inputType="number" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/linearLayout1"
         android:layout_marginTop="16dp"
         android:layout_toLeftOf="@+id/editTextAlturaMeta"
         android:text="Altura"
@@ -158,14 +107,12 @@
         android:layout_below="@+id/editTextPesoPerderMeta"
         android:text="Calcular Meta" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/buttonVoltarActivityMetas"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/linearLayout1"
-        android:text="Sexo"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_below="@id/buttonCalcularMeta"
+        android:text="Voltar" />
 
     <CheckedTextView
         android:id="@+id/textView8"

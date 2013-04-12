@@ -64,6 +64,7 @@ public class HistoricoAgendamentoActivity extends Activity {
 	        	}else{
 	        		 dialog = Utils.showMessage(HistoricoAgendamentoActivity.this,Message.CONFIRM, "Opção", "Pagamento confirmado?");
 	        	}
+				
 				dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
 			        public void onClick(DialogInterface dialog, int which) {
 			        	agendamentoFachada.removeAgendamento(item.getId());
