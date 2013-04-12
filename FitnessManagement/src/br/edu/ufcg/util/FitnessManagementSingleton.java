@@ -9,6 +9,7 @@ import br.edu.ufcg.fachada.AlunoFachada;
 import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.fachada.ImagemFachada;
 import br.edu.ufcg.fachada.FinancasFachada;
+import br.edu.ufcg.fachada.MetasFachada;
 import br.edu.ufcg.sgbd.DB;
 
 public class FitnessManagementSingleton {
@@ -23,6 +24,7 @@ public class FitnessManagementSingleton {
 	private static DadosFachada dadosFachada;
 	private static FinancasFachada financasFachada;
 	private static ImagemFachada imagemFachada;
+	private static MetasFachada metasFachada;
 
 	private static AgendamentoFachada agendamentoFachada;
 	
@@ -64,6 +66,13 @@ public class FitnessManagementSingleton {
 			agendamentoFachada = new AgendamentoFachada(db);
 		}
 		return agendamentoFachada;
+	}
+	
+	public static MetasFachada getMetaFachadaInstance(){
+		if(metasFachada == null){
+			metasFachada = new MetasFachada(db);
+		}
+		return metasFachada;
 	}
 //	public static AtividadeFachada getAtividadeFachadaInstance(){
 //		if(atividadeFachada == null){

@@ -3,16 +3,18 @@ package br.edu.ufcg.metas;
 import java.text.DecimalFormat;
 
 public class WeightLoss {
+	private int idAluno;
 	private int idade;
 	private int altura;
 	private String genero;
 	private double pesoPerder;
 	private double BMR;
 	private double caloriasManterPeso;
+	private double caloriasIngeridas;
 	private String nivelExercicio;
 	private double pesoAtual;
 	
-	public WeightLoss(String pesoAtual, String pesoVaiPerder, String genero, String altura, String nivelExercicio, String idade) throws Exception{
+	public WeightLoss(String pesoAtual, String pesoVaiPerder, String genero, String altura, String nivelExercicio, String idade, int idAluno) throws Exception{
 		verificaDados(pesoAtual,pesoVaiPerder,genero, altura, nivelExercicio, idade);
 		this.pesoAtual = Double.parseDouble(pesoAtual);
 		this.pesoPerder = Double.parseDouble(pesoVaiPerder);
@@ -20,6 +22,7 @@ public class WeightLoss {
 		this.altura = Integer.parseInt(altura);
 		this.nivelExercicio = nivelExercicio;
 		this.idade = Integer.parseInt(idade);
+		this.idAluno = idAluno;
 	}
 	private void verificaDados(String pesoAtual, String pesoVaiPerder,
 			String genero, String altura, String nivelExercicio,
@@ -95,6 +98,12 @@ public class WeightLoss {
 			return false;
 		}
 		return false;
+	}
+	public int getIdALuno() {
+		return idAluno;
+	}
+	public void setIdALuno(int idALuno) {
+		this.idAluno = idALuno;
 	}
 	
 }
