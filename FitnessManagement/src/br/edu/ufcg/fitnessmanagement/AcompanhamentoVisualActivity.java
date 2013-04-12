@@ -183,7 +183,8 @@ public class AcompanhamentoVisualActivity extends Activity {
 		imagemEspandida.setOnLongClickListener(new OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View arg0) {
-				getInformacoesAluno((imagens.get((int)imageAdapterGallery.getItemId(indiceFoto))).getDataFormatada());
+				long photoId = imageAdapterGallery.getItemId(indiceFoto);
+				if(photoId != -1) getInformacoesAluno((imagens.get((int)photoId)).getDataFormatada());
 				try {
 					ImagemFachada.Imagem im = imagens.get((int)imageAdapterGallery.getItemId(indiceFoto));
 					new AlertDialog.Builder(AcompanhamentoVisualActivity.this)
@@ -206,12 +207,11 @@ public class AcompanhamentoVisualActivity extends Activity {
 					String date = (new SimpleDateFormat("dd/MM/yyyy")).format(dado.getData());
 					if(date.equals(data)){
 						peso = dado.getPeso().toString();
-						//braco = dado.getTamanhoBraco().toString();
-						//perna = dado.getTamanhoPerna().toString();
+						braco = dado.getBracoDC().toString();
+						perna = dado.getCoxaD().toString();
 						break;
 					}
 				}
-				
 			}
 		});
 		
