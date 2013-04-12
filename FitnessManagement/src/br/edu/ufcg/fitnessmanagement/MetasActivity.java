@@ -20,7 +20,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+import br.edu.ufcg.aluno.Aluno;
+import br.edu.ufcg.fachada.AlunoFachada;
 import br.edu.ufcg.metas.WeightLoss;
+import br.edu.ufcg.util.FitnessManagementSingleton;
 import br.edu.ufcg.util.Message;
 import br.edu.ufcg.util.Utils;
 
@@ -30,12 +33,13 @@ public class MetasActivity extends Activity {
 	private int valorIdadeMetas;
 	private int valorAlturaMetas;
 	private double valorPesoPerdaMetas;
-
+	private Aluno aluno;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_metas);
+		aluno = FitnessManagementSingleton.getAlunoFachadaInstance().getAlunoFromId(getIntent().getIntExtra("id_aluno", -1));
 		menuMostrarMeta();
 	}
 
@@ -47,7 +51,6 @@ public class MetasActivity extends Activity {
 	}
 
 	private void menuMostrarMeta(){
-		final EditText idadeMetas = (EditText)findViewById(R.id.editTextIdadeMeta);
 		final EditText alturaMetas = (EditText)findViewById(R.id.editTextAlturaMeta);
 		final EditText pesoMetas = (EditText)findViewById(R.id.editTextPesoPerderMeta);
 		final EditText pesoAtual = (EditText)findViewById(R.id.editTextPesoAtualMeta);
@@ -92,18 +95,20 @@ public class MetasActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				try{
-					int selectedRadioId = ((RadioGroup) findViewById(R.id.radioGroup1)).getCheckedRadioButtonId();
-					final RadioButton radioButton = (RadioButton) findViewById(selectedRadioId);
-
 					try{
 						WeightLoss metaWeightLoss = new WeightLoss(pesoAtual.getText().toString(),
-								pesoMetas.getText().toString(), radioButton.getText().toString(), alturaMetas.getText().toString(), 
-								nivelExercicioFisico.get(itemSpinnerSelecionado), idadeMetas.getText().toString());
-						Builder dialog = Utils.showMessage(MetasActivity.this, Message.CONFIRM, "Meta estimada", metaWeightLoss.toString());
-						dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int which) {
-							}
-						});
+								pesoMetas.getText().toString(), aluno.getSexo(), alturaMetas.getText().toString(), 
+								nivelExercicioFisico.get(itemSpinnerSelecionado), String.valueOf(aluno.getIdade()));
+						Builder dialog = Utils.showMessage(MetasActivity.this, Message.CONFIRM, "Meta estimada", metaWeightLoss.toString() + "\n" + "deseja salvar?");
+						dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+					        public void onClick(DialogInterface dialog, int which) {
+				            }
+				        });
+						dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+					        public void onClick(DialogInterface dialog, int which) {
+					        	dialog.cancel();
+				            }
+				        });
 						dialog.show();
 					}catch(Exception e){
 						Builder dialog = Utils.showMessage(MetasActivity.this, Message.ERROR, "Erro", e.getMessage());
@@ -117,6 +122,13 @@ public class MetasActivity extends Activity {
 					Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 				}
 
+			}
+		});
+		
+		final Button botaoVoltarMetas = (Button)findViewById(R.id.buttonVoltarActivityMetas);
+		botaoVoltarMetas.setOnClickListener(new OnClickListener() {
+			public void onClick(View arg0) {
+				finish();
 			}
 		});
 

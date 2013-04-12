@@ -68,9 +68,8 @@ public class Agendamento {
 		formatter.setLenient(false);
 		Date hoje;
 		try {
-			hoje = formatter.parse("20/04/2013");
+			hoje = formatter.parse(formatter.format(new Date()));// para teste formatter.parse("20/04/2013");
 			Date diaPagamento = new Date(Long.parseLong(getDateInMillis()));
-			System.out.println("ANO PAGAMENTo: " + diaPagamento.toString() + "<>" + hoje.toString());
 			long diferencaDias = (hoje.getTime() - diaPagamento.getTime());
 			diasAtrasados = (int) ((diferencaDias + 60L * 60 * 1000) / (24L * 60 * 60 * 1000)) + 1;  
 		} catch (ParseException e) {
