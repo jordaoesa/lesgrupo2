@@ -1,15 +1,18 @@
 package br.edu.ufcg.fitnessmanagement;
  
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
  
 public class GenciarTreinoSemanal extends Activity {
  
@@ -33,10 +36,12 @@ public class GenciarTreinoSemanal extends Activity {
                 Button buttonSexta = (Button) findViewById(R.id.botaoSextaCS);
                 Button buttonSabado = (Button) findViewById(R.id.botaoSabadoCS);
                 Button buttonDomingo = (Button) findViewById(R.id.botaoDomingoCS);
-                
+                ImageButton backBotton = (ImageButton) findViewById(R.id.imgBtVoltar);
+//                RelativeLayout rlTreinoSemanal = (RelativeLayout)findViewById(R.id.rlTreinoSemanal);
+//                rlTreinoSemanal.setBackgroundColor(Color.DKGRAY);
                 
                 final Intent intent = new Intent(getApplicationContext(), GerenciadorTreinoDiarioActivity.class);
-                
+                final Intent intentB = new Intent(getApplicationContext(), PerfilDoAlunoActivity.class);
                 buttonSegunda.setOnClickListener(new OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -94,12 +99,16 @@ public class GenciarTreinoSemanal extends Activity {
                             startActivity(intent);
                         }
                 });
+                backBotton.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						finish();
+					}
+				});
                 
         }
         
- 
-
-    	
     	private final int SAIR = 1;
     	private final int AJUDA = 2;
     	
