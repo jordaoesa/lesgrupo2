@@ -44,21 +44,21 @@ public class AvaliacaoTabsActivity extends TabActivity {
 		intentAnamnese.putExtra("id_aluno", idAluno);
 		TabSpec tabSpecAnamnese = tabHost
 				.newTabSpec("Anamnese")
-				.setIndicator("Anamnese", getResources().getDrawable(R.drawable.ic_launcher))
+				.setIndicator("Anamnese", getResources().getDrawable(R.drawable.medical))
 				.setContent(intentAnamnese);
 		
 		Intent intentAvaliacaoFisica = new Intent(getApplicationContext(), AvaliacaoFisicaActivity.class);
 		intentAvaliacaoFisica.putExtra("id_aluno", idAluno);
 		TabSpec tabSpecAvaliacaoFisica = tabHost
 				.newTabSpec("Avaliação Física")
-				.setIndicator("Avaliação", getResources().getDrawable(R.drawable.ic_launcher))
+				.setIndicator("Avaliação", getResources().getDrawable(R.drawable.avaliacao))
 				.setContent(intentAvaliacaoFisica);
 		
 		Intent intentVisualizarEstatisticas = new Intent(getApplicationContext(), VisualizarEstatisticasActivity.class);
 		intentVisualizarEstatisticas.putExtra("id_aluno", idAluno);
 		TabSpec tabSpecVisualizarEstatisticas = tabHost
 				.newTabSpec("Estatísticas")
-				.setIndicator("Estatísticas", getResources().getDrawable(R.drawable.ic_launcher))
+				.setIndicator("Estatísticas", getResources().getDrawable(R.drawable.estatistica))
 				.setContent(intentVisualizarEstatisticas);
 		
 		tabHost.addTab(tabSpecAnamnese);

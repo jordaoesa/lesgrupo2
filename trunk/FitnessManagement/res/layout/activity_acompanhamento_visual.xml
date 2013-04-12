@@ -2,16 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundall"
     tools:context=".AcompanhamentoVisualActivity" >
-    
-    <Button
-        android:id="@+id/buttonVoltarAcompanhamentoVisual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="Voltar" />
 
     <!-- <LinearLayout
         android:layout_width="wrap_content"
@@ -40,5 +32,13 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="0.05"
             android:src="@android:drawable/ic_menu_gallery" />
+
+        <Button
+            android:id="@+id/buttonVoltarAcompanhamentoVisual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/voltar" />
 
 </RelativeLayout>

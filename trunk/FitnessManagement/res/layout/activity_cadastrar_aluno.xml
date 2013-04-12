@@ -11,15 +11,6 @@
         android:layout_marginTop="26dp"
         android:text="Nome" />
 
-    <Button
-        android:id="@+id/buttonVoltarMenuCadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="Voltar" />
-
     <EditText
         android:id="@+id/editTextNomeMenuCadastrar"
         android:layout_width="wrap_content"
@@ -93,12 +84,12 @@
 
     <Button
         android:id="@+id/buttonCadastrarMenuCadastrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
         android:layout_above="@+id/buttonVoltarMenuCadastrar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="Cadastrar" />
+        android:background="@drawable/cadastraraluno"
+        android:layout_alignParentRight="true" />
 
     <TextView
         android:id="@+id/textViewSexoMenuCadastrar"
@@ -157,5 +148,13 @@
 	    android:layout_marginBottom="24dp"
 	    android:layout_toRightOf="@+id/textViewIdadeMenuCadastrar"
 	    android:src="@android:drawable/ic_menu_camera" />
+
+	<Button
+	    android:id="@+id/buttonVoltarMenuCadastrar"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_centerHorizontal="true"
+	    android:background="@drawable/voltar" />
 	    
 </RelativeLayout>

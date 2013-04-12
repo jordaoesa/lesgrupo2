@@ -98,22 +98,6 @@
         android:text="Prática de exercicios"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/buttonCalcularMeta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/editTextPesoPerderMeta"
-        android:text="Calcular Meta" />
-
-    <Button
-        android:id="@+id/buttonVoltarActivityMetas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/buttonCalcularMeta"
-        android:text="Voltar" />
-
     <CheckedTextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
@@ -122,5 +106,22 @@
         android:layout_alignBottom="@+id/editTextPesoAtualMeta"
         android:layout_alignParentRight="true"
         android:text="Kg" />
+
+    <Button
+        android:id="@+id/buttonCalcularMeta"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buttonVoltarActivityMetas"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/calcularmeta" />
+
+    <Button
+        android:id="@+id/buttonVoltarActivityMetas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextAlturaMeta"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/editTextPesoPerderMeta"
+        android:background="@drawable/voltar" />
 
 </RelativeLayout>

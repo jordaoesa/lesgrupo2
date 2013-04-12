@@ -79,15 +79,15 @@
 
         <Button
             android:id="@+id/buttonSalvarAgendarAcompanhamentoCalendar"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Salvar" />
-        
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/salvar" />
+
         <Button
             android:id="@+id/buttonVoltarAgendarAcompanhamentoCalendar"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Voltar" />
+            android:background="@drawable/voltar" />
 
     </LinearLayout>
 
