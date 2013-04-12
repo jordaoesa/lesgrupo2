@@ -125,6 +125,17 @@ public class DB extends SQLiteOpenHelper {
 
 	public final static String TABLE_AGENDAMENTO_KEYS [] = {"id","id_aluno", "dia_pagamento", "tipo"};
 
+	private final String TABLE_META = "CREATE TABLE TABLE_META(" +
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"dias_metas INTEGER," + 
+			"calorias_dia DOUBLE," +
+			"id_aluno INTEGER," +
+			"peso_atual DOUBLE," +
+			"peso_perder DOUBLE," +
+			"altura DOUBLE,"+ 
+			"nivel_exercicio VARCHAR(255)" +
+			")";
+			
 	/**
 	 * O construtor necessita do contexto da aplicacao
 	 * @param context
@@ -153,6 +164,7 @@ public class DB extends SQLiteOpenHelper {
 		db.execSQL(TABLE_TREINO);
 		db.execSQL(TABLE_ATIVIDADE_DIARIA);
 		db.execSQL(TABLE_AGENDAMENT0);
+		db.execSQL(TABLE_META);
 	}
 
 	@Override
@@ -170,6 +182,7 @@ public class DB extends SQLiteOpenHelper {
 		dropTable(db, "TABLE_TREINO");
 		dropTable(db, "TABLE_ATIVIDADE_DIARIA");
 		dropTable(db, "TABLE_AGENDAMENT0");
+		dropTable(db, "TABLE_META");
 		onCreate(db);
 	}
 

@@ -22,6 +22,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fachada.AlunoFachada;
+import br.edu.ufcg.fachada.MetasFachada;
 import br.edu.ufcg.metas.WeightLoss;
 import br.edu.ufcg.util.FitnessManagementSingleton;
 import br.edu.ufcg.util.Message;
@@ -34,12 +35,14 @@ public class MetasActivity extends Activity {
 	private int valorAlturaMetas;
 	private double valorPesoPerdaMetas;
 	private Aluno aluno;
+	private MetasFachada metaFachada;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_metas);
 		aluno = FitnessManagementSingleton.getAlunoFachadaInstance().getAlunoFromId(getIntent().getIntExtra("id_aluno", -1));
+		metaFachada = FitnessManagementSingleton.getMetaFachadaInstance();
 		menuMostrarMeta();
 	}
 
@@ -96,12 +99,25 @@ public class MetasActivity extends Activity {
 			public void onClick(View v) {
 				try{
 					try{
-						WeightLoss metaWeightLoss = new WeightLoss(pesoAtual.getText().toString(),
+						final WeightLoss metaWeightLoss = new WeightLoss(pesoAtual.getText().toString(),
 								pesoMetas.getText().toString(), aluno.getSexo(), alturaMetas.getText().toString(), 
-								nivelExercicioFisico.get(itemSpinnerSelecionado), String.valueOf(aluno.getIdade()));
+								nivelExercicioFisico.get(itemSpinnerSelecionado), String.valueOf(aluno.getIdade()), aluno.getId());
 						Builder dialog = Utils.showMessage(MetasActivity.this, Message.CONFIRM, "Meta estimada", metaWeightLoss.toString() + "\n" + "deseja salvar?");
 						dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
 					        public void onClick(DialogInterface dialog, int which) {
+					        	if(metaFachada.existMetaWeightLoss(aluno.getId())){
+					        		Builder dialogSalvar = Utils.showMessage(MetasActivity.this, Message.CONFIRM, "Atenção", "Já existe uma meta cadastrada.Deseja salvar por cima?");
+					        		dialogSalvar.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+								        public void onClick(DialogInterface dialog, int which) {
+								        	metaFachada.delete(aluno.getId());
+								        	metaFachada.adicionaMetaWeightLoss(metaWeightLoss);
+								        }
+					        		});
+					        		dialogSalvar.setNegativeButton("Não",null);
+					        		dialogSalvar.show();
+					        	}else{
+					            	metaFachada.adicionaMetaWeightLoss(metaWeightLoss);
+					        	}
 				            }
 				        });
 						dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
