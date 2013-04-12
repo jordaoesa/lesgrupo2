@@ -78,15 +78,51 @@ public class DB extends SQLiteOpenHelper {
 			"FOREIGN KEY(id_thumbnail) REFERENCES TABLE_THUMBNAIL(id)," +
 			"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
 			")";
-
-
-	private final String TABLE_EXERCICIOS = "CREATE TABLE TABLE_EXERCICIOS("+"id_exercicio INTEGER PRIMARY KEY AUTOINCREMENT,"+"nomeExercicio VARCHAR(255)"+")";
-	private final String TABLE_MAQUINAS = "CREATE TABLE TABLE_MAQUINAS("+"id_maquina INTEGER PRIMARY KEY AUTOINCREMENT,"+"nomeMaquina VARCHAR(255)"+")";
-	private final String TABLE_GRUPO_MUSCULAR = "CREATE TABLE TABLE_GRUPO_MUSCULAR("+"id_grupoMuscular INTEGER PRIMARY KEY AUTOINCREMENT,"+"nomeGrupoMuscular VARCHAR(255)"+")";
-
-
-
-
+	
+	private final String TABLE_ANAMNESE = "CREATE TABLE TABLE_ANAMNESE(" +
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"id_aluno INTEGER," +
+			"refeicoes_diarias INTEGER," +
+			"porcent_gordura REAL," +
+			"peso REAL," +
+			"peso_massa_magra REAL," +
+			"atividade VARCHAR(255)," +
+			"atividade_gosta VARCHAR(255)," +
+			"tempo_parado VARCHAR(255)," +
+			"tempo_sono VARCHAR(255)," +
+			"nivel_stress VARCHAR(255)," +
+			"tempo_fumante VARCHAR(255)," +
+			"outros_prob VARCHAR(255)," +
+			"quanto_tempo_medic VARCHAR(255)," +
+			"qual_medicamento VARCHAR(255)," +
+			"qual_cirurgia VARCHAR(255)," +
+			"tempo_cirurgia VARCHAR(255)," +
+			"frequencia_semanal VARCHAR(255)," +
+			"sedentario BOOLEAN," +
+			"fuma BOOLEAN," +
+			"prob_cardiacos BOOLEAN," +
+			"anemia BOOLEAN," +
+			"ansiedade BOOLEAN," +
+			"prob_resp BOOLEAN," +
+			"colesterol BOOLEAN," +
+			"depressao BOOLEAN," +
+			"insonia BOOLEAN," +
+			"diabetes BOOLEAN," +
+			"gastrite BOOLEAN," +
+			"tireoide BOOLEAN," +
+			"varizes BOOLEAN," +
+			"tonturas BOOLEAN," +
+			"usa_medicamentos BOOLEAN," +
+			"fez_cirurgia BOOLEAN," +
+			"sente_dores BOOLEAN," +
+			"hipertrofia BOOLEAN," +
+			"condicionamento BOOLEAN," +
+			"diminuir_gordura BOOLEAN," +
+			"resistencia BOOLEAN," +
+			"enrijecimento BOOLEAN," +
+			"postura BOOLEAN," +
+			"FOREIGN KEY(id_aluno) REFERENCES TABLE_ALUNO(id)" +
+			")";
 
 	private final String TABLE_ATIVIDADE = "CREATE TABLE TABLE_ATIVIDADE(" +
 			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -137,13 +173,13 @@ public class DB extends SQLiteOpenHelper {
 			")";
 			
 	/**
-	 * O construtor necessita do contexto da aplicacao
-	 * @param context
+	 * Construtor DB
+	 * @param context Contexto da Aplicacao
 	 */
 	public DB(Context context) {
 		/* O primeiro argumento eh o contexto da aplicacao
 		 * O segundo argumento eh o nome do banco de dados
-		 * O terceiro eh um ponteiro para manipulacao de dados, nao precisaremos dele.
+		 * O terceiro eh um ponteiro para manipulacao de dados
 		 * O quarto eh a versao do banco de dados
 		 */
 		super(context, "FitDB", null, 1);
@@ -156,9 +192,7 @@ public class DB extends SQLiteOpenHelper {
 		db.execSQL(TABLE_FINANCAS);
 		db.execSQL(TABLE_THUMBNAIL);
 		db.execSQL(TABLE_IMAGEM);
-		db.execSQL(TABLE_EXERCICIOS);
-		db.execSQL(TABLE_GRUPO_MUSCULAR);
-		db.execSQL(TABLE_MAQUINAS);
+		db.execSQL(TABLE_ANAMNESE);
 		db.execSQL(TABLE_ATIVIDADE);
 		db.execSQL(TABLE_FICHA);
 		db.execSQL(TABLE_TREINO);
@@ -174,9 +208,7 @@ public class DB extends SQLiteOpenHelper {
 		dropTable(db, "TABLE_FINANCAS");
 		dropTable(db, "TABLE_THUMBNAIL");
 		dropTable(db, "TABLE_IMAGEM");
-		dropTable(db, "TABLE_EXERCICIOS");
-		dropTable(db, "TABLE_GRUPO_MUSCULAR");
-		dropTable(db, "TABLE_MAQUINAS");
+		dropTable(db, "TABLE_ANAMNESE");
 		dropTable(db, "TABLE_ATIVIDADE");
 		dropTable(db, "TABLE_FICHA");
 		dropTable(db, "TABLE_TREINO");

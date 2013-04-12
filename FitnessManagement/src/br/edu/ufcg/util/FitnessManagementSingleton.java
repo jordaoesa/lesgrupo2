@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Environment;
 import br.edu.ufcg.fachada.AgendamentoFachada;
 import br.edu.ufcg.fachada.AlunoFachada;
+import br.edu.ufcg.fachada.AnamneseFachada;
 import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.fachada.ImagemFachada;
 import br.edu.ufcg.fachada.FinancasFachada;
@@ -24,8 +25,8 @@ public class FitnessManagementSingleton {
 	private static DadosFachada dadosFachada;
 	private static FinancasFachada financasFachada;
 	private static ImagemFachada imagemFachada;
+	private static AnamneseFachada anamneseFachada;
 	private static MetasFachada metasFachada;
-
 	private static AgendamentoFachada agendamentoFachada;
 	
 	public static void setContext(Context context){
@@ -53,14 +54,20 @@ public class FitnessManagementSingleton {
 		return dadosFachada;
 	}
 	
-
-	
 	public static FinancasFachada getFinancasFachadaInstance(){
 		if(financasFachada == null){
 			financasFachada = new FinancasFachada(db);
 		}
 		return financasFachada;
 	}
+	
+	public static AnamneseFachada getAnamneseFachadaInstance() {
+		if(anamneseFachada == null){
+			anamneseFachada = new AnamneseFachada(db);
+		}
+		return anamneseFachada;
+	}
+	
 	public static AgendamentoFachada getAgendamentoFachadaInstance(){
 		if(agendamentoFachada == null){
 			agendamentoFachada = new AgendamentoFachada(db);

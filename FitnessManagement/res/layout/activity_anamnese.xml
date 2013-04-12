@@ -239,7 +239,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Fuma a quanto tempo?"/>
+                    android:text="Fuma há quanto tempo?"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta8Anamnese"
@@ -436,7 +436,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="A quanto tempo?"/>
+                    android:text="Há quanto tempo?"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta12Anamnese"
