@@ -172,6 +172,13 @@ public class DB extends SQLiteOpenHelper {
 			"nivel_exercicio VARCHAR(255)" +
 			")";
 			
+	private final String TABLE_ACOMPANHAMENTO_WEIGHT_LOSS = "CREATE TABLE TABLE_ACOMPANHAMENTO_WEIGHT_LOSS(" +
+			"id INTEGER PRIMARY KEY AUTOINCREMENT," +
+			"id_aluno INTEGER,"+
+			"semana VARCHAR(255),"+
+			"total_calorias VARCHAR(255)" +
+			")";
+			
 	/**
 	 * Construtor DB
 	 * @param context Contexto da Aplicacao
@@ -199,6 +206,7 @@ public class DB extends SQLiteOpenHelper {
 		db.execSQL(TABLE_ATIVIDADE_DIARIA);
 		db.execSQL(TABLE_AGENDAMENT0);
 		db.execSQL(TABLE_META);
+		db.execSQL(TABLE_ACOMPANHAMENTO_WEIGHT_LOSS);
 	}
 
 	@Override
@@ -215,6 +223,7 @@ public class DB extends SQLiteOpenHelper {
 		dropTable(db, "TABLE_ATIVIDADE_DIARIA");
 		dropTable(db, "TABLE_AGENDAMENT0");
 		dropTable(db, "TABLE_META");
+		dropTable(db, "TABLE_ACOMPANHAMENTO_WEIGHT_LOSS");
 		onCreate(db);
 	}
 

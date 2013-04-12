@@ -40,10 +40,10 @@ public class MetasActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_metas);
+		
 		aluno = FitnessManagementSingleton.getAlunoFachadaInstance().getAlunoFromId(getIntent().getIntExtra("id_aluno", -1));
 		metaFachada = FitnessManagementSingleton.getMetaFachadaInstance();
-		menuMostrarMeta();
+		menu_meta();
 	}
 
 	@Override
@@ -52,8 +52,47 @@ public class MetasActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_metas, menu);
 		return true;
 	}
+	private void menu_meta(){
+		setContentView(R.layout.opcoes_tela_metas);
+		
+		final Button botaoVoltarMenuMetas = (Button)findViewById(R.id.buttonVoltarMenuMetas);
+		botaoVoltarMenuMetas.setOnClickListener(new OnClickListener() {
+			public void onClick(View arg0) {
+				finish();
+			}
+		});
+		
+		final Button botaoNovaMeta = (Button)findViewById(R.id.buttonNovaMeta);
+		botaoNovaMeta.setOnClickListener(new OnClickListener() {
+			public void onClick(View arg0) {
+			    menuNovaMeta();
+			}
+		});
+		
+		final Button botaoAcompanhamentoMeta = (Button)findViewById(R.id.buttonAcompanhamentoMeta);
+		final Intent acompanhamentoMetasTabs = new Intent(getApplicationContext(),AcompanhamentoMetasTabsActivity.class);
+		acompanhamentoMetasTabs.putExtra("id_aluno", aluno.getId());
+		botaoAcompanhamentoMeta.setOnClickListener(new OnClickListener() {
+			public void onClick(View arg0) {
+				WeightLoss weightLoss = FitnessManagementSingleton.getMetaFachadaInstance().getMetaWeightLoss(aluno.getId());
+				if(weightLoss == null){
+					Builder dialog = Utils.showMessage(MetasActivity.this, Message.ALERT, "Atenção", "Nenhuma meta cadastrada.Deseja criar?");
+		    		dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+				        public void onClick(DialogInterface dialog, int which) {
+				        	menuNovaMeta();
+				        }
+		    		});
+		    		dialog.setNegativeButton("Não",null);
+		    		dialog.show();
+				}else{
+					startActivity(acompanhamentoMetasTabs);
+				}
+			}	
+		});
+	}
 
-	private void menuMostrarMeta(){
+	private void menuNovaMeta(){
+		setContentView(R.layout.activity_metas);
 		final EditText alturaMetas = (EditText)findViewById(R.id.editTextAlturaMeta);
 		final EditText pesoMetas = (EditText)findViewById(R.id.editTextPesoPerderMeta);
 		final EditText pesoAtual = (EditText)findViewById(R.id.editTextPesoAtualMeta);
@@ -144,7 +183,7 @@ public class MetasActivity extends Activity {
 		final Button botaoVoltarMetas = (Button)findViewById(R.id.buttonVoltarActivityMetas);
 		botaoVoltarMetas.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
-				finish();
+				menu_meta();
 			}
 		});
 
