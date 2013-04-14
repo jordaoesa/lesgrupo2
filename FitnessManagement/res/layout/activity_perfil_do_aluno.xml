@@ -4,7 +4,7 @@
     android:background="@drawable/backgroundall" >
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/linearLayoutPerfilDoAluno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
@@ -13,7 +13,11 @@
             android:id="@+id/quickContactBadgePerfilAluno"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_launcher"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -59,13 +63,13 @@
         android:id="@+id/textViewGerenciarPerfilAluno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout1"
+        android:layout_below="@+id/linearLayoutPerfilDoAluno"
         android:layout_centerHorizontal="true"
         android:text="Gerenciar"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white" />
 
-    <ScrollView
+    <!-- <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,9 +81,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical" > -->
 
-            <Button
+            <!-- <Button
                 android:id="@+id/buttonAvaliacaoDoAlunoPerfilAluno"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -119,11 +123,25 @@
                 android:id="@+id/buttonPerfilMeta"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/meta" />
+                android:background="@drawable/meta" /> -->
 
-        </LinearLayout>
+	<GridView
+		android:id="@+id/gridViewPerfilDoAluno"
+		android:layout_width="match_parent"
+		android:layout_height="300dp"
+		android:layout_above="@+id/buttonVoltarPerfilAluno"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentRight="true"
+		android:layout_below="@+id/textViewGerenciarPerfilAluno"
+		android:gravity="center"
+		android:numColumns="2"
+		android:verticalSpacing="25dp" >
+	      
+	</GridView>
 
-    </ScrollView>
+        <!-- </LinearLayout>
+
+    </ScrollView> -->
 
     <Button
         android:id="@+id/buttonVoltarPerfilAluno"

@@ -16,13 +16,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ImageAdapter extends BaseAdapter {
+public class ImageAdapterVisualizarAlunos extends BaseAdapter {
 	
 	private ContentResolver contentResolver;
 	private Context context;
 	private List<Aluno> alunos;
 	
-	public ImageAdapter(Context context, List<Aluno> alunos, ContentResolver contentResolver) {
+	public ImageAdapterVisualizarAlunos(Context context, List<Aluno> alunos, ContentResolver contentResolver) {
 		this.context = context;
 		this.alunos = alunos;
 		this.contentResolver = contentResolver;
@@ -54,7 +54,7 @@ public class ImageAdapter extends BaseAdapter {
 		if(convertView == null){
 			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			view = new View(context);
-			view = inflater.inflate(R.layout.imagebutton, null);
+			view = inflater.inflate(R.layout.item_visualizar_alunos, null);
 		}else{
 			view = convertView;
 		}

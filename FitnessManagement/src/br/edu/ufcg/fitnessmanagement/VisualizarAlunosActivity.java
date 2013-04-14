@@ -21,7 +21,7 @@ import android.widget.Toast;
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fachada.AlunoFachada;
 import br.edu.ufcg.util.FitnessManagementSingleton;
-import br.edu.ufcg.util.ImageAdapter;
+import br.edu.ufcg.util.ImageAdapterVisualizarAlunos;
 
 public class VisualizarAlunosActivity extends Activity {
 
@@ -40,7 +40,7 @@ public class VisualizarAlunosActivity extends Activity {
 		setTitle("Alunos Cadastrados");
 		setContentView(R.layout.activity_visualizar_alunos);
 		GridView grade = (GridView) findViewById(R.id.gridViewActivityVisualizar);
-		final ImageAdapter adapter = new ImageAdapter(this, alunos, getContentResolver());
+		final ImageAdapterVisualizarAlunos adapter = new ImageAdapterVisualizarAlunos(this, alunos, getContentResolver());
 		grade.setAdapter(adapter);
 		grade.setOnItemClickListener(new OnItemClickListener() {
 
