@@ -5,11 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import br.edu.ufcg.fitnessmanagement.R;
-
 import android.content.ContentResolver;
 import android.content.Context;
-import android.graphics.Color;
 import android.net.Uri;
 import android.provider.MediaStore.Images.Media;
 import android.view.LayoutInflater;
@@ -18,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import br.edu.ufcg.fitnessmanagement.R;
 
 public class ItemAgendamentoAdapter extends BaseAdapter {
 

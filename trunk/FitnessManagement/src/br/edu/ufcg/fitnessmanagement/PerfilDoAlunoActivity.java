@@ -21,13 +21,18 @@ import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fachada.AlunoFachada;
 import br.edu.ufcg.util.FitnessManagementSingleton;
+import br.edu.ufcg.util.ImageAdapterPerfilDoAluno;
 
 public class PerfilDoAlunoActivity extends Activity {
 
@@ -163,7 +168,62 @@ public class PerfilDoAlunoActivity extends Activity {
 			System.out.println(">>> " + e.getMessage());
 		}
 		
-		Button bAvaliacaoDoAluno = (Button) findViewById(R.id.buttonAvaliacaoDoAlunoPerfilAluno);
+		GridView gridItens = (GridView) findViewById(R.id.gridViewPerfilDoAluno);
+		final String[] itensPerfil = {"Avaliação","Agendar\nAcompanhamento","Acompanhamento\nVisual","Treinos","Metas","Finanças"};
+		ImageAdapterPerfilDoAluno gridItensAdapter = new ImageAdapterPerfilDoAluno(getApplicationContext(), itensPerfil);
+		gridItens.setAdapter(gridItensAdapter);
+		
+		gridItens.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				switch (position) {
+				case 0:
+					Intent intentAvaliarTabs = new Intent(getApplicationContext(), AvaliacaoTabsActivity.class);
+					intentAvaliarTabs.putExtra("id_aluno", aluno.getId());
+					startActivity(intentAvaliarTabs);
+					break;
+				case 1:
+					Intent intentAgendar = new Intent(getApplicationContext(), AgendarAcompanhamentoActivity.class);
+					intentAgendar.putExtra("id_aluno", aluno.getId());
+					startActivity(intentAgendar);
+					break;
+				case 2:
+					Intent intentAcompanhamento = new Intent(getApplicationContext(), AcompanhamentoVisualActivity.class);
+					intentAcompanhamento.putExtra("id_aluno", aluno.getId());
+					startActivity(intentAcompanhamento);
+					break;
+				case 3:
+					Intent intent = new Intent(getApplicationContext(), GenciarTreinoSemanal.class);
+					intent.putExtra("id_aluno", aluno.getId());
+					startActivity(intent);
+					break;
+				case 4:
+					Intent intentMetasTabs = new Intent(getApplicationContext(), MetasActivity.class);
+					intentMetasTabs.putExtra("id_aluno", aluno.getId());
+					startActivity(intentMetasTabs);
+					break;
+				case 5:
+					Intent intentFinancas = new Intent(getApplicationContext(), GerenciarFinancasActivity.class);
+					intentFinancas.putExtra("id_aluno", aluno.getId());
+					startActivity(intentFinancas);
+					break;
+				default:
+					break;
+				}
+			}
+		});
+		
+		qcbFoto.setOnLongClickListener(new OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View v) {
+//				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
+//				capturarImagem();
+				capturar();
+				return false;
+			}
+		});
+		
+		/*Button bAvaliacaoDoAluno = (Button) findViewById(R.id.buttonAvaliacaoDoAlunoPerfilAluno);
 		Button bGerenciarFinancas = (Button) findViewById(R.id.buttonGerenciarFinancasPerfilAluno);
 		Button bAgendarAcompanhamento = (Button) findViewById(R.id.buttonAgendarAcompanhamentoPerfilAluno);
 		Button bAcompanhamentoVisual = (Button) findViewById(R.id.buttonAcompanhamentoVisualPerfilAluno);
@@ -209,15 +269,6 @@ public class PerfilDoAlunoActivity extends Activity {
 				startActivity(intentAgendar);
 			}
 		});
-		qcbFoto.setOnLongClickListener(new OnLongClickListener() {
-			@Override
-			public boolean onLongClick(View v) {
-//				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
-//				capturarImagem();
-				capturar();
-				return false;
-			}
-		});
 		bTreinoDoAluno.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -251,6 +302,7 @@ public class PerfilDoAlunoActivity extends Activity {
 				startActivity(intentAcompanhamento);
 			}
 		});
+		*/
 		
 		Button voltar = (Button) findViewById(R.id.buttonVoltarPerfilAluno);
 		voltar.setOnClickListener(new OnClickListener() {
@@ -323,11 +375,11 @@ public class PerfilDoAlunoActivity extends Activity {
 		
 		case SAIR: mensagemExibir("Sair", "Saindo"); finish();  break;
 		case AJUDA: mensagemExibir("Ajuda", "Menu Ajuda"); break;
-		case fichaDoAluno: mensagemExibir("Ficha do Aluno", "Em Avaliação do Aluno podemos visualizar algumas informacoes sobre o aluno.\n" +
+		case fichaDoAluno: mensagemExibir("Perfil do Aluno", "Em Avaliação podemos visualizar e cadastrar algumas informações sobre o aluno.\n" +
 				"Em Agendar Acompanhamento, agendamos horarios com o aluno.\n" +
-				"Em Acompanhamento visual, visualizamos fotos do aluno.\n" +
-				"Em Gerenciar financas, podemos quitar ou adicionar dividas do aluno.\n" +
-				"Em Treino do Aluno, cadastramos atividades fisicas a serem executadas pelo aluno."); break;
+				"Em Acompanhamento Visual, visualizamos fotos do aluno.\n" +
+				"Em Finanças, podemos quitar ou adicionar dividas do aluno.\n" +
+				"Em Treinos, cadastramos atividades fisicas a serem executadas pelo aluno."); break;
 		}
 		
 		return super.onOptionsItemSelected(item);
