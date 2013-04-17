@@ -25,6 +25,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
@@ -88,8 +89,8 @@ public class PerfilDoAlunoActivity extends Activity {
 				System.out.println(">>> " + e.getMessage());
 			}
 			
-			QuickContactBadge qcbFoto = (QuickContactBadge) findViewById(R.id.quickContactBadgePerfilAluno);
-			qcbFoto.setImageBitmap(bm);
+			ImageView ivFoto = (ImageView) findViewById(R.id.imageViewPerfilAluno);
+			ivFoto.setImageBitmap(bm);
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 		
@@ -152,7 +153,7 @@ public class PerfilDoAlunoActivity extends Activity {
 		setContentView(R.layout.activity_perfil_do_aluno);
 		setTitle("Perfil do Aluno");
 		
-		QuickContactBadge qcbFoto = (QuickContactBadge) findViewById(R.id.quickContactBadgePerfilAluno);
+		ImageView ivFoto = (ImageView) findViewById(R.id.imageViewPerfilAluno);
 		TextView tvNome = (TextView) findViewById(R.id.textViewNomePerfilAluno);
 		TextView tvTelefone = (TextView) findViewById(R.id.textViewTelefonePerfilAluno);
 		TextView tvIdade = (TextView) findViewById(R.id.textViewIdadePerfilAluno);
@@ -163,8 +164,10 @@ public class PerfilDoAlunoActivity extends Activity {
 		tvIdade.setText(aluno.getIdade().toString());
 		tvSexo.setText(aluno.getSexo());
 		try {
-			qcbFoto.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(new File(aluno.getCaminhoImagem()))));
+			if(aluno.getCaminhoImagem().contains(".jpg"))
+				ivFoto.setImageBitmap(MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(new File(aluno.getCaminhoImagem()))));
 		} catch (Exception e) {
+			ivFoto.setImageResource(android.R.drawable.ic_menu_report_image);
 			System.out.println(">>> " + e.getMessage());
 		}
 		
@@ -213,7 +216,7 @@ public class PerfilDoAlunoActivity extends Activity {
 			}
 		});
 		
-		qcbFoto.setOnLongClickListener(new OnLongClickListener() {
+		ivFoto.setOnLongClickListener(new OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View v) {
 //				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();

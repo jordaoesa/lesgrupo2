@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fitnessmanagement.R;
+import android.R.anim;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;
@@ -65,10 +66,13 @@ public class ImageAdapterVisualizarAlunos extends BaseAdapter {
 		ImageView imageView = (ImageView) view.findViewById(R.id.grid_item_image);
 		//imageView.setImageResource(R.drawable.ic_launcher);
 		try {
-			Uri uri = Uri.fromFile(new File(alunos.get(position).getCaminhoImagem()));
-			imageView.setImageBitmap(Media.getBitmap(contentResolver, uri));
+			if(alunos.get(position).getCaminhoImagem().contains(".jpg")){
+				Uri uri = Uri.fromFile(new File(alunos.get(position).getCaminhoImagem()));
+				imageView.setImageBitmap(Media.getBitmap(contentResolver, uri));
+			}
 		} catch (Exception e) {
-			imageView.setImageResource(R.drawable.ic_launcher);
+			imageView.setImageResource(android.R.drawable.ic_menu_report_image);
+			System.out.println(">>> " + e.getMessage());
 		}
 
 		return view;

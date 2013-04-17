@@ -78,12 +78,11 @@ public class CadastrarAlunoActivity extends Activity {
 		if(!file.exists()){
 			file.mkdirs();
 		}
-		file = new File(file, FitnessManagementSingleton.getNomeFotoPerfil());
-		uri = Uri.fromFile(file);
-		
 		botao.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				file = new File(file, FitnessManagementSingleton.getNomeFotoPerfil());
+				uri = Uri.fromFile(file);
 				Toast.makeText(getApplicationContext(), "iniciando camera", Toast.LENGTH_SHORT).show();
 				Intent in = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				startActivityForResult(in, 2013);
