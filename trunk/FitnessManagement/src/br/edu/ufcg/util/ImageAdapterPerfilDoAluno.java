@@ -44,8 +44,10 @@ public class ImageAdapterPerfilDoAluno extends BaseAdapter {
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
 		
-		LayoutInflater inflater = LayoutInflater.from(context);
-		view = inflater.inflate(R.layout.item_perfil_do_aluno, null);
+		if(view == null){
+			LayoutInflater inflater = LayoutInflater.from(context);
+			view = inflater.inflate(R.layout.item_perfil_do_aluno, null);
+		}
 		
 		ImageView itemIcon = (ImageView) view.findViewById(R.id.imageViewItemPerfilDoAluno);
 		itemIcon.setImageResource(iconItens[position]);
