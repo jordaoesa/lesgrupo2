@@ -47,7 +47,9 @@ public class PerfilDoAlunoActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		alunoFachada = FitnessManagementSingleton.getAlunoFachadaInstance();
-		getAluno();
+		int idAluno = getIntent().getIntExtra("id_aluno", -1);
+		System.out.println("id aluno perfil: " + idAluno);
+		aluno = alunoFachada.getAlunoFromId(idAluno);
 		//file = new File(Environment.getExternalStorageDirectory() + "/.FitnessManagement/Fotos/Perfil");
 		file = new File(FitnessManagementSingleton.getCaminhoFotoPerfil());
 		if(!file.exists()){
@@ -143,11 +145,6 @@ public class PerfilDoAlunoActivity extends Activity {
 //		
 //		return bitmap;
 //	}
-
-	private void getAluno() {
-		int idAluno = getIntent().getIntExtra("id_aluno", -1);
-		aluno = alunoFachada.getAlunoFromId(idAluno);
-	}
 
 	private void menuDeOpcoes() {
 		setContentView(R.layout.activity_perfil_do_aluno);

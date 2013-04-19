@@ -145,10 +145,10 @@ public class MetasActivity extends Activity {
 						dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
 					        public void onClick(DialogInterface dialog, int which) {
 					        	if(metaFachada.existMetaWeightLoss(aluno.getId())){
-					        		Builder dialogSalvar = Utils.showMessage(MetasActivity.this, Message.CONFIRM, "Atenção", "Já existe uma meta cadastrada.Deseja salvar por cima?");
+					        		Builder dialogSalvar = Utils.showMessage(MetasActivity.this, Message.CONFIRM, "Atenção", "Já existe uma meta cadastrada." + "\n" + "Deseja salvar por cima?");
 					        		dialogSalvar.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
 								        public void onClick(DialogInterface dialog, int which) {
-								        	metaFachada.delete(aluno.getId());
+								        	metaFachada.delete(aluno.getId(), "TABLE_META");
 								        	metaFachada.adicionaMetaWeightLoss(metaWeightLoss);
 								        }
 					        		});
