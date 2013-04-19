@@ -34,16 +34,19 @@ public class VisualizarEstatisticasActivity extends Activity {
 		
 		final List<Dados> dados = dadosFachada.getDadosDoAluno(getIntent().getIntExtra("id_aluno", -1));
 		final Button buttonPeso = (Button) findViewById(R.id.buttonEstatisticasPeso);
-		final Button buttonCalorias = (Button) findViewById(R.id.buttonEstatisticasCalorias);
-		final Button buttonBraco = (Button) findViewById(R.id.buttonEstatisticasBraco);
-		final Button buttonPerna = (Button) findViewById(R.id.buttonEstatisticasPerna);
-		final Button buttonIMC = (Button) findViewById(R.id.buttonEstatisticasIMC);
+		final Button buttonAltura = (Button) findViewById(R.id.buttonEstatisticasAltura);
+		final Button buttonBracoEC = (Button) findViewById(R.id.buttonEstatisticasBEContraido);
+		final Button buttonBracoDC = (Button) findViewById(R.id.buttonEstatisticasBDContraido);
+		final Button buttonCoxaE = (Button) findViewById(R.id.buttonEstatisticasCoxaE);
+		final Button buttonCoxaD = (Button) findViewById(R.id.buttonEstatisticasCoxaD);
+		final Button buttonPanturrilhaE = (Button) findViewById(R.id.buttonEstatisticasPanturrilhaE);
+		final Button buttonPanturrilhaD = (Button) findViewById(R.id.buttonEstatisticasPanturrilhaD);
 		
 		final List<Double> values = new ArrayList<Double>();
 		final List<Date> dates = new ArrayList<Date>();
 		if(dados != null){
+			
 			buttonPeso.setOnClickListener(new OnClickListener() {
-				
 				@Override
 				public void onClick(View arg0) {
 					for(Dados d : dados){
@@ -53,48 +56,81 @@ public class VisualizarEstatisticasActivity extends Activity {
 					graficoDeLinhaHandler(values, dates, "Peso");
 				}
 			});
-			buttonCalorias.setOnClickListener(new OnClickListener() {
-				
+			
+			buttonAltura.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					for(Dados d : dados){
-						//values.add(d.getCalorias());
+					for (Dados d : dados) {
+						values.add(d.getAltura());
 						dates.add(d.getData());
 					}
-					graficoDeLinhaHandler(values, dates, "Calorias");
+					graficoDeLinhaHandler(values, dates, "Altura");
 				}
 			});
-			buttonBraco.setOnClickListener(new OnClickListener() {
-				
+			
+			buttonBracoEC.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					for(Dados d : dados){
-						//values.add(d.getTamanhoBraco());
+						values.add(d.getBracoEC());
 						dates.add(d.getData());
 					}
-					graficoDeLinhaHandler(values, dates, "Tamanho Bra�o");
+					graficoDeLinhaHandler(values, dates, "Braço Esquerdo Contraído");
 				}
 			});
-			buttonPerna.setOnClickListener(new OnClickListener() {
-				
+			
+			buttonBracoDC.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					for(Dados d : dados){
-						//values.add(d.getTamanhoPerna());
+						values.add(d.getBracoDC());
 						dates.add(d.getData());
 					}
-					graficoDeLinhaHandler(values, dates, "Tamanho Perna");
+					graficoDeLinhaHandler(values, dates, "Braço Direito Contraído");
 				}
 			});
-			buttonIMC.setOnClickListener(new OnClickListener() {
-				
+			
+			buttonCoxaE.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 					for(Dados d : dados){
-						//values.add(d.getImc());
+						values.add(d.getCoxaE());
 						dates.add(d.getData());
 					}
-					graficoDeLinhaHandler(values, dates, "IMC");
+					graficoDeLinhaHandler(values, dates, "Coxa Esquerda");
+				}
+			});
+			
+			buttonCoxaD.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					for(Dados d : dados){
+						values.add(d.getCoxaD());
+						dates.add(d.getData());
+					}
+					graficoDeLinhaHandler(values, dates, "Coxa Direita");
+				}
+			});
+			
+			buttonPanturrilhaE.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					for(Dados d : dados){
+						values.add(d.getPanturrilhaE());
+						dates.add(d.getData());
+					}
+					graficoDeLinhaHandler(values, dates, "Panturrilha Esquerda");
+				}
+			});
+			
+			buttonPanturrilhaD.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					for(Dados d : dados){
+						values.add(d.getPanturrilhaD());
+						dates.add(d.getData());
+					}
+					graficoDeLinhaHandler(values, dates, "Panturrilha Direita");
 				}
 			});
 		}

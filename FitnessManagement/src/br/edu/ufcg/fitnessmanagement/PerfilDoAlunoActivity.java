@@ -169,8 +169,7 @@ public class PerfilDoAlunoActivity extends Activity {
 		}
 		
 		GridView gridItens = (GridView) findViewById(R.id.gridViewPerfilDoAluno);
-		final String[] itensPerfil = {"Avaliação","Agendar\nAcompanhamento","Acompanhamento\nVisual","Treinos","Metas","Finanças"};
-		ImageAdapterPerfilDoAluno gridItensAdapter = new ImageAdapterPerfilDoAluno(getApplicationContext(), itensPerfil);
+		ImageAdapterPerfilDoAluno gridItensAdapter = new ImageAdapterPerfilDoAluno(getApplicationContext());
 		gridItens.setAdapter(gridItensAdapter);
 		
 		gridItens.setOnItemClickListener(new OnItemClickListener() {

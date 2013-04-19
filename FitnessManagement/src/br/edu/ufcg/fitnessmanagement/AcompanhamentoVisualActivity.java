@@ -50,8 +50,13 @@ public class AcompanhamentoVisualActivity extends Activity {
 	private File imagem;
 	private File thumbnail;
 	private String peso = "Sem Informação";
-	private String braco = "Sem Informação";
-	private String perna = "Sem Informação";
+	private String altura = "Sem Informação";
+	private String bracoEC = "Sem Informação";
+	private String bracoDC = "Sem Informação";
+	private String coxaE = "Sem Informação";
+	private String coxaD = "Sem Informação";
+	private String panturrilhaE = "Sem Informação";
+	private String panturrilhaD = "Sem Informação";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -188,11 +193,16 @@ public class AcompanhamentoVisualActivity extends Activity {
 				try {
 					ImagemFachada.Imagem im = imagens.get((int)imageAdapterGallery.getItemId(indiceFoto));
 					new AlertDialog.Builder(AcompanhamentoVisualActivity.this)
-					.setTitle("Informações Foto " + indiceFoto)
-					.setMessage("Data\t: " + im.getDataFormatada() +
-							"\nPeso\t: " + peso + 
-							"\nBraço\t: " + braco +
-							"\nPerna\t: " + perna )
+					.setTitle("Informações do Aluno")
+					.setMessage("Data: " + im.getDataFormatada() +
+							"\nPeso: " + peso + " kg" +
+							"\nAltura: " + altura + " cm" +
+							"\nBraço Esquerdo: " + bracoEC + " cm" +
+							"\nBraço Direito: " + bracoDC + " cm" +
+							"\nCoxa Esquerda: " + coxaE + " cm" +
+							"\nCoxa Direita: " + coxaD + " cm" +
+							"\nPanturrilha Esquerda: " + panturrilhaE + " cm" +
+							"\nPanturrilha Direita: " + panturrilhaD + " cm")
 					.setNeutralButton("OK", null)
 					.show();
 				} catch (Exception e) {
@@ -207,8 +217,13 @@ public class AcompanhamentoVisualActivity extends Activity {
 					String date = (new SimpleDateFormat("dd/MM/yyyy")).format(dado.getData());
 					if(date.equals(data)){
 						peso = dado.getPeso().toString();
-						braco = dado.getBracoDC().toString();
-						perna = dado.getCoxaD().toString();
+						altura = dado.getAltura().toString();
+						bracoEC = dado.getBracoEC().toString();
+						bracoDC = dado.getBracoDC().toString();
+						coxaE = dado.getCoxaE().toString();
+						coxaD = dado.getCoxaD().toString();
+						panturrilhaE = dado.getPanturrilhaE().toString();
+						panturrilhaD = dado.getPanturrilhaD().toString();
 						break;
 					}
 				}

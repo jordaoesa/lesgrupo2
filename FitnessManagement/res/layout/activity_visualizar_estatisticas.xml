@@ -17,32 +17,51 @@
 		        android:id="@+id/buttonEstatisticasPeso"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:layout_marginTop="105dp"
+		        android:layout_marginTop="5dp"
 		        android:text="Peso" />
-		
+		    
 		    <Button
-		        android:id="@+id/buttonEstatisticasPerna"
+		        android:id="@+id/buttonEstatisticasAltura"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:text="Tamanho Perna" />
-		
+		        android:text="Altura" />
+		    
 		    <Button
-		        android:id="@+id/buttonEstatisticasBraco"
+		        android:id="@+id/buttonEstatisticasBEContraido"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:text="Tamanho Braço" />
+		        android:text="Braço Esquerdo Contraído" />
 		
 		    <Button
-		        android:id="@+id/buttonEstatisticasCalorias"
+		        android:id="@+id/buttonEstatisticasBDContraido"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:text="Calorias" />
-		
+		        android:text="Braço Direito Contraido" />
+		    
 		    <Button
-		        android:id="@+id/buttonEstatisticasIMC"
+		        android:id="@+id/buttonEstatisticasCoxaE"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:text="IMC" />
+		        android:text="Coxa Esquerda" />
+		    
+		    <Button
+		        android:id="@+id/buttonEstatisticasCoxaD"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Coxa Direita" />
+		    
+		    <Button
+		        android:id="@+id/buttonEstatisticasPanturrilhaE"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Panturrilha Esquerda" />
+		    
+		    
+		    <Button
+		        android:id="@+id/buttonEstatisticasPanturrilhaD"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Panturrilha Direita" />
 
         </LinearLayout>
     </ScrollView>
