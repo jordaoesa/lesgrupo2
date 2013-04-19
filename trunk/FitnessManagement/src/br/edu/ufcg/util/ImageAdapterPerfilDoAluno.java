@@ -14,12 +14,12 @@ public class ImageAdapterPerfilDoAluno extends BaseAdapter {
 	private Context context;
 	private String[] itensPerfil;
 	//TODO: MODIFIQUEM ESSE ARRAY DE ICONES COM OS ICONES DESEJADOS :P
-	private int[] iconItens = { android.R.drawable.ic_media_ff,
-			android.R.drawable.ic_media_next,
-			android.R.drawable.ic_media_pause,
-			android.R.drawable.ic_media_play,
-			android.R.drawable.ic_media_previous,
-			android.R.drawable.ic_media_rew };
+	private int[] iconItens = {R.drawable.avaliacao,
+			R.drawable.agendaracompanhamento,
+			R.drawable.acompanhamentovisual,
+			R.drawable.treino,
+			R.drawable.metas,
+			R.drawable.gerenciarfinancas  };
 
 	public ImageAdapterPerfilDoAluno(Context context, String[] itensPerfil) {
 		this.context = context;
@@ -44,10 +44,8 @@ public class ImageAdapterPerfilDoAluno extends BaseAdapter {
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
 		
-		if(view == null){
-			LayoutInflater inflater = LayoutInflater.from(context);
-			view = inflater.inflate(R.layout.item_perfil_do_aluno, null);
-		}
+		LayoutInflater inflater = LayoutInflater.from(context);
+		view = inflater.inflate(R.layout.item_perfil_do_aluno, null);
 		
 		ImageView itemIcon = (ImageView) view.findViewById(R.id.imageViewItemPerfilDoAluno);
 		itemIcon.setImageResource(iconItens[position]);
