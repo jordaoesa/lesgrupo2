@@ -8,7 +8,7 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="@android:drawable/ic_media_play"/>
+        android:src="@android:drawable/ic_media_play"/>
 
     <TextView
         android:id="@+id/textViewItemPerfilDoAluno"
@@ -17,7 +17,6 @@
         android:layout_below="@+id/imageViewItemPerfilDoAluno"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="play"
         android:textColor="@color/white" />
 
 </RelativeLayout>
