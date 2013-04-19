@@ -10,7 +10,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="26dp"
-        android:text="Nome" />
+        android:text="Nome" 
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/editTextNomeMenuCadastrar"
@@ -30,7 +31,8 @@
         android:layout_alignBaseline="@+id/editTextTelefoneMenuCadastrar"
         android:layout_alignBottom="@+id/editTextTelefoneMenuCadastrar"
         android:layout_alignParentLeft="true"
-        android:text="Telefone" />
+        android:text="Telefone"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/textViewEnderecoMenuCadastrar"
@@ -39,7 +41,8 @@
         android:layout_alignBaseline="@+id/editTextEnderecoMenuCadastrar"
         android:layout_alignBottom="@+id/editTextEnderecoMenuCadastrar"
         android:layout_alignParentLeft="true"
-        android:text="Endereço" />
+        android:text="Endereço" 
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/editTextTelefoneMenuCadastrar"
@@ -81,7 +84,8 @@
         android:layout_alignBaseline="@+id/editTextIdadeMenuCadastrar"
         android:layout_alignBottom="@+id/editTextIdadeMenuCadastrar"
         android:layout_alignRight="@+id/textViewNomeMenuCadastrar"
-        android:text="Idade" />
+        android:text="Idade"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/buttonCadastrarMenuCadastrar"
@@ -99,7 +103,8 @@
         android:layout_alignLeft="@+id/textViewIdadeMenuCadastrar"
         android:layout_below="@+id/editTextIdadeMenuCadastrar"
         android:layout_marginTop="44dp"
-        android:text="Sexo" />
+        android:text="Sexo" 
+        android:textColor="@color/white"/>
 
     
 	<RadioGroup 
@@ -119,7 +124,8 @@
 			android:layout_alignBottom="@+id/textViewSexoMenuCadastrar"
 			android:layout_alignParentRight="true"
 			android:checked="true"
-			android:text="Masculino" />
+			android:text="Masculino" 
+			android:textColor="@color/white"/>
         
         <RadioButton
 			android:id="@+id/radioButtonSexoFemMenuCadastrar"
@@ -129,7 +135,8 @@
             android:layout_alignBottom="@+id/radioButtonSexoFemMenuCadastrar"
             android:layout_marginRight="15dp"
             android:layout_toLeftOf="@+id/radioButtonSexoFemMenuCadastrar"
-            android:text="Feminino" />
+            android:text="Feminino" 
+            android:textColor="@color/white"/>
     </RadioGroup>
 
 	<ImageView
