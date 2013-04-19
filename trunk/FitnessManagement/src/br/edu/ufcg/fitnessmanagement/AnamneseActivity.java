@@ -1,7 +1,13 @@
 package br.edu.ufcg.fitnessmanagement;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import br.edu.ufcg.aluno.Aluno;
 import br.edu.ufcg.fachada.AnamneseFachada;
 import br.edu.ufcg.fachada.AnamneseFachada.Anamnese;
+import br.edu.ufcg.util.ExpandableListViewAdapterAnamnese;
 import br.edu.ufcg.util.FitnessManagementSingleton;
 import android.os.Bundle;
 import android.app.Activity;
@@ -15,6 +21,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
+import android.widget.ListAdapter;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -37,8 +45,51 @@ public class AnamneseActivity extends Activity {
 		idAluno = getIntent().getIntExtra("id_aluno", -1);
 		anamnese = FitnessManagementSingleton.getAnamneseFachadaInstance().getAnamneseDoAluno(idAluno);
 		menuDeOpcoes();
-		
+		//menuExpandableListView();
 	}
+
+	/*private void menuExpandableListView() {
+		
+		ExpandableListView elv = (ExpandableListView) findViewById(R.id.expandableListViewAnamnese);
+		List<ParentListView> parentsAndChildsIDS = initParentAndChildIDS();
+		ExpandableListViewAdapterAnamnese expListViewAdapterAnamnese = new ExpandableListViewAdapterAnamnese(getApplicationContext(), parentsAndChildsIDS);
+		elv.setAdapter(expListViewAdapterAnamnese);
+	}
+
+	private List<ParentListView> initParentAndChildIDS() {
+		List<ParentListView> list = new ArrayList<AnamneseActivity.ParentListView>();
+		ParentListView p = new ParentListView();
+		p.setId("textViewPAI1");
+		p.addChild("textViewchild1_1");
+		p.addChild("editTextchild1_2");
+		list.add(p);
+		p = new ParentListView();
+		p.setId("textViewPAI2");
+		p.addChild("textViewchild2_1");
+		p.addChild("radioGroupchild2_2");
+		list.add(p);
+		return list;
+	}
+	
+	public class ParentListView {
+		private String id;
+		private List<String> childsIds;
+		public ParentListView() {
+			childsIds = new ArrayList<String>();
+		}
+		public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
+		public List<String> getChildsIds() {
+			return childsIds;
+		}
+		public void addChild(String child) {
+			this.childsIds.add(child);
+		}
+	}*/
 
 	private void menuDeOpcoes() {
 		final RadioGroup p1rg = (RadioGroup) findViewById(R.id.radioGroupPergunta1Anamnese);
@@ -146,6 +197,8 @@ public class AnamneseActivity extends Activity {
 							p13et, p14rg, p15et, p16et, p17rg, p18cb1, p18cb2,
 							p18cb3, p18cb4, p18cb5, p18cb6, p18et1, p18et2,
 							p18et3, p18et4);
+					
+					//TODO: verificar dados inconsistentes na anamnese antes de salvar
 					
 					FitnessManagementSingleton.getAnamneseFachadaInstance().adicionarAnamnese(anamnese);
 					Toast.makeText(getApplicationContext(), "Anamnese Armazenada", Toast.LENGTH_SHORT).show();

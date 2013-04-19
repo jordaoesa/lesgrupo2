@@ -12,7 +12,7 @@ import br.edu.ufcg.fitnessmanagement.R;
 public class ImageAdapterPerfilDoAluno extends BaseAdapter {
 
 	private Context context;
-	private String[] itensPerfil;
+	private String[] itensPerfil = {"Avaliação","Agendar\nAcompanhamento","Acompanhamento\nVisual","Treinos","Metas","Finanças"};
 	//TODO: MODIFIQUEM ESSE ARRAY DE ICONES COM OS ICONES DESEJADOS :P
 	private int[] iconItens = {R.drawable.avaliacao,
 			R.drawable.agendaracompanhamento,
@@ -21,9 +21,8 @@ public class ImageAdapterPerfilDoAluno extends BaseAdapter {
 			R.drawable.metas,
 			R.drawable.gerenciarfinancas  };
 
-	public ImageAdapterPerfilDoAluno(Context context, String[] itensPerfil) {
+	public ImageAdapterPerfilDoAluno(Context context) {
 		this.context = context;
-		this.itensPerfil = itensPerfil;
 	}
 	
 	@Override
