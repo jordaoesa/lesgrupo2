@@ -29,7 +29,8 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/radioButtonSimPergunta1Anamnese"
                     android:layout_alignParentLeft="true"
-                    android:text="Pratica atividade física?"/>
+                    android:text="Pratica atividade física?"
+                    android:textColor="@color/white"/>
 
                 <RadioGroup
                     android:id="@+id/radioGroupPergunta1Anamnese"
@@ -44,14 +45,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sim" 
-                        android:textSize="20px" />
+                        android:textSize="20px" 
+                        android:textColor="@color/white"/>
 
                     <RadioButton
                         android:id="@+id/radioButtonNaoPergunta1Anamnese"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Não"
-                        android:textSize="20px" />
+                        android:textSize="20px" 
+                        android:textColor="@color/white"/>
                 </RadioGroup>
 				
             </RelativeLayout>
@@ -66,7 +69,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Qual é a atividade?"/>
+                    android:text="Qual é a atividade?"
+                    android:textColor="@color/white"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta2Anamnese"
@@ -89,7 +93,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Há quanto tempo está parado?"/>
+                    android:text="Há quanto tempo está parado?"
+                    android:textColor="@color/white"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta3Anamnese"
@@ -112,7 +117,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Qual atividade/esporte mais gosta?"/>
+                    android:text="Qual atividade/esporte mais gosta?"
+                    android:textColor="@color/white"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta4Anamnese"
@@ -135,7 +141,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Quanto tempo costuma dormir?"/>
+                    android:text="Quanto tempo costuma dormir?"
+                    android:textColor="@color/white"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta5Anamnese"
@@ -159,7 +166,8 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/radioButtonBaixoPergunta6Anamnese"
                     android:layout_alignParentLeft="true"
-                    android:text="Nível de stress?"/>
+                    android:text="Nível de stress?"
+                    android:textColor="@color/white"/>
 
                 <RadioGroup
                     android:id="@+id/radioGroupPergunta6Anamnese"
@@ -174,21 +182,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Baixo" 
-                        android:textSize="20px" />
+                        android:textSize="20px" 
+                        android:textColor="@color/white"/>
 
                     <RadioButton
                         android:id="@+id/radioButtonModeradoPergunta6Anamnese"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Moderado" 
-                        android:textSize="20px" />
+                        android:textSize="20px" 
+                        android:textColor="@color/white"/>
                     
                     <RadioButton
                         android:id="@+id/radioButtonAltoPergunta6Anamnese"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Alto" 
-                        android:textSize="20px" />
+                        android:textSize="20px" 
+                        android:textColor="@color/white"/>
                 </RadioGroup>
                 
             </RelativeLayout>
@@ -203,7 +214,8 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/radioButtonSimPergunta7Anamnese"
                     android:layout_alignParentLeft="true"
-                    android:text="Fuma?"/>
+                    android:text="Fuma?"
+                    android:textColor="@color/white"/>
 
                 <RadioGroup
                     android:id="@+id/radioGroupPergunta7Anamnese"
@@ -218,14 +230,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sim" 
-                        android:textSize="20px" />
+                        android:textSize="20px"
+                        android:textColor="@color/white" />
 
                     <RadioButton
                         android:id="@+id/radioButtonNaoPergunta7Anamnese"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Não" 
-                        android:textSize="20px" />
+                        android:textSize="20px" 
+                        android:textColor="@color/white"/>
                 </RadioGroup>
                 
             </RelativeLayout>
@@ -240,7 +254,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Fuma há quanto tempo?"/>
+                    android:text="Fuma há quanto tempo?"
+                    android:textColor="@color/white"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta8Anamnese"
@@ -264,7 +279,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Quantas refeiçoes diárias?"/>
+                    android:text="Quantas refeiçoes diárias?"
+                    android:textColor="@color/white"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta9Anamnese"
@@ -288,7 +304,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Histórico de Saúde"/>
+                    android:text="Histórico de Saúde"
+                    android:textColor="@color/white"/>
 
                 <LinearLayout 
                     android:id="@+id/linearLayoutPergunta10Anamnese"
@@ -302,73 +319,85 @@
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Problemas Cardíacos"
-	                    android:textSize="20px" />
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
 	                <CheckBox
 	                    android:id="@+id/checkBox2Pergunta10Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Anemia"
-	                    android:textSize="20px" />
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
 	                <CheckBox
 	                    android:id="@+id/checkBox3Pergunta10Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Ansiedade"
-	                    android:textSize="20px" />
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
 	                <CheckBox
 	                    android:id="@+id/checkBox4Pergunta10Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Problemas Respiratórios"
-	                    android:textSize="20px" />
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
 	                <CheckBox
 	                    android:id="@+id/checkBox5Pergunta10Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Colesterol"
-	                    android:textSize="20px" />
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
 	                <CheckBox
 	                    android:id="@+id/checkBox6Pergunta10Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Depressão"
-	                    android:textSize="20px" />
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
 	                <CheckBox
 	                    android:id="@+id/checkBox7Pergunta10Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Insônia"
-	                    android:textSize="20px" />
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
 	                <CheckBox
 	                    android:id="@+id/checkBox8Pergunta10Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Diabetes"
-	                    android:textSize="20px" />
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
 	                <CheckBox
 	                    android:id="@+id/checkBox9Pergunta10Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Gastrite"
-	                    android:textSize="20px" />
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
 	                <CheckBox
 	                    android:id="@+id/checkBox10Pergunta10Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Tireóide"
-	                    android:textSize="20px" />
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
 	                <CheckBox
 	                    android:id="@+id/checkBox11Pergunta10Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Varizes"
-	                    android:textSize="20px" />
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
 	                <CheckBox
 	                    android:id="@+id/checkBox12Pergunta10Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Tonturas"
-	                    android:textSize="20px" />
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
                 </LinearLayout>
                 
                 <TextView 
@@ -378,7 +407,8 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/linearLayoutPergunta10Anamnese"
-                    android:text="Outros Problemas?"/>
+                    android:text="Outros Problemas?"
+                    android:textColor="@color/white"/>
                 
                 <EditText 
                     android:id="@+id/editTextPergunta10Anamnese"
@@ -400,7 +430,8 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/radioButtonSimPergunta11Anamnese"
                     android:layout_alignParentLeft="true"
-                    android:text="Faz uso de Medicamentos?"/>
+                    android:text="Faz uso de Medicamentos?"
+                    android:textColor="@color/white"/>
 
                 <RadioGroup
                     android:id="@+id/radioGroupPergunta11Anamnese"
@@ -415,14 +446,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sim" 
-                        android:textSize="20px" />
+                        android:textSize="20px" 
+                        android:textColor="@color/white"/>
 
                     <RadioButton
                         android:id="@+id/radioButtonNaoPergunta11Anamnese"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Não"
-                        android:textSize="20px" />
+                        android:textSize="20px" 
+                        android:textColor="@color/white"/>
                 </RadioGroup>
 				
             </RelativeLayout>
@@ -437,7 +470,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Há quanto tempo?"/>
+                    android:text="Há quanto tempo?"
+                    android:textColor="@color/white"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta12Anamnese"
@@ -460,7 +494,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Qual medicamento?"/>
+                    android:text="Qual medicamento?"
+                    android:textColor="@color/white"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta13Anamnese"
@@ -483,7 +518,8 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/radioButtonSimPergunta14Anamnese"
                     android:layout_alignParentLeft="true"
-                    android:text="Já fez alguma cirurgia?"/>
+                    android:text="Já fez alguma cirurgia?"
+                    android:textColor="@color/white"/>
 
                 <RadioGroup
                     android:id="@+id/radioGroupPergunta14Anamnese"
@@ -498,14 +534,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sim" 
-                        android:textSize="20px" />
+                        android:textSize="20px" 
+                        android:textColor="@color/white"/>
 
                     <RadioButton
                         android:id="@+id/radioButtonNaoPergunta14Anamnese"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Não"
-                        android:textSize="20px" />
+                        android:textSize="20px"
+                        android:textColor="@color/white" />
                 </RadioGroup>
 				
             </RelativeLayout>
@@ -520,7 +558,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Qual cirurgia?"/>
+                    android:text="Qual cirurgia?"
+                    android:textColor="@color/white"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta15Anamnese"
@@ -543,7 +582,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Há quanto tempo?"/>
+                    android:text="Há quanto tempo?"
+                    android:textColor="@color/white"/>
 
                 <EditText
                     android:id="@+id/editTextPergunta16Anamnese"
@@ -566,7 +606,8 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/radioButtonSimPergunta17Anamnese"
                     android:layout_alignParentLeft="true"
-                    android:text="Sente Dores?"/>
+                    android:text="Sente Dores?"
+                    android:textColor="@color/white"/>
 
                 <RadioGroup
                     android:id="@+id/radioGroupPergunta17Anamnese"
@@ -581,14 +622,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sim" 
-                        android:textSize="20px" />
+                        android:textSize="20px"
+                        android:textColor="@color/white" />
 
                     <RadioButton
                         android:id="@+id/radioButtonNaoPergunta17Anamnese"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Não"
-                        android:textSize="20px" />
+                        android:textSize="20px"
+                        android:textColor="@color/white" />
                 </RadioGroup>
 				
             </RelativeLayout>
@@ -603,7 +646,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:text="Objetivos"/>
+                    android:text="Objetivos"
+                    android:textColor="@color/white"/>
 
                 <LinearLayout 
                     android:id="@+id/linearLayoutPergunta18Anamnese"
@@ -617,37 +661,43 @@
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Hipertrofia"
-	                    android:textSize="20px" />
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
 	                <CheckBox
 	                    android:id="@+id/checkBox2Pergunta18Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Condicionamento"
-	                    android:textSize="20px" />
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
 	                <CheckBox
 	                    android:id="@+id/checkBox3Pergunta18Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Diminuir % de gordura"
-	                    android:textSize="20px" />
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
 	                <CheckBox
 	                    android:id="@+id/checkBox4Pergunta18Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Resistência muscular"
-	                    android:textSize="20px" />
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
 	                <CheckBox
 	                    android:id="@+id/checkBox5Pergunta18Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Enrijecimento localizado"
-	                    android:textSize="20px" />
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
 	                <CheckBox
 	                    android:id="@+id/checkBox6Pergunta18Anamnese"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
 	                    android:text="Correção de postura"
-	                    android:textSize="20px" />
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
                 </LinearLayout>
                 
                 <TextView 
@@ -657,7 +707,8 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/linearLayoutPergunta18Anamnese"
-                    android:text="Frequencia semanal?"/>
+                    android:text="Frequencia semanal?"
+                    android:textColor="@color/white"/>
                 
                 <EditText 
                     android:id="@+id/editText1Pergunta18Anamnese"
@@ -674,7 +725,8 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/editText1Pergunta18Anamnese"
-                    android:text="% de gordura?"/>
+                    android:text="% de gordura?"
+                    android:textColor="@color/white"/>
                 
                 <EditText 
                     android:id="@+id/editText2Pergunta18Anamnese"
@@ -692,7 +744,8 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/editText2Pergunta18Anamnese"
-                    android:text="Peso"/>
+                    android:text="Peso"
+                    android:textColor="@color/white"/>
                 
                 <EditText 
                     android:id="@+id/editText3Pergunta18Anamnese"
@@ -710,7 +763,8 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/editText3Pergunta18Anamnese"
-                    android:text="Peso de massa magra"/>
+                    android:text="Peso de massa magra"
+                    android:textColor="@color/white"/>
                 
                 <EditText 
                     android:id="@+id/editText4Pergunta18Anamnese"

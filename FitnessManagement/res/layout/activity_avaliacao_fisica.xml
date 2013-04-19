@@ -24,7 +24,8 @@
 		            android:layout_height="wrap_content"
 		            android:layout_alignParentLeft="true"
 		            android:layout_centerVertical="true"
-		            android:text="Peso" />
+		            android:text="Peso" 
+		            android:textColor="@color/white"/>
 		
 		        <EditText
 		            android:id="@+id/editTextPeso"
@@ -64,7 +65,8 @@
 		            android:layout_alignBaseline="@+id/editTextAltura"
 		            android:layout_alignBottom="@+id/editTextAltura"
 		            android:layout_alignParentLeft="true"
-		            android:text="Altura" />
+		            android:text="Altura"
+		            android:textColor="@color/white" />
 		        
 		    </RelativeLayout>
 		    
@@ -91,7 +93,8 @@
 		            android:layout_alignBaseline="@+id/editTextBracoEsquerdoRelaxado"
 		            android:layout_alignBottom="@+id/editTextBracoEsquerdoRelaxado"
 		            android:layout_alignParentLeft="true"
-		            android:text="Braço Esquerdo Relaxado" />
+		            android:text="Braço Esquerdo Relaxado"
+		            android:textColor="@color/white" />
 		        
 		    </RelativeLayout>
 		    
@@ -118,7 +121,8 @@
 		            android:layout_alignBaseline="@+id/editTextBracoEsquerdoContraido"
 		            android:layout_alignBottom="@+id/editTextBracoEsquerdoContraido"
 		            android:layout_alignParentLeft="true"
-		            android:text="Braço Esquerdo Contraído" />
+		            android:text="Braço Esquerdo Contraído"
+		            android:textColor="@color/white" />
 		        
 		    </RelativeLayout>
 		    
@@ -145,7 +149,8 @@
 		            android:layout_alignBaseline="@+id/editTextAntebracoEsquerdo"
 		            android:layout_alignBottom="@+id/editTextAntebracoEsquerdo"
 		            android:layout_alignParentLeft="true"
-		            android:text="Antebraço Esquerdo" />
+		            android:text="Antebraço Esquerdo"
+		            android:textColor="@color/white" />
 		        
 		    </RelativeLayout>
 		    
@@ -172,7 +177,8 @@
 		            android:layout_alignBaseline="@+id/editTextCoxaEsquerda"
 		            android:layout_alignBottom="@+id/editTextCoxaEsquerda"
 		            android:layout_alignParentLeft="true"
-		            android:text="Coxa Esquerda" />
+		            android:text="Coxa Esquerda"
+		            android:textColor="@color/white" />
 		        
 		    </RelativeLayout>
 		    
@@ -199,7 +205,8 @@
 		            android:layout_alignBaseline="@+id/editTextPanturrilhaEsquerda"
 		            android:layout_alignBottom="@+id/editTextPanturrilhaEsquerda"
 		            android:layout_alignParentLeft="true"
-		            android:text="Panturrilha Esquerda" />
+		            android:text="Panturrilha Esquerda" 
+		            android:textColor="@color/white"/>
 		        
 		    </RelativeLayout>
 		    
@@ -226,7 +233,8 @@
 		            android:layout_alignBaseline="@+id/editTextBracoDireitoRelaxado"
 		            android:layout_alignBottom="@+id/editTextBracoDireitoRelaxado"
 		            android:layout_alignParentLeft="true"
-		            android:text="Braço Direito Relaxado" />
+		            android:text="Braço Direito Relaxado"
+		            android:textColor="@color/white" />
 		        
 		    </RelativeLayout>
 		    
@@ -253,7 +261,8 @@
 		            android:layout_alignBaseline="@+id/editTextBracoDireitoContraido"
 		            android:layout_alignBottom="@+id/editTextBracoDireitoContraido"
 		            android:layout_alignParentLeft="true"
-		            android:text="Braço Direito Contraído" />
+		            android:text="Braço Direito Contraído" 
+		            android:textColor="@color/white"/>
 		        
 		    </RelativeLayout>
 		    
@@ -280,7 +289,8 @@
 		            android:layout_alignBaseline="@+id/editTextAntebracoDireito"
 		            android:layout_alignBottom="@+id/editTextAntebracoDireito"
 		            android:layout_alignParentLeft="true"
-		            android:text="Antebraço Direito" />
+		            android:text="Antebraço Direito"
+		            android:textColor="@color/white" />
 		        
 		    </RelativeLayout>
 		    
@@ -307,7 +317,8 @@
 		            android:layout_alignBaseline="@+id/editTextCoxaDireita"
 		            android:layout_alignBottom="@+id/editTextCoxaDireita"
 		            android:layout_alignParentLeft="true"
-		            android:text="Coxa Direita" />
+		            android:text="Coxa Direita" 
+		            android:textColor="@color/white"/>
 		        
 		    </RelativeLayout>
 		    
@@ -334,7 +345,8 @@
 		            android:layout_alignBaseline="@+id/editTextPanturrilhaDireita"
 		            android:layout_alignBottom="@+id/editTextPanturrilhaDireita"
 		            android:layout_alignParentLeft="true"
-		            android:text="Panturrilha Direita" />
+		            android:text="Panturrilha Direita" 
+		            android:textColor="@color/white"/>
 		        
 		    </RelativeLayout>
 		    
