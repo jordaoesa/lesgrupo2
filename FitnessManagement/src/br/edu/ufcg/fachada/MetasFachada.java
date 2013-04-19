@@ -73,15 +73,6 @@ public class MetasFachada {
 	}
 	
 	public void salvarAcompanhamentoWeightLoss(int id_aluno,String semana, String totalCalorias){
-		if(existAcompanhamentoWeightLoss(id_aluno, semana)){
-			db.delete("TABLE_ACOMPANHAMENTO_WEIGHT_LOSS", "id_aluno=" +id_aluno +"semana=" + semana);
-			insertAcompanhamento(id_aluno, semana, totalCalorias);
-		}else{
-			insertAcompanhamento(id_aluno, semana, totalCalorias);
-		}
-	}
-	private void insertAcompanhamento(int id_aluno, String semana,
-			String totalCalorias) {
 		ContentValues values = new ContentValues();
 		values.put("id_aluno", id_aluno);
 		values.put("semana", semana);
@@ -89,12 +80,13 @@ public class MetasFachada {
 		db.insertValues("TABLE_ACOMPANHAMENTO_WEIGHT_LOSS", values);
 		db.close();
 	}
-	private boolean existAcompanhamentoWeightLoss(int id_aluno, String semana){
+	public boolean existAcompanhamentoWeightLoss(int id_aluno, String semana){
 		Cursor cursor = db.getReadableDatabase().query("TABLE_ACOMPANHAMENTO_WEIGHT_LOSS", null,"id_aluno="+id_aluno, null, null, null,null);
 		try{
 			if(cursor != null){
 				while(cursor.moveToNext()){
-					if(cursor.getString(3).equals(semana)){
+					System.out.println("cursor acompanhamento: " + cursor.getString(2) + "<>"+ cursor.getString(3));
+					if(cursor.getString(2).equals(semana)){
 						return true;
 					}
 				}
@@ -112,17 +104,18 @@ public class MetasFachada {
 		try{
 			if(cursor != null){
 				while(cursor.moveToNext()){
-					acompanhamentos.add(new AcompanhamentoWeightLoss(id_aluno,cursor.getString(3),cursor.getString(4)));
+					acompanhamentos.add(new AcompanhamentoWeightLoss(id_aluno, cursor.getString(2), cursor.getString(3)));
 				}
 			}
 		}catch(Exception e){
-			e.getStackTrace();
+			System.out.println("error >>>> " + e.getMessage());
 		}finally{
 			cursor.close();
 		}
+		System.out.println("acompanhamentos: " + acompanhamentos.toString());
 		return acompanhamentos;
 	}
-	public void delete(int id_aluno){
-		db.delete(TABLE_NAME, "id_aluno=" +id_aluno );
+	public void delete(int id_aluno, String table){
+		db.delete(table, "id_aluno=" +id_aluno );
 	}
 }

@@ -14,38 +14,39 @@ import br.edu.ufcg.fitnessmanagement.R;
 public class AcompanhamentoMetasTabsActivity extends TabActivity {
 
 	private Integer idAluno;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_acompanhamento_metas_tabs);
 		setTitle("Meta Perda de Peso");
-		
+
 		idAluno = getIntent().getIntExtra("id_aluno", -1);
-		
+
 		initTabs();
 	}
 
 	private void initTabs() {
 		TabHost tabHost = getTabHost();
-		
+
+		tabHost.clearAllTabs();
 		Intent intentAcompanhamentoMeta = new Intent(getApplicationContext(), AcompanhamentoMetasActivity.class);
 		intentAcompanhamentoMeta.putExtra("id_aluno", idAluno);
-		TabSpec tabSpecTreino = tabHost
+		TabSpec tabSpecAcompanhamento = tabHost
 				.newTabSpec("Acompanhamento")
 				.setIndicator("Acompanhamento", getResources().getDrawable(R.drawable.treinamento))
 				.setContent(intentAcompanhamentoMeta);
-		
-		
+
+
 		Intent intentVisualizarMetas = new Intent(getApplicationContext(), VisualizaGraficoMetasActivity.class);
 		intentVisualizarMetas.putExtra("id_aluno", idAluno);
-		TabSpec tabSpecPagamentos = tabHost
+		TabSpec tabSpecVisualizarGrafico = tabHost
 				.newTabSpec("Visualizar")
 				.setIndicator("Visualizar", getResources().getDrawable(R.drawable.visualizar))
 				.setContent(intentVisualizarMetas);
-		
-		tabHost.addTab(tabSpecTreino);
-		tabHost.addTab(tabSpecPagamentos);
+
+		tabHost.addTab(tabSpecAcompanhamento);
+		tabHost.addTab(tabSpecVisualizarGrafico);
 		tabHost.setCurrentTab(0);
 	}
 

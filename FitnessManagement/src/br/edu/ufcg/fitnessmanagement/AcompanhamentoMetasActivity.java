@@ -77,14 +77,27 @@ public class AcompanhamentoMetasActivity  extends Activity {
 		bSalvar.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Builder dialogSalvar = Utils.showMessage(AcompanhamentoMetasActivity.this, Message.CONFIRM, "Atenção", "Deseja salvar?");
-        		dialogSalvar.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-			        public void onClick(DialogInterface dialog, int which) {
-			        	metaFachada.salvarAcompanhamentoWeightLoss(id_aluno, semanaAcompanhamento.get(itemSpinnerSelecionado),caloriasIngeridas.getText().toString());
-			        }
-        		});
-        		dialogSalvar.setNegativeButton("Não",null);
-        		dialogSalvar.show();
+	        	if(metaFachada.existAcompanhamentoWeightLoss(id_aluno, semanaAcompanhamento.get(itemSpinnerSelecionado))){
+	        		Builder dialogSalvar = Utils.showMessage(AcompanhamentoMetasActivity.this, Message.CONFIRM, "Atenção", "Acompanhamento para essa semana já existe." + "\n" + "Deseja reiniciar acompanhamento?");
+	        		dialogSalvar.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface arg0,
+								int arg1) {
+							metaFachada.delete(id_aluno, "TABLE_ACOMPANHAMENTO_WEIGHT_LOSS");
+							Utils.showMessage(AcompanhamentoMetasActivity.this, Message.CHOICE, "Informação", "Acompanhamento reiniciado.").show();
+						}
+	        		});
+	        		dialogSalvar.setNegativeButton("Não",null);
+	        		dialogSalvar.show();
+	        	}else{
+	        		Builder dialogSalvar = Utils.showMessage(AcompanhamentoMetasActivity.this, Message.CONFIRM, "Atenção", "Deseja salvar?");
+	        		dialogSalvar.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							metaFachada.salvarAcompanhamentoWeightLoss(id_aluno, semanaAcompanhamento.get(itemSpinnerSelecionado),caloriasIngeridas.getText().toString());
+						}
+	        		});
+	        		dialogSalvar.setNegativeButton("Não",null);
+	        		dialogSalvar.show();
+	        	}
 			}
 		});
 	}
