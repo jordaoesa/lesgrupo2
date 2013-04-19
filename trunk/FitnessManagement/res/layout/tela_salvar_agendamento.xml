@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundall" >
 
     <LinearLayout
         android:id="@+id/painelDataAgendamento"
@@ -15,14 +16,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Data:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textViewDataResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/textViewDataSalvarAgendamento"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -43,16 +47,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewDataResult"
             android:text="Horário:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textViewHorarioResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewDataResult"
-            android:textSize="10px"
             android:layout_toRightOf="@id/textViewHorario"
-            android:text="" />
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="10px" />
 
         <ImageButton
             android:id="@+id/buttonClockAgendamento"
@@ -78,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tipo de Agendamento:"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="20sp" />
 
         <LinearLayout
@@ -98,14 +104,14 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:text="Treino"
-                    android:textColor="#000000" />
+                    android:textColor="@color/white" />
 
                 <RadioButton
                     android:id="@+id/radioPagamentoAgendamento"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pagamento"
-                    android:textColor="#000000" />
+                    android:textColor="@color/white" />
             </RadioGroup>
         </LinearLayout>
     </LinearLayout>
@@ -123,7 +129,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewHorario"
             android:text="Observação:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white" />
 
         <EditText
             android:id="@+id/editTextObservacaoAgendamento"

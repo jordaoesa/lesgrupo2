@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@drawable/backgroundall" >
 
     <ImageView
         android:id="@+id/imageViewItemPerfilDoAluno"
@@ -17,6 +18,7 @@
         android:layout_below="@+id/imageViewItemPerfilDoAluno"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="play"/>
+        android:text="play"
+        android:textColor="@color/white" />
 
 </RelativeLayout>
