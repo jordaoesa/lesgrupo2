@@ -235,12 +235,12 @@ public class CadastrarAlunoActivity extends Activity {
 	
 
 
-	private final int SAIR = 1;
+	private final int VOLTAR = 1;
 	private final int AJUDA = 2;
 	
 	private final int cadastrarAluno=3;
 	String ajuda = "Ajuda";
-	String sair = "Sair";
+	String voltar = "Voltar";
 	
 
 	@Override
@@ -253,10 +253,11 @@ public class CadastrarAlunoActivity extends Activity {
 		boolean r = super.onCreateOptionsMenu(menu);
 		super.onCreateOptionsMenu(menu);
 		//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
-		menu.add(0, SAIR, 0, sair).setIcon(R.drawable.alert);
+		menu.add(0, VOLTAR, 0, voltar).setIcon(R.drawable.back);
 		
 		
 		SubMenu menuAjuda = menu.addSubMenu(ajuda);
+		menuAjuda.setIcon(R.drawable.help);
 		menuAjuda.add(0, cadastrarAluno, 0, "Cadastrar Aluno");
 		
 		return r;
@@ -269,18 +270,19 @@ public class CadastrarAlunoActivity extends Activity {
 		switch(item.getItemId()){
 		
 		
-		case SAIR: mensagemExibir("Sair", "Saindo"); finish(); break;
-		case AJUDA: mensagemExibir("Ajuda", "Menu Ajuda"); break;
-		case cadastrarAluno: mensagemExibir("Cadastrar Aluno", "Para cadastrar um aluno preencha os campos necessarios e tire uma foto para o perfil do aluno."); break;
+		case VOLTAR: mensagemExibir("Voltar", "Voltando",R.drawable.back); finish(); break;
+		case AJUDA: mensagemExibir("Ajuda", "Menu Ajuda",R.drawable.help); break;
+		case cadastrarAluno: mensagemExibir("Cadastrar Aluno", "Para cadastrar um aluno preencha os campos necessarios e tire uma foto para o perfil do aluno.",R.drawable.help); break;
 		}
 		
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void mensagemExibir(String titulo, String texto){
+	public void mensagemExibir(String titulo, String texto, int icone){
 		AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
 		mensagem.setTitle(titulo);
 		mensagem.setMessage(texto);
+		mensagem.setIcon(icone);
 		mensagem.setNeutralButton("OK", null);
 		mensagem.show();
 	}
