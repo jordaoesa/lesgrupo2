@@ -155,13 +155,13 @@ public class MainActivity extends Activity {
 		boolean r = super.onCreateOptionsMenu(menu);
 		super.onCreateOptionsMenu(menu);
 		//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
-		menu.add(0, SAIR, 0, sair).setIcon(R.drawable.alert);
+		menu.add(0, SAIR, 0, sair).setIcon(R.drawable.sair);
 		
 		
 		SubMenu menuAjuda = menu.addSubMenu(ajuda);
+		menuAjuda.setIcon(R.drawable.help);
 		menuAjuda.add(0, cadastrarAluno, 0, "Cadastrar Aluno");
 		menuAjuda.add(0, gerenciarAluno, 0, "Gerenciar Aluno");
-		
 		return r;
 		
 	}
@@ -172,18 +172,19 @@ public class MainActivity extends Activity {
 		switch(item.getItemId()){
 		
 		
-		case SAIR: mensagemExibir("Sair", "Saindo"); finish();  break;
-		case AJUDA: mensagemExibir("Ajuda", "Menu Ajuda"); break;
-		case cadastrarAluno: mensagemExibir("Cadastrar Aluno", "Para cadastrar um aluno preencha os campos necessarios e tire uma foto para o perfil do aluno."); break;
-		case gerenciarAluno: mensagemExibir("Gerenciar ALuno", "Ao clicar em Gerenciar Alunos sera exibida uma tela com todos os seus alunos cadastrados, selecione um aluno especifico e adicione mais detalhes a seu perfil."); break;
+		case SAIR: mensagemExibir("Sair", "Saindo",R.drawable.sair); finish();  break;
+		case AJUDA: mensagemExibir("Ajuda", "Menu Ajuda",R.drawable.help); break;
+		case cadastrarAluno: mensagemExibir("Cadastrar Aluno", "Para cadastrar um aluno preencha os campos necessarios e tire uma foto para o perfil do aluno.",R.drawable.help); break;
+		case gerenciarAluno: mensagemExibir("Gerenciar ALuno", "Ao clicar em Gerenciar Alunos sera exibida uma tela com todos os seus alunos cadastrados, selecione um aluno especifico e adicione mais detalhes a seu perfil.",R.drawable.help); break;
 		}
 		
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void mensagemExibir(String titulo, String texto){
+	public void mensagemExibir(String titulo, String texto, int icone){
 		AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
 		mensagem.setTitle(titulo);
+		mensagem.setIcon(icone);
 		mensagem.setMessage(texto);
 		mensagem.setNeutralButton("OK", null);
 		mensagem.show();
