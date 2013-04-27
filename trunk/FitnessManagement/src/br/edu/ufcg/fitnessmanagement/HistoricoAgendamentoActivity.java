@@ -139,12 +139,12 @@ public class HistoricoAgendamentoActivity extends Activity {
 	
 	
 	
-	private final int SAIR = 1;
+	private final int VOLTAR = 1;
 	private final int AJUDA = 2;
 	
 	private final int historicoAgendamento=4;
 	String ajuda = "Ajuda";
-	String sair = "Sair";
+	String sair = "Voltar";
 	
 
 	@Override
@@ -153,10 +153,11 @@ public class HistoricoAgendamentoActivity extends Activity {
 		boolean r = super.onCreateOptionsMenu(menu);
 		super.onCreateOptionsMenu(menu);
 		//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
-		menu.add(0, SAIR, 0, sair).setIcon(R.drawable.alert);
+		menu.add(0, VOLTAR, 0, sair).setIcon(R.drawable.back);
 		
 		
 		SubMenu menuAjuda = menu.addSubMenu(ajuda);
+		menuAjuda.setIcon(R.drawable.help);
 		menuAjuda.add(0, historicoAgendamento, 0, "Historico Agendamento");
 		
 		return r;
@@ -169,18 +170,19 @@ public class HistoricoAgendamentoActivity extends Activity {
 		switch(item.getItemId()){
 		
 		
-		case SAIR: mensagemExibir("Sair", "Saindo"); finish();  break;
-		case AJUDA: mensagemExibir("Ajuda", "Menu Ajuda"); break;
-		case historicoAgendamento: mensagemExibir("Historico Agendamento", "Aqui temos uma lista com todas as atividades pendentes a serem resolvidas, ex: pagamento ou aula."); break;
+		case VOLTAR: mensagemExibir("Voltar", "Voltando",R.drawable.back); finish();  break;
+		case AJUDA: mensagemExibir("Ajuda", "Menu Ajuda",R.drawable.help); break;
+		case historicoAgendamento: mensagemExibir("Historico Agendamento", "Aqui temos uma lista com todas as atividades pendentes a serem resolvidas, ex: pagamento ou aula.",R.drawable.help); break;
 		
 		}
 		
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void mensagemExibir(String titulo, String texto){
+	public void mensagemExibir(String titulo, String texto,int icon){
 		AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
 		mensagem.setTitle(titulo);
+		mensagem.setIcon(icon);
 		mensagem.setMessage(texto);
 		mensagem.setNeutralButton("OK", null);
 		mensagem.show();

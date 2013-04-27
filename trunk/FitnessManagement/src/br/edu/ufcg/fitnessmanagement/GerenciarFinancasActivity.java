@@ -88,12 +88,12 @@ public class GerenciarFinancasActivity extends Activity {
 
 
 	
-	private final int SAIR = 1;
+	private final int VOLTAR = 1;
 	private final int AJUDA = 2;
 	
 	private final int gerenciarFinancas=3;
 	String ajuda = "Ajuda";
-	String sair = "Sair";
+	String voltar = "Voltar";
 	
 
 	@Override
@@ -106,10 +106,11 @@ public class GerenciarFinancasActivity extends Activity {
 		boolean r = super.onCreateOptionsMenu(menu);
 		super.onCreateOptionsMenu(menu);
 		//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
-		menu.add(0, SAIR, 0, sair).setIcon(R.drawable.alert);
+		menu.add(0, VOLTAR, 0, voltar).setIcon(R.drawable.back);
 		
 		
 		SubMenu menuAjuda = menu.addSubMenu(ajuda);
+		menuAjuda.setIcon(R.drawable.help);
 		menuAjuda.add(0, gerenciarFinancas, 0, "Gerenciar Financas");
 		
 		return r;
@@ -122,18 +123,19 @@ public class GerenciarFinancasActivity extends Activity {
 		switch(item.getItemId()){
 		
 		
-		case SAIR: mensagemExibir("Sair", "Saindo"); finish();  break;
-		case AJUDA: mensagemExibir("Ajuda", "Gerenciar Financas"); break;
-		case gerenciarFinancas: mensagemExibir("Gerenciar Financas", "Adicione ou quite uma divida do seu aluno."); break;
+		case VOLTAR: mensagemExibir("Voltar", "Voltando",R.drawable.back); finish();  break;
+		case AJUDA: mensagemExibir("Ajuda", "Gerenciar Financas",R.drawable.help); break;
+		case gerenciarFinancas: mensagemExibir("Gerenciar Financas", "Adicione ou quite uma divida do seu aluno.",R.drawable.help); break;
 		}
 		
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void mensagemExibir(String titulo, String texto){
+	public void mensagemExibir(String titulo, String texto, int icon){
 		AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
 		mensagem.setTitle(titulo);
 		mensagem.setMessage(texto);
+		mensagem.setIcon(icon);
 		mensagem.setNeutralButton("OK", null);
 		mensagem.show();
 	}

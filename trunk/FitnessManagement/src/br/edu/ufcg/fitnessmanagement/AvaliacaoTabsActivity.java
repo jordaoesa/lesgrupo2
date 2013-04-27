@@ -67,4 +67,5 @@ public class AvaliacaoTabsActivity extends TabActivity {
 		tabHost.setCurrentTab(0);
 	}
 
+		
 }

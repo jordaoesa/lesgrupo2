@@ -302,12 +302,12 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 
 		
-		private final int SAIR = 1;
+		private final int VOLTAR = 1;
 		private final int AJUDA = 2;
 		
 		private final int agendarAcompanhamento=3;
 		String ajuda = "Ajuda";
-		String sair = "Sair";
+		String voltar = "Voltar";
 		
 
 		@Override
@@ -320,11 +320,12 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 			boolean r = super.onCreateOptionsMenu(menu);
 			super.onCreateOptionsMenu(menu);
 			//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
-			menu.add(0, SAIR, 0, sair).setIcon(R.drawable.alert);
+			menu.add(0, VOLTAR, 0, voltar).setIcon(R.drawable.back);
 			
 			
 			SubMenu menuAjuda = menu.addSubMenu(ajuda);
 			menuAjuda.add(0, agendarAcompanhamento, 0, "Agendar Acompanhamento");
+			menuAjuda.setIcon(R.drawable.help);
 			
 			return r;
 			
@@ -336,18 +337,19 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 			switch(item.getItemId()){
 			
 			
-			case SAIR: mensagemExibir("Sair", "Saindo"); finish();  break;
-			case AJUDA: mensagemExibir("Ajuda", "Agendar Acompanhamento"); break;
+			case VOLTAR: mensagemExibir("Voltar", "Voltando",R.drawable.back); finish();  break;
+			case AJUDA: mensagemExibir("Ajuda", "Agendar Acompanhamento",R.drawable.help); break;
 			case agendarAcompanhamento: mensagemExibir("Agendar Acompanhamento", "Selecione uma data valida e clique em salvar, logo apos selecione um horario clicando no icone do relogio e selecione uma opcao, pagamento ou agendamento, escreva alguma observacao e salve.\n" +
-					"Essa atividade agendada aparecera na tela de Historico Agendamento, voce recebera um alerta no celular para lembrar do agendamento."); break;
+					"Essa atividade agendada aparecera na tela de Historico Agendamento, voce recebera um alerta no celular para lembrar do agendamento.",R.drawable.help); break;
 			}
 			
 			return super.onOptionsItemSelected(item);
 		}
 		
-		public void mensagemExibir(String titulo, String texto){
+		public void mensagemExibir(String titulo, String texto,int icon){
 			AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
 			mensagem.setTitle(titulo);
+			mensagem.setIcon(icon);
 			mensagem.setMessage(texto);
 			mensagem.setNeutralButton("OK", null);
 			mensagem.show();

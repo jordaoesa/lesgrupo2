@@ -11,9 +11,12 @@ import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.util.FitnessManagementSingleton;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -188,11 +191,70 @@ public class AvaliacaoFisicaActivity extends Activity {
 		return true;
 	}
 
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+////		// Inflate the menu; this adds items to the action bar if it is present.
+//		getMenuInflater().inflate(R.menu.activity_avaliacao_fisica, menu);
+//		return true;
+//	}
+	
+	
+	private final int VOLTAR = 1;
+	private final int AJUDA = 2;
+	
+	private final int avaliacaoFisica=3;
+
+	String ajuda = "Ajuda";
+	String voltar = "Voltar";
+	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_avaliacao_fisica, menu);
-		return true;
+//		// Inflate the menu; this adds items to the action bar if it is present.
+//		getMenuInflater().inflate(R.menu.activity_main, menu);
+//		return true;
+
+		
+		boolean r = super.onCreateOptionsMenu(menu);
+		super.onCreateOptionsMenu(menu);
+		//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
+		menu.add(0, VOLTAR, 0, voltar).setIcon(R.drawable.back);
+		
+		
+		SubMenu menuAjuda = menu.addSubMenu(ajuda);
+		menuAjuda.setIcon(R.drawable.help);
+		menuAjuda.add(0, avaliacaoFisica, 0, "Avaliacao Fisica");
+		return r;
+		
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item){
+		
+		switch(item.getItemId()){
+		case VOLTAR:
+			mensagemExibir("Voltar", "Voltando",R.drawable.back);
+			finish();
+			break;
+		case AJUDA:
+			mensagemExibir("Ajuda", "Avaliacao",R.drawable.help);
+			break;
+		case avaliacaoFisica:
+			mensagemExibir("Avaliacao", "Podemos visualizar Anamnese, Dados estatisticos e fazer uma avaliacao do aluno.",R.drawable.help);
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+		
+	}
+	
+	public void mensagemExibir(String titulo, String texto, int icone){
+		AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
+		mensagem.setTitle(titulo);
+		mensagem.setIcon(icone);
+		mensagem.setMessage(texto);
+		mensagem.setNeutralButton("OK", null);
+		mensagem.show();
+	}
+	
 
 }

@@ -30,11 +30,11 @@ public class AnamneseActivity extends Activity {
 	
 	private Anamnese anamnese;
 	private Integer idAluno;
-	private final int SAIR = 1;
+	private final int VOLTAR = 1;
 	private final int AJUDA = 2;
 	private final int avaliacao = 3;
 	private String ajuda = "Ajuda";
-	private String sair = "Sair";
+	private String voltar = "Voltar";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -356,9 +356,10 @@ public class AnamneseActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		boolean r = super.onCreateOptionsMenu(menu);
 		super.onCreateOptionsMenu(menu);
-		menu.add(0, SAIR, 0, sair).setIcon(R.drawable.alert);
+		menu.add(0, VOLTAR, 0, voltar).setIcon(R.drawable.back);
 
 		SubMenu menuAjuda = menu.addSubMenu(ajuda);
+		menuAjuda.setIcon(R.drawable.help);
 		menuAjuda.add(0, avaliacao, 0, "Avaliacao");
 		
 		return r;
@@ -368,23 +369,24 @@ public class AnamneseActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item){
 		
 		switch(item.getItemId()){
-		case SAIR:
-			mensagemExibir("Sair", "Saindo");
+		case VOLTAR:
+			mensagemExibir("Voltar", "Voltando",R.drawable.back);
 			finish();
 			break;
 		case AJUDA:
-			mensagemExibir("Ajuda", "Avaliacao");
+			mensagemExibir("Ajuda", "Avaliacao",R.drawable.help);
 			break;
 		case avaliacao:
-			mensagemExibir("Avaliacao", "Podemos visualizar Anamnese, Dados estatisticos e fazer uma avaliacao do aluno.");
+			mensagemExibir("Avaliacao", "Podemos visualizar Anamnese, Dados estatisticos e fazer uma avaliacao do aluno.",R.drawable.help);
 			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void mensagemExibir(String titulo, String texto){
+	public void mensagemExibir(String titulo, String texto,int icon){
 		AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
 		mensagem.setTitle(titulo);
+		mensagem.setIcon(icon);
 		mensagem.setMessage(texto);
 		mensagem.setNeutralButton("OK", null);
 		mensagem.show();

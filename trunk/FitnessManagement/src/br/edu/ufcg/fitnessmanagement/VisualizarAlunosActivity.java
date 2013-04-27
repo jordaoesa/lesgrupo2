@@ -101,12 +101,12 @@ public class VisualizarAlunosActivity extends Activity {
 
 
 	
-	private final int SAIR = 1;
+	private final int VOLTAR = 1;
 	private final int AJUDA = 2;
 	
 	private final int alunosCadastrados=4;
 	String ajuda = "Ajuda";
-	String sair = "Sair";
+	String voltar = "Voltar";
 	
 
 	@Override
@@ -119,10 +119,11 @@ public class VisualizarAlunosActivity extends Activity {
 		boolean r = super.onCreateOptionsMenu(menu);
 		super.onCreateOptionsMenu(menu);
 		//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
-		menu.add(0, SAIR, 0, sair).setIcon(R.drawable.alert);
+		menu.add(0, VOLTAR, 0, voltar).setIcon(R.drawable.back);
 		
 		
 		SubMenu menuAjuda = menu.addSubMenu(ajuda);
+		menuAjuda.setIcon(R.drawable.help);
 		menuAjuda.add(0, alunosCadastrados, 0, "Alunos Cadastrados");
 		
 		return r;
@@ -135,19 +136,20 @@ public class VisualizarAlunosActivity extends Activity {
 		switch(item.getItemId()){
 		
 		
-		case SAIR: mensagemExibir("Sair", "Saindo"); finish();  break;
-		case AJUDA: mensagemExibir("Ajuda", "Menu Ajuda"); break;
+		case VOLTAR: mensagemExibir("Voltar", "Voltando",R.drawable.back); finish();  break;
+		case AJUDA: mensagemExibir("Ajuda", "Menu Ajuda",R.drawable.help); break;
 		case alunosCadastrados: mensagemExibir("Alunos Cadastrados", "Aqui temos uma lista com todos os seus alunos cadastrados, selecione um aluno especifico e adicione mais detalhes a seu perfil." +
-				"Ao clicar em Historico Agendamentos sera mostrada uma lista com atividades pendentes a serem resolvidas, ex: pagamento ou aula."); break;
+				"Ao clicar em Historico Agendamentos sera mostrada uma lista com atividades pendentes a serem resolvidas, ex: pagamento ou aula.",R.drawable.help); break;
 		
 		}
 		
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void mensagemExibir(String titulo, String texto){
+	public void mensagemExibir(String titulo, String texto, int icone){
 		AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
 		mensagem.setTitle(titulo);
+		mensagem.setIcon(icone);
 		mensagem.setMessage(texto);
 		mensagem.setNeutralButton("OK", null);
 		mensagem.show();
