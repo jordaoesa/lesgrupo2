@@ -256,12 +256,12 @@ public class AcompanhamentoVisualActivity extends Activity {
 	
 
 	
-	private final int SAIR = 1;
+	private final int VOLTAR = 1;
 	private final int AJUDA = 2;
 	
 	private final int acompanhamentoVisual=3;
 	String ajuda = "Ajuda";
-	String sair = "Sair";
+	String voltar = "Voltar";
 	
 
 	@Override
@@ -274,10 +274,11 @@ public class AcompanhamentoVisualActivity extends Activity {
 		boolean r = super.onCreateOptionsMenu(menu);
 		super.onCreateOptionsMenu(menu);
 		//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
-		menu.add(0, SAIR, 0, sair).setIcon(R.drawable.alert);
+		menu.add(0, VOLTAR, 0, voltar).setIcon(R.drawable.back);
 		
 		
 		SubMenu menuAjuda = menu.addSubMenu(ajuda);
+		menuAjuda.setIcon(R.drawable.help);
 		menuAjuda.add(0, acompanhamentoVisual, 0, "Acompanhamento Visual");
 		
 		return r;
@@ -290,19 +291,21 @@ public class AcompanhamentoVisualActivity extends Activity {
 		switch(item.getItemId()){
 		
 		
-		case SAIR: mensagemExibir("Sair", "Saindo"); finish();  break;
-		case AJUDA: mensagemExibir("Ajuda", "Acompanhamento Visual"); break;
+		case VOLTAR: mensagemExibir("Voltar", "Voltando",R.drawable.back); finish();  break;
+		case AJUDA: mensagemExibir("Ajuda", "Acompanhamento Visual",R.drawable.help); break;
 		case acompanhamentoVisual: mensagemExibir("Acompanhamento Visual", "Tire fotos do seu aluno e tenha um acompanhamento visual da evolucao do seu aluno.\n" +
-				"Para tirar uma nova foto pressione a foto mais recente."); break;
+				"Para tirar uma nova foto pressione a foto mais recente.\n" +
+				"Pressionando uma foto voce sera capaz de visualizar algumas informacoes estaticas e a data em que a foto foi tirada.",R.drawable.help); break;
 		}
 		
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void mensagemExibir(String titulo, String texto){
+	public void mensagemExibir(String titulo, String texto,int icon){
 		AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
 		mensagem.setTitle(titulo);
 		mensagem.setMessage(texto);
+		mensagem.setIcon(icon);
 		mensagem.setNeutralButton("OK", null);
 		mensagem.show();
 	}

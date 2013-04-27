@@ -112,12 +112,12 @@ public class GerenciadorTreinoDiarioActivity extends Activity {
 	
 
 	
-	private final int SAIR = 1;
+	private final int VOLTAR = 1;
 	private final int AJUDA = 2;
 	
 	private final int gerenciarTreinoDiario=3;
 	String ajuda = "Ajuda";
-	String sair = "Sair";
+	String voltar = "Voltar";
 	
 
 	@Override
@@ -130,10 +130,11 @@ public class GerenciadorTreinoDiarioActivity extends Activity {
 		boolean r = super.onCreateOptionsMenu(menu);
 		super.onCreateOptionsMenu(menu);
 		//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
-		menu.add(0, SAIR, 0, sair).setIcon(R.drawable.alert);
+		menu.add(0, VOLTAR, 0, voltar).setIcon(R.drawable.back);
 		
 		
 		SubMenu menuAjuda = menu.addSubMenu(ajuda);
+		menuAjuda.setIcon(R.drawable.help);
 		menuAjuda.add(0, gerenciarTreinoDiario, 0, "Gerenciar Treino Diario");
 		
 		return r;
@@ -146,19 +147,20 @@ public class GerenciadorTreinoDiarioActivity extends Activity {
 		switch(item.getItemId()){
 		
 		
-		case SAIR: mensagemExibir("Sair", "Saindo"); finish();  break;
-		case AJUDA: mensagemExibir("Ajuda", "Gerenciar Treino Diario"); break;
+		case VOLTAR: mensagemExibir("Voltar", "Voltando",R.drawable.back); finish();  break;
+		case AJUDA: mensagemExibir("Ajuda", "Gerenciar Treino Diario",R.drawable.help); break;
 		case gerenciarTreinoDiario: mensagemExibir("Gerenciar Treino Diario", "Informe um nome para a Atividade, o numero de serie e repeticoes e o tempo de execucao da atividade, caso nao tenha tempo preencha os campos com 0.\n" +
 				"Adicione observacoes sobre a atividade e clique em cadastrar atividade.\n" +
-				"As atividades ja cadastradas sao visualizadas logo abaixo e podem ser deletadas, basta pressionar e escolher a opcao deletar."); break;
+				"As atividades ja cadastradas sao visualizadas logo abaixo e podem ser deletadas, basta pressionar e escolher a opcao deletar.",R.drawable.help); break;
 		}
 		
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void mensagemExibir(String titulo, String texto){
+	public void mensagemExibir(String titulo, String texto,int icon){
 		AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
 		mensagem.setTitle(titulo);
+		mensagem.setIcon(icon);
 		mensagem.setMessage(texto);
 		mensagem.setNeutralButton("OK", null);
 		mensagem.show();
