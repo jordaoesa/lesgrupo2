@@ -25,7 +25,7 @@
         android:layout_marginBottom="120dp"
         android:text="Gerenciar Aluno" 
        	android:textSize="30dp"
-       	android:textColor="@color/white"/>
+       	android:textStyle="bold"/>
 
     <Button
         android:id="@+id/buttonCadastrarAlunosMain"
@@ -37,7 +37,7 @@
         android:layout_alignParentLeft="true" 
         android:text="Adicionar Aluno"
         android:textSize="30dp"
-        android:textColor="@color/white"/>
+        android:textStyle="bold"/>
 
 
 
