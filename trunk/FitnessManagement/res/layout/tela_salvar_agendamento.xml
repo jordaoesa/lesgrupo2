@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundall" >
+    android:background="@drawable/background_gradiente" >
 
     <LinearLayout
         android:id="@+id/painelDataAgendamento"
@@ -26,7 +26,6 @@
             android:layout_toRightOf="@id/textViewDataSalvarAgendamento"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/white" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -115,7 +114,8 @@
             </RadioGroup>
         </LinearLayout>
     </LinearLayout>
- <LinearLayout
+
+    <LinearLayout
         android:id="@+id/painelObservacaoAgendamento"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -144,6 +144,7 @@
             <requestFocus />
         </EditText>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/painelBotoesAgendamento"
         android:layout_width="fill_parent"
@@ -157,14 +158,19 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@+id/editTextObservacaoAgendamento"
-            android:background="@drawable/salvar" />
-
-        <Button
-            android:id="@+id/buttonVoltarMenuSalvarAgendamento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/voltar" />
-
+            android:layout_weight="0.51"
+            android:background="@drawable/button_shape"
+            android:text="Salvar" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonVoltarMenuSalvarAgendamento"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_weight="0.51"
+        android:background="@drawable/button_shape"
+        android:text="Voltar" />
 
 </RelativeLayout>

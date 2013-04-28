@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundall"
+    android:background="@drawable/background_gradiente"
     android:orientation="vertical" >
 
     <ScrollView
@@ -358,7 +358,9 @@
 		        <Button
 		            android:id="@+id/buttonAtualizarDados"
 		            android:layout_width="match_parent"
-		            android:layout_height="wrap_content"
+		            android:layout_height="50dp"
+		            android:layout_weight="0.51"
+		            android:background="@drawable/button_shape"
 		            android:layout_alignParentLeft="true"
 		            android:layout_alignParentTop="true"
 		            android:text="Enviar Dados" />

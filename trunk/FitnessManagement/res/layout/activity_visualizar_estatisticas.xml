@@ -2,67 +2,81 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundall" >
+    android:background="@drawable/background_gradiente" >
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" >
-    
-		    <Button
-		        android:id="@+id/buttonEstatisticasPeso"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:layout_marginTop="5dp"
-		        android:text="Peso" />
-		    
-		    <Button
-		        android:id="@+id/buttonEstatisticasAltura"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:text="Altura" />
-		    
-		    <Button
-		        android:id="@+id/buttonEstatisticasBEContraido"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:text="Braço Esquerdo Contraído" />
-		
-		    <Button
-		        android:id="@+id/buttonEstatisticasBDContraido"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:text="Braço Direito Contraido" />
-		    
-		    <Button
-		        android:id="@+id/buttonEstatisticasCoxaE"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:text="Coxa Esquerda" />
-		    
-		    <Button
-		        android:id="@+id/buttonEstatisticasCoxaD"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:text="Coxa Direita" />
-		    
-		    <Button
-		        android:id="@+id/buttonEstatisticasPanturrilhaE"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:text="Panturrilha Esquerda" />
-		    
-		    
-		    <Button
-		        android:id="@+id/buttonEstatisticasPanturrilhaD"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:text="Panturrilha Direita" />
 
+            <Button
+                android:id="@+id/buttonEstatisticasPeso"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.51"
+                android:background="@drawable/button_shape"
+                android:text="Peso" />
+
+            <Button
+                android:id="@+id/buttonEstatisticasAltura"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="0.51"
+                android:background="@drawable/button_shape"
+                android:text="Altura" />
+
+            <Button
+                android:id="@+id/buttonEstatisticasBEContraido"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="0.51"
+                android:background="@drawable/button_shape"
+                android:text="Braço Esquerdo Contraído" />
+
+            <Button
+                android:id="@+id/buttonEstatisticasBDContraido"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="0.51"
+                android:background="@drawable/button_shape"
+                android:text="Braço Direito Contraido" />
+
+            <Button
+                android:id="@+id/buttonEstatisticasCoxaE"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="0.51"
+                android:background="@drawable/button_shape"
+                android:text="Coxa Esquerda" />
+
+            <Button
+                android:id="@+id/buttonEstatisticasCoxaD"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="0.51"
+                android:background="@drawable/button_shape"
+                android:text="Coxa Direita" />
+
+            <Button
+                android:id="@+id/buttonEstatisticasPanturrilhaE"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="0.51"
+                android:background="@drawable/button_shape"
+                android:text="Panturrilha Esquerda" />
+
+            <Button
+                android:id="@+id/buttonEstatisticasPanturrilhaD"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="0.51"
+                android:background="@drawable/button_shape"
+                android:text="Panturrilha Direita" />
         </LinearLayout>
     </ScrollView>
 
