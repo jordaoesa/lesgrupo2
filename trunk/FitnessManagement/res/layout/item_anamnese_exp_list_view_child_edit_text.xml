@@ -5,12 +5,17 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/list_item_text_view_parent"
+        android:id="@+id/list_item_textView_child_edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
         android:padding="10dp"
         android:textSize="20sp" />
+    
+    <EditText
+        android:id="@+id/list_item_editText_child_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
 
 </LinearLayout>

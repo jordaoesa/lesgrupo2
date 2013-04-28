@@ -60,13 +60,13 @@ public class AnamneseActivity extends Activity {
 		List<ParentListView> list = new ArrayList<AnamneseActivity.ParentListView>();
 		ParentListView p = new ParentListView();
 		p.setId("textViewPAI1");
-		p.addChild("textViewchild1_1");
-		p.addChild("editTextchild1_2");
+		p.addChild("editTextchild1_1");
+		p.addChild("radioButtonchild1_2");
 		list.add(p);
 		p = new ParentListView();
 		p.setId("textViewPAI2");
-		p.addChild("textViewchild2_1");
-		p.addChild("radioGroupchild2_2");
+		p.addChild("editTextchild2_1");
+		p.addChild("radioButtonchild2_2");
 		list.add(p);
 		return list;
 	}
