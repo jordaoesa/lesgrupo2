@@ -41,25 +41,24 @@ public class ExpandableListViewAdapterAnamnese /*extends BaseExpandableListAdapt
 
 	@Override
 	public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View view, ViewGroup parent) {
-		if(view == null){
-			view = inflater.inflate(R.layout.item_anamnese_exp_list_view_child, parent, false);
-			View v = null;
-			if(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition).contains("textView")){
-				v = new TextView(context);
-				((TextView)v).setText(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition).replace("textView", ""));
-				((TextView)v).setTextAppearance(context, android.R.attr.textAppearanceMedium);
-			}else if(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition).contains("radioGroup")){
-				//TODO
-			}else if(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition).contains("editText")){
-				v = new EditText(context);
-				((EditText)v).setText("");
-			}
-			((LinearLayout)view).addView(v);
+		if(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition).contains("radioButton")){
+			view = inflater.inflate(R.layout.item_anamnese_exp_list_view_child_radio_button, null);
+		}else if(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition).contains("editText")){
+			view = inflater.inflate(R.layout.item_anamnese_exp_list_view_child_edit_text, null);
 		}
 		
+		if(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition).contains("radioButton")){
+		 	TextView tv = (TextView) view.findViewById(R.id.list_item_textView_child_radio_button);
+		 	tv.setText(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition).replace("radioButton", ""));
+			RadioButton rb = (RadioButton) view.findViewById(R.id.list_item_radioButton_child_radio_button);
+			rb.setText(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition).replace("radioButton", ""));
+		}else if(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition).contains("editText")){
+			TextView tv = (TextView) view.findViewById(R.id.list_item_textView_child_edit_text);
+			tv.setText(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition).replace("editText", ""));
+			EditText et = (EditText) view.findViewById(R.id.list_item_editText_child_edit_text);
+			et.setText("");
+		}
 		
-		//TextView tv = (TextView) view.findViewById(R.id.list_item_text_child);
-		//tv.setText(parentsAndChildsIDS.get(groupPosition).getChildsIds().get(childPosition));
 		return view;
 	}
 
@@ -89,7 +88,7 @@ public class ExpandableListViewAdapterAnamnese /*extends BaseExpandableListAdapt
 			view = inflater.inflate(R.layout.item_anamnese_exp_list_view_parent, parent, false);
 		}
 		
-		TextView tv = (TextView) view.findViewById(R.id.list_item_text_view);
+		TextView tv = (TextView) view.findViewById(R.id.list_item_text_view_parent);
 		tv.setText(parentsAndChildsIDS.get(groupPosition).getId().replace("textView", ""));
 		return view;
 	}
