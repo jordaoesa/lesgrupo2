@@ -8,6 +8,7 @@ import br.edu.ufcg.aluno.Dados;
 import br.edu.ufcg.fachada.DadosFachada;
 import br.edu.ufcg.grafico.GraficoDeLinha;
 import br.edu.ufcg.util.FitnessManagementSingleton;
+import br.edu.ufcg.util.ImageAdapterVisualizarEstatisticas;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,7 +18,10 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.GridView;
 
 public class VisualizarEstatisticasActivity extends Activity {
 
@@ -36,16 +40,109 @@ public class VisualizarEstatisticasActivity extends Activity {
 	private void mostrarEstatisticas() {
 		
 		final List<Dados> dados = dadosFachada.getDadosDoAluno(getIntent().getIntExtra("id_aluno", -1));
-		final Button buttonPeso = (Button) findViewById(R.id.buttonEstatisticasPeso);
+		/*final Button buttonPeso = (Button) findViewById(R.id.buttonEstatisticasPeso);
 		final Button buttonAltura = (Button) findViewById(R.id.buttonEstatisticasAltura);
 		final Button buttonBracoEC = (Button) findViewById(R.id.buttonEstatisticasBEContraido);
 		final Button buttonBracoDC = (Button) findViewById(R.id.buttonEstatisticasBDContraido);
 		final Button buttonCoxaE = (Button) findViewById(R.id.buttonEstatisticasCoxaE);
 		final Button buttonCoxaD = (Button) findViewById(R.id.buttonEstatisticasCoxaD);
 		final Button buttonPanturrilhaE = (Button) findViewById(R.id.buttonEstatisticasPanturrilhaE);
-		final Button buttonPanturrilhaD = (Button) findViewById(R.id.buttonEstatisticasPanturrilhaD);
+		final Button buttonPanturrilhaD = (Button) findViewById(R.id.buttonEstatisticasPanturrilhaD);*/
+		GridView gridViewVisualizarEstatisticas = (GridView) findViewById(R.id.gridViewVisualizarEstatisticas);
+		System.out.println(gridViewVisualizarEstatisticas);
+		ImageAdapterVisualizarEstatisticas adapter = new ImageAdapterVisualizarEstatisticas(getApplicationContext());
+		System.out.println(adapter);
+		gridViewVisualizarEstatisticas.setAdapter(adapter);
 		
-		final List<Double> values = new ArrayList<Double>();
+		/*gridViewVisualizarEstatisticas.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				
+				final List<Double> values = new ArrayList<Double>();
+				final List<Date> dates = new ArrayList<Date>();
+				
+				switch (position) {
+				case 0:
+					if(dados != null){
+						for(Dados d : dados){
+							values.add(d.getPeso());
+							dates.add(d.getData());
+						}
+						graficoDeLinhaHandler(values, dates, "Peso");
+					}
+					break;
+				case 1:
+					if(dados != null){
+						for (Dados d : dados) {
+							values.add(d.getAltura());
+							dates.add(d.getData());
+						}
+						graficoDeLinhaHandler(values, dates, "Altura");
+					}
+					break;
+				case 2:
+					if(dados != null){
+						for(Dados d : dados){
+							values.add(d.getBracoEC());
+							dates.add(d.getData());
+						}
+						graficoDeLinhaHandler(values, dates, "Braço Esquerdo Contraído");
+					}
+					break;
+				case 3:
+					if(dados != null){
+						for(Dados d : dados){
+							values.add(d.getBracoDC());
+							dates.add(d.getData());
+						}
+						graficoDeLinhaHandler(values, dates, "Braço Direito Contraído");
+					}
+					break;
+				case 4:
+					if(dados != null){
+						for(Dados d : dados){
+							values.add(d.getCoxaE());
+							dates.add(d.getData());
+						}
+						graficoDeLinhaHandler(values, dates, "Coxa Esquerda");
+					}
+					break;
+				case 5:
+					if(dados != null){
+						for(Dados d : dados){
+							values.add(d.getCoxaD());
+							dates.add(d.getData());
+						}
+						graficoDeLinhaHandler(values, dates, "Coxa Direita");
+					}
+					break;
+				case 6:
+					if(dados != null){
+						for(Dados d : dados){
+							values.add(d.getPanturrilhaE());
+							dates.add(d.getData());
+						}
+						graficoDeLinhaHandler(values, dates, "Panturrilha Esquerda");
+					}
+					break;
+				case 7:
+					if(dados != null){
+						for(Dados d : dados){
+							values.add(d.getPanturrilhaD());
+							dates.add(d.getData());
+						}
+						graficoDeLinhaHandler(values, dates, "Panturrilha Direita");
+					}
+					break;
+				default:
+					break;
+				}
+				
+			}
+		});*/
+		
+		/*final List<Double> values = new ArrayList<Double>();
 		final List<Date> dates = new ArrayList<Date>();
 		if(dados != null){
 			
@@ -136,7 +233,7 @@ public class VisualizarEstatisticasActivity extends Activity {
 					graficoDeLinhaHandler(values, dates, "Panturrilha Direita");
 				}
 			});
-		}
+		}*/
 		
 	}
 
@@ -145,16 +242,6 @@ public class VisualizarEstatisticasActivity extends Activity {
 		Intent intent = grafico.getIntent(this, values, dates, titulo);
 		startActivity(intent);
 	}
-
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater()
-//				.inflate(R.menu.activity_visualizar_estatisticas, menu);
-//		return true;
-//	}
-	
-	
 	
 	private final int VOLTAR = 1;
 	private final int AJUDA = 2;
