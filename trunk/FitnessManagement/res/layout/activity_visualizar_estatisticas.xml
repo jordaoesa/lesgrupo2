@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_gradiente" >
 
-    <ScrollView
+    <!-- <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -78,6 +78,17 @@
                 android:background="@drawable/button_shape"
                 android:text="Panturrilha Direita" />
         </LinearLayout>
-    </ScrollView>
+    </ScrollView> -->
+
+    <GridView
+        android:id="@+id/gridViewVisualizarEstatisticas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:numColumns="2"
+        android:verticalSpacing="25dp" >
+    </GridView>
 
 </RelativeLayout>

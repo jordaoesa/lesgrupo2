@@ -4,7 +4,7 @@
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:background="@drawable/gradiente">
+	android:background="@drawable/calendar_backgroud_shape">
 
 	
 
@@ -93,13 +93,15 @@
             android:id="@+id/buttonSalvarAgendarAcompanhamentoCalendar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/salvar" />
+            android:background="@drawable/button_shape"
+            android:text="Salvar Agendamento" />
 
         <Button
             android:id="@+id/buttonVoltarAgendarAcompanhamentoCalendar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/voltar" />
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/button_shape"
+            android:text="Voltar" />
 
     </LinearLayout>
 
