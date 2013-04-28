@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/backgroundall" >
+    android:background="@drawable/background_gradiente" >
 
     <TextView
         android:id="@+id/textViewNomeMenuCadastrar"
@@ -89,12 +89,14 @@
 
     <Button
         android:id="@+id/buttonCadastrarMenuCadastrar"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0.51"
+        android:background="@drawable/button_shape"
         android:layout_above="@+id/buttonVoltarMenuCadastrar"
         android:layout_alignParentLeft="true"
-        android:background="@drawable/cadastraraluno"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true" 
+        android:text="Cadastrar Aluno"/>
 
     <TextView
         android:id="@+id/textViewSexoMenuCadastrar"
@@ -159,10 +161,12 @@
 
 	<Button
 	    android:id="@+id/buttonVoltarMenuCadastrar"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
+	    android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0.51"
+        android:background="@drawable/button_shape"
 	    android:layout_alignParentBottom="true"
-	    android:layout_centerHorizontal="true"
-	    android:background="@drawable/voltar" />
+	    android:layout_centerHorizontal="true" 
+	    android:text="Voltar"/>
 	    
 </RelativeLayout>

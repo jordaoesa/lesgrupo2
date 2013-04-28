@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundall" >
+    android:background="@drawable/background_gradiente" >
 
     <Spinner
         android:id="@+id/spinnerSemanaAcompanhamento"
@@ -39,19 +39,31 @@
 
         <requestFocus />
     </EditText>
-   <Button
-        android:id="@+id/buttonSalvarAcompanhamentoMeta"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_above="@+id/buttonVoltarAcompanhamentoActivityMetas"
-        android:background="@drawable/salvar" />
 
-    <Button
-        android:id="@+id/buttonVoltarAcompanhamentoActivityMetas"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/voltar" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/buttonSalvarAcompanhamentoMeta"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.51"
+            android:background="@drawable/button_shape"
+            android:text="Salvar Acompanhamento" />
+
+        <Button
+            android:id="@+id/buttonVoltarAcompanhamentoActivityMetas"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.51"
+            android:background="@drawable/button_shape"
+            android:text="Voltar" />
+
+    </LinearLayout>
 
 </RelativeLayout>

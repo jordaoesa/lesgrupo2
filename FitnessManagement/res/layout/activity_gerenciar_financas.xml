@@ -2,8 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundall"
-    tools:context=".GerenciarFinancasActivity" >
+    android:background="@drawable/background_gradiente"
+    tools:context=".GerenciarFinancasActivity" 
+    >
 
     <LinearLayout
         android:id="@+id/linearLayout1GerenciarFinancas"
@@ -11,23 +12,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:orientation="horizontal" >
+        android:orientation="horizontal" 
+        android:paddingTop="20dp">
 
         <EditText
             android:id="@+id/editTextAdicionarGerenciarFinancas"
-            android:layout_width="107dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.08"
-            android:ems="10"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.51"
             android:inputType="numberDecimal" >
         </EditText>
 
         <Button
             android:id="@+id/buttonAdicionarGerenciarFinancas"
-            android:layout_width="56dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_weight="0.26"
-            android:background="@drawable/adicionar" />
+            android:layout_weight="0.51"
+            android:background="@drawable/button_shape"
+            android:text="Adicionar" />
 
     </LinearLayout>
 
@@ -38,34 +40,35 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/linearLayout1GerenciarFinancas"
-        android:layout_marginTop="16dp" >
+        android:layout_marginTop="16dp" 
+        android:paddingBottom="20dp">
 
         <EditText
             android:id="@+id/editTextQuitarGerenciarFinancas"
-            android:layout_width="142dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.51"
             android:inputType="numberDecimal" >
         </EditText>
 
         <Button
             android:id="@+id/buttonQuitarGerenciarFinancas"
-            android:layout_width="56dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_weight="0.64"
-            android:background="@drawable/quitar" />
+            android:layout_weight="0.51"
+            android:background="@drawable/button_shape"
+            android:text="Quitar" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/buttonQuitarTudoGerenciarFinancas"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_weight="0.51"
+        android:background="@drawable/button_shape"
         android:layout_below="@+id/linearLayout1"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/quitartudo" />
+        android:text="Quitar Tudo"/>
 
     <TextView
         android:id="@+id/textViewDividaTotalGerenciarFinancas"
@@ -90,10 +93,12 @@
 
     <Button
         android:id="@+id/buttonVoltarGerenciarFinancas"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/voltar" />
+        android:layout_alignParentLeft="true"
+        android:layout_weight="0.51"
+        android:background="@drawable/button_shape"
+        android:text="Voltar" />
 
 </RelativeLayout>

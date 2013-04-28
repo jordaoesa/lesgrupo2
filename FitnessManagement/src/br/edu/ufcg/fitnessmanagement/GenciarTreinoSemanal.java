@@ -36,7 +36,7 @@ public class GenciarTreinoSemanal extends Activity {
                 Button buttonSexta = (Button) findViewById(R.id.botaoSextaCS);
                 Button buttonSabado = (Button) findViewById(R.id.botaoSabadoCS);
                 Button buttonDomingo = (Button) findViewById(R.id.botaoDomingoCS);
-                ImageButton backBotton = (ImageButton) findViewById(R.id.imgBtVoltar);
+                Button backBotton = (Button) findViewById(R.id.imgBtVoltar);
 //                RelativeLayout rlTreinoSemanal = (RelativeLayout)findViewById(R.id.rlTreinoSemanal);
 //                rlTreinoSemanal.setBackgroundColor(Color.DKGRAY);
                 
