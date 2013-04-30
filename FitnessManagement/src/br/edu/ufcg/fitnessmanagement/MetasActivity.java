@@ -97,11 +97,31 @@ public class MetasActivity extends Activity {
 		botaoVisualizaMeta.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
 				MetasFachada metaFachada = FitnessManagementSingleton.getMetaFachadaInstance();
-				GraficoDeLinha grafico = new GraficoDeLinha();
-				Intent intent = grafico.getGraficoMetas(MetasActivity.this, metaFachada.getMetaWeightLoss(aluno.getId()), aluno.getId());
-		        intent.setAction(Intent.ACTION_MAIN);
-		        intent.addCategory(Intent.CATEGORY_HOME);
-				startActivity(intent);
+				if(metaFachada.getAcompanhamentoWeightLoss(aluno.getId()).size() > 0){
+					GraficoDeLinha grafico = new GraficoDeLinha();
+					Intent intent = grafico.getGraficoMetas(MetasActivity.this, metaFachada.getMetaWeightLoss(aluno.getId()), aluno.getId());
+					intent.setAction(Intent.ACTION_MAIN);
+					intent.addCategory(Intent.CATEGORY_HOME);
+					startActivity(intent);
+				}else{
+					Builder dialog = Utils.showMessage(MetasActivity.this,
+							Message.ALERT, "Atenção",
+							"Nenhuma acompanhamento feito.Deseja fazer?");
+					dialog.setPositiveButton("Sim",
+							new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog,
+								int which) {
+							Intent intentAcompanhamentoMeta = new Intent(
+									getApplicationContext(),
+									AcompanhamentoMetasActivity.class);
+							intentAcompanhamentoMeta.putExtra("id_aluno", aluno.getId());
+							startActivity(intentAcompanhamentoMeta);	
+						}
+					});
+					dialog.setNegativeButton("Não", null);
+					dialog.show();
+				}
+
 			}
 		});
 	}
