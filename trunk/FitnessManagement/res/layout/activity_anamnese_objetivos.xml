@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradiente"
+    tools:context=".AnamneseActivity" >
+
+    <Button
+        android:id="@+id/buttonEncerrarAnamneseObjetivos"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/button_shape"
+        android:text="Encerrar Anamnese" />
+
+    <ScrollView
+        android:id="@+id/scrollViewAnamneseObjetivos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonEncerrarAnamneseObjetivos"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:id="@+id/linearLayoutAnamneseObjetivos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                
+                <TextView
+                    android:id="@+id/textView1Pergunta18Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Objetivos"
+                    android:textColor="@color/white"/>
+
+                <LinearLayout 
+                    android:id="@+id/linearLayoutPergunta18Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView1Pergunta18Anamnese"
+                    android:orientation="vertical">
+                    
+                    <CheckBox
+	                    android:id="@+id/checkBox1Pergunta18Anamnese"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="Hipertrofia"
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
+	                <CheckBox
+	                    android:id="@+id/checkBox2Pergunta18Anamnese"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="Condicionamento"
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
+	                <CheckBox
+	                    android:id="@+id/checkBox3Pergunta18Anamnese"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="Diminuir % de gordura"
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
+	                <CheckBox
+	                    android:id="@+id/checkBox4Pergunta18Anamnese"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="Resistência muscular"
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
+	                <CheckBox
+	                    android:id="@+id/checkBox5Pergunta18Anamnese"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="Enrijecimento localizado"
+	                    android:textSize="20px" 
+	                    android:textColor="@color/white"/>
+	                <CheckBox
+	                    android:id="@+id/checkBox6Pergunta18Anamnese"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="Correção de postura"
+	                    android:textSize="20px"
+	                    android:textColor="@color/white" />
+                </LinearLayout>
+                
+                <TextView 
+                    android:id="@+id/textView2Pergunta18Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/linearLayoutPergunta18Anamnese"
+                    android:text="Frequencia semanal?"
+                    android:textColor="@color/white"/>
+                
+                <EditText 
+                    android:id="@+id/editText1Pergunta18Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textView2Pergunta18Anamnese"/>
+                
+                <TextView 
+                    android:id="@+id/textView3Pergunta18Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/editText1Pergunta18Anamnese"
+                    android:text="% de gordura?"
+                    android:textColor="@color/white"/>
+                
+                <EditText 
+                    android:id="@+id/editText2Pergunta18Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textView3Pergunta18Anamnese"
+                    android:inputType="number"/>
+                
+                <TextView 
+                    android:id="@+id/textView4Pergunta18Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/editText2Pergunta18Anamnese"
+                    android:text="Peso"
+                    android:textColor="@color/white"/>
+                
+                <EditText 
+                    android:id="@+id/editText3Pergunta18Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textView4Pergunta18Anamnese"
+                    android:inputType="number"/>
+                
+                <TextView 
+                    android:id="@+id/textView5Pergunta18Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/editText3Pergunta18Anamnese"
+                    android:text="Peso de massa magra"
+                    android:textColor="@color/white"/>
+                
+                <EditText 
+                    android:id="@+id/editText4Pergunta18Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textView5Pergunta18Anamnese"
+                    android:inputType="number"/>
+                
+            </RelativeLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

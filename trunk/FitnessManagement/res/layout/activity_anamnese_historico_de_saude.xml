@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradiente"
+    tools:context=".AnamneseActivity" >
+
+    <Button
+        android:id="@+id/buttonAvancarAnamneseHistoricoDeSaude"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/button_shape"
+        android:text="Avançar" />
+
+    <ScrollView
+        android:id="@+id/scrollViewAnamneseHistoricoDeSaude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonAvancarAnamneseHistoricoDeSaude"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:id="@+id/linearLayoutAnamneseHistoricoDeSaude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <CheckBox
+                android:id="@+id/checkBox1Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Problemas Cardíacos"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <CheckBox
+                android:id="@+id/checkBox2Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anemia"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <CheckBox
+                android:id="@+id/checkBox3Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ansiedade"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <CheckBox
+                android:id="@+id/checkBox4Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Problemas Respiratórios"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <CheckBox
+                android:id="@+id/checkBox5Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Colesterol"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <CheckBox
+                android:id="@+id/checkBox6Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Depressão"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <CheckBox
+                android:id="@+id/checkBox7Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insônia"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <CheckBox
+                android:id="@+id/checkBox8Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diabetes"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <CheckBox
+                android:id="@+id/checkBox9Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gastrite"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <CheckBox
+                android:id="@+id/checkBox10Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tireóide"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <CheckBox
+                android:id="@+id/checkBox11Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Varizes"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <CheckBox
+                android:id="@+id/checkBox12Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tonturas"
+                android:textColor="@color/white"
+                android:textSize="20px" />
+
+            <TextView
+                android:id="@+id/textView2Pergunta10Anamnese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Outros Problemas?"
+                android:textColor="@color/white" />
+
+            <EditText
+                android:id="@+id/editTextPergunta10Anamnese"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

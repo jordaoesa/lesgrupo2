@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradiente"
+    tools:context=".AnamneseActivity" >
+
+    <Button
+        android:id="@+id/buttonAvancarAnamneseHistoricoGeral"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/button_shape"
+        android:text="Avançar" />
+
+    <ScrollView
+        android:id="@+id/scrollViewAnamneseHistoricoGeral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonAvancarAnamneseHistoricoGeral"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:id="@+id/linearLayoutAnamneseHistoricoGeral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewPergunta1Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/radioButtonSimPergunta1Anamnese"
+                    android:layout_alignParentLeft="true"
+                    android:text="Pratica atividade física?"
+                    android:textColor="@color/white" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupPergunta1Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/textViewPergunta1Anamnese"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioButtonSimPergunta1Anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonNaoPergunta1Anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Não"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewPergunta2Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Qual é a atividade?"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/editTextPergunta2Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textViewPergunta2Anamnese"
+                    android:ems="10" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewPergunta3Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Há quanto tempo está parado?"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/editTextPergunta3Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textViewPergunta3Anamnese"
+                    android:ems="10" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewPergunta4Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Qual atividade/esporte mais gosta?"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/editTextPergunta4Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textViewPergunta4Anamnese"
+                    android:ems="10" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewPergunta5Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Quanto tempo costuma dormir?"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/editTextPergunta5Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textViewPergunta5Anamnese"
+                    android:ems="10"
+                    android:inputType="number" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewPergunta6Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/radioButtonBaixoPergunta6Anamnese"
+                    android:layout_alignParentLeft="true"
+                    android:text="Nível de stress?"
+                    android:textColor="@color/white" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupPergunta6Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/textViewPergunta6Anamnese"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioButtonBaixoPergunta6Anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Baixo"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonModeradoPergunta6Anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Moderado"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonAltoPergunta6Anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alto"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewPergunta7Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/radioButtonSimPergunta7Anamnese"
+                    android:layout_alignParentLeft="true"
+                    android:text="Fuma?"
+                    android:textColor="@color/white" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupPergunta7Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/textViewPergunta7Anamnese"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/radioButtonSimPergunta7Anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sim"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonNaoPergunta7Anamnese"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Não"
+                        android:textColor="@color/white"
+                        android:textSize="20px" />
+                </RadioGroup>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewPergunta8Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Fuma há quanto tempo?"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/editTextPergunta8Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textViewPergunta8Anamnese"
+                    android:ems="10"
+                    android:inputType="number" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewPergunta9Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="Quantas refeiçoes diárias?"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/editTextPergunta9Anamnese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/textViewPergunta9Anamnese"
+                    android:ems="10"
+                    android:inputType="number" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
