@@ -99,7 +99,6 @@ public class GerenciadorTreinoDiarioActivity extends Activity {
 		listViewAtividadesDiarias = (ListView)findViewById(R.id.listViewAtividadesDiaria);
 		treinoDoDiaDoBD = fachadaAtividadeDiaria.getAtividadesDiaria(getIntent().getIntExtra("id_aluno", -1),getIntent().getStringExtra("diaSemana"));
 		for (Atividade a: treinoDoDiaDoBD) {
-			System.out.println(a.getAtividadeResume());
 			listaAtividades.add(a.getAtividadeResume());
 		}
 		
