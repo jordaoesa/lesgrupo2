@@ -157,14 +157,14 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 				}else if(radioSexButton.getText().equals(AgendamentoType.TREINO.value())){
 					agendamentoFachada.adicionaAgendamento(aluno.getId(),gridCallendar.getDateFullFormatter(),AgendamentoType.TREINO.value(), Long.toString(getCalendarSelected().getTimeInMillis()));
 				}
-				
+
 				Builder dialog = Utils.showMessage(AgendarAcompanhamentoActivity.this,Message.CONFIRM, "Informação", "Agendameto salvo com sucesso.");
 				dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-			        public void onClick(DialogInterface dialog, int which) {
-			        	finish();
-			        	salvarAgendamento();
-		            }
-		        });
+					public void onClick(DialogInterface dialog, int which) {
+						finish();
+						salvarAgendamento();
+					}
+				});
 				dialog.show();
 			}
 		});
@@ -282,15 +282,17 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy",new Locale("pt","br"));
 		formatter.setLenient(false);
 		try {
-			Date hoje = formatter.parse(formatter.format(new Date()));
-			Date dateSelected = formatter.parse(gridCallendar.getDateFullFormatter());
-			if(dateSelected.equals(hoje)){
-				return true;
-			}
-			else if(dateSelected.before(Calendar.getInstance().getTime())){
-				return false;
-			}else if(dateSelected.after(Calendar.getInstance().getTime())){
-				return true;
+			if(gridCallendar != null ){
+				Date hoje = formatter.parse(formatter.format(new Date()));
+				Date dateSelected = formatter.parse(gridCallendar.getDateFullFormatter());
+				if(dateSelected.equals(hoje)){
+					return true;
+				}
+				else if(dateSelected.before(Calendar.getInstance().getTime())){
+					return false;
+				}else if(dateSelected.after(Calendar.getInstance().getTime())){
+					return true;
+				}
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -301,59 +303,59 @@ public class AgendarAcompanhamentoActivity extends Activity implements OnClickLi
 
 
 
-		
-		private final int VOLTAR = 1;
-		private final int AJUDA = 2;
-		
-		private final int agendarAcompanhamento=3;
-		String ajuda = "Ajuda";
-		String voltar = "Voltar";
-		
 
-		@Override
-		public boolean onCreateOptionsMenu(Menu menu) {
-//			// Inflate the menu; this adds items to the action bar if it is present.
-//			getMenuInflater().inflate(R.menu.activity_main, menu);
-//			return true;
+	private final int VOLTAR = 1;
+	private final int AJUDA = 2;
 
-			
-			boolean r = super.onCreateOptionsMenu(menu);
-			super.onCreateOptionsMenu(menu);
-			//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
-			menu.add(0, VOLTAR, 0, voltar).setIcon(R.drawable.back);
-			
-			
-			SubMenu menuAjuda = menu.addSubMenu(ajuda);
-			menuAjuda.add(0, agendarAcompanhamento, 0, "Agendar Acompanhamento");
-			menuAjuda.setIcon(R.drawable.help);
-			
-			return r;
-			
+	private final int agendarAcompanhamento=3;
+	String ajuda = "Ajuda";
+	String voltar = "Voltar";
+
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		//			// Inflate the menu; this adds items to the action bar if it is present.
+		//			getMenuInflater().inflate(R.menu.activity_main, menu);
+		//			return true;
+
+
+		boolean r = super.onCreateOptionsMenu(menu);
+		super.onCreateOptionsMenu(menu);
+		//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
+		menu.add(0, VOLTAR, 0, voltar).setIcon(R.drawable.back);
+
+
+		SubMenu menuAjuda = menu.addSubMenu(ajuda);
+		menuAjuda.add(0, agendarAcompanhamento, 0, "Agendar Acompanhamento");
+		menuAjuda.setIcon(R.drawable.help);
+
+		return r;
+
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item){
+
+		switch(item.getItemId()){
+
+
+		case VOLTAR: mensagemExibir("Voltar", "Voltando",R.drawable.back); finish();  break;
+		case AJUDA: mensagemExibir("Ajuda", "Agendar Acompanhamento",R.drawable.help); break;
+		case agendarAcompanhamento: mensagemExibir("Agendar Acompanhamento", "Selecione uma data valida e clique em salvar, logo apos selecione um horario clicando no icone do relogio e selecione uma opcao, pagamento ou agendamento, escreva alguma observacao e salve.\n" +
+				"Essa atividade agendada aparecera na tela de Historico Agendamento, voce recebera um alerta no celular para lembrar do agendamento.",R.drawable.help); break;
 		}
-		
-		@Override
-		public boolean onOptionsItemSelected(MenuItem item){
-			
-			switch(item.getItemId()){
-			
-			
-			case VOLTAR: mensagemExibir("Voltar", "Voltando",R.drawable.back); finish();  break;
-			case AJUDA: mensagemExibir("Ajuda", "Agendar Acompanhamento",R.drawable.help); break;
-			case agendarAcompanhamento: mensagemExibir("Agendar Acompanhamento", "Selecione uma data valida e clique em salvar, logo apos selecione um horario clicando no icone do relogio e selecione uma opcao, pagamento ou agendamento, escreva alguma observacao e salve.\n" +
-					"Essa atividade agendada aparecera na tela de Historico Agendamento, voce recebera um alerta no celular para lembrar do agendamento.",R.drawable.help); break;
-			}
-			
-			return super.onOptionsItemSelected(item);
-		}
-		
-		public void mensagemExibir(String titulo, String texto,int icon){
-			AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
-			mensagem.setTitle(titulo);
-			mensagem.setIcon(icon);
-			mensagem.setMessage(texto);
-			mensagem.setNeutralButton("OK", null);
-			mensagem.show();
-		}
-	
-	
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	public void mensagemExibir(String titulo, String texto,int icon){
+		AlertDialog.Builder mensagem = new AlertDialog.Builder(this);
+		mensagem.setTitle(titulo);
+		mensagem.setIcon(icon);
+		mensagem.setMessage(texto);
+		mensagem.setNeutralButton("OK", null);
+		mensagem.show();
+	}
+
+
 }
