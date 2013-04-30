@@ -89,7 +89,7 @@ public class GraficoDeLinha {
 		renderer2.setColor(Color.YELLOW);
 		renderer2.setPointStyle(PointStyle.DIAMOND);
 
-		Intent intent = ChartFactory.getLineChartIntent(context, dataset, mRenderer, "Line Graph Title");
+		Intent intent = ChartFactory.getLineChartIntent(context, dataset, mRenderer, "Perda de peso");
 		return intent;
 	}
 }
