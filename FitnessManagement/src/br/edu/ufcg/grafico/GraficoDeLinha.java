@@ -73,7 +73,7 @@ public class GraficoDeLinha {
 
 		XYMultipleSeriesRenderer mRenderer = new XYMultipleSeriesRenderer(); // Holds a collection of XYSeriesRenderer and customizes the graph
 		mRenderer.setScale(200);
-		mRenderer.setZoomButtonsVisible(true);
+//		mRenderer.setZoomButtonsVisible(true);
 		mRenderer.setBackgroundColor(Color.BLACK);
 		mRenderer.setApplyBackgroundColor(true);
 
