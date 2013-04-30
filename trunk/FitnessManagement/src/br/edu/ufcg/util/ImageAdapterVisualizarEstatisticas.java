@@ -21,14 +21,14 @@ public class ImageAdapterVisualizarEstatisticas extends BaseAdapter {
 			"Panturrilha Esquerda", 
 			"Panturrilha Direita"};
 	//COLOCAR NESSE ARRAY OS IDS DOS ICONES
-	private int[] iconItens = {android.R.drawable.ic_media_play,
-			android.R.drawable.ic_media_play,
-			android.R.drawable.ic_media_play,
-			android.R.drawable.ic_media_play,
-			android.R.drawable.ic_media_play,
-			android.R.drawable.ic_media_play,
-			android.R.drawable.ic_media_play,
-			android.R.drawable.ic_media_play};
+	private int[] iconItens = {R.drawable.peso,
+			R.drawable.altura,
+			R.drawable.bracoesquerdo,
+			R.drawable.bracodireito,
+			R.drawable.cochaesquerda,
+			R.drawable.cochadireita,
+			R.drawable.panturrilhaesquerda,
+			R.drawable.panturrilhadireita};
 
 	public ImageAdapterVisualizarEstatisticas(Context context) {
 		this.context = context;
