@@ -222,8 +222,11 @@ public class GridCellCalendar extends BaseAdapter implements OnClickListener {
 	}
 	
 	public String getDateFullFormatter(){
-		String[] data = date_month_year.split("-");
-		return convertDigit(Integer.parseInt(data[0])) +"/" + getMonthNumber(data[1]) + "/" + data[2];
+		if(date_month_year != null){
+			String[] data = date_month_year.split("-");
+			return convertDigit(Integer.parseInt(data[0])) +"/" + getMonthNumber(data[1]) + "/" + data[2];
+		}
+		return "selecione";		
 	}
 	public int getCalendarYear(){ 
 		return Integer.parseInt(date_month_year.split("-")[2]);
