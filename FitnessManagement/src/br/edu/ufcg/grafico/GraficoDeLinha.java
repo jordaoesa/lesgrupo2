@@ -72,10 +72,10 @@ public class GraficoDeLinha {
 		dataset.addSeries(seriesAlunoIdeal);
 
 		XYMultipleSeriesRenderer mRenderer = new XYMultipleSeriesRenderer(); // Holds a collection of XYSeriesRenderer and customizes the graph
-		mRenderer.setScale(200);
+//		mRenderer.setScale(200);
 //		mRenderer.setZoomButtonsVisible(true);
-		mRenderer.setBackgroundColor(Color.BLACK);
-		mRenderer.setApplyBackgroundColor(true);
+//		mRenderer.setBackgroundColor(Color.BLACK);
+//		mRenderer.setApplyBackgroundColor(true);
 
 
 		XYSeriesRenderer renderer = new XYSeriesRenderer(); // This will be used to customize line 1
@@ -83,10 +83,10 @@ public class GraficoDeLinha {
 		mRenderer.addSeriesRenderer(renderer);
 		mRenderer.addSeriesRenderer(renderer2);
 		// Customization time for line 1!
-		renderer.setColor(Color.WHITE);
+		renderer.setColor(Color.BLUE);
 		renderer.setPointStyle(PointStyle.SQUARE);
 		// Customization time for line 2!
-		renderer2.setColor(Color.YELLOW);
+		renderer2.setColor(Color.RED);
 		renderer2.setPointStyle(PointStyle.DIAMOND);
 
 		Intent intent = ChartFactory.getLineChartIntent(context, dataset, mRenderer, "Perda de peso");
