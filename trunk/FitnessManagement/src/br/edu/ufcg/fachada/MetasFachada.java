@@ -61,7 +61,11 @@ public class MetasFachada {
 		try{
 			if(cursor != null){
 				while(cursor.moveToNext()){
-					return true;
+					System.out.println("id iguais " + id_aluno + "<>" + cursor.getInt(0));
+					if(cursor.getInt(0) == id_aluno){
+						System.out.println("TRUE TRUE TRUE TRUE META WEIGHT");
+						return true;
+					}
 				}
 			}
 		}catch(Exception e){
@@ -85,7 +89,6 @@ public class MetasFachada {
 		try{
 			if(cursor != null){
 				while(cursor.moveToNext()){
-					System.out.println("cursor acompanhamento: " + cursor.getString(2) + "<>"+ cursor.getString(3));
 					if(cursor.getString(2).equals(semana)){
 						return true;
 					}
@@ -112,7 +115,6 @@ public class MetasFachada {
 		}finally{
 			cursor.close();
 		}
-		System.out.println("acompanhamentos: " + acompanhamentos.toString());
 		return acompanhamentos;
 	}
 	public void delete(int id_aluno, String table){
