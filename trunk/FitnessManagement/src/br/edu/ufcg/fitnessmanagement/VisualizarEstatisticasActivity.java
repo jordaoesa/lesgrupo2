@@ -54,7 +54,7 @@ public class VisualizarEstatisticasActivity extends Activity {
 		System.out.println(adapter);
 		gridViewVisualizarEstatisticas.setAdapter(adapter);
 		
-		/*gridViewVisualizarEstatisticas.setOnItemClickListener(new OnItemClickListener() {
+		gridViewVisualizarEstatisticas.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -140,7 +140,7 @@ public class VisualizarEstatisticasActivity extends Activity {
 				}
 				
 			}
-		});*/
+		});
 		
 		/*final List<Double> values = new ArrayList<Double>();
 		final List<Date> dates = new ArrayList<Date>();
@@ -254,14 +254,9 @@ public class VisualizarEstatisticasActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.activity_main, menu);
-//		return true;
-
 		
 		boolean r = super.onCreateOptionsMenu(menu);
 		super.onCreateOptionsMenu(menu);
-		//menu.add(0, AJUDA, 0, ajuda).setIcon(R.drawable.alert);
 		menu.add(0, VOLTAR, 0, voltar).setIcon(R.drawable.back);
 		
 		
