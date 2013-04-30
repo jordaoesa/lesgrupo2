@@ -27,7 +27,7 @@
             android:layout_height="50dp"
             android:background="@drawable/gradiente"
             android:text="Seg"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/botaoTercaCS"
@@ -36,7 +36,7 @@
             android:layout_weight="0.51"
             android:background="@drawable/gradiente"
             android:text="Ter"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/botaoQuartaCS"
@@ -45,7 +45,7 @@
             android:layout_weight="0.51"
             android:background="@drawable/gradiente"
             android:text="Qua"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
     </TableRow>
 
     <TableRow
@@ -59,7 +59,7 @@
             android:layout_height="50dp"
             android:background="@drawable/gradiente"
             android:text="Qui"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/botaoSextaCS"
@@ -68,7 +68,7 @@
             android:layout_weight="0.51"
             android:background="@drawable/gradiente"
             android:text="Sex"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/botaoSabadoCS"
@@ -77,7 +77,7 @@
             android:layout_weight="0.51"
             android:background="@drawable/gradiente"
             android:text="Sab"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
     </TableRow>
 
     <TableRow
@@ -92,7 +92,7 @@
             android:layout_weight="0.51"
             android:background="@drawable/gradiente"
             android:text="Dom"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
     </TableRow>
 
