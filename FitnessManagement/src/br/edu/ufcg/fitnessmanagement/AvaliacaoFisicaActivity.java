@@ -184,7 +184,8 @@ public class AvaliacaoFisicaActivity extends Activity {
 
 	private boolean verificaDouble(Editable editable) {
 		try {
-			Double.parseDouble(editable.toString());
+			Double temp = Double.parseDouble(editable.toString());
+			if(temp.equals(0D)) return false;
 		} catch (Exception e) {
 			return false;
 		}
